@@ -25,6 +25,41 @@ StructLiteral: class extends Tuple {
 
 anonStructUniversalType := CoverDecl new("<anon struct>", nullToken)
 
+StructDecl: class extends Statement {
+    name: String
+    types := ArrayList<Type> new()
+    type: Type
+
+    init: func ~tokenName (.token, =name) {
+        super(token)
+
+        type = BaseType new("struct #{name}", token)
+    }
+
+
+    resolve: func (trail: Trail, res: Resolver) -> Response {
+        types each(|type|
+            type resolve(trail, res)
+        )
+
+        Response OK
+    }
+
+    getType: func -> Type {
+        type
+    }
+
+    write: func (w: AwesomeWriter, _: String) {
+        counter := 1
+        w app("struct #{name} { "). tab()
+        types each(|t|
+            w nl(). app(t). app(" __f"). app(counter toString()). app(";")
+            counter += 1
+        )
+        w untab(). nl(). app("};"). nl()
+    }
+}
+
 AnonymousStructType: class extends Type {
 
     types := ArrayList<Type> new()

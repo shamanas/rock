@@ -216,7 +216,7 @@ FunctionCallWriter: abstract class extends Skeleton {
             if(isFirst) isFirst = false
             else current app(", ")
 
-            current app(fCall vaStruct) . app('.') . app("__f%d" format(i + 1)) . app(" = ") . app(elements get(i))
+            current app(fCall vaStruct) . app('.') . app("__f#{i + 1} = ") . app(elements get(i))
         }
     }
 

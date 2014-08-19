@@ -214,6 +214,11 @@ CGenerator: class extends Skeleton {
         // we already wrote the forward decl somewhere else
     }
 
+    /** Write a C Struct decl */
+    visitStructDecl: func (str: StructDecl) {
+        str write(current, null)
+    }
+
     /** Write a variable access */
     visitVariableAccess: func(varAcc: VariableAccess) { visitVariableAccess ~refAddr(varAcc, true)}
 

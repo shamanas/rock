@@ -17,6 +17,7 @@ Visitor: abstract class {
     visitEnumDecl:          func (node: EnumDecl) {}
     visitFunctionDecl:      func (node: FunctionDecl) {}
     visitVariableDecl:      func (node: VariableDecl) {}
+    visitStructDecl:        func (node: StructDecl) {}
 
     visitType:              func (node: Type) {}
     visitTypeAccess:        func (node: TypeAccess) {}

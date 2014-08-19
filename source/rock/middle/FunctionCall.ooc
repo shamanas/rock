@@ -931,9 +931,23 @@ FunctionCall: class extends Expression {
                         }
                     }
 
-                    ast := AnonymousStructType new(token)
+                    // First, we make a local struct definition
+                    ast := StructDecl new(token, generateTempName("__va_arg_type"))
+
+                    // First field is alignment, which is a SizeT
+                    ast types add(BaseType new("SizeT", token))
+
                     elements := ArrayList<Expression> new()
-                    for(i in (ref args size - 1)..(args size)) {
+                    // TODO: add "offsetof(struct #{ast name}, __f3) - offsetof(struct #{ast name}, __f4)" as the first expression some way
+                    off3 := FunctionCall new("offsetof", token)
+                    off4 := FunctionCall new("offsetof", token)
+
+                    off3 args add(ast getType()). add(VariableAccess new("__f3", token))
+                    off4 args add(ast getType()). add(VariableAccess new("__f4", token))
+
+                    elements add(BinaryOp new(off4, off3, OpType sub, token))
+
+                    for(i in (ref args size - 1) .. (args size)) {
                         arg := args[i]
                         argType := arg getType()
                         if(!argType) return Response LOOP
@@ -949,7 +963,8 @@ FunctionCall: class extends Expression {
                     }
                     varArgs = elements
 
-                    argsDecl := VariableDecl new(ast, generateTempName("__va_args"),token)
+                    // TODO: change ast to the type of ast which should be something like "struct #{ast name}" but unresolvable
+                    argsDecl := VariableDecl new(ast getType(), generateTempName("__va_args"),token)
                     vaStruct = argsDecl getFullName()
 
                     if(!trail addBeforeInScope(this, argsDecl)) {
