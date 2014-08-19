@@ -26,6 +26,7 @@ __pointer_align: inline func (s: SizeT) -> SizeT {
     diff ? s + (ps - diff) : s
 }
 
+
 VarArgs: cover {
 
     args, argsPtr: UInt8* // because the size of stuff (T size) is expressed in bytes
@@ -38,13 +39,19 @@ VarArgs: cover {
         countdown := count
 
         argsPtr := args
+
+        alignment := (argsPtr as SizeT*)@ as SizeT
+
+        argsPtr += alignment
         while(countdown > 0) {
             // count down!
             countdown -= 1
 
             // retrieve the type
             type := (argsPtr as Class*)@ as Class
+            argsPtr += alignment
 
+            /*
             version(!windows) {
                 // advance of one class size
                 argsPtr += Class size
@@ -56,12 +63,14 @@ VarArgs: cover {
                     argsPtr += type size
                 }
             }
+            */
 
             // retrieve the arg and use it
             __va_call(f, type, argsPtr@)
 
             // skip the size of the argument - aligned on 8 bytes, that is.
-            argsPtr += __pointer_align(type size)
+            //argsPtr += __pointer_align(type size)
+            argsPtr += alignment
         }
     }
 
@@ -95,7 +104,8 @@ VarArgs: cover {
      * @return an iterator that can be used to retrieve every argument
      */
     iterator: func -> VarArgsIterator {
-        (args, count, true) as VarArgsIterator
+        alignment := (args as SizeT*)@ as SizeT
+        (args + alignment, count, true, alignment) as VarArgsIterator
     }
 
 }
@@ -116,6 +126,7 @@ VarArgsIterator: cover {
     argsPtr: UInt8*
     countdown: SSizeT
     first: Bool
+    alignment: SizeT
 
     hasNext?: func -> Bool {
         countdown > 0
@@ -131,7 +142,11 @@ VarArgsIterator: cover {
         countdown -= 1
 
         nextType := (argsPtr as Class*)@ as Class
-        result : T*
+        argsPtr += alignment
+
+        result := argsPtr as T*
+        argsPtr += alignment
+        /*
         version(!windows) {
             version (!arm) {
               result = (argsPtr + Class size) as T*
@@ -157,6 +172,7 @@ VarArgsIterator: cover {
                 argsPtr += Class size + __pointer_align(nextType size)
             }
         }
+        */
 
         result@
     }

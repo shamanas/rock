@@ -1,7 +1,7 @@
 import ../frontend/[Token, BuildParams]
 import ../backend/cnaughty/AwesomeWriter
-import Literal, Visitor, Type, Expression, Node, TypeList, Tuple,
-       Declaration, FunctionCall, VariableAccess, CoverDecl
+import Literal, Visitor, Type, Expression, Node, TypeList, Tuple, BaseType,
+       Declaration, FunctionCall, VariableAccess, CoverDecl, Statement
 import tinker/[Response, Resolver, Trail]
 import structs/[List, ArrayList]
 
@@ -26,14 +26,17 @@ StructLiteral: class extends Tuple {
 anonStructUniversalType := CoverDecl new("<anon struct>", nullToken)
 
 StructDecl: class extends Statement {
-    name: String
     types := ArrayList<Type> new()
-    type: Type
 
-    init: func ~tokenName (.token, =name) {
+    name: String
+    _type: Type
+
+    init: func
+
+    init: func ~structDecl (=name, .token) {
         super(token)
 
-        type = BaseType new("struct #{name}", token)
+        _type = BaseType new("struct #{name}", token)
     }
 
 
@@ -46,7 +49,7 @@ StructDecl: class extends Statement {
     }
 
     getType: func -> Type {
-        type
+        _type
     }
 
     write: func (w: AwesomeWriter, _: String) {
@@ -57,6 +60,16 @@ StructDecl: class extends Statement {
             counter += 1
         )
         w untab(). nl(). app("};"). nl()
+    }
+
+    accept: func(visitor: Visitor) {
+        visitor visitStructDecl(this)
+    }
+
+    replace: func(oldie, kiddo: Node) -> Bool { false }
+
+    clone: func -> This {
+        This new(name, token)
     }
 }
 

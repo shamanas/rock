@@ -932,7 +932,7 @@ FunctionCall: class extends Expression {
                     }
 
                     // First, we make a local struct definition
-                    ast := StructDecl new(token, generateTempName("__va_arg_type"))
+                    ast := StructDecl new(generateTempName("__va_arg_type"), token)
 
                     // First field is alignment, which is a SizeT
                     ast types add(BaseType new("SizeT", token))
