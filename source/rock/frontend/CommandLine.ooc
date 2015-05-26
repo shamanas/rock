@@ -477,6 +477,9 @@ CommandLine: class {
                     cleanHardcore()
                     alreadyDidSomething = true
 
+                } else if (option == "versionwarning")  {
+                  params showVersionWarnings = true
+
                 } else {
 
                     "Unrecognized option: %s" printfln(arg)
