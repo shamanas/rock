@@ -42,6 +42,7 @@ TypeDecl: abstract class extends Declaration {
     hasCheckedInheritance := false
     hasCheckedAbstract := false
     hasCheckedRedefine := false
+ 	hasCheckedOverride := false
 
     // the crux of the matter
     variables := HashMap<String, VariableDecl> new()
@@ -569,6 +570,10 @@ TypeDecl: abstract class extends Declaration {
                 if (checkAbstractFuncs(res)) hasCheckedAbstract = true
             }
 
+	        if(!hasCheckedOverride && superType getRef() != null) {
+	        	if(checkOverrideFuncs(res)) hasCheckedOverride = true
+	        }
+
             if (getNonMeta() && getNonMeta() class == ClassDecl && !hasCheckedRedefine && superType getRef() != null){
                 if (checkFinalInherit(res)) hasCheckedRedefine = true
             }
@@ -710,6 +715,33 @@ TypeDecl: abstract class extends Declaration {
     resolveVariable: func (trail: Trail, res: Resolver, vDecl: VariableDecl) -> Response {
         vDecl resolve(trail, res)
     }
+
+  /* Virtual Override */
+  checkOverrideFuncs: func (res: Resolver) -> Bool {
+    current := this
+    while(current != null) {
+      for(fDecl in current getFunctions()) {
+        if(fDecl isOverride) {
+          foundMatch := false
+          for(p in current getSuperRef() getFunctions()) {
+            if(p getName() == fDecl getName()) {
+              if (p isVirtual) {
+                foundMatch = true
+                break
+              }
+              else {
+                res throwError(CannotOverride new(fDecl))
+              }
+            }
+          }
+          if(!foundMatch)
+            res throwError(NoSuitableMethodOverride new(fDecl))
+        }
+      }
+      current = current getSuperRef()
+    }
+    return true
+  }
 
     checkAbstractFuncs: func (res: Resolver) -> Bool {
 
@@ -1183,5 +1215,18 @@ FinalInherit: class extends Error {
         next = InfoError new(second token, "...first definition was here:")
     }
 
+}
+CannotOverride: class extends Error {
+  first: FunctionDecl
+  init: func (=first) {
+    super(first token, "cannot override inherited member because it is not marked virtual '%s'" format(first getName()))
+  }
+}
+
+NoSuitableMethodOverride: class extends Error {
+  first: FunctionDecl
+  init: func (=first) {
+    super(first token, "is marked as an override but no suitable method found to overrid '%s'" format(first getName()))
+  }
 }
 
