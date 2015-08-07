@@ -787,6 +787,14 @@ AstBuilder: class {
         }
         return fDecl
     }
+    onFunctionVirtual: unmangled(nq_onFunctionVirtual) func {
+      checkModifierValidity("virtual", false)
+      peek(FunctionDecl) isVirtual = true
+    }
+    onFunctionOverride: unmangled(nq_onFunctionOverride) func {
+      checkModifierValidity("override", false)
+      peek(FunctionDecl) isOverride = true
+    }
 
     /*
      * Function calls
