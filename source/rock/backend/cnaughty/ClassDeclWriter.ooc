@@ -407,6 +407,10 @@ ClassDeclWriter: abstract class extends Skeleton {
                 if (parentDecl isStatic()) {
                     continue // static funcs aren't written in classes
                 }
+				if(parentDecl isAbstract() && realDecl != null && realDecl isOverride()) {
+					writeDesignatedInit(this, parentDecl, realDecl, true)
+					continue
+				}
                 if (parentDecl isAbstract()) {
                   writeDesignatedInit(this, parentDecl, realDecl, false)
                   continue
@@ -439,10 +443,6 @@ ClassDeclWriter: abstract class extends Skeleton {
                   }
                   continue
                 }
-                /*if(realDecl != null && (realDecl name == "free") ) {
-                  writeDesignatedInit(this, parentDecl, realDecl, true)
-                  continue
-                }*/
                 if(realDecl != null && ((parentDecl name == "__defaults__") || (parentDecl name == "__destroy__"))) {
                   writeDesignatedInit(this, parentDecl, realDecl, true)
                 }

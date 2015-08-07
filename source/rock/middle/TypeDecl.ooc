@@ -716,32 +716,62 @@ TypeDecl: abstract class extends Declaration {
         vDecl resolve(trail, res)
     }
 
-  /* Virtual Override */
-  checkOverrideFuncs: func (res: Resolver) -> Bool {
-    current := this
-    while(current != null) {
-      for(fDecl in current getFunctions()) {
-        if(fDecl isOverride) {
-          foundMatch := false
-          for(p in current getSuperRef() getFunctions()) {
-            if(p getName() == fDecl getName()) {
-              if (p isVirtual) {
-                foundMatch = true
-                break
-              }
-              else {
-                res throwError(CannotOverride new(fDecl))
-              }
-            }
-          }
-          if(!foundMatch)
-            res throwError(NoSuitableMethodOverride new(fDecl))
-        }
-      }
-      current = current getSuperRef()
-    }
-    return true
-  }
+                    /* Virtual Override */
+                    checkOverrideFuncs: func(res: Resolver) -> Bool{
+                      list := ArrayList<TypeDecl> new()
+                      current := this
+
+                      while(current != null) {
+                        if(current getSuperType() == null) break
+
+                        next := current getSuperRef()
+                        if(next == null) {
+                          res wholeAgain(this, "need superRef to check override")
+                          return false
+                        }
+
+                        list add(current)
+                        current = next
+                      }
+                      notVirtual := false
+                      notEqualNameAndSuffix := true
+                      foundVirtual := false
+                      if(list size > 2){
+                        for (i in 0..list size - 1) {
+                          for (fdecl in list[i] functions) {
+                            if (fdecl isOverride) {
+                            foundVirtual = false
+                            for (j in i+1..list size) {
+                              if(foundVirtual) {break}
+                              for (other in list[j] functions) {
+                                  if ((fdecl getName() == other getName()) && (fdecl getSuffixOrEmpty() == other getSuffixOrEmpty())) {
+                                    notEqualNameAndSuffix = true
+                                    if(other isVirtual || other isAbstract) {
+                                      //notEqualNameAndSuffix = true
+                                      foundVirtual = true
+                                      break
+                                    }
+                                    else {
+                                      foundVirtual = false
+                                    }
+                                  }
+                                  /*else {
+                                    notEqualNameAndSuffix = false
+                                  }*/
+                              }
+                            }
+                            if (!notEqualNameAndSuffix) {
+                              res throwError(NoSuitableMethodOverride new(fdecl))
+                            }
+                            if (!foundVirtual) {
+                              res throwError(CannotOverride new(fdecl))
+                            }
+                          }
+                          }
+                      }
+                    }
+                    true
+                  }
 
     checkAbstractFuncs: func (res: Resolver) -> Bool {
 
