@@ -80,6 +80,15 @@ extend Double {
     ceil: extern(ceil) func -> This
     floor: extern(floor) func -> This
     truncate: extern(trunc) func -> This
+	clamp: func(floor: Float, ceiling: Float) -> This {
+		if (this > ceiling)
+			ceiling
+		else if (this < floor)
+			floor
+		else
+			this
+	}
+
 }
 
 extend Float {

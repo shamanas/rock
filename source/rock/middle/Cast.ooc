@@ -105,7 +105,7 @@ Cast: class extends Expression {
 
         // Casting between arrayTypes is always forbidden
 
-        match innerType {
+       /* match innerType {
             case arrayType: ArrayType =>
                 if (arrayType expr == null) {
                     match type {
@@ -117,7 +117,7 @@ Cast: class extends Expression {
                             }
                     }
                 }
-        }
+        }*/
 
         // Casting anything to a generic type (except for Pointer) is disallowed
 

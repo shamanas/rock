@@ -113,8 +113,10 @@ OperatorDecl: class extends Expression {
             // only case of 3-arguments only
             case "[]=" =>
                 if (numArgs != 3) {
-                    return needArgs(res, "exactly 3", numArgs)
+                    //return needArgs(res, "exactly 3", numArgs)
                 }
+            // cogenco special
+            case "[]" =>
 
             // all remaining operators are binary
             case =>
