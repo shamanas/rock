@@ -643,8 +643,9 @@ FunctionDecl: class extends Declaration {
 
         if (isClosure) {
             fromClosure = true
-
-            if (!_unwrappedACS && acs) {
+			
+			if (!_unwrappedACS) {
+            //if (!_unwrappedACS && acs) {
                 if (!unwrapACS(trail, res)) {
                     trail pop(this)
                     return Response OK

@@ -694,7 +694,7 @@ AstBuilder: class {
             case =>
                 // Definitely an issue
                 errorOut()
-                
+
         }
 
         stack push(temp)
@@ -706,9 +706,10 @@ AstBuilder: class {
         fDecl doc = doc toString()
         stack push(fDecl)
     }
-    
+
     onFunctionACS: unmangled(nq_onFunctionACS) func {
-        peek(FunctionDecl) acs = true
+        //peek(FunctionDecl) acs = true
+		println("acs")
     }
 
     onFunctionExtern: unmangled(nq_onFunctionExtern) func (externName: CString) {
@@ -786,6 +787,10 @@ AstBuilder: class {
                 addon addFunction(fDecl)
         }
         return fDecl
+    }
+    onVarDeclForcedMalloc: unmangled(nq_onVarDeclForcedMalloc) func {
+        //peek(Stack<VariableDecl>) each(|vd| vd setForcedMalloc(true))
+        println("orced")
     }
     onFunctionVirtual: unmangled(nq_onFunctionVirtual) func {
       checkModifierValidity("virtual", false)
@@ -1436,4 +1441,3 @@ SyntaxError: class extends Error {
     init: super func ~tokenMessage
 
 }
-

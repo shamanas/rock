@@ -24,6 +24,7 @@ VariableDecl: class extends Declaration {
     isProto := false
     externName: String = null
     unmangledName: String = null
+    isForcedMalloc := false
 
     /** if this VariableDecl is a Func, it can be called! */
     fDecl : FunctionDecl = null
@@ -58,6 +59,7 @@ VariableDecl: class extends Declaration {
         copy externName    = externName
         copy unmangledName = unmangledName
         copy fDecl         = fDecl
+        copy isForcedMalloc = isForcedMalloc
         copy
     }
 
@@ -102,6 +104,9 @@ VariableDecl: class extends Declaration {
 
     isGlobal: func -> Bool { isGlobal }
     setGlobal: func (=isGlobal) {}
+
+    isForcedMalloc: func -> Bool { isForcedMalloc}
+    setForcedMalloc: func (=isForcedMalloc) {}
 
     isArg: func -> Bool { isArg }
 
@@ -206,7 +211,7 @@ VariableDecl: class extends Declaration {
             if(debugCondition()) "Done resolving the fDecl" println()
         }
 
-        // Check if the expression's type inherits from our type 
+        // Check if the expression's type inherits from our type
         // and add a Cast in that case. (Fixes compiler warnings.)
         // Example: "a: Node = EmptyNode new()
         // => "a: Node = EmptyNode new() as Node
@@ -381,7 +386,13 @@ VariableDecl: class extends Declaration {
         typeAcc := VariableAccess new(type, token)
         sizeAcc := VariableAccess new(typeAcc, "size", token)
 
-        fCall := FunctionCall new("gc_malloc", token)
+        fCall: FunctionCall
+            if(isForcedMalloc) {
+              fCall = FunctionCall new("gc_malloc", token)
+            }
+            else {
+              fCall = FunctionCall new("alloca", token)
+            }
         fCall args add(sizeAcc)
 
         expr = fCall
@@ -394,7 +405,7 @@ VariableDecl: class extends Declaration {
         // Explanation of 3: top of the trail is at 'size - 1', skip ourselves,
         // skip parent (which, obviously, has us as a declaration)
         i := trail size - 3
-        
+
         while (i >= 0) {
             node := trail get(i)
 
@@ -758,4 +769,3 @@ IncompatibleInit: class extends Error {
 }
 
 trap: func {}
-
