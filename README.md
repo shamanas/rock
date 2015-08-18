@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fasterthanlime/rock.svg?branch=master)](https://travis-ci.org/fasterthanlime/rock)
+[![Build Status](https://secure.travis-ci.org/fasterthanlime/rock.png?branch=master)](http://travis-ci.org/fasterthanlime/rock)
 
 # rock
 
@@ -19,6 +19,25 @@ You need the following packages when building rock:
 * boehm-gc
 * tar (for extracting the C sources)
 * bzip2 (used by tar)
+
+## Install rock ooc compiler from .deb package
+1. Download latest rock release from https://github.com/cogneco/rock/releases
+2. Run command `sudo dpkg --install <latest-rock-release.deb>`
+
+## Uninstall rock ooc compiler
+* Run command `sudo apt-get remove rock`
+
+## Build Cogneco version of rock with fasterthanlime version
+
+* Build rock from https://github.com/fasterthanlime/rock by following the 'Get started' guide below.
+* Create a copy of the rock binary namned safe_rock by running `make backup`
+* Go to the rock folder cloned from https://github.com/cogneco/rock
+* Create a folder called  'bin'.
+* Copy safe_rock into the 'bin' folder.
+* Run `make safe` to build rock.
+
+Cogneco version of rock builds itself but it has not been tested.
+
 
 ## Get started
 
