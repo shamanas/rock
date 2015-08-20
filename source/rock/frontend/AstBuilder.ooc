@@ -709,7 +709,6 @@ AstBuilder: class {
 
     onFunctionACS: unmangled(nq_onFunctionACS) func {
         //peek(FunctionDecl) acs = true
-		println("acs")
     }
 
     onFunctionExtern: unmangled(nq_onFunctionExtern) func (externName: CString) {
