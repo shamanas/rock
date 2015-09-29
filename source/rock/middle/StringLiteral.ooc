@@ -9,9 +9,12 @@ StringLiteral: class extends Literal {
     value: String
 
     raw? := false
+    text? := false
 
     objectType := static BaseType new("String", nullToken)
     rawType := static BaseType new("CString", nullToken)
+    textType := static BaseType new("Text", nullToken)
+
 
     init: func ~empty (.token) {
         init("", token)
@@ -25,15 +28,16 @@ StringLiteral: class extends Literal {
 
     accept: func (visitor: Visitor) { visitor visitStringLiteral(this) }
 
-    getType: func -> Type { raw? ? rawType : objectType }
+    //getType: func -> Type { raw? ? rawType : objectType }
+    getType: func -> Type { raw? ? rawType :(text? ? textType : objectType) }
 
     toString: func -> String { "\"" + value + "\"" }
-    
+
     resolve: func (trail: Trail, res: Resolver) -> Response {
 
         if(!super(trail, res) ok()) return Response LOOP
 
-        if(!raw?) {
+        if(!raw? || !text?) {
             // String object handling
             parent := trail peek()
             if(parent class != VariableDecl) {
@@ -41,12 +45,12 @@ StringLiteral: class extends Literal {
                     idx := trail find(FunctionDecl)
                     if(idx == -1) return Response OK
                 }
-                
+
                 vDecl := VariableDecl new(null, generateTempName("strLit"), this, token)
                 vDecl isGenerated = true
                 vDecl isStatic = true
                 vAcc := VariableAccess new(vDecl, token)
-                
+
                 trail module() body add(0, vDecl)
                 if(!parent replace(this, vAcc)) {
                     res throwError(CouldntReplace new(token, this, vAcc, trail))
@@ -145,7 +149,7 @@ InterpolatedStringLiteral: class extends StringLiteral {
 
             // Now, if we do have an expression, we must go to serious business
             if (i == expressions getSize()) break
-            
+
             expr := expressions[i]
             type := expr getType()
 
