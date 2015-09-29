@@ -184,8 +184,6 @@ CGenerator: class extends Skeleton {
     /** Write a string literal */
     visitStringLiteral: func (str: StringLiteral) {
         writeStringLiteral(str text?, str value, str raw?)
-
-        writeStringLiteral(str value, str raw?)
     }
 
     /** Write a char literal */
