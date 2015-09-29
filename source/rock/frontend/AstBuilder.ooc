@@ -876,6 +876,13 @@ AstBuilder: class {
             case => Exception new("Called onRawStringLiteral on invalid type %s" format(object class name)) throw()
         }
     }
+    onTextLiteral: unmangled(nq_onTextLiteral) func(object: Object) {
+      match object {
+        case sl: StringLiteral =>
+          sl text? = true
+        case => Exception new("Called onRawStringLiteral on invalid type %s" format(object class name)) throw()
+      }
+    }
 
     onStringLiteralStart: unmangled(nq_onStringLiteralStart) func {
         stack push(StringLiteral new(token()))

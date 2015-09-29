@@ -4,6 +4,7 @@ import text/EscapeSequence, rock/frontend/BuildParams, io/File
 Skeleton: abstract class extends Visitor {
 
     STRING_CONSTRUCTOR := static const "(void*) lang_String__makeStringLiteral(\"%s\", %d)"
+    TEXT_CONSTRUCTOR := static const "Text__makeTextLiteral(\"%s\", %d)"
 
     params: BuildParams
     module: Module
@@ -30,8 +31,17 @@ Skeleton: abstract class extends Visitor {
             current app(STRING_CONSTRUCTOR format(value, EscapeSequence unescape(value) length()))
         }
     }
+    writeStringLiteral: func ~text (text?: Bool,value: String, raw?: Bool = false) {
+          if(text?) {
+            current app(TEXT_CONSTRUCTOR format(value, EscapeSequence unescape(value) length()))
+          }
+          else {
+            writeStringLiteral(value, raw?)
+          }
 
-    writeGcInit: func { 
+    }
+
+    writeGcInit: func {
         current nl(). app("#ifdef __ANDROID__");
         current nl(). app("GC_init();")
         current nl(). app("#else");
