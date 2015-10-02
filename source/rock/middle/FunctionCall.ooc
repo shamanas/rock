@@ -36,7 +36,12 @@ FunctionCall: class extends Expression {
     /**
      * VarArg arguments structure name, if any
      */
-    vaStruct: String = null
+    vaStructName: String = null
+
+    /**
+     * Anonymous Struct Literal type of the varargs
+     */
+    vaStructType: AnonymousStructType = null
 
     /**
      * Expression on which we call something, if any. Function calls
@@ -1006,6 +1011,10 @@ FunctionCall: class extends Expression {
 
                     ast := AnonymousStructType new(token)
                     elements := ArrayList<Expression> new()
+
+                    // This field will hold the alignment of the VarArgs contained in the struct
+                    ast types add(BaseType new("Int", token))
+
                     for(i in (ref args size - 1)..(args size)) {
                         arg := args[i]
                         argType := arg getType()
@@ -1020,10 +1029,12 @@ FunctionCall: class extends Expression {
                         elements add(arg)
                         ast types add(arg getType())
                     }
+
+                    vaStructType = ast
                     varArgs = elements
 
                     argsDecl := VariableDecl new(ast, generateTempName("__va_args"),token)
-                    vaStruct = argsDecl getFullName()
+                    vaStructName = argsDecl getFullName()
 
                     if(!trail addBeforeInScope(this, argsDecl)) {
                         res throwError(CouldntAddBeforeInScope new(token, this, argsDecl, trail))

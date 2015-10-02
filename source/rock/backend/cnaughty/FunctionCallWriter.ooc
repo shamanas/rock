@@ -214,11 +214,21 @@ FunctionCallWriter: abstract class extends Skeleton {
         isFirst := true
         elements := fCall varArgs
         current app('(')
-        for(i in 0 .. elements getSize()) {
-            if(isFirst) isFirst = false
-            else current app(", ")
 
-            current app(fCall vaStruct) . app('.') . app("__f%d" format(i + 1)) . app(" = ") . app(elements get(i))
+        // First field is the alignment of the struct, if we actually have elements
+        if (fCall vaStructType types getSize() >= 3) {
+            current app("#{fCall vaStructName}.__f1 = offsetof(")
+            fCall vaStructType write(current, null)
+            current app(", __f3) - offsetof(")
+            fCall vaStructType write(current, null)
+            current app(", __f2)")
+        }
+
+        for(i in 0 .. elements getSize()) {
+            //if(isFirst) isFirst = false
+            current app(", ")
+
+            current app(fCall vaStructName) . app('.') . app("__f%d" format(i + 2)) . app(" = ") . app(elements get(i))
         }
     }
 

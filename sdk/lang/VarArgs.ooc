@@ -38,6 +38,10 @@ VarArgs: cover {
         countdown := count
 
         argsPtr := args
+
+        alignment := (argsPtr as Int*)@ as Int
+        argsPtr += Int size
+
         while(countdown > 0) {
             // count down!
             countdown -= 1
@@ -45,23 +49,12 @@ VarArgs: cover {
             // retrieve the type
             type := (argsPtr as Class*)@ as Class
 
-            version(!windows) {
-                // advance of one class size
-                argsPtr += Class size
-            }
-            version(windows) {
-                if(type size < Class size) {
-                    argsPtr += Class size
-                } else {
-                    argsPtr += type size
-                }
-            }
+            argsPtr += alignment
 
             // retrieve the arg and use it
             __va_call(f, type, argsPtr@)
 
-            // skip the size of the argument - aligned on 8 bytes, that is.
-            argsPtr += __pointer_align(type size)
+            argsPtr += alignment
         }
     }
 
@@ -95,7 +88,9 @@ VarArgs: cover {
      * @return an iterator that can be used to retrieve every argument
      */
     iterator: func -> VarArgsIterator {
-        (args, count, true) as VarArgsIterator
+        alignment := (args as Int*)@ as Int
+        itArgs := args + Int size
+        (itArgs, count, alignment) as VarArgsIterator
     }
 
 }
@@ -115,7 +110,7 @@ VarArgs: cover {
 VarArgsIterator: cover {
     argsPtr: UInt8*
     countdown: SSizeT
-    first: Bool
+    alignment: Int
 
     hasNext?: func -> Bool {
         countdown > 0
@@ -131,32 +126,12 @@ VarArgsIterator: cover {
         countdown -= 1
 
         nextType := (argsPtr as Class*)@ as Class
-        result : T*
-        version(!windows) {
-            version (!arm) {
-              result = (argsPtr + Class size) as T*
-              argsPtr += Class size + __pointer_align(nextType size)
-            }
 
-            version (arm) {
-              offset := Class size
-              if (offset < nextType size) {
-                offset = nextType size
-              }
+        argsPtr += alignment
 
-              result = (argsPtr + offset) as T*
-              argsPtr += offset + __pointer_align(nextType size)
-            }
-        }
-        version(windows) {
-            if(nextType size > Class size) {
-                result = (argsPtr + nextType size) as T*
-                argsPtr += nextType size + __pointer_align(nextType size)
-            } else {
-                result = (argsPtr + Class size) as T*
-                argsPtr += Class size + __pointer_align(nextType size)
-            }
-        }
+        result := (argsPtr + nextType size) as T*
+
+        argsPtr += alignment
 
         result@
     }
