@@ -39,10 +39,9 @@ VarArgs: cover {
 
         argsPtr := args
 
-        alignment := (argsPtr as Int*)@ as Int
-        argsPtr += Int size
-
         while(countdown > 0) {
+            alignment := (argsPtr as Int*)@ as Int
+            argsPtr += __pointer_align(Int size)
             // count down!
             countdown -= 1
 
@@ -54,7 +53,7 @@ VarArgs: cover {
             // retrieve the arg and use it
             __va_call(f, type, argsPtr@)
 
-            argsPtr += alignment
+            argsPtr += __pointer_align(type size)
         }
     }
 
@@ -88,9 +87,7 @@ VarArgs: cover {
      * @return an iterator that can be used to retrieve every argument
      */
     iterator: func -> VarArgsIterator {
-        alignment := (args as Int*)@ as Int
-        itArgs := args + Int size
-        (itArgs, count, alignment) as VarArgsIterator
+        (args, count) as VarArgsIterator
     }
 
 }
@@ -110,7 +107,6 @@ VarArgs: cover {
 VarArgsIterator: cover {
     argsPtr: UInt8*
     countdown: SSizeT
-    alignment: Int
 
     hasNext?: func -> Bool {
         countdown > 0
@@ -125,13 +121,16 @@ VarArgsIterator: cover {
         // count down!
         countdown -= 1
 
+        alignment := (argsPtr as Int*)@ as Int
+        argsPtr += __pointer_align(Int size)
+
         nextType := (argsPtr as Class*)@ as Class
 
         argsPtr += alignment
 
         result := (argsPtr + nextType size) as T*
 
-        argsPtr += alignment
+        argsPtr += __pointer_align(nextType size)
 
         result@
     }

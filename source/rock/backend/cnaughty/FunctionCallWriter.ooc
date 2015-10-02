@@ -213,22 +213,34 @@ FunctionCallWriter: abstract class extends Skeleton {
     writeVarArgsAssignments: static func (this: Skeleton, fCall: FunctionCall) {
         isFirst := true
         elements := fCall varArgs
+        structType := fCall vaStructType
         current app('(')
 
-        // First field is the alignment of the struct, if we actually have elements
-        if (fCall vaStructType types getSize() >= 3) {
-            current app("#{fCall vaStructName}.__f1 = offsetof(")
-            fCall vaStructType write(current, null)
-            current app(", __f3) - offsetof(")
-            fCall vaStructType write(current, null)
-            current app(", __f2)")
-        }
+        // So, this is our layout:
+        // offsetof(data) - offsetof(type)
+        // type
+        // data
 
-        for(i in 0 .. elements getSize()) {
-            //if(isFirst) isFirst = false
-            current app(", ")
+        i := 0
+        while (i < elements getSize() - 1) {
+            if (isFirst) {
+                isFirst = false
+            } else {
+                current app(", ")
+            }
+            // Write the field alignment
+            current app(fCall vaStructName) . app('.') . app("__f#{i+1} = offsetof(") . app(structType)
+            current app(", __f#{i+3}) - offsetof(") . app(structType) . app(", __f#{i+2}), ")
 
-            current app(fCall vaStructName) . app('.') . app("__f%d" format(i + 2)) . app(" = ") . app(elements get(i))
+            // Then the elements
+            for (j in i .. (i + 2)) {
+                current app(fCall vaStructName) . app('.') . app("__f#{j+2} = ") . app(elements get(j))
+                if (j == i) {
+                    current app(", ")
+                }
+            }
+
+            i += 3
         }
     }
 

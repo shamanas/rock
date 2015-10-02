@@ -71,6 +71,23 @@ AnonymousStructType: class extends Type {
         if(name) w app(name)
     }
 
+    toString: func -> String {
+        counter := 1
+        buff := Buffer new()
+        buff append("AnonymousStruct [ ")
+
+        first := true
+        for(type in types) {
+            if (first) first = false
+            else buff append(", ")
+
+            buff append(type toString())
+        }
+
+        buff append(" ]")
+        buff toString()
+    }
+
     resolve: func (trail: Trail, res: Resolver) -> Response {
         types each(|type|
             type resolve(trail, res)
