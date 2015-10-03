@@ -128,18 +128,6 @@ BaseType: class extends Type {
             }
         }
 
-        if (!ref) {
-            depth := trail getSize() - 1
-            while(depth >= 0) {
-                node := trail get(depth, Node)
-                node resolveType(this, res, trail)
-                if (ref) {
-                    break // break on first match
-                }
-                depth -= 1
-            }
-        }
-
         if (typeArgs) {
             trail push(this)
             for (typeArg in typeArgs) {
@@ -150,6 +138,18 @@ BaseType: class extends Type {
                 }
             }
             trail pop(this)
+        }
+
+        if (!ref) {
+            depth := trail getSize() - 1
+            while(depth >= 0) {
+                node := trail get(depth, Node)
+                node resolveType(this, res, trail)
+                if (ref) {
+                    break // break on first match
+                }
+                depth -= 1
+            }
         }
 
         if (!ref) {

@@ -1,5 +1,5 @@
 import structs/[List, ArrayList, HashMap, MultiMap]
-import Node, Type, TypeDecl, FunctionDecl, FunctionCall, Visitor, VariableAccess, PropertyDecl, ClassDecl, CoverDecl, BaseType
+import Node, Type, TypeDecl, FunctionDecl, FunctionCall, Visitor, VariableAccess, VariableDecl, PropertyDecl, ClassDecl, CoverDecl, BaseType
 import tinker/[Trail, Resolver, Response, Errors]
 
 /**
@@ -37,7 +37,6 @@ Addon: class extends Node {
         baseTypeArgs := baseType getTypeArgs()
         if (baseTypeArgs) {
             typeArgs = baseTypeArgs
-            // baseTypeArgs clear()
         }
     }
 
@@ -234,14 +233,21 @@ Addon: class extends Node {
 
     // Routes through typeArgs to the real definitions in the base type ref
     resolveType: func (type: BaseType, res: Resolver, trail: Trail) -> Int {
-        if (!base || !base isResolved()) {
-            res wholeAgain(this, "need resolved baseType ref")
-            return 0
-        }
 
-        index := findTypeArgIndex(type name)
-        if (index != -1) {
-            type suggest(base typeArgs[index])
+        if (!base || !base isResolved()) {
+            // This is quite a mess:
+            // baseType resolve() needs this but to correctly resolve it's typeArgs we would need it's ref first.
+            // Instead, we make dummy VariableDecl's here and suggest those
+            index := findTypeArgIndex(type name)
+            if (index != -1) {
+                classType := BaseType new("Class", token)
+                type suggest(VariableDecl new(classType, typeArgs[index] inner as BaseType name, token))
+            }
+        } else {
+            index := findTypeArgIndex(type name)
+            if (index != -1) {
+                type suggest(base typeArgs[index])
+            }
         }
 
         0
