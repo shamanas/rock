@@ -39,21 +39,27 @@ VarArgs: cover {
 
         argsPtr := args
 
-        while(countdown > 0) {
-            alignment := (argsPtr as Int*)@ as Int
-            argsPtr += __pointer_align(Int size)
+        while (countdown > 0) {
+            alignment := 0
+
+            if (countdown != 1) {
+                // Every field but the last one has alignment
+                alignment = (argsPtr as Int*)@ as Int
+                argsPtr += Int size
+            }
+
             // count down!
             countdown -= 1
 
             // retrieve the type
             type := (argsPtr as Class*)@ as Class
 
-            argsPtr += alignment
+            argsPtr += Class size
 
             // retrieve the arg and use it
             __va_call(f, type, argsPtr@)
 
-            argsPtr += __pointer_align(type size)
+            argsPtr += alignment
         }
     }
 
@@ -114,30 +120,38 @@ VarArgsIterator: cover {
 
     // convention: argsPtr points to type of next element when called.
     next: func@ <T> (T: Class) -> T {
+        printf(c"Getting next %s\n", T name as CString)
+        stdout flush()
+
         if(countdown <= 0) {
             Exception new(This, "Vararg underflow!") throw()
+        }
+
+        alignment := 0
+        if (countdown != 1) {
+            alignment = (argsPtr as Int*)@ as Int
+            argsPtr += Int size
         }
 
         // count down!
         countdown -= 1
 
-        alignment := (argsPtr as Int*)@ as Int
-        argsPtr += __pointer_align(Int size)
 
         nextType := (argsPtr as Class*)@ as Class
 
-        argsPtr += alignment
+        argsPtr += Class size
 
         result := (argsPtr + nextType size) as T*
 
-        argsPtr += __pointer_align(nextType size)
+        argsPtr += alignment
 
         result@
     }
 
     getNextType: func@ -> Class {
         if (countdown < 0) Exception new(This, "Vararg underflow!") throw()
-        (argsPtr as Class*)@ as Class
+        ptr := countdown != 1 ? argsPtr + Int size : argsPtr
+        (ptr as Class*)@ as Class
     }
 }
 

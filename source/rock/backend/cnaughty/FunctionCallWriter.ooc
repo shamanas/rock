@@ -216,31 +216,37 @@ FunctionCallWriter: abstract class extends Skeleton {
         structType := fCall vaStructType
         current app('(')
 
-        // So, this is our layout:
-        // offsetof(data) - offsetof(type)
-        // type
-        // data
+        // We have an alignment field that gives us the offset difference of the first field of the next element minus the last field of this element
+        // for every field but the last one
 
-        i := 0
-        while (i < elements getSize() - 1) {
-            if (isFirst) {
-                isFirst = false
-            } else {
-                current app(", ")
-            }
-            // Write the field alignment
-            current app(fCall vaStructName) . app('.') . app("__f#{i+1} = offsetof(") . app(structType)
-            current app(", __f#{i+3}) - offsetof(") . app(structType) . app(", __f#{i+2}), ")
+        varargCount := elements getSize() / 2
 
-            // Then the elements
-            for (j in i .. (i + 2)) {
-                current app(fCall vaStructName) . app('.') . app("__f#{j+2} = ") . app(elements get(j))
-                if (j == i) {
+        fCounter := 1
+        elemCounter := 0
+        for (i in 0 .. varargCount) {
+            if (i < varargCount - 1) {
+                if (isFirst) {
+                    isFirst = false
+                } else {
                     current app(", ")
                 }
+                // We have an alignment field
+                current app(fCall vaStructName) . app('.') . app("__f#{i+1} = offsetof(") . app(structType)
+                current app(", __f#{i+4}) - offsetof(") . app(structType) . app(", __f#{i+3})")
+                fCounter += 1
             }
 
-            i += 3
+            2 times(||
+                if (isFirst) {
+                    isFirst = false
+                } else {
+                    current app(", ")
+                }
+
+                current app(fCall vaStructName) . app('.') . app("__f#{fCounter} = ") . app(elements get(elemCounter))
+                fCounter += 1
+                elemCounter += 1
+            )
         }
     }
 

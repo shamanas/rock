@@ -1010,11 +1010,17 @@ FunctionCall: class extends Expression {
                     }
 
                     ast := AnonymousStructType new(token)
-                    elements := ArrayList<Expression> new()
+                    elements := ArrayList<Expression> new(numVarArgs)
 
-                    for(i in (ref args size - 1)..(args size)) {
-                        // This field will hold the alignment of the VarArgs contained in the struct
-                        ast types add(BaseType new("Int", token))
+                    varargStart := ref args size - 1
+                    varargEnd := args size
+                    numAlignments := numVarArgs - 1
+
+                    for(i in varargStart .. varargEnd) {
+                        if (i < varargEnd - 1) {
+                            // for every vararg argument except the last one, we add an alignment
+                            ast types add(BaseType new("Int", token))
+                        }
 
                         arg := args[i]
                         argType := arg getType()
