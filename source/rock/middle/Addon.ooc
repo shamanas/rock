@@ -113,11 +113,26 @@ Addon: class extends Node {
 
         if(base == null) {
             trail push(this)
-            baseType resolve(trail, res)
+            resp := baseType resolve(trail, res)
             trail pop(this)
 
-            if(baseType isResolved()) {
+            if (!resp ok()) {
+                return resp
+            }
+
+            if (baseType getRef() != null) {
                 base = baseType getRef() as TypeDecl
+
+                trail push(this)
+                resp := base resolve(trail, res)
+                trail pop(this)
+
+                if (!resp ok()) {
+                    return resp
+                }
+            }
+
+            if(baseType isResolved()) {
                 checkRedefinitions(trail, res)
                 base addons add(this)
 
@@ -161,14 +176,17 @@ Addon: class extends Node {
 
         finalResponse := Response OK
         trail push(base getMeta())
+        trail push(this)
         for(f in functions) {
             response := f resolve(trail, res)
+
             if(!response ok()) {
                 finalResponse = response
             }
         }
         for(p in properties) {
             response := p resolve(trail, res)
+
             if(!response ok()) {
                 finalResponse = response
             } else {
@@ -177,6 +195,7 @@ Addon: class extends Node {
                 if(p setter) p setter isFinal = true
             }
         }
+        trail pop(this)
         trail pop(base getMeta())
 
         return finalResponse
@@ -216,7 +235,7 @@ Addon: class extends Node {
     // Routes through typeArgs to the real definitions in the base type ref
     resolveType: func (type: BaseType, res: Resolver, trail: Trail) -> Int {
         if (!base || !base isResolved()) {
-            //res wholeAgain(this, "need resolved baseType ref")
+            res wholeAgain(this, "need resolved baseType ref")
             return 0
         }
 
@@ -242,16 +261,10 @@ Addon: class extends Node {
             }
         }
 
-        // If we aren't looking for a property, we may be looking for a typeArg
-        // In this case, we need our type's base to forward it's typeArg declaration
-        if (!base isResolved()) {
-            res wholeAgain(this, "need resolved baseType ref")
-            return 0
-        }
-
+        // Now, we try to find the access in our typeArgs and forward it to the base class' typeArg declaration
         // Let's try to find the index of the typeArg we tried to index
         index := findTypeArgIndex(access name)
-        if (index != 1) {
+        if (index != -1) {
             // Bingo! Found a match.
             // All we need to do is suggest the VariableDecl of the typeArg present in our base at the same index.
             access suggest(base typeArgs[index])

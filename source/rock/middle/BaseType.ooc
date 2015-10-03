@@ -128,18 +128,6 @@ BaseType: class extends Type {
             }
         }
 
-        if (typeArgs) {
-            trail push(this)
-            for (typeArg in typeArgs) {
-                response := typeArg resolve(trail, res)
-                if (!response ok()) {
-                    trail pop(this)
-                    return response
-                }
-            }
-            trail pop(this)
-        }
-
         if (!ref) {
             depth := trail getSize() - 1
             while(depth >= 0) {
@@ -150,6 +138,18 @@ BaseType: class extends Type {
                 }
                 depth -= 1
             }
+        }
+
+        if (typeArgs) {
+            trail push(this)
+            for (typeArg in typeArgs) {
+                response := typeArg resolve(trail, res)
+                if (!response ok()) {
+                    trail pop(this)
+                    return response
+                }
+            }
+            trail pop(this)
         }
 
         if (!ref) {
