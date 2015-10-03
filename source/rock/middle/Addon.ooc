@@ -1,5 +1,5 @@
 import structs/[ArrayList, HashMap, MultiMap]
-import Node, Type, TypeDecl, FunctionDecl, FunctionCall, Visitor, VariableAccess, PropertyDecl, ClassDecl, CoverDecl
+import Node, Type, TypeDecl, FunctionDecl, FunctionCall, Visitor, VariableAccess, PropertyDecl, ClassDecl, CoverDecl, BaseType
 import tinker/[Trail, Resolver, Response, Errors]
 
 /**
@@ -22,6 +22,8 @@ Addon: class extends Node {
     // the type we're adding functions to
     baseType: Type
 
+    typeArgs: List<TypeAccess> = null
+
     base: TypeDecl { get set }
 
     functions := MultiMap<String, FunctionDecl> new()
@@ -30,6 +32,12 @@ Addon: class extends Node {
 
     init: func (=baseType, .token) {
         super(token)
+
+        // If we try to extend a type with typeArgs, we are obviously trying to extend it generically
+        if (baseType typeArgs) {
+            typeArgs = baseType typeArgs
+            baseType typeArgs = null
+        }
     }
 
     accept: func (v: Visitor) {
@@ -92,9 +100,30 @@ Addon: class extends Node {
 
     resolve: func (trail: Trail, res: Resolver) -> Response {
 
+        // Let's check that we got all BaseTypes, in any other case something is really fishy here
+        if (typeargs) for (ta in typeArgs) {
+            match (ta inner) {
+                case bt: BaseType =>
+                case =>
+                    res throwError(InvalidTypeargType new(ta token,
+                                        "Unexpected typearg in extend definition.\n\n(Hint: remember you are extending the whole class, not specializing it)"))
+            }
+        }
+
         if(base == null) {
             baseType resolve(trail, res)
             if(baseType isResolved()) {
+                // First of all, check we have the correct amount of typeArgs.
+                if (typeArgs) {
+                    ourSize := typeArgs getSize()
+                    baseSize := baseType typeArgs getSize()
+
+                    if (ourSize != baseSize) {
+                        res throwError(InvalidGenericExtention new(token,
+                                    "Trying to extend class with incorrect amount of typeargs. (Expected #{baseSize}, got #{ourSize})"))
+                    }
+                }
+
                 base = baseType getRef() as TypeDecl
                 checkRedefinitions(trail, res)
                 base addons add(this)
@@ -179,6 +208,23 @@ Addon: class extends Node {
             }
         }
 
+        // If we aren't looking for a property, we may be looking for a typeArg
+        // In this case, we need our type's base to forward it's typeArg declaration
+        if (!base isResolved()) {
+            res wholeAgain(this, "need baseType ref")
+            return 0
+        }
+
+        // Let's try to find the index of the typeArg we tried to index
+        for ((i, typeArg?) in typeArgs) {
+            if (typeArg? inner as BaseType name == access name) {
+                // Bingo! Found a match.
+                // All we need to do is suggest the VariableDecl of the typeArg present in our base at the same index.
+                access suggest(base typeArgs[i])
+                return 0
+            }
+        }
+
         0
     }
 
@@ -189,5 +235,13 @@ Addon: class extends Node {
 }
 
 ExtendFieldDefinition: class extends Error {
+    init: super func ~tokenMessage
+}
+
+InvalidTypeargType: class extends Error {
+    init: super func ~tokenMessage
+}
+
+InvalidGenericExtention: class extends Error {
     init: super func ~tokenMessage
 }
