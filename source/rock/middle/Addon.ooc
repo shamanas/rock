@@ -1,4 +1,4 @@
-import structs/[ArrayList, HashMap, MultiMap]
+import structs/[List, ArrayList, HashMap, MultiMap]
 import Node, Type, TypeDecl, FunctionDecl, FunctionCall, Visitor, VariableAccess, PropertyDecl, ClassDecl, CoverDecl, BaseType
 import tinker/[Trail, Resolver, Response, Errors]
 
@@ -34,9 +34,10 @@ Addon: class extends Node {
         super(token)
 
         // If we try to extend a type with typeArgs, we are obviously trying to extend it generically
-        if (baseType typeArgs) {
-            typeArgs = baseType typeArgs
-            baseType typeArgs = null
+        baseTypeArgs := baseType getTypeArgs()
+        if (baseTypeArgs) {
+            typeArgs = baseTypeArgs
+            // baseTypeArgs clear()
         }
     }
 
@@ -101,7 +102,7 @@ Addon: class extends Node {
     resolve: func (trail: Trail, res: Resolver) -> Response {
 
         // Let's check that we got all BaseTypes, in any other case something is really fishy here
-        if (typeargs) for (ta in typeArgs) {
+        if (typeArgs) for (ta in typeArgs) {
             match (ta inner) {
                 case bt: BaseType =>
                 case =>
@@ -111,19 +112,11 @@ Addon: class extends Node {
         }
 
         if(base == null) {
+            trail push(this)
             baseType resolve(trail, res)
+            trail pop(this)
+
             if(baseType isResolved()) {
-                // First of all, check we have the correct amount of typeArgs.
-                if (typeArgs) {
-                    ourSize := typeArgs getSize()
-                    baseSize := baseType typeArgs getSize()
-
-                    if (ourSize != baseSize) {
-                        res throwError(InvalidGenericExtention new(token,
-                                    "Trying to extend class with incorrect amount of typeargs. (Expected #{baseSize}, got #{ourSize})"))
-                    }
-                }
-
                 base = baseType getRef() as TypeDecl
                 checkRedefinitions(trail, res)
                 base addons add(this)
@@ -149,6 +142,21 @@ Addon: class extends Node {
         if(base == null) {
             res wholeAgain(this, "need base")
             return Response OK
+        }
+
+        // Check to make sure we have the correct amount of typeArgs.
+        if (base isResolved()) {
+            if (typeArgs) {
+                ourSize := typeArgs getSize()
+                baseSize := base typeArgs getSize()
+
+                if (ourSize != baseSize) {
+                    res throwError(InvalidGenericExtention new(token,
+                                "Trying to extend class with incorrect amount of typeargs. (Expected #{baseSize}, got #{ourSize})"))
+                }
+            }
+        } else {
+            res wholeAgain(this, "need resolved baseType ref")
         }
 
         finalResponse := Response OK
@@ -194,6 +202,32 @@ Addon: class extends Node {
         return 0
     }
 
+    findTypeArgIndex: func (name: String) -> Int {
+        if (typeArgs) {
+            for ((i, typeArg?) in typeArgs) {
+                if (typeArg? inner as BaseType name == name) {
+                    return i
+                }
+            }
+        }
+        return -1 
+    }
+
+    // Routes through typeArgs to the real definitions in the base type ref
+    resolveType: func (type: BaseType, res: Resolver, trail: Trail) -> Int {
+        if (!base || !base isResolved()) {
+            //res wholeAgain(this, "need resolved baseType ref")
+            return 0
+        }
+
+        index := findTypeArgIndex(type name)
+        if (index != -1) {
+            type suggest(base typeArgs[index])
+        }
+
+        0
+    }
+
     resolveAccess: func (access: VariableAccess, res: Resolver, trail: Trail) -> Int {
         if(base == null) return 0
 
@@ -211,18 +245,16 @@ Addon: class extends Node {
         // If we aren't looking for a property, we may be looking for a typeArg
         // In this case, we need our type's base to forward it's typeArg declaration
         if (!base isResolved()) {
-            res wholeAgain(this, "need baseType ref")
+            res wholeAgain(this, "need resolved baseType ref")
             return 0
         }
 
         // Let's try to find the index of the typeArg we tried to index
-        for ((i, typeArg?) in typeArgs) {
-            if (typeArg? inner as BaseType name == access name) {
-                // Bingo! Found a match.
-                // All we need to do is suggest the VariableDecl of the typeArg present in our base at the same index.
-                access suggest(base typeArgs[i])
-                return 0
-            }
+        index := findTypeArgIndex(access name)
+        if (index != 1) {
+            // Bingo! Found a match.
+            // All we need to do is suggest the VariableDecl of the typeArg present in our base at the same index.
+            access suggest(base typeArgs[index])
         }
 
         0
