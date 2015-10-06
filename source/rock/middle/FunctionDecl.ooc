@@ -122,7 +122,7 @@ FunctionDecl: class extends Declaration {
     _unwrappedClosure := false
 
     acs := false
-    _unwrappedACS := false
+    _unwrappedClosureGenerics := false
 
     /**
      * If we are a method (member function), 'owner' is non-null, and is a reference
@@ -632,8 +632,10 @@ FunctionDecl: class extends Declaration {
         if (isClosure) {
             fromClosure = true
 
-            if (!_unwrappedACS && acs) {
-                if (!unwrapACS(trail, res)) {
+            // There is no reason to apply this exclusively to ACS closures
+            // If we have a closure in a function call we need to do some unwraping
+            if (!_unwrappedClosureGenerics && trail find(FunctionCall) != 1) {
+                if (!unwrapClosureGenerics(trail, res)) {
                     trail pop(this)
                     return Response OK
                 }
@@ -848,13 +850,13 @@ FunctionDecl: class extends Declaration {
         return Response OK
     }
 
-    unwrapACS: func (trail: Trail, res: Resolver) -> Bool {
-        if(_unwrappedACS) return true
+    unwrapClosureGenerics: func (trail: Trail, res: Resolver) -> Bool {
+        if(_unwrappedClosureGenerics) return true
 
         fCallIndex := trail find(FunctionCall)
         if (fCallIndex == -1) {
             if(argumentsReady()) {
-                _unwrappedACS = true
+                _unwrappedClosureGenerics = true
                 return true
             } else {
                 res throwError(InternalError new(token, "Got an ACS without any function-call. THIS IS NOT SUPPOSED TO HAPPEN\ntrail= %s" format(trail toString())))
@@ -963,7 +965,7 @@ FunctionDecl: class extends Declaration {
             }
         }
 
-        _unwrappedACS = true
+        _unwrappedClosureGenerics = true
         return true
     }
 
