@@ -175,8 +175,8 @@ Token: cover {
         over := Buffer new()
 
         if(type != "") {
-           // out append(prefix). append("%s:%d:%d " format(module getLocalPath(".ooc"), lines, start - lastNewLine))
-		   out append(prefix). append("%s/%s.ooc:%d:%d " format(module getPathElement(), module getFullName(), lines, start - lastNewLine))
+            //out append(prefix). append("%s:%d:%d " format(module getLocalPath(".ooc"), lines, start - lastNewLine))
+            out append(prefix). append("%s/%s.ooc:%d:%d " format(module getPathElement(), module getFullName(), lines, start - lastNewLine))
 
             match type {
                 case "error" =>
