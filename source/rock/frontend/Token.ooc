@@ -175,7 +175,8 @@ Token: cover {
         over := Buffer new()
 
         if(type != "") {
-            out append(prefix). append("%s:%d:%d " format(module getLocalPath(".ooc"), lines, start - lastNewLine))
+            //out append(prefix). append("%s:%d:%d " format(module getLocalPath(".ooc"), lines, start - lastNewLine))
+            out append(prefix). append("%s/%s.ooc:%d:%d " format(module getPathElement(), module getFullName(), lines, start - lastNewLine))
 
             match type {
                 case "error" =>
@@ -300,7 +301,7 @@ Token: cover {
 
 }
 
-/** 
+/**
  * Can receive error messages. Implementations may format to a string or
  * directly write on a terminal.
  */
@@ -326,7 +327,7 @@ TextErrorOutput: class extends ErrorOutput {
     buffer := Buffer new()
 
     init: func
-    
+
     setColor: func (color: Color) {
         /* text output is not colored - setColor is a no-op */
     }
@@ -338,7 +339,7 @@ TextErrorOutput: class extends ErrorOutput {
     append: func ~char (c: Char) {
         buffer append(c)
     }
-    
+
     append: func ~string (s: String) {
         buffer append(s)
     }
@@ -346,7 +347,7 @@ TextErrorOutput: class extends ErrorOutput {
     append: func ~buffer (b: Buffer) {
         buffer append(b)
     }
-    
+
     toString: func -> String {
         buffer toString()
     }
@@ -359,7 +360,7 @@ TextErrorOutput: class extends ErrorOutput {
 TerminalErrorOutput: class extends ErrorOutput {
 
     init: func
-    
+
     setColor: func (color: Color) {
         Terminal setFgColor(color)
     }
@@ -371,7 +372,7 @@ TerminalErrorOutput: class extends ErrorOutput {
     append: func ~char (c: Char) {
         c print()
     }
-    
+
     append: func ~string (s: String) {
         s print()
     }
