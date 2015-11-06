@@ -4,7 +4,7 @@ RockVersion: class {
 
     getMajor:    static func -> Int    { 1 }
     getMinor:    static func -> Int    { 0 }
-    getPatch:    static func -> Int    { 10 }
+    getPatch:    static func -> Int    { 11 }
     getRevision: static func -> String { "head" }
     getCodename: static func -> String { "---" }
 
