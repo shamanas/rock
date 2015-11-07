@@ -654,6 +654,41 @@ FunctionCall: class extends Expression {
             return Response OK
         }
 
+        // Let's find out wether this is a new call and we can do some escape analysis.
+        // TODO: split those up
+
+        // Requirements: auto generated new method and no __destroy__ function up to Object
+        /*if (ref autoNew) {
+            classDecl := ref owner
+
+            if (!classDecl || !classDecl isResolved()) {
+                res wholeAgain(this, "need resolved ref owner classdecl")
+                return Response OK
+            }
+
+            customDestroy? := false
+
+            while (classDecl name != "Object") {
+                if (classDecl lookupFunction("__destroy__") != null) {
+                    customDestroy? = true
+                    break
+                }
+
+                classDecl = classDecl getSuperRef()
+
+                if (!classDecl || !classDecl isResolved()) {
+                    res wholeAgain(this, "need resolved ref owner classdecl hierarchy")
+                    return Response OK
+                }
+            }
+
+            if (!customDestroy?) {
+                // Here we are!
+                "Escape analysis candidate: #{this}" println()
+                stdout flush()
+            }
+        }*/
+
         /*
          * Setting it too soon would cause some important stuff to never
          * happen, such as wrapping function pointers into closures. Too late

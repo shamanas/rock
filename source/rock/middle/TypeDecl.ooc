@@ -72,6 +72,8 @@ TypeDecl: abstract class extends Declaration {
 
     _finishedGhosting := false
 
+    _resolved? := false
+
     // implicit conversions between types
     implicitConversions := ArrayList<OperatorDecl> new()
 
@@ -448,7 +450,7 @@ TypeDecl: abstract class extends Declaration {
     }
     getThisDecl: func -> VariableDecl { thisDecl }
 
-    isResolved: func -> Bool { false }
+    isResolved: func -> Bool { _resolved? }
 
     ghostTypeParams: func (trail: Trail, res: Resolver) -> Response {
 
@@ -525,6 +527,8 @@ TypeDecl: abstract class extends Declaration {
     }
 
     resolve: func (trail: Trail, res: Resolver) -> Response {
+
+        if (_resolved?) return Response OK
 
         trail push(this)
 
@@ -693,6 +697,8 @@ TypeDecl: abstract class extends Declaration {
         }
 
         trail pop(this)
+
+        _resolved? = true
 
         return Response OK
 
