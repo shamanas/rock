@@ -11,7 +11,7 @@ EnumDecl: class extends TypeDecl {
     incrementOper := '+'
     incrementStep : Int64 = 1
     fromType: Type
-
+    isInitial := true /* true if we're processing the first item in the enum */
     valuesCoverDecl: CoverDecl
     valuesGlobal: VariableDecl
 
@@ -78,13 +78,19 @@ EnumDecl: class extends TypeDecl {
             if(element valueSet) {
                 lastElementValue = element getValue()
             } else {
-                updateLastElementValue()
-                element setValue(lastElementValue)
+                // If this is the first value in the enum, we default to the value currently set in lastElementValue,
+                // which should be 0.
+                if (this isInitial)
+                    element setValue(this lastElementValue)
+                else {
+                    updateLastElementValue()
+                    element setValue(lastElementValue)
+                }
             }
         }
-
         element setType(fromType)
         getMeta() addVariable(element)
+        this isInitial = false
     }
 
     updateLastElementValue: func {
