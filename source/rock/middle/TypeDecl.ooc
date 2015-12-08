@@ -574,7 +574,6 @@ TypeDecl: abstract class extends Declaration {
     }
 
     getTemplateInstance: func (spec: BaseType) -> TypeDecl {
-
         typeArgSize := template typeArgs size + typeArgs size
         genSize := typeArgs size
 
@@ -604,7 +603,6 @@ TypeDecl: abstract class extends Declaration {
         instance setVersion(instance getVersion())
 
         for ((i, typeArg) in spec typeArgs) {
-
             // Skip the generics, nothing to do.
             if (i < genSize) {
                 continue
@@ -699,6 +697,11 @@ TypeDecl: abstract class extends Declaration {
 
             // We don't want to resolve the type template.
             return Response OK
+        }
+
+        if (templateParent) {
+            "Yo, I'm here #{this}" println()
+            stdout flush()
         }
 
         trail push(this)
