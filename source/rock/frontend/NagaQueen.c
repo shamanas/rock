@@ -8019,7 +8019,6 @@ YY_RULE(int) yy_SafeNavAccess(GREG *G)
   if (!yy_Access(G))  goto l220;
   yyDo(G, yySet, -2, 0, "yySet");
 
-<<<<<<< HEAD
   {  int yypos221= G->pos, yythunkpos221= G->thunkpos;  yyDo(G, yy_1_SafeNavAccess, G->begin, G->end, "yy_1_SafeNavAccess");
   if (!yy_SAFE_NAV(G))  goto l221;
   yyDo(G, yy_2_SafeNavAccess, G->begin, G->end, "yy_2_SafeNavAccess");
@@ -8054,42 +8053,6 @@ YY_RULE(int) yy_SafeNavAccess(GREG *G)
   }  yyDo(G, yy_4_SafeNavAccess, G->begin, G->end, "yy_4_SafeNavAccess");
   goto l222;
   l221:;	  G->pos= yypos221; G->thunkpos= yythunkpos221;
-=======
-  {  int yypos219= G->pos, yythunkpos219= G->thunkpos;  yyDo(G, yy_1_SafeNavAccess, G->begin, G->end, "yy_1_SafeNavAccess");
-  if (!yy_SAFE_NAV(G))  goto l219;
-  yyDo(G, yy_2_SafeNavAccess, G->begin, G->end, "yy_2_SafeNavAccess");
-  if (!yy__(G))  goto l219;
-  if (!yy_IDENT(G))  goto l219;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_SafeNavAccess, G->begin, G->end, "yy_3_SafeNavAccess");
-
-  l223:;	
-  {  int yypos224= G->pos, yythunkpos224= G->thunkpos;  if (!yy_IDENT(G))  goto l224;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_SafeNavAccess, G->begin, G->end, "yy_3_SafeNavAccess");
-  goto l223;
-  l224:;	  G->pos= yypos224; G->thunkpos= yythunkpos224;
-  }
-  l221:;	
-  {  int yypos222= G->pos, yythunkpos222= G->thunkpos;  if (!yy_SAFE_NAV(G))  goto l222;
-  yyDo(G, yy_2_SafeNavAccess, G->begin, G->end, "yy_2_SafeNavAccess");
-  if (!yy__(G))  goto l222;
-  if (!yy_IDENT(G))  goto l222;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_SafeNavAccess, G->begin, G->end, "yy_3_SafeNavAccess");
-
-  l225:;	
-  {  int yypos226= G->pos, yythunkpos226= G->thunkpos;  if (!yy_IDENT(G))  goto l226;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_SafeNavAccess, G->begin, G->end, "yy_3_SafeNavAccess");
-  goto l225;
-  l226:;	  G->pos= yypos226; G->thunkpos= yythunkpos226;
-  }  goto l221;
-  l222:;	  G->pos= yypos222; G->thunkpos= yythunkpos222;
-  }  yyDo(G, yy_4_SafeNavAccess, G->begin, G->end, "yy_4_SafeNavAccess");
-  goto l220;
-  l219:;	  G->pos= yypos219; G->thunkpos= yythunkpos219;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }
   l222:;	  yyprintf((stderr, "  ok   SafeNavAccess"));
   yyprintfGcontext;
@@ -8104,31 +8067,18 @@ YY_RULE(int) yy_SafeNavAccess(GREG *G)
 }
 YY_RULE(int) yy_B_NOT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "B_NOT"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '~')) goto l229;
 
   {  int yypos230= G->pos, yythunkpos230= G->thunkpos;  if (!yymatchChar(G, '=')) goto l230;
   goto l229;
   l230:;	  G->pos= yypos230; G->thunkpos= yythunkpos230;
   }  if (!yy__(G))  goto l229;
-=======
-  if (!yymatchChar(G, '~')) goto l227;
-
-  {  int yypos228= G->pos, yythunkpos228= G->thunkpos;  if (!yymatchChar(G, '=')) goto l228;
-  goto l227;
-  l228:;	  G->pos= yypos228; G->thunkpos= yythunkpos228;
-  }  if (!yy__(G))  goto l227;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   B_NOT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l229:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_NOT"));
-=======
-  l227:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_NOT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8136,31 +8086,18 @@ YY_RULE(int) yy_B_NOT(GREG *G)
 }
 YY_RULE(int) yy_L_NOT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "L_NOT"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '!')) goto l231;
 
   {  int yypos232= G->pos, yythunkpos232= G->thunkpos;  if (!yymatchChar(G, '=')) goto l232;
   goto l231;
   l232:;	  G->pos= yypos232; G->thunkpos= yythunkpos232;
   }  if (!yy__(G))  goto l231;
-=======
-  if (!yymatchChar(G, '!')) goto l229;
-
-  {  int yypos230= G->pos, yythunkpos230= G->thunkpos;  if (!yymatchChar(G, '=')) goto l230;
-  goto l229;
-  l230:;	  G->pos= yypos230; G->thunkpos= yythunkpos230;
-  }  if (!yy__(G))  goto l229;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   L_NOT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l231:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "L_NOT"));
-=======
-  l229:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "L_NOT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8169,7 +8106,6 @@ YY_RULE(int) yy_L_NOT(GREG *G)
 YY_RULE(int) yy_ProductCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ProductCore"));
-<<<<<<< HEAD
   if (!yy_SafeNavAccess(G))  goto l233;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -8193,52 +8129,18 @@ YY_RULE(int) yy_ProductCore(GREG *G)
   yyDo(G, yy_5_ProductCore, G->begin, G->end, "yy_5_ProductCore");
   if (!yy_WS(G))  goto l235;
   if (!yy_SafeNavAccess(G))  goto l235;
-=======
-  if (!yy_SafeNavAccess(G))  goto l231;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l232:;	
-  {  int yypos233= G->pos, yythunkpos233= G->thunkpos;
-  {  int yypos234= G->pos, yythunkpos234= G->thunkpos;  if (!yy_EXP(G))  goto l235;
-  yyDo(G, yy_1_ProductCore, G->begin, G->end, "yy_1_ProductCore");
-  if (!yy_WS(G))  goto l235;
-  if (!yy_Product(G))  goto l235;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_ProductCore, G->begin, G->end, "yy_2_ProductCore");
-  goto l234;
-  l235:;	  G->pos= yypos234; G->thunkpos= yythunkpos234;  if (!yy_STAR(G))  goto l236;
-  yyDo(G, yy_3_ProductCore, G->begin, G->end, "yy_3_ProductCore");
-  if (!yy_WS(G))  goto l236;
-  if (!yy_SafeNavAccess(G))  goto l236;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_4_ProductCore, G->begin, G->end, "yy_4_ProductCore");
-  goto l234;
-  l236:;	  G->pos= yypos234; G->thunkpos= yythunkpos234;  if (!yy_SLASH(G))  goto l233;
-  yyDo(G, yy_5_ProductCore, G->begin, G->end, "yy_5_ProductCore");
-  if (!yy_WS(G))  goto l233;
-  if (!yy_SafeNavAccess(G))  goto l233;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_6_ProductCore, G->begin, G->end, "yy_6_ProductCore");
 
   }
-<<<<<<< HEAD
   l236:;	  goto l234;
   l235:;	  G->pos= yypos235; G->thunkpos= yythunkpos235;
-=======
-  l234:;	  goto l232;
-  l233:;	  G->pos= yypos233; G->thunkpos= yythunkpos233;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   ProductCore"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l233:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ProductCore"));
-=======
-  l231:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ProductCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8247,32 +8149,19 @@ YY_RULE(int) yy_ProductCore(GREG *G)
 YY_RULE(int) yy_ProductBinaryNot(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ProductBinaryNot"));
-<<<<<<< HEAD
   if (!yy_B_NOT(G))  goto l239;
   yyDo(G, yy_1_ProductBinaryNot, G->begin, G->end, "yy_1_ProductBinaryNot");
   if (!yy__(G))  goto l239;
   if (!yy_Product(G))  goto l239;
   yyDo(G, yySet, -1, 0, "yySet");
   if (!yy__(G))  goto l239;
-=======
-  if (!yy_B_NOT(G))  goto l237;
-  yyDo(G, yy_1_ProductBinaryNot, G->begin, G->end, "yy_1_ProductBinaryNot");
-  if (!yy__(G))  goto l237;
-  if (!yy_Product(G))  goto l237;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy__(G))  goto l237;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_2_ProductBinaryNot, G->begin, G->end, "yy_2_ProductBinaryNot");
   yyprintf((stderr, "  ok   ProductBinaryNot"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l239:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ProductBinaryNot"));
-=======
-  l237:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ProductBinaryNot"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8281,32 +8170,19 @@ YY_RULE(int) yy_ProductBinaryNot(GREG *G)
 YY_RULE(int) yy_ProductLogicalNot(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ProductLogicalNot"));
-<<<<<<< HEAD
   if (!yy_L_NOT(G))  goto l240;
   yyDo(G, yy_1_ProductLogicalNot, G->begin, G->end, "yy_1_ProductLogicalNot");
   if (!yy__(G))  goto l240;
   if (!yy_Product(G))  goto l240;
   yyDo(G, yySet, -1, 0, "yySet");
   if (!yy__(G))  goto l240;
-=======
-  if (!yy_L_NOT(G))  goto l238;
-  yyDo(G, yy_1_ProductLogicalNot, G->begin, G->end, "yy_1_ProductLogicalNot");
-  if (!yy__(G))  goto l238;
-  if (!yy_Product(G))  goto l238;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy__(G))  goto l238;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_2_ProductLogicalNot, G->begin, G->end, "yy_2_ProductLogicalNot");
   yyprintf((stderr, "  ok   ProductLogicalNot"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l240:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ProductLogicalNot"));
-=======
-  l238:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ProductLogicalNot"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8314,31 +8190,18 @@ YY_RULE(int) yy_ProductLogicalNot(GREG *G)
 }
 YY_RULE(int) yy_PERCENT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "PERCENT"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '%')) goto l241;
 
   {  int yypos242= G->pos, yythunkpos242= G->thunkpos;  if (!yymatchChar(G, '=')) goto l242;
   goto l241;
   l242:;	  G->pos= yypos242; G->thunkpos= yythunkpos242;
   }  if (!yy__(G))  goto l241;
-=======
-  if (!yymatchChar(G, '%')) goto l239;
-
-  {  int yypos240= G->pos, yythunkpos240= G->thunkpos;  if (!yymatchChar(G, '=')) goto l240;
-  goto l239;
-  l240:;	  G->pos= yypos240; G->thunkpos= yythunkpos240;
-  }  if (!yy__(G))  goto l239;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   PERCENT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l241:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PERCENT"));
-=======
-  l239:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PERCENT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8346,31 +8209,18 @@ YY_RULE(int) yy_PERCENT(GREG *G)
 }
 YY_RULE(int) yy_MINUS(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "MINUS"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '-')) goto l243;
 
   {  int yypos244= G->pos, yythunkpos244= G->thunkpos;  if (!yymatchChar(G, '=')) goto l244;
   goto l243;
   l244:;	  G->pos= yypos244; G->thunkpos= yythunkpos244;
   }  if (!yy__(G))  goto l243;
-=======
-  if (!yymatchChar(G, '-')) goto l241;
-
-  {  int yypos242= G->pos, yythunkpos242= G->thunkpos;  if (!yymatchChar(G, '=')) goto l242;
-  goto l241;
-  l242:;	  G->pos= yypos242; G->thunkpos= yythunkpos242;
-  }  if (!yy__(G))  goto l241;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   MINUS"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l243:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MINUS"));
-=======
-  l241:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MINUS"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8379,7 +8229,6 @@ YY_RULE(int) yy_MINUS(GREG *G)
 YY_RULE(int) yy_Product(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Product"));
 
-<<<<<<< HEAD
   {  int yypos246= G->pos, yythunkpos246= G->thunkpos;  if (!yy_ProductLogicalNot(G))  goto l247;
   goto l246;
   l247:;	  G->pos= yypos246; G->thunkpos= yythunkpos246;  if (!yy_ProductBinaryNot(G))  goto l248;
@@ -8388,25 +8237,11 @@ YY_RULE(int) yy_Product(GREG *G)
 
   }
   l246:;	  yyprintf((stderr, "  ok   Product"));
-=======
-  {  int yypos244= G->pos, yythunkpos244= G->thunkpos;  if (!yy_ProductLogicalNot(G))  goto l245;
-  goto l244;
-  l245:;	  G->pos= yypos244; G->thunkpos= yythunkpos244;  if (!yy_ProductBinaryNot(G))  goto l246;
-  goto l244;
-  l246:;	  G->pos= yypos244; G->thunkpos= yythunkpos244;  if (!yy_ProductCore(G))  goto l243;
-
-  }
-  l244:;	  yyprintf((stderr, "  ok   Product"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l245:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Product"));
-=======
-  l243:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Product"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8414,31 +8249,18 @@ YY_RULE(int) yy_Product(GREG *G)
 }
 YY_RULE(int) yy_B_RSHIFT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "B_RSHIFT"));
-<<<<<<< HEAD
   if (!yymatchString(G, ">>")) goto l249;
 
   {  int yypos250= G->pos, yythunkpos250= G->thunkpos;  if (!yymatchChar(G, '=')) goto l250;
   goto l249;
   l250:;	  G->pos= yypos250; G->thunkpos= yythunkpos250;
   }  if (!yy__(G))  goto l249;
-=======
-  if (!yymatchString(G, ">>")) goto l247;
-
-  {  int yypos248= G->pos, yythunkpos248= G->thunkpos;  if (!yymatchChar(G, '=')) goto l248;
-  goto l247;
-  l248:;	  G->pos= yypos248; G->thunkpos= yythunkpos248;
-  }  if (!yy__(G))  goto l247;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   B_RSHIFT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l249:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_RSHIFT"));
-=======
-  l247:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_RSHIFT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8446,31 +8268,18 @@ YY_RULE(int) yy_B_RSHIFT(GREG *G)
 }
 YY_RULE(int) yy_B_LSHIFT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "B_LSHIFT"));
-<<<<<<< HEAD
   if (!yymatchString(G, "<<")) goto l251;
 
   {  int yypos252= G->pos, yythunkpos252= G->thunkpos;  if (!yymatchChar(G, '=')) goto l252;
   goto l251;
   l252:;	  G->pos= yypos252; G->thunkpos= yythunkpos252;
   }  if (!yy__(G))  goto l251;
-=======
-  if (!yymatchString(G, "<<")) goto l249;
-
-  {  int yypos250= G->pos, yythunkpos250= G->thunkpos;  if (!yymatchChar(G, '=')) goto l250;
-  goto l249;
-  l250:;	  G->pos= yypos250; G->thunkpos= yythunkpos250;
-  }  if (!yy__(G))  goto l249;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   B_LSHIFT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l251:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_LSHIFT"));
-=======
-  l249:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_LSHIFT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8479,7 +8288,6 @@ YY_RULE(int) yy_B_LSHIFT(GREG *G)
 YY_RULE(int) yy_Sum(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Sum"));
-<<<<<<< HEAD
   if (!yy_Product(G))  goto l253;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -8503,52 +8311,18 @@ YY_RULE(int) yy_Sum(GREG *G)
   yyDo(G, yy_5_Sum, G->begin, G->end, "yy_5_Sum");
   if (!yy_WS(G))  goto l255;
   if (!yy_Product(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("%") ; } goto l255; }
-=======
-  if (!yy_Product(G))  goto l251;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l252:;	
-  {  int yypos253= G->pos, yythunkpos253= G->thunkpos;
-  {  int yypos254= G->pos, yythunkpos254= G->thunkpos;  if (!yy_PLUS(G))  goto l255;
-  yyDo(G, yy_1_Sum, G->begin, G->end, "yy_1_Sum");
-  if (!yy_WS(G))  goto l255;
-  if (!yy_Product(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("+") ; } goto l255; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Sum, G->begin, G->end, "yy_2_Sum");
-  goto l254;
-  l255:;	  G->pos= yypos254; G->thunkpos= yythunkpos254;  if (!yy_MINUS(G))  goto l256;
-  yyDo(G, yy_3_Sum, G->begin, G->end, "yy_3_Sum");
-  if (!yy_WS(G))  goto l256;
-  if (!yy_Product(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("-") ; } goto l256; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_4_Sum, G->begin, G->end, "yy_4_Sum");
-  goto l254;
-  l256:;	  G->pos= yypos254; G->thunkpos= yythunkpos254;  if (!yy_PERCENT(G))  goto l253;
-  yyDo(G, yy_5_Sum, G->begin, G->end, "yy_5_Sum");
-  if (!yy_WS(G))  goto l253;
-  if (!yy_Product(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("%") ; } goto l253; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_6_Sum, G->begin, G->end, "yy_6_Sum");
 
   }
-<<<<<<< HEAD
   l256:;	  goto l254;
   l255:;	  G->pos= yypos255; G->thunkpos= yythunkpos255;
-=======
-  l254:;	  goto l252;
-  l253:;	  G->pos= yypos253; G->thunkpos= yythunkpos253;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Sum"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l253:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Sum"));
-=======
-  l251:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Sum"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8556,23 +8330,14 @@ YY_RULE(int) yy_Sum(GREG *G)
 }
 YY_RULE(int) yy_DOUBLE_DOT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "DOUBLE_DOT"));
-<<<<<<< HEAD
   if (!yymatchString(G, "..")) goto l259;
   if (!yy__(G))  goto l259;
-=======
-  if (!yymatchString(G, "..")) goto l257;
-  if (!yy__(G))  goto l257;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   DOUBLE_DOT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l259:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOUBLE_DOT"));
-=======
-  l257:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOUBLE_DOT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8581,7 +8346,6 @@ YY_RULE(int) yy_DOUBLE_DOT(GREG *G)
 YY_RULE(int) yy_Shift(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Shift"));
-<<<<<<< HEAD
   if (!yy_Sum(G))  goto l260;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -8598,45 +8362,18 @@ YY_RULE(int) yy_Shift(GREG *G)
   yyDo(G, yy_3_Shift, G->begin, G->end, "yy_3_Shift");
   if (!yy_WS(G))  goto l262;
   if (!yy_Sum(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp(">>") ; } goto l262; }
-=======
-  if (!yy_Sum(G))  goto l258;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l259:;	
-  {  int yypos260= G->pos, yythunkpos260= G->thunkpos;
-  {  int yypos261= G->pos, yythunkpos261= G->thunkpos;  if (!yy_B_LSHIFT(G))  goto l262;
-  yyDo(G, yy_1_Shift, G->begin, G->end, "yy_1_Shift");
-  if (!yy_WS(G))  goto l262;
-  if (!yy_Sum(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("<<") ; } goto l262; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Shift, G->begin, G->end, "yy_2_Shift");
-  goto l261;
-  l262:;	  G->pos= yypos261; G->thunkpos= yythunkpos261;  if (!yy_B_RSHIFT(G))  goto l260;
-  yyDo(G, yy_3_Shift, G->begin, G->end, "yy_3_Shift");
-  if (!yy_WS(G))  goto l260;
-  if (!yy_Sum(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp(">>") ; } goto l260; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_4_Shift, G->begin, G->end, "yy_4_Shift");
 
   }
-<<<<<<< HEAD
   l263:;	  goto l261;
   l262:;	  G->pos= yypos262; G->thunkpos= yythunkpos262;
-=======
-  l261:;	  goto l259;
-  l260:;	  G->pos= yypos260; G->thunkpos= yythunkpos260;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Shift"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l260:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Shift"));
-=======
-  l258:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Shift"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8644,23 +8381,14 @@ YY_RULE(int) yy_Shift(GREG *G)
 }
 YY_RULE(int) yy_MORETHAN_EQ(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "MORETHAN_EQ"));
-<<<<<<< HEAD
   if (!yymatchString(G, ">=")) goto l265;
   if (!yy__(G))  goto l265;
-=======
-  if (!yymatchString(G, ">=")) goto l263;
-  if (!yy__(G))  goto l263;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   MORETHAN_EQ"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l265:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MORETHAN_EQ"));
-=======
-  l263:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MORETHAN_EQ"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8668,23 +8396,14 @@ YY_RULE(int) yy_MORETHAN_EQ(GREG *G)
 }
 YY_RULE(int) yy_LESSTHAN_EQ(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "LESSTHAN_EQ"));
-<<<<<<< HEAD
   if (!yymatchString(G, "<=")) goto l266;
   if (!yy__(G))  goto l266;
-=======
-  if (!yymatchString(G, "<=")) goto l264;
-  if (!yy__(G))  goto l264;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   LESSTHAN_EQ"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l266:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LESSTHAN_EQ"));
-=======
-  l264:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LESSTHAN_EQ"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8692,23 +8411,14 @@ YY_RULE(int) yy_LESSTHAN_EQ(GREG *G)
 }
 YY_RULE(int) yy_CMP(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CMP"));
-<<<<<<< HEAD
   if (!yymatchString(G, "<=>")) goto l267;
   if (!yy__(G))  goto l267;
-=======
-  if (!yymatchString(G, "<=>")) goto l265;
-  if (!yy__(G))  goto l265;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CMP"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l267:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CMP"));
-=======
-  l265:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CMP"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8717,7 +8427,6 @@ YY_RULE(int) yy_CMP(GREG *G)
 YY_RULE(int) yy_Range(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Range"));
-<<<<<<< HEAD
   if (!yy_Shift(G))  goto l268;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -8730,30 +8439,12 @@ YY_RULE(int) yy_Range(GREG *G)
   yyDo(G, yy_2_Range, G->begin, G->end, "yy_2_Range");
   goto l269;
   l270:;	  G->pos= yypos270; G->thunkpos= yythunkpos270;
-=======
-  if (!yy_Shift(G))  goto l266;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l267:;	
-  {  int yypos268= G->pos, yythunkpos268= G->thunkpos;  if (!yy_DOUBLE_DOT(G))  goto l268;
-  yyDo(G, yy_1_Range, G->begin, G->end, "yy_1_Range");
-  if (!yy_WS(G))  goto l268;
-  if (!yy_Shift(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("..") ; } goto l268; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Range, G->begin, G->end, "yy_2_Range");
-  goto l267;
-  l268:;	  G->pos= yypos268; G->thunkpos= yythunkpos268;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Range"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l268:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Range"));
-=======
-  l266:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Range"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8761,23 +8452,14 @@ YY_RULE(int) yy_Range(GREG *G)
 }
 YY_RULE(int) yy_NOT_EQUALS(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "NOT_EQUALS"));
-<<<<<<< HEAD
   if (!yymatchString(G, "!=")) goto l271;
   if (!yy__(G))  goto l271;
-=======
-  if (!yymatchString(G, "!=")) goto l269;
-  if (!yy__(G))  goto l269;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   NOT_EQUALS"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l271:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "NOT_EQUALS"));
-=======
-  l269:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "NOT_EQUALS"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8785,23 +8467,14 @@ YY_RULE(int) yy_NOT_EQUALS(GREG *G)
 }
 YY_RULE(int) yy_EQUALS(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "EQUALS"));
-<<<<<<< HEAD
   if (!yymatchString(G, "==")) goto l272;
   if (!yy__(G))  goto l272;
-=======
-  if (!yymatchString(G, "==")) goto l270;
-  if (!yy__(G))  goto l270;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   EQUALS"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l272:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EQUALS"));
-=======
-  l270:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EQUALS"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8810,7 +8483,6 @@ YY_RULE(int) yy_EQUALS(GREG *G)
 YY_RULE(int) yy_Inequality(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Inequality"));
-<<<<<<< HEAD
   if (!yy_Range(G))  goto l273;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -8848,66 +8520,18 @@ YY_RULE(int) yy_Inequality(GREG *G)
   yyDo(G, yy_9_Inequality, G->begin, G->end, "yy_9_Inequality");
   if (!yy_WS(G))  goto l275;
   if (!yy_Range(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp(">=") ; } goto l275; }
-=======
-  if (!yy_Range(G))  goto l271;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l272:;	
-  {  int yypos273= G->pos, yythunkpos273= G->thunkpos;
-  {  int yypos274= G->pos, yythunkpos274= G->thunkpos;  if (!yy_LESSTHAN(G))  goto l275;
-  yyDo(G, yy_1_Inequality, G->begin, G->end, "yy_1_Inequality");
-  if (!yy_WS(G))  goto l275;
-  if (!yy_Range(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("<") ; } goto l275; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Inequality, G->begin, G->end, "yy_2_Inequality");
-  goto l274;
-  l275:;	  G->pos= yypos274; G->thunkpos= yythunkpos274;  if (!yy_MORETHAN(G))  goto l276;
-  yyDo(G, yy_3_Inequality, G->begin, G->end, "yy_3_Inequality");
-  if (!yy_WS(G))  goto l276;
-  if (!yy_Range(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp(">") ; } goto l276; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_4_Inequality, G->begin, G->end, "yy_4_Inequality");
-  goto l274;
-  l276:;	  G->pos= yypos274; G->thunkpos= yythunkpos274;  if (!yy_CMP(G))  goto l277;
-  yyDo(G, yy_5_Inequality, G->begin, G->end, "yy_5_Inequality");
-  if (!yy_WS(G))  goto l277;
-  if (!yy_Range(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("<=>") ; } goto l277; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_6_Inequality, G->begin, G->end, "yy_6_Inequality");
-  goto l274;
-  l277:;	  G->pos= yypos274; G->thunkpos= yythunkpos274;  if (!yy_LESSTHAN_EQ(G))  goto l278;
-  yyDo(G, yy_7_Inequality, G->begin, G->end, "yy_7_Inequality");
-  if (!yy_WS(G))  goto l278;
-  if (!yy_Range(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("<=") ; } goto l278; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_8_Inequality, G->begin, G->end, "yy_8_Inequality");
-  goto l274;
-  l278:;	  G->pos= yypos274; G->thunkpos= yythunkpos274;  if (!yy_MORETHAN_EQ(G))  goto l273;
-  yyDo(G, yy_9_Inequality, G->begin, G->end, "yy_9_Inequality");
-  if (!yy_WS(G))  goto l273;
-  if (!yy_Range(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp(">=") ; } goto l273; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_10_Inequality, G->begin, G->end, "yy_10_Inequality");
 
   }
-<<<<<<< HEAD
   l276:;	  goto l274;
   l275:;	  G->pos= yypos275; G->thunkpos= yythunkpos275;
-=======
-  l274:;	  goto l272;
-  l273:;	  G->pos= yypos273; G->thunkpos= yythunkpos273;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Inequality"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l273:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Inequality"));
-=======
-  l271:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Inequality"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8916,7 +8540,6 @@ YY_RULE(int) yy_Inequality(GREG *G)
 YY_RULE(int) yy_B_AND(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "B_AND"));
 
-<<<<<<< HEAD
   {  int yypos282= G->pos, yythunkpos282= G->thunkpos;  if (!yy_L_AND(G))  goto l282;
   goto l281;
   l282:;	  G->pos= yypos282; G->thunkpos= yythunkpos282;
@@ -8926,27 +8549,12 @@ YY_RULE(int) yy_B_AND(GREG *G)
   goto l281;
   l283:;	  G->pos= yypos283; G->thunkpos= yythunkpos283;
   }  if (!yy__(G))  goto l281;
-=======
-  {  int yypos280= G->pos, yythunkpos280= G->thunkpos;  if (!yy_L_AND(G))  goto l280;
-  goto l279;
-  l280:;	  G->pos= yypos280; G->thunkpos= yythunkpos280;
-  }  if (!yymatchChar(G, '&')) goto l279;
-
-  {  int yypos281= G->pos, yythunkpos281= G->thunkpos;  if (!yymatchChar(G, '=')) goto l281;
-  goto l279;
-  l281:;	  G->pos= yypos281; G->thunkpos= yythunkpos281;
-  }  if (!yy__(G))  goto l279;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   B_AND"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l281:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_AND"));
-=======
-  l279:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_AND"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -8955,7 +8563,6 @@ YY_RULE(int) yy_B_AND(GREG *G)
 YY_RULE(int) yy_Equality(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Equality"));
-<<<<<<< HEAD
   if (!yy_Inequality(G))  goto l284;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -8972,45 +8579,18 @@ YY_RULE(int) yy_Equality(GREG *G)
   yyDo(G, yy_3_Equality, G->begin, G->end, "yy_3_Equality");
   if (!yy_WS(G))  goto l286;
   if (!yy_Inequality(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("!=") ; } goto l286; }
-=======
-  if (!yy_Inequality(G))  goto l282;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l283:;	
-  {  int yypos284= G->pos, yythunkpos284= G->thunkpos;
-  {  int yypos285= G->pos, yythunkpos285= G->thunkpos;  if (!yy_EQUALS(G))  goto l286;
-  yyDo(G, yy_1_Equality, G->begin, G->end, "yy_1_Equality");
-  if (!yy_WS(G))  goto l286;
-  if (!yy_Inequality(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("==") ; } goto l286; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Equality, G->begin, G->end, "yy_2_Equality");
-  goto l285;
-  l286:;	  G->pos= yypos285; G->thunkpos= yythunkpos285;  if (!yy_NOT_EQUALS(G))  goto l284;
-  yyDo(G, yy_3_Equality, G->begin, G->end, "yy_3_Equality");
-  if (!yy_WS(G))  goto l284;
-  if (!yy_Inequality(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("!=") ; } goto l284; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_4_Equality, G->begin, G->end, "yy_4_Equality");
 
   }
-<<<<<<< HEAD
   l287:;	  goto l285;
   l286:;	  G->pos= yypos286; G->thunkpos= yythunkpos286;
-=======
-  l285:;	  goto l283;
-  l284:;	  G->pos= yypos284; G->thunkpos= yythunkpos284;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Equality"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l284:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Equality"));
-=======
-  l282:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Equality"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9018,31 +8598,18 @@ YY_RULE(int) yy_Equality(GREG *G)
 }
 YY_RULE(int) yy_B_XOR(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "B_XOR"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '^')) goto l289;
 
   {  int yypos290= G->pos, yythunkpos290= G->thunkpos;  if (!yymatchChar(G, '=')) goto l290;
   goto l289;
   l290:;	  G->pos= yypos290; G->thunkpos= yythunkpos290;
   }  if (!yy__(G))  goto l289;
-=======
-  if (!yymatchChar(G, '^')) goto l287;
-
-  {  int yypos288= G->pos, yythunkpos288= G->thunkpos;  if (!yymatchChar(G, '=')) goto l288;
-  goto l287;
-  l288:;	  G->pos= yypos288; G->thunkpos= yythunkpos288;
-  }  if (!yy__(G))  goto l287;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   B_XOR"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l289:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_XOR"));
-=======
-  l287:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_XOR"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9051,7 +8618,6 @@ YY_RULE(int) yy_B_XOR(GREG *G)
 YY_RULE(int) yy_BinaryAnd(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "BinaryAnd"));
-<<<<<<< HEAD
   if (!yy_Equality(G))  goto l291;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9064,30 +8630,12 @@ YY_RULE(int) yy_BinaryAnd(GREG *G)
   yyDo(G, yy_2_BinaryAnd, G->begin, G->end, "yy_2_BinaryAnd");
   goto l292;
   l293:;	  G->pos= yypos293; G->thunkpos= yythunkpos293;
-=======
-  if (!yy_Equality(G))  goto l289;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l290:;	
-  {  int yypos291= G->pos, yythunkpos291= G->thunkpos;  if (!yy_B_AND(G))  goto l291;
-  yyDo(G, yy_1_BinaryAnd, G->begin, G->end, "yy_1_BinaryAnd");
-  if (!yy_WS(G))  goto l291;
-  if (!yy_Equality(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("&") ; } goto l291; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_BinaryAnd, G->begin, G->end, "yy_2_BinaryAnd");
-  goto l290;
-  l291:;	  G->pos= yypos291; G->thunkpos= yythunkpos291;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   BinaryAnd"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l291:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryAnd"));
-=======
-  l289:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryAnd"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9096,7 +8644,6 @@ YY_RULE(int) yy_BinaryAnd(GREG *G)
 YY_RULE(int) yy_B_OR(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "B_OR"));
 
-<<<<<<< HEAD
   {  int yypos295= G->pos, yythunkpos295= G->thunkpos;  if (!yy_L_OR(G))  goto l295;
   goto l294;
   l295:;	  G->pos= yypos295; G->thunkpos= yythunkpos295;
@@ -9106,27 +8653,12 @@ YY_RULE(int) yy_B_OR(GREG *G)
   goto l294;
   l296:;	  G->pos= yypos296; G->thunkpos= yythunkpos296;
   }  if (!yy__(G))  goto l294;
-=======
-  {  int yypos293= G->pos, yythunkpos293= G->thunkpos;  if (!yy_L_OR(G))  goto l293;
-  goto l292;
-  l293:;	  G->pos= yypos293; G->thunkpos= yythunkpos293;
-  }  if (!yymatchChar(G, '|')) goto l292;
-
-  {  int yypos294= G->pos, yythunkpos294= G->thunkpos;  if (!yymatchChar(G, '=')) goto l294;
-  goto l292;
-  l294:;	  G->pos= yypos294; G->thunkpos= yythunkpos294;
-  }  if (!yy__(G))  goto l292;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   B_OR"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l294:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_OR"));
-=======
-  l292:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "B_OR"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9135,7 +8667,6 @@ YY_RULE(int) yy_B_OR(GREG *G)
 YY_RULE(int) yy_BinaryXor(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "BinaryXor"));
-<<<<<<< HEAD
   if (!yy_BinaryAnd(G))  goto l297;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9148,30 +8679,12 @@ YY_RULE(int) yy_BinaryXor(GREG *G)
   yyDo(G, yy_2_BinaryXor, G->begin, G->end, "yy_2_BinaryXor");
   goto l298;
   l299:;	  G->pos= yypos299; G->thunkpos= yythunkpos299;
-=======
-  if (!yy_BinaryAnd(G))  goto l295;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l296:;	
-  {  int yypos297= G->pos, yythunkpos297= G->thunkpos;  if (!yy_B_XOR(G))  goto l297;
-  yyDo(G, yy_1_BinaryXor, G->begin, G->end, "yy_1_BinaryXor");
-  if (!yy_WS(G))  goto l297;
-  if (!yy_BinaryAnd(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("^") ; } goto l297; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_BinaryXor, G->begin, G->end, "yy_2_BinaryXor");
-  goto l296;
-  l297:;	  G->pos= yypos297; G->thunkpos= yythunkpos297;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   BinaryXor"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l297:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryXor"));
-=======
-  l295:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryXor"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9179,23 +8692,14 @@ YY_RULE(int) yy_BinaryXor(GREG *G)
 }
 YY_RULE(int) yy_L_AND(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "L_AND"));
-<<<<<<< HEAD
   if (!yymatchString(G, "&&")) goto l300;
   if (!yy__(G))  goto l300;
-=======
-  if (!yymatchString(G, "&&")) goto l298;
-  if (!yy__(G))  goto l298;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   L_AND"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l300:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "L_AND"));
-=======
-  l298:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "L_AND"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9204,7 +8708,6 @@ YY_RULE(int) yy_L_AND(GREG *G)
 YY_RULE(int) yy_BinaryOr(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "BinaryOr"));
-<<<<<<< HEAD
   if (!yy_BinaryXor(G))  goto l301;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9217,30 +8720,12 @@ YY_RULE(int) yy_BinaryOr(GREG *G)
   yyDo(G, yy_2_BinaryOr, G->begin, G->end, "yy_2_BinaryOr");
   goto l302;
   l303:;	  G->pos= yypos303; G->thunkpos= yythunkpos303;
-=======
-  if (!yy_BinaryXor(G))  goto l299;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l300:;	
-  {  int yypos301= G->pos, yythunkpos301= G->thunkpos;  if (!yy_B_OR(G))  goto l301;
-  yyDo(G, yy_1_BinaryOr, G->begin, G->end, "yy_1_BinaryOr");
-  if (!yy_WS(G))  goto l301;
-  if (!yy_BinaryXor(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("|") ; } goto l301; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_BinaryOr, G->begin, G->end, "yy_2_BinaryOr");
-  goto l300;
-  l301:;	  G->pos= yypos301; G->thunkpos= yythunkpos301;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   BinaryOr"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l301:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryOr"));
-=======
-  l299:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryOr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9248,23 +8733,14 @@ YY_RULE(int) yy_BinaryOr(GREG *G)
 }
 YY_RULE(int) yy_L_OR(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "L_OR"));
-<<<<<<< HEAD
   if (!yymatchString(G, "||")) goto l304;
   if (!yy__(G))  goto l304;
-=======
-  if (!yymatchString(G, "||")) goto l302;
-  if (!yy__(G))  goto l302;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   L_OR"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l304:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "L_OR"));
-=======
-  l302:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "L_OR"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9273,7 +8749,6 @@ YY_RULE(int) yy_L_OR(GREG *G)
 YY_RULE(int) yy_LogicalAnd(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "LogicalAnd"));
-<<<<<<< HEAD
   if (!yy_BinaryOr(G))  goto l305;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9286,30 +8761,12 @@ YY_RULE(int) yy_LogicalAnd(GREG *G)
   yyDo(G, yy_2_LogicalAnd, G->begin, G->end, "yy_2_LogicalAnd");
   goto l306;
   l307:;	  G->pos= yypos307; G->thunkpos= yythunkpos307;
-=======
-  if (!yy_BinaryOr(G))  goto l303;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l304:;	
-  {  int yypos305= G->pos, yythunkpos305= G->thunkpos;  if (!yy_L_AND(G))  goto l305;
-  yyDo(G, yy_1_LogicalAnd, G->begin, G->end, "yy_1_LogicalAnd");
-  if (!yy_WS(G))  goto l305;
-  if (!yy_BinaryOr(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("&&") ; } goto l305; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_LogicalAnd, G->begin, G->end, "yy_2_LogicalAnd");
-  goto l304;
-  l305:;	  G->pos= yypos305; G->thunkpos= yythunkpos305;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   LogicalAnd"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l305:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LogicalAnd"));
-=======
-  l303:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LogicalAnd"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9317,23 +8774,14 @@ YY_RULE(int) yy_LogicalAnd(GREG *G)
 }
 YY_RULE(int) yy_DOUBLE_QUEST(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "DOUBLE_QUEST"));
-<<<<<<< HEAD
   if (!yymatchString(G, "??")) goto l308;
   if (!yy__(G))  goto l308;
-=======
-  if (!yymatchString(G, "??")) goto l306;
-  if (!yy__(G))  goto l306;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   DOUBLE_QUEST"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l308:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOUBLE_QUEST"));
-=======
-  l306:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOUBLE_QUEST"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9342,7 +8790,6 @@ YY_RULE(int) yy_DOUBLE_QUEST(GREG *G)
 YY_RULE(int) yy_LogicalOr(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "LogicalOr"));
-<<<<<<< HEAD
   if (!yy_LogicalAnd(G))  goto l309;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9355,30 +8802,12 @@ YY_RULE(int) yy_LogicalOr(GREG *G)
   yyDo(G, yy_2_LogicalOr, G->begin, G->end, "yy_2_LogicalOr");
   goto l310;
   l311:;	  G->pos= yypos311; G->thunkpos= yythunkpos311;
-=======
-  if (!yy_LogicalAnd(G))  goto l307;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l308:;	
-  {  int yypos309= G->pos, yythunkpos309= G->thunkpos;  if (!yy_L_OR(G))  goto l309;
-  yyDo(G, yy_1_LogicalOr, G->begin, G->end, "yy_1_LogicalOr");
-  if (!yy_WS(G))  goto l309;
-  if (!yy_LogicalAnd(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("||") ; } goto l309; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_LogicalOr, G->begin, G->end, "yy_2_LogicalOr");
-  goto l308;
-  l309:;	  G->pos= yypos309; G->thunkpos= yythunkpos309;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   LogicalOr"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l309:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LogicalOr"));
-=======
-  l307:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LogicalOr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9386,23 +8815,14 @@ YY_RULE(int) yy_LogicalOr(GREG *G)
 }
 YY_RULE(int) yy_QUEST(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "QUEST"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '?')) goto l312;
   if (!yy__(G))  goto l312;
-=======
-  if (!yymatchChar(G, '?')) goto l310;
-  if (!yy__(G))  goto l310;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   QUEST"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l312:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "QUEST"));
-=======
-  l310:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "QUEST"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9411,7 +8831,6 @@ YY_RULE(int) yy_QUEST(GREG *G)
 YY_RULE(int) yy_NullCoalescing(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "NullCoalescing"));
-<<<<<<< HEAD
   if (!yy_LogicalOr(G))  goto l313;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9425,30 +8844,11 @@ YY_RULE(int) yy_NullCoalescing(GREG *G)
   l314:;	  G->pos= yypos314; G->thunkpos= yythunkpos314;
   }
   l315:;	  yyprintf((stderr, "  ok   NullCoalescing"));
-=======
-  if (!yy_LogicalOr(G))  goto l311;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  {  int yypos312= G->pos, yythunkpos312= G->thunkpos;  if (!yy_DOUBLE_QUEST(G))  goto l312;
-  yyDo(G, yy_1_NullCoalescing, G->begin, G->end, "yy_1_NullCoalescing");
-  if (!yy_WS(G))  goto l312;
-  if (!yy_NullCoalescing(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("??") ; } goto l312; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_NullCoalescing, G->begin, G->end, "yy_2_NullCoalescing");
-  goto l313;
-  l312:;	  G->pos= yypos312; G->thunkpos= yythunkpos312;
-  }
-  l313:;	  yyprintf((stderr, "  ok   NullCoalescing"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l313:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "NullCoalescing"));
-=======
-  l311:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "NullCoalescing"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9456,23 +8856,14 @@ YY_RULE(int) yy_NullCoalescing(GREG *G)
 }
 YY_RULE(int) yy_ASS_B_AND(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_B_AND"));
-<<<<<<< HEAD
   if (!yymatchString(G, "&=")) goto l316;
   if (!yy__(G))  goto l316;
-=======
-  if (!yymatchString(G, "&=")) goto l314;
-  if (!yy__(G))  goto l314;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_B_AND"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l316:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_AND"));
-=======
-  l314:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_AND"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9480,23 +8871,14 @@ YY_RULE(int) yy_ASS_B_AND(GREG *G)
 }
 YY_RULE(int) yy_ASS_B_OR(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_B_OR"));
-<<<<<<< HEAD
   if (!yymatchString(G, "|=")) goto l317;
   if (!yy__(G))  goto l317;
-=======
-  if (!yymatchString(G, "|=")) goto l315;
-  if (!yy__(G))  goto l315;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_B_OR"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l317:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_OR"));
-=======
-  l315:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_OR"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9504,23 +8886,14 @@ YY_RULE(int) yy_ASS_B_OR(GREG *G)
 }
 YY_RULE(int) yy_ASS_B_XOR(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_B_XOR"));
-<<<<<<< HEAD
   if (!yymatchString(G, "^=")) goto l318;
   if (!yy__(G))  goto l318;
-=======
-  if (!yymatchString(G, "^=")) goto l316;
-  if (!yy__(G))  goto l316;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_B_XOR"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l318:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_XOR"));
-=======
-  l316:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_XOR"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9528,23 +8901,14 @@ YY_RULE(int) yy_ASS_B_XOR(GREG *G)
 }
 YY_RULE(int) yy_ASS_B_RSHIFT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_B_RSHIFT"));
-<<<<<<< HEAD
   if (!yymatchString(G, ">>=")) goto l319;
   if (!yy__(G))  goto l319;
-=======
-  if (!yymatchString(G, ">>=")) goto l317;
-  if (!yy__(G))  goto l317;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_B_RSHIFT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l319:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_RSHIFT"));
-=======
-  l317:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_RSHIFT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9552,23 +8916,14 @@ YY_RULE(int) yy_ASS_B_RSHIFT(GREG *G)
 }
 YY_RULE(int) yy_ASS_B_LSHIFT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_B_LSHIFT"));
-<<<<<<< HEAD
   if (!yymatchString(G, "<<=")) goto l320;
   if (!yy__(G))  goto l320;
-=======
-  if (!yymatchString(G, "<<=")) goto l318;
-  if (!yy__(G))  goto l318;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_B_LSHIFT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l320:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_LSHIFT"));
-=======
-  l318:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_B_LSHIFT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9576,23 +8931,14 @@ YY_RULE(int) yy_ASS_B_LSHIFT(GREG *G)
 }
 YY_RULE(int) yy_ASS_DIV(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_DIV"));
-<<<<<<< HEAD
   if (!yymatchString(G, "/=")) goto l321;
   if (!yy__(G))  goto l321;
-=======
-  if (!yymatchString(G, "/=")) goto l319;
-  if (!yy__(G))  goto l319;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_DIV"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l321:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_DIV"));
-=======
-  l319:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_DIV"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9600,23 +8946,14 @@ YY_RULE(int) yy_ASS_DIV(GREG *G)
 }
 YY_RULE(int) yy_ASS_EXP(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_EXP"));
-<<<<<<< HEAD
   if (!yymatchString(G, "**=")) goto l322;
   if (!yy__(G))  goto l322;
-=======
-  if (!yymatchString(G, "**=")) goto l320;
-  if (!yy__(G))  goto l320;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_EXP"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l322:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_EXP"));
-=======
-  l320:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_EXP"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9624,23 +8961,14 @@ YY_RULE(int) yy_ASS_EXP(GREG *G)
 }
 YY_RULE(int) yy_ASS_MUL(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_MUL"));
-<<<<<<< HEAD
   if (!yymatchString(G, "*=")) goto l323;
   if (!yy__(G))  goto l323;
-=======
-  if (!yymatchString(G, "*=")) goto l321;
-  if (!yy__(G))  goto l321;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_MUL"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l323:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_MUL"));
-=======
-  l321:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_MUL"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9648,23 +8976,14 @@ YY_RULE(int) yy_ASS_MUL(GREG *G)
 }
 YY_RULE(int) yy_ASS_SUB(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_SUB"));
-<<<<<<< HEAD
   if (!yymatchString(G, "-=")) goto l324;
   if (!yy__(G))  goto l324;
-=======
-  if (!yymatchString(G, "-=")) goto l322;
-  if (!yy__(G))  goto l322;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_SUB"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l324:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_SUB"));
-=======
-  l322:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_SUB"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9672,23 +8991,14 @@ YY_RULE(int) yy_ASS_SUB(GREG *G)
 }
 YY_RULE(int) yy_ASS_MOD(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_MOD"));
-<<<<<<< HEAD
   if (!yymatchString(G, "%=")) goto l325;
   if (!yy__(G))  goto l325;
-=======
-  if (!yymatchString(G, "%=")) goto l323;
-  if (!yy__(G))  goto l323;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_MOD"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l325:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_MOD"));
-=======
-  l323:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_MOD"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9696,23 +9006,14 @@ YY_RULE(int) yy_ASS_MOD(GREG *G)
 }
 YY_RULE(int) yy_ASS_ADD(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_ADD"));
-<<<<<<< HEAD
   if (!yymatchString(G, "+=")) goto l326;
   if (!yy__(G))  goto l326;
-=======
-  if (!yymatchString(G, "+=")) goto l324;
-  if (!yy__(G))  goto l324;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_ADD"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l326:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_ADD"));
-=======
-  l324:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_ADD"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9721,7 +9022,6 @@ YY_RULE(int) yy_ASS_ADD(GREG *G)
 YY_RULE(int) yy_Ternary(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Ternary"));
-<<<<<<< HEAD
   if (!yy_NullCoalescing(G))  goto l327;
   yyDo(G, yySet, -3, 0, "yySet");
 
@@ -9741,36 +9041,11 @@ YY_RULE(int) yy_Ternary(GREG *G)
   l328:;	  G->pos= yypos328; G->thunkpos= yythunkpos328;
   }
   l329:;	  yyprintf((stderr, "  ok   Ternary"));
-=======
-  if (!yy_NullCoalescing(G))  goto l325;
-  yyDo(G, yySet, -3, 0, "yySet");
-
-  {  int yypos326= G->pos, yythunkpos326= G->thunkpos;  if (!yy__(G))  goto l326;
-  if (!yy_QUEST(G))  goto l326;
-  yyDo(G, yy_1_Ternary, G->begin, G->end, "yy_1_Ternary");
-  if (!yy_WS(G))  goto l326;
-  if (!yy_NullCoalescing(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_MALFORMED_TERNARY, "Expected expression between ? and : in ternary expression!\n") ; } goto l326; }
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l326;
-  if (!yy_COLON(G))  goto l326;
-  if (!yy_WS(G))  goto l326;
-  if (!yy_NullCoalescing(G))  goto l326;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Ternary, G->begin, G->end, "yy_2_Ternary");
-  goto l327;
-  l326:;	  G->pos= yypos326; G->thunkpos= yythunkpos326;
-  }
-  l327:;	  yyprintf((stderr, "  ok   Ternary"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l327:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Ternary"));
-=======
-  l325:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Ternary"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9779,7 +9054,6 @@ YY_RULE(int) yy_Ternary(GREG *G)
 YY_RULE(int) yy_Assignment(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Assignment"));
-<<<<<<< HEAD
   if (!yy_Ternary(G))  goto l330;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -9873,122 +9147,18 @@ YY_RULE(int) yy_Assignment(GREG *G)
   yyDo(G, yy_25_Assignment, G->begin, G->end, "yy_25_Assignment");
   if (!yy_WS(G))  goto l332;
   if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("&=") ; } goto l332; }
-=======
-  if (!yy_Ternary(G))  goto l328;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  l329:;	
-  {  int yypos330= G->pos, yythunkpos330= G->thunkpos;
-  {  int yypos331= G->pos, yythunkpos331= G->thunkpos;  if (!yy_ASS(G))  goto l332;
-  yyDo(G, yy_1_Assignment, G->begin, G->end, "yy_1_Assignment");
-  if (!yy_WS(G))  goto l332;
-  if (!yy_Ternary(G))  goto l332;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Assignment, G->begin, G->end, "yy_2_Assignment");
-  goto l331;
-  l332:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS(G))  goto l333;
-  yyDo(G, yy_3_Assignment, G->begin, G->end, "yy_3_Assignment");
-  if (!yy_WS(G))  goto l333;
-  if (!yy_AnonymousFunctionDecl(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("=") ; } goto l333; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_4_Assignment, G->begin, G->end, "yy_4_Assignment");
-  goto l331;
-  l333:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_ADD(G))  goto l334;
-  yyDo(G, yy_5_Assignment, G->begin, G->end, "yy_5_Assignment");
-  if (!yy_WS(G))  goto l334;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("+=") ; } goto l334; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_6_Assignment, G->begin, G->end, "yy_6_Assignment");
-  goto l331;
-  l334:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_MOD(G))  goto l335;
-  yyDo(G, yy_7_Assignment, G->begin, G->end, "yy_7_Assignment");
-  if (!yy_WS(G))  goto l335;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("%=") ; } goto l335; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_8_Assignment, G->begin, G->end, "yy_8_Assignment");
-  goto l331;
-  l335:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_SUB(G))  goto l336;
-  yyDo(G, yy_9_Assignment, G->begin, G->end, "yy_9_Assignment");
-  if (!yy_WS(G))  goto l336;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("-=") ; } goto l336; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_10_Assignment, G->begin, G->end, "yy_10_Assignment");
-  goto l331;
-  l336:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_MUL(G))  goto l337;
-  yyDo(G, yy_11_Assignment, G->begin, G->end, "yy_11_Assignment");
-  if (!yy_WS(G))  goto l337;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("*=") ; } goto l337; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_12_Assignment, G->begin, G->end, "yy_12_Assignment");
-  goto l331;
-  l337:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_EXP(G))  goto l338;
-  yyDo(G, yy_13_Assignment, G->begin, G->end, "yy_13_Assignment");
-  if (!yy_WS(G))  goto l338;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("**=") ; } goto l338; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_14_Assignment, G->begin, G->end, "yy_14_Assignment");
-  goto l331;
-  l338:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_DIV(G))  goto l339;
-  yyDo(G, yy_15_Assignment, G->begin, G->end, "yy_15_Assignment");
-  if (!yy_WS(G))  goto l339;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("/=") ; } goto l339; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_16_Assignment, G->begin, G->end, "yy_16_Assignment");
-  goto l331;
-  l339:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_B_LSHIFT(G))  goto l340;
-  yyDo(G, yy_17_Assignment, G->begin, G->end, "yy_17_Assignment");
-  if (!yy_WS(G))  goto l340;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("<<=") ; } goto l340; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_18_Assignment, G->begin, G->end, "yy_18_Assignment");
-  goto l331;
-  l340:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_B_RSHIFT(G))  goto l341;
-  yyDo(G, yy_19_Assignment, G->begin, G->end, "yy_19_Assignment");
-  if (!yy_WS(G))  goto l341;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp(">>=") ; } goto l341; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_20_Assignment, G->begin, G->end, "yy_20_Assignment");
-  goto l331;
-  l341:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_B_XOR(G))  goto l342;
-  yyDo(G, yy_21_Assignment, G->begin, G->end, "yy_21_Assignment");
-  if (!yy_WS(G))  goto l342;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("^=") ; } goto l342; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_22_Assignment, G->begin, G->end, "yy_22_Assignment");
-  goto l331;
-  l342:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_B_OR(G))  goto l343;
-  yyDo(G, yy_23_Assignment, G->begin, G->end, "yy_23_Assignment");
-  if (!yy_WS(G))  goto l343;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("|=") ; } goto l343; }
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_24_Assignment, G->begin, G->end, "yy_24_Assignment");
-  goto l331;
-  l343:;	  G->pos= yypos331; G->thunkpos= yythunkpos331;  if (!yy_ASS_B_AND(G))  goto l330;
-  yyDo(G, yy_25_Assignment, G->begin, G->end, "yy_25_Assignment");
-  if (!yy_WS(G))  goto l330;
-  if (!yy_Ternary(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("&=") ; } goto l330; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_26_Assignment, G->begin, G->end, "yy_26_Assignment");
 
   }
-<<<<<<< HEAD
   l333:;	  goto l331;
   l332:;	  G->pos= yypos332; G->thunkpos= yythunkpos332;
-=======
-  l331:;	  goto l329;
-  l330:;	  G->pos= yypos330; G->thunkpos= yythunkpos330;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Assignment"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l330:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Assignment"));
-=======
-  l328:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Assignment"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -9997,28 +9167,17 @@ YY_RULE(int) yy_Assignment(GREG *G)
 YY_RULE(int) yy_FunctionCall(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "FunctionCall"));
-<<<<<<< HEAD
   if (!yy_IDENT(G))  goto l346;
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_1_FunctionCall, G->begin, G->end, "yy_1_FunctionCall");
   if (!yy_FunctionCallCore(G))  goto l346;
-=======
-  if (!yy_IDENT(G))  goto l344;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_FunctionCall, G->begin, G->end, "yy_1_FunctionCall");
-  if (!yy_FunctionCallCore(G))  goto l344;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_2_FunctionCall, G->begin, G->end, "yy_2_FunctionCall");
   yyprintf((stderr, "  ok   FunctionCall"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l346:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionCall"));
-=======
-  l344:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionCall"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10026,21 +9185,13 @@ YY_RULE(int) yy_FunctionCall(GREG *G)
 }
 YY_RULE(int) yy_BinaryOperation(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "BinaryOperation"));
-<<<<<<< HEAD
   if (!yy_Assignment(G))  goto l347;
-=======
-  if (!yy_Assignment(G))  goto l345;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   BinaryOperation"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l347:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryOperation"));
-=======
-  l345:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BinaryOperation"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10049,21 +9200,12 @@ YY_RULE(int) yy_BinaryOperation(GREG *G)
 YY_RULE(int) yy_DoubleArrow(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "DoubleArrow"));
-<<<<<<< HEAD
   if (!yy_Assignment(G))  goto l348;
   yyDo(G, yySet, -2, 0, "yySet");
   if (!yy_DOUBLE_ARROW(G))  goto l348;
   yyDo(G, yy_1_DoubleArrow, G->begin, G->end, "yy_1_DoubleArrow");
   if (!yy_WS(G))  goto l348;
   if (!yy_Expr(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("=>") ; } goto l348; }
-=======
-  if (!yy_Assignment(G))  goto l346;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_DOUBLE_ARROW(G))  goto l346;
-  yyDo(G, yy_1_DoubleArrow, G->begin, G->end, "yy_1_DoubleArrow");
-  if (!yy_WS(G))  goto l346;
-  if (!yy_Expr(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;   missingOp("=>") ; } goto l346; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_2_DoubleArrow, G->begin, G->end, "yy_2_DoubleArrow");
   yyprintf((stderr, "  ok   DoubleArrow"));
@@ -10071,11 +9213,7 @@ YY_RULE(int) yy_DoubleArrow(GREG *G)
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l348:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DoubleArrow"));
-=======
-  l346:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DoubleArrow"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10083,21 +9221,13 @@ YY_RULE(int) yy_DoubleArrow(GREG *G)
 }
 YY_RULE(int) yy_RETURN_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "RETURN_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "return")) goto l349;
-=======
-  if (!yymatchString(G, "return")) goto l347;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   RETURN_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l349:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "RETURN_KW"));
-=======
-  l347:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "RETURN_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10105,21 +9235,13 @@ YY_RULE(int) yy_RETURN_KW(GREG *G)
 }
 YY_RULE(int) yy_WHILE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "WHILE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "while")) goto l350;
-=======
-  if (!yymatchString(G, "while")) goto l348;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   WHILE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l350:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "WHILE_KW"));
-=======
-  l348:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "WHILE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10127,21 +9249,13 @@ YY_RULE(int) yy_WHILE_KW(GREG *G)
 }
 YY_RULE(int) yy_IN_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "IN_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "in")) goto l351;
-=======
-  if (!yymatchString(G, "in")) goto l349;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   IN_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l351:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IN_KW"));
-=======
-  l349:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IN_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10149,21 +9263,13 @@ YY_RULE(int) yy_IN_KW(GREG *G)
 }
 YY_RULE(int) yy_FOR_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FOR_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "for")) goto l352;
-=======
-  if (!yymatchString(G, "for")) goto l350;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FOR_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l352:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FOR_KW"));
-=======
-  l350:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FOR_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10173,7 +9279,6 @@ YY_RULE(int) yy_ImplicitDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ImplicitDecl"));
 
-<<<<<<< HEAD
   {  int yypos354= G->pos, yythunkpos354= G->thunkpos;  if (!yy_VariableDecl(G))  goto l355;
   yyDo(G, yySet, -3, 0, "yySet");
   yyDo(G, yy_1_ImplicitDecl, G->begin, G->end, "yy_1_ImplicitDecl");
@@ -10183,35 +9288,16 @@ YY_RULE(int) yy_ImplicitDecl(GREG *G)
   yyDo(G, yy_2_ImplicitDecl, G->begin, G->end, "yy_2_ImplicitDecl");
   goto l354;
   l356:;	  G->pos= yypos354; G->thunkpos= yythunkpos354;  if (!yy_IDENT(G))  goto l353;
-=======
-  {  int yypos352= G->pos, yythunkpos352= G->thunkpos;  if (!yy_VariableDecl(G))  goto l353;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_ImplicitDecl, G->begin, G->end, "yy_1_ImplicitDecl");
-  goto l352;
-  l353:;	  G->pos= yypos352; G->thunkpos= yythunkpos352;  if (!yy_Tuple(G))  goto l354;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_ImplicitDecl, G->begin, G->end, "yy_2_ImplicitDecl");
-  goto l352;
-  l354:;	  G->pos= yypos352; G->thunkpos= yythunkpos352;  if (!yy_IDENT(G))  goto l351;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_3_ImplicitDecl, G->begin, G->end, "yy_3_ImplicitDecl");
 
   }
-<<<<<<< HEAD
   l354:;	  yyprintf((stderr, "  ok   ImplicitDecl"));
-=======
-  l352:;	  yyprintf((stderr, "  ok   ImplicitDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l353:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImplicitDecl"));
-=======
-  l351:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImplicitDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10219,21 +9305,13 @@ YY_RULE(int) yy_ImplicitDecl(GREG *G)
 }
 YY_RULE(int) yy_CONTINUE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CONTINUE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "continue")) goto l357;
-=======
-  if (!yymatchString(G, "continue")) goto l355;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CONTINUE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l357:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CONTINUE_KW"));
-=======
-  l355:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CONTINUE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10241,21 +9319,13 @@ YY_RULE(int) yy_CONTINUE_KW(GREG *G)
 }
 YY_RULE(int) yy_BREAK_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "BREAK_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "break")) goto l358;
-=======
-  if (!yymatchString(G, "break")) goto l356;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   BREAK_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l358:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BREAK_KW"));
-=======
-  l356:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "BREAK_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10263,22 +9333,14 @@ YY_RULE(int) yy_BREAK_KW(GREG *G)
 }
 YY_RULE(int) yy_Continue(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Continue"));
-<<<<<<< HEAD
   if (!yy_CONTINUE_KW(G))  goto l359;
-=======
-  if (!yy_CONTINUE_KW(G))  goto l357;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_1_Continue, G->begin, G->end, "yy_1_Continue");
   yyprintf((stderr, "  ok   Continue"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l359:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Continue"));
-=======
-  l357:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Continue"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10286,22 +9348,14 @@ YY_RULE(int) yy_Continue(GREG *G)
 }
 YY_RULE(int) yy_Break(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Break"));
-<<<<<<< HEAD
   if (!yy_BREAK_KW(G))  goto l360;
-=======
-  if (!yy_BREAK_KW(G))  goto l358;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_1_Break, G->begin, G->end, "yy_1_Break");
   yyprintf((stderr, "  ok   Break"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l360:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Break"));
-=======
-  l358:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Break"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10310,7 +9364,6 @@ YY_RULE(int) yy_Break(GREG *G)
 YY_RULE(int) yy_While(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "While"));
-<<<<<<< HEAD
   if (!yy_WHILE_KW(G))  goto l361;
   yyDo(G, yy_1_While, G->begin, G->end, "yy_1_While");
   if (!yy_WS(G))  goto l361;
@@ -10325,33 +9378,13 @@ YY_RULE(int) yy_While(GREG *G)
   if (!yy__(G))  goto l361;
   if (!yy_Body(G))  goto l361;
   if (!yy__(G))  goto l361;
-=======
-  if (!yy_WHILE_KW(G))  goto l359;
-  yyDo(G, yy_1_While, G->begin, G->end, "yy_1_While");
-  if (!yy_WS(G))  goto l359;
-  if (!yymatchChar(G, '(')) goto l359;
-  if (!yy_WS(G))  goto l359;
-  if (!yy__(G))  goto l359;
-  if (!yy_Expr(G))  goto l359;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_WS(G))  goto l359;
-  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_PAREN, "Malformed while! Expected ')' to close condition.\n"); ; } goto l359; }
-  yyDo(G, yy_2_While, G->begin, G->end, "yy_2_While");
-  if (!yy__(G))  goto l359;
-  if (!yy_Body(G))  goto l359;
-  if (!yy__(G))  goto l359;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_While, G->begin, G->end, "yy_3_While");
   yyprintf((stderr, "  ok   While"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l361:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "While"));
-=======
-  l359:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "While"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10360,7 +9393,6 @@ YY_RULE(int) yy_While(GREG *G)
 YY_RULE(int) yy_Foreach(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Foreach"));
-<<<<<<< HEAD
   if (!yy_FOR_KW(G))  goto l362;
   yyDo(G, yy_1_Foreach, G->begin, G->end, "yy_1_Foreach");
   if (!yy_WS(G))  goto l362;
@@ -10380,38 +9412,13 @@ YY_RULE(int) yy_Foreach(GREG *G)
   if (!yy__(G))  goto l362;
   if (!yy_Body(G))  goto l362;
   if (!yy__(G))  goto l362;
-=======
-  if (!yy_FOR_KW(G))  goto l360;
-  yyDo(G, yy_1_Foreach, G->begin, G->end, "yy_1_Foreach");
-  if (!yy_WS(G))  goto l360;
-  if (!yymatchChar(G, '(')) goto l360;
-  if (!yy_WS(G))  goto l360;
-  if (!yy__(G))  goto l360;
-  if (!yy_ImplicitDecl(G))  goto l360;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l360;
-  if (!yy_IN_KW(G))  goto l360;
-  if (!yy__(G))  goto l360;
-  if (!yy_Expr(G))  goto l360;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_WS(G))  goto l360;
-  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_PAREN, "Malformed foreach, expected ')' to close condition!\n") ; } goto l360; }
-  yyDo(G, yy_2_Foreach, G->begin, G->end, "yy_2_Foreach");
-  if (!yy__(G))  goto l360;
-  if (!yy_Body(G))  goto l360;
-  if (!yy__(G))  goto l360;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_Foreach, G->begin, G->end, "yy_3_Foreach");
   yyprintf((stderr, "  ok   Foreach"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l362:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Foreach"));
-=======
-  l360:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Foreach"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10419,21 +9426,13 @@ YY_RULE(int) yy_Foreach(GREG *G)
 }
 YY_RULE(int) yy_CATCH_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CATCH_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "catch")) goto l363;
-=======
-  if (!yymatchString(G, "catch")) goto l361;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CATCH_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l363:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CATCH_KW"));
-=======
-  l361:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CATCH_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10442,7 +9441,6 @@ YY_RULE(int) yy_CATCH_KW(GREG *G)
 YY_RULE(int) yy_Catch(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Catch"));
-<<<<<<< HEAD
   if (!yy_CATCH_KW(G))  goto l364;
   yyDo(G, yy_1_Catch, G->begin, G->end, "yy_1_Catch");
 
@@ -10466,42 +9464,13 @@ YY_RULE(int) yy_Catch(GREG *G)
   l368:;	  G->pos= yypos368; G->thunkpos= yythunkpos368;
   }  if (!yy_WS(G))  goto l364;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_CLOSING_BRACK, "Expected statement or '"_CSBRACK"' to close catch block."); ; } goto l364; }
-=======
-  if (!yy_CATCH_KW(G))  goto l362;
-  yyDo(G, yy_1_Catch, G->begin, G->end, "yy_1_Catch");
-
-  {  int yypos363= G->pos, yythunkpos363= G->thunkpos;  if (!yy__(G))  goto l363;
-  if (!yy_Expr(G))  goto l363;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_Catch, G->begin, G->end, "yy_2_Catch");
-  goto l364;
-  l363:;	  G->pos= yypos363; G->thunkpos= yythunkpos363;
-  }
-  l364:;	  if (!yy_WS(G))  goto l362;
-  if (!yymatchChar(G, '{')) goto l362;
-
-  l365:;	
-  {  int yypos366= G->pos, yythunkpos366= G->thunkpos;  if (!yy_WS(G))  goto l366;
-  if (!yy_Stmt(G))  goto l366;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_WS(G))  goto l366;
-  yyDo(G, yy_3_Catch, G->begin, G->end, "yy_3_Catch");
-  goto l365;
-  l366:;	  G->pos= yypos366; G->thunkpos= yythunkpos366;
-  }  if (!yy_WS(G))  goto l362;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_CLOSING_BRACK, "Expected statement or '"_CSBRACK"' to close catch block."); ; } goto l362; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_4_Catch, G->begin, G->end, "yy_4_Catch");
   yyprintf((stderr, "  ok   Catch"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l364:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Catch"));
-=======
-  l362:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Catch"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10509,21 +9478,13 @@ YY_RULE(int) yy_Catch(GREG *G)
 }
 YY_RULE(int) yy_TRY_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "TRY_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "try")) goto l369;
-=======
-  if (!yymatchString(G, "try")) goto l367;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   TRY_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l369:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TRY_KW"));
-=======
-  l367:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TRY_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10533,7 +9494,6 @@ YY_RULE(int) yy_Value(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Value"));
 
-<<<<<<< HEAD
   {  int yypos371= G->pos, yythunkpos371= G->thunkpos;  if (!yymatchChar(G, '-')) goto l372;
   if (!yy__(G))  goto l372;
   if (!yymatchChar(G, '(')) goto l372;
@@ -10596,79 +9556,11 @@ YY_RULE(int) yy_Value(GREG *G)
 
   }
   l371:;	  yyprintf((stderr, "  ok   Value"));
-=======
-  {  int yypos369= G->pos, yythunkpos369= G->thunkpos;  if (!yymatchChar(G, '-')) goto l370;
-  if (!yy__(G))  goto l370;
-  if (!yymatchChar(G, '(')) goto l370;
-  yyDo(G, yy_1_Value, G->begin, G->end, "yy_1_Value");
-  if (!yy_WS(G))  goto l370;
-  if (!yy_Expr(G))  goto l370;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_WS(G))  goto l370;
-  if (!yymatchChar(G, ')')) goto l370;
-  yyDo(G, yy_2_Value, G->begin, G->end, "yy_2_Value");
-  if (!yy__(G))  goto l370;
-  goto l369;
-  l370:;	  G->pos= yypos369; G->thunkpos= yythunkpos369;  if (!yymatchChar(G, '+')) goto l371;
-  if (!yy__(G))  goto l371;
-  if (!yymatchChar(G, '(')) goto l371;
-  yyDo(G, yy_3_Value, G->begin, G->end, "yy_3_Value");
-  if (!yy_WS(G))  goto l371;
-  if (!yy_Expr(G))  goto l371;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_WS(G))  goto l371;
-  if (!yymatchChar(G, ')')) goto l371;
-  yyDo(G, yy_4_Value, G->begin, G->end, "yy_4_Value");
-  if (!yy__(G))  goto l371;
-  goto l369;
-  l371:;	  G->pos= yypos369; G->thunkpos= yythunkpos369;  if (!yymatchChar(G, '-')) goto l372;
-  if (!yy__(G))  goto l372;
-  yyDo(G, yy_5_Value, G->begin, G->end, "yy_5_Value");
-  if (!yy_SafeNavAccess(G))  goto l372;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_6_Value, G->begin, G->end, "yy_6_Value");
-  goto l369;
-  l372:;	  G->pos= yypos369; G->thunkpos= yythunkpos369;  if (!yymatchChar(G, '+')) goto l373;
-  if (!yy__(G))  goto l373;
-  yyDo(G, yy_7_Value, G->begin, G->end, "yy_7_Value");
-  if (!yy_SafeNavAccess(G))  goto l373;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_8_Value, G->begin, G->end, "yy_8_Value");
-  goto l369;
-  l373:;	  G->pos= yypos369; G->thunkpos= yythunkpos369;  if (!yymatchChar(G, '(')) goto l374;
-  yyDo(G, yy_9_Value, G->begin, G->end, "yy_9_Value");
-  if (!yy_WS(G))  goto l374;
-  if (!yy_Expr(G))  goto l374;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_WS(G))  goto l374;
-  if (!yymatchChar(G, ')')) goto l374;
-  yyDo(G, yy_10_Value, G->begin, G->end, "yy_10_Value");
-
-  {  int yypos375= G->pos, yythunkpos375= G->thunkpos;  if (!yymatchChar(G, '&')) goto l375;
-
-  {  int yypos377= G->pos, yythunkpos377= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\100\000\000\040\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "&=")) goto l377;
-  goto l375;
-  l377:;	  G->pos= yypos377; G->thunkpos= yythunkpos377;
-  }  yyDo(G, yy_11_Value, G->begin, G->end, "yy_11_Value");
-  goto l376;
-  l375:;	  G->pos= yypos375; G->thunkpos= yythunkpos375;
-  }
-  l376:;	  if (!yy__(G))  goto l374;
-  goto l369;
-  l374:;	  G->pos= yypos369; G->thunkpos= yythunkpos369;  if (!yy_ValueCore(G))  goto l368;
-
-  }
-  l369:;	  yyprintf((stderr, "  ok   Value"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l370:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Value"));
-=======
-  l368:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Value"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10676,21 +9568,13 @@ YY_RULE(int) yy_Value(GREG *G)
 }
 YY_RULE(int) yy_MATCH_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "MATCH_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "match")) goto l380;
-=======
-  if (!yymatchString(G, "match")) goto l378;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   MATCH_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l380:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MATCH_KW"));
-=======
-  l378:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MATCH_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10698,21 +9582,13 @@ YY_RULE(int) yy_MATCH_KW(GREG *G)
 }
 YY_RULE(int) yy_DOUBLE_ARROW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "DOUBLE_ARROW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "=>")) goto l381;
-=======
-  if (!yymatchString(G, "=>")) goto l379;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   DOUBLE_ARROW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l381:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOUBLE_ARROW"));
-=======
-  l379:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOUBLE_ARROW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10722,7 +9598,6 @@ YY_RULE(int) yy_CaseExpr(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "CaseExpr"));
 
-<<<<<<< HEAD
   {  int yypos383= G->pos, yythunkpos383= G->thunkpos;  if (!yy_VariableDecl(G))  goto l384;
   yyDo(G, yySet, -3, 0, "yySet");
   if (!yy__(G))  goto l384;
@@ -10752,46 +9627,11 @@ YY_RULE(int) yy_CaseExpr(GREG *G)
 
   }
   l383:;	  yyprintf((stderr, "  ok   CaseExpr"));
-=======
-  {  int yypos381= G->pos, yythunkpos381= G->thunkpos;  if (!yy_VariableDecl(G))  goto l382;
-  yyDo(G, yySet, -3, 0, "yySet");
-  if (!yy__(G))  goto l382;
-  goto l381;
-  l382:;	  G->pos= yypos381; G->thunkpos= yythunkpos381;  if (!yy_BinaryOperation(G))  goto l383;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l383;
-
-  l384:;	
-  {  int yypos385= G->pos, yythunkpos385= G->thunkpos;  if (!yy__(G))  goto l385;
-  if (!yymatchChar(G, '.')) goto l385;
-  yyDo(G, yy_1_CaseExpr, G->begin, G->end, "yy_1_CaseExpr");
-  if (!yy_WS(G))  goto l385;
-  if (!yy_FunctionCall(G))  goto l385;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_CaseExpr, G->begin, G->end, "yy_2_CaseExpr");
-  goto l384;
-  l385:;	  G->pos= yypos385; G->thunkpos= yythunkpos385;
-  }  goto l381;
-  l383:;	  G->pos= yypos381; G->thunkpos= yythunkpos381;  if (!yy_AnonymousFunctionDecl(G))  goto l386;
-  goto l381;
-  l386:;	  G->pos= yypos381; G->thunkpos= yythunkpos381;  if (!yymatchChar(G, '(')) goto l380;
-  if (!yy__(G))  goto l380;
-  if (!yy_Expr(G))  goto l380;
-  if (!yy__(G))  goto l380;
-  if (!yymatchChar(G, ')')) goto l380;
-
-  }
-  l381:;	  yyprintf((stderr, "  ok   CaseExpr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l382:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CaseExpr"));
-=======
-  l380:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CaseExpr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10799,21 +9639,13 @@ YY_RULE(int) yy_CaseExpr(GREG *G)
 }
 YY_RULE(int) yy_CASE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CASE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "case")) goto l389;
-=======
-  if (!yymatchString(G, "case")) goto l387;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CASE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l389:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CASE_KW"));
-=======
-  l387:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CASE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10822,7 +9654,6 @@ YY_RULE(int) yy_CASE_KW(GREG *G)
 YY_RULE(int) yy_Case(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Case"));
-<<<<<<< HEAD
   if (!yy_CASE_KW(G))  goto l390;
   yyDo(G, yy_1_Case, G->begin, G->end, "yy_1_Case");
 
@@ -10845,41 +9676,13 @@ YY_RULE(int) yy_Case(GREG *G)
   goto l393;
   l394:;	  G->pos= yypos394; G->thunkpos= yythunkpos394;
   }  if (!yy_WS(G))  goto l390;
-=======
-  if (!yy_CASE_KW(G))  goto l388;
-  yyDo(G, yy_1_Case, G->begin, G->end, "yy_1_Case");
-
-  {  int yypos389= G->pos, yythunkpos389= G->thunkpos;  if (!yy__(G))  goto l389;
-  if (!yy_CaseExpr(G))  goto l389;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_Case, G->begin, G->end, "yy_2_Case");
-  goto l390;
-  l389:;	  G->pos= yypos389; G->thunkpos= yythunkpos389;
-  }
-  l390:;	  if (!yy_WS(G))  goto l388;
-  if (!yy_DOUBLE_ARROW(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_DOUBLE_ARROW, "Expected double arrow after case expression!\n"); ; } goto l388; }
-
-  l391:;	
-  {  int yypos392= G->pos, yythunkpos392= G->thunkpos;  if (!yy_WS(G))  goto l392;
-  if (!yy_Stmt(G))  goto l392;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_Case, G->begin, G->end, "yy_3_Case");
-  if (!yy_WS(G))  goto l392;
-  goto l391;
-  l392:;	  G->pos= yypos392; G->thunkpos= yythunkpos392;
-  }  if (!yy_WS(G))  goto l388;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_4_Case, G->begin, G->end, "yy_4_Case");
   yyprintf((stderr, "  ok   Case"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l390:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Case"));
-=======
-  l388:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Case"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10887,21 +9690,13 @@ YY_RULE(int) yy_Case(GREG *G)
 }
 YY_RULE(int) yy_ELSE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ELSE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "else")) goto l395;
-=======
-  if (!yymatchString(G, "else")) goto l393;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ELSE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l395:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ELSE_KW"));
-=======
-  l393:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ELSE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10911,7 +9706,6 @@ YY_RULE(int) yy_Body(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Body"));
 
-<<<<<<< HEAD
   {  int yypos397= G->pos, yythunkpos397= G->thunkpos;  if (!yymatchChar(G, '{')) goto l398;
 
   l399:;	
@@ -10926,40 +9720,16 @@ YY_RULE(int) yy_Body(GREG *G)
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_STATEMENT_OR_CLOSING_BRACKET, "Expected statement or '"_CSBRACK"' to close body.!\n") ; } goto l398; }
   goto l397;
   l398:;	  G->pos= yypos397; G->thunkpos= yythunkpos397;  if (!yy_Stmt(G))  goto l396;
-=======
-  {  int yypos395= G->pos, yythunkpos395= G->thunkpos;  if (!yymatchChar(G, '{')) goto l396;
-
-  l397:;	
-  {  int yypos398= G->pos, yythunkpos398= G->thunkpos;  if (!yy_WS(G))  goto l398;
-  if (!yy_Stmt(G))  goto l398;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_Body, G->begin, G->end, "yy_1_Body");
-  if (!yy_WS(G))  goto l398;
-  goto l397;
-  l398:;	  G->pos= yypos398; G->thunkpos= yythunkpos398;
-  }  if (!yy_WS(G))  goto l396;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_STATEMENT_OR_CLOSING_BRACKET, "Expected statement or '"_CSBRACK"' to close body.!\n") ; } goto l396; }
-  goto l395;
-  l396:;	  G->pos= yypos395; G->thunkpos= yythunkpos395;  if (!yy_Stmt(G))  goto l394;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_2_Body, G->begin, G->end, "yy_2_Body");
 
   }
-<<<<<<< HEAD
   l397:;	  yyprintf((stderr, "  ok   Body"));
-=======
-  l395:;	  yyprintf((stderr, "  ok   Body"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l396:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Body"));
-=======
-  l394:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Body"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10967,21 +9737,13 @@ YY_RULE(int) yy_Body(GREG *G)
 }
 YY_RULE(int) yy_IF_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "IF_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "if")) goto l401;
-=======
-  if (!yymatchString(G, "if")) goto l399;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   IF_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l401:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IF_KW"));
-=======
-  l399:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IF_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -10989,30 +9751,18 @@ YY_RULE(int) yy_IF_KW(GREG *G)
 }
 YY_RULE(int) yy_Else(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Else"));
-<<<<<<< HEAD
   if (!yy_ELSE_KW(G))  goto l402;
   yyDo(G, yy_1_Else, G->begin, G->end, "yy_1_Else");
   yyDo(G, yy_2_Else, G->begin, G->end, "yy_2_Else");
   if (!yy__(G))  goto l402;
   if (!yy_Body(G))  goto l402;
-=======
-  if (!yy_ELSE_KW(G))  goto l400;
-  yyDo(G, yy_1_Else, G->begin, G->end, "yy_1_Else");
-  yyDo(G, yy_2_Else, G->begin, G->end, "yy_2_Else");
-  if (!yy__(G))  goto l400;
-  if (!yy_Body(G))  goto l400;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_Else, G->begin, G->end, "yy_3_Else");
   yyprintf((stderr, "  ok   Else"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l402:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Else"));
-=======
-  l400:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Else"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11021,7 +9771,6 @@ YY_RULE(int) yy_Else(GREG *G)
 YY_RULE(int) yy_If(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "If"));
-<<<<<<< HEAD
   if (!yy_IF_KW(G))  goto l403;
   yyDo(G, yy_1_If, G->begin, G->end, "yy_1_If");
   if (!yy_WS(G))  goto l403;
@@ -11035,32 +9784,13 @@ YY_RULE(int) yy_If(GREG *G)
   if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_PAREN, "Expected if condition or ')'.") ; } goto l403; }
   if (!yy__(G))  goto l403;
   if (!yy_Body(G))  goto l403;
-=======
-  if (!yy_IF_KW(G))  goto l401;
-  yyDo(G, yy_1_If, G->begin, G->end, "yy_1_If");
-  if (!yy_WS(G))  goto l401;
-  if (!yymatchChar(G, '(')) goto l401;
-  if (!yy_WS(G))  goto l401;
-  if (!yy__(G))  goto l401;
-  if (!yy_Expr(G))  goto l401;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_If, G->begin, G->end, "yy_2_If");
-  if (!yy_WS(G))  goto l401;
-  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_PAREN, "Expected if condition or ')'.") ; } goto l401; }
-  if (!yy__(G))  goto l401;
-  if (!yy_Body(G))  goto l401;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_If, G->begin, G->end, "yy_3_If");
   yyprintf((stderr, "  ok   If"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l403:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "If"));
-=======
-  l401:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "If"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11070,7 +9800,6 @@ YY_RULE(int) yy_Return(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Return"));
 
-<<<<<<< HEAD
   {  int yypos405= G->pos, yythunkpos405= G->thunkpos;  if (!yy_RETURN_KW(G))  goto l406;
 
   {  int yypos407= G->pos, yythunkpos407= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\377\377\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z_")) goto l406;
@@ -11091,37 +9820,11 @@ YY_RULE(int) yy_Return(GREG *G)
 
   }
   l405:;	  yyprintf((stderr, "  ok   Return"));
-=======
-  {  int yypos403= G->pos, yythunkpos403= G->thunkpos;  if (!yy_RETURN_KW(G))  goto l404;
-
-  {  int yypos405= G->pos, yythunkpos405= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\377\377\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z_")) goto l404;
-  G->pos= yypos405; G->thunkpos= yythunkpos405;
-  }  yyDo(G, yy_1_Return, G->begin, G->end, "yy_1_Return");
-  if (!yy__(G))  goto l404;
-  if (!yy_Expr(G))  goto l404;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Return, G->begin, G->end, "yy_2_Return");
-  goto l403;
-  l404:;	  G->pos= yypos403; G->thunkpos= yythunkpos403;  if (!yy_RETURN_KW(G))  goto l402;
-
-  {  int yypos406= G->pos, yythunkpos406= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\377\377\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z_")) goto l402;
-  G->pos= yypos406; G->thunkpos= yythunkpos406;
-  }  yyDo(G, yy_3_Return, G->begin, G->end, "yy_3_Return");
-  if (!yy__(G))  goto l402;
-  yyDo(G, yy_4_Return, G->begin, G->end, "yy_4_Return");
-
-  }
-  l403:;	  yyprintf((stderr, "  ok   Return"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l404:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Return"));
-=======
-  l402:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Return"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11129,7 +9832,6 @@ YY_RULE(int) yy_Return(GREG *G)
 }
 YY_RULE(int) yy_Try(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Try"));
-<<<<<<< HEAD
   if (!yy_TRY_KW(G))  goto l409;
   yyDo(G, yy_1_Try, G->begin, G->end, "yy_1_Try");
   if (!yy__(G))  goto l409;
@@ -11141,30 +9843,13 @@ YY_RULE(int) yy_Try(GREG *G)
   if (!yy_WS(G))  goto l411;
   goto l410;
   l411:;	  G->pos= yypos411; G->thunkpos= yythunkpos411;
-=======
-  if (!yy_TRY_KW(G))  goto l407;
-  yyDo(G, yy_1_Try, G->begin, G->end, "yy_1_Try");
-  if (!yy__(G))  goto l407;
-  if (!yy_Body(G))  goto l407;
-
-  l408:;	
-  {  int yypos409= G->pos, yythunkpos409= G->thunkpos;  if (!yy_WS(G))  goto l409;
-  if (!yy_Catch(G))  goto l409;
-  if (!yy_WS(G))  goto l409;
-  goto l408;
-  l409:;	  G->pos= yypos409; G->thunkpos= yythunkpos409;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyDo(G, yy_2_Try, G->begin, G->end, "yy_2_Try");
   yyprintf((stderr, "  ok   Try"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l409:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Try"));
-=======
-  l407:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Try"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11173,7 +9858,6 @@ YY_RULE(int) yy_Try(GREG *G)
 YY_RULE(int) yy_Match(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Match"));
-<<<<<<< HEAD
   if (!yy_MATCH_KW(G))  goto l412;
   yyDo(G, yy_1_Match, G->begin, G->end, "yy_1_Match");
 
@@ -11195,40 +9879,13 @@ YY_RULE(int) yy_Match(GREG *G)
   l416:;	  G->pos= yypos416; G->thunkpos= yythunkpos416;
   }  if (!yy_WS(G))  goto l412;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_CASE_IN_MATCH, "Expected case or '"_CSBRACK"' to close match block.") ; } goto l412; }
-=======
-  if (!yy_MATCH_KW(G))  goto l410;
-  yyDo(G, yy_1_Match, G->begin, G->end, "yy_1_Match");
-
-  {  int yypos411= G->pos, yythunkpos411= G->thunkpos;  if (!yy__(G))  goto l411;
-  if (!yy_Value(G))  goto l411;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Match, G->begin, G->end, "yy_2_Match");
-  goto l412;
-  l411:;	  G->pos= yypos411; G->thunkpos= yythunkpos411;
-  }
-  l412:;	  if (!yy_WS(G))  goto l410;
-  if (!yymatchChar(G, '{')) goto l410;
-
-  l413:;	
-  {  int yypos414= G->pos, yythunkpos414= G->thunkpos;  if (!yy_WS(G))  goto l414;
-  if (!yy_Case(G))  goto l414;
-  if (!yy_WS(G))  goto l414;
-  goto l413;
-  l414:;	  G->pos= yypos414; G->thunkpos= yythunkpos414;
-  }  if (!yy_WS(G))  goto l410;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_CASE_IN_MATCH, "Expected case or '"_CSBRACK"' to close match block.") ; } goto l410; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_Match, G->begin, G->end, "yy_3_Match");
   yyprintf((stderr, "  ok   Match"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l412:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Match"));
-=======
-  l410:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Match"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11237,7 +9894,6 @@ YY_RULE(int) yy_Match(GREG *G)
 YY_RULE(int) yy_FlowControl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FlowControl"));
 
-<<<<<<< HEAD
   {  int yypos418= G->pos, yythunkpos418= G->thunkpos;  if (!yy_Foreach(G))  goto l419;
   goto l418;
   l419:;	  G->pos= yypos418; G->thunkpos= yythunkpos418;  if (!yy_While(G))  goto l420;
@@ -11248,27 +9904,11 @@ YY_RULE(int) yy_FlowControl(GREG *G)
 
   }
   l418:;	  yyprintf((stderr, "  ok   FlowControl"));
-=======
-  {  int yypos416= G->pos, yythunkpos416= G->thunkpos;  if (!yy_Foreach(G))  goto l417;
-  goto l416;
-  l417:;	  G->pos= yypos416; G->thunkpos= yythunkpos416;  if (!yy_While(G))  goto l418;
-  goto l416;
-  l418:;	  G->pos= yypos416; G->thunkpos= yythunkpos416;  if (!yy_Break(G))  goto l419;
-  goto l416;
-  l419:;	  G->pos= yypos416; G->thunkpos= yythunkpos416;  if (!yy_Continue(G))  goto l415;
-
-  }
-  l416:;	  yyprintf((stderr, "  ok   FlowControl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l417:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FlowControl"));
-=======
-  l415:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FlowControl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11277,7 +9917,6 @@ YY_RULE(int) yy_FlowControl(GREG *G)
 YY_RULE(int) yy_Block(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Block"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '{')) goto l422;
   yyDo(G, yy_1_Block, G->begin, G->end, "yy_1_Block");
 
@@ -11291,32 +9930,13 @@ YY_RULE(int) yy_Block(GREG *G)
   l424:;	  G->pos= yypos424; G->thunkpos= yythunkpos424;
   }  if (!yy_WS(G))  goto l422;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_BRACK, "Expected statement or '"_CSBRACK"' to close block."); ; } goto l422; }
-=======
-  if (!yymatchChar(G, '{')) goto l420;
-  yyDo(G, yy_1_Block, G->begin, G->end, "yy_1_Block");
-
-  l421:;	
-  {  int yypos422= G->pos, yythunkpos422= G->thunkpos;  if (!yy_WS(G))  goto l422;
-  if (!yy_Stmt(G))  goto l422;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Block, G->begin, G->end, "yy_2_Block");
-  if (!yy_WS(G))  goto l422;
-  goto l421;
-  l422:;	  G->pos= yypos422; G->thunkpos= yythunkpos422;
-  }  if (!yy_WS(G))  goto l420;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_BRACK, "Expected statement or '"_CSBRACK"' to close block."); ; } goto l420; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_Block, G->begin, G->end, "yy_3_Block");
   yyprintf((stderr, "  ok   Block"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l422:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Block"));
-=======
-  l420:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Block"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11325,7 +9945,6 @@ YY_RULE(int) yy_Block(GREG *G)
 YY_RULE(int) yy_Conditional(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Conditional"));
-<<<<<<< HEAD
   if (!yy_If(G))  goto l425;
   yyDo(G, yySet, -2, 0, "yySet");
 
@@ -11337,24 +9956,10 @@ YY_RULE(int) yy_Conditional(GREG *G)
   l426:;	  G->pos= yypos426; G->thunkpos= yythunkpos426;
   }
   l427:;	  yyprintf((stderr, "  ok   Conditional"));
-=======
-  if (!yy_If(G))  goto l423;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  {  int yypos424= G->pos, yythunkpos424= G->thunkpos;  if (!yy_WS(G))  goto l424;
-  if (!yy_Else(G))  goto l424;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_Conditional, G->begin, G->end, "yy_1_Conditional");
-  goto l425;
-  l424:;	  G->pos= yypos424; G->thunkpos= yythunkpos424;
-  }
-  l425:;	  yyprintf((stderr, "  ok   Conditional"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l425:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Conditional"));
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
@@ -11402,9 +10007,6 @@ YY_RULE(int) yy_PreprocessorBeginRegion(GREG *G)
 
   return 1;
   l432:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PreprocessorBeginRegion"));
-=======
-  l423:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Conditional"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11412,7 +10014,6 @@ YY_RULE(int) yy_PreprocessorBeginRegion(GREG *G)
 }
 YY_RULE(int) yy_CommentLine(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CommentLine"));
-<<<<<<< HEAD
   if (!yymatchString(G, "//")) goto l436;
 
   l437:;	
@@ -11423,28 +10024,12 @@ YY_RULE(int) yy_CommentLine(GREG *G)
   }  if (!yymatchDot(G)) goto l438;  goto l437;
   l438:;	  G->pos= yypos438; G->thunkpos= yythunkpos438;
   }  if (!yy_EOL(G))  goto l436;
-=======
-  if (!yymatchString(G, "//")) goto l426;
-
-  l427:;	
-  {  int yypos428= G->pos, yythunkpos428= G->thunkpos;
-  {  int yypos429= G->pos, yythunkpos429= G->thunkpos;  if (!yy_EOL(G))  goto l429;
-  goto l428;
-  l429:;	  G->pos= yypos429; G->thunkpos= yythunkpos429;
-  }  if (!yymatchDot(G)) goto l428;  goto l427;
-  l428:;	  G->pos= yypos428; G->thunkpos= yythunkpos428;
-  }  if (!yy_EOL(G))  goto l426;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CommentLine"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l436:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CommentLine"));
-=======
-  l426:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CommentLine"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11453,7 +10038,6 @@ YY_RULE(int) yy_CommentLine(GREG *G)
 YY_RULE(int) yy_EoledStatement(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "EoledStatement"));
 
-<<<<<<< HEAD
   {  int yypos441= G->pos, yythunkpos441= G->thunkpos;  if (!yy_WS(G))  goto l442;
   if (!yy_Return(G))  goto l442;
   goto l441;
@@ -11465,28 +10049,11 @@ YY_RULE(int) yy_EoledStatement(GREG *G)
 
   }
   l441:;	  yyprintf((stderr, "  ok   EoledStatement"));
-=======
-  {  int yypos431= G->pos, yythunkpos431= G->thunkpos;  if (!yy_WS(G))  goto l432;
-  if (!yy_Return(G))  goto l432;
-  goto l431;
-  l432:;	  G->pos= yypos431; G->thunkpos= yythunkpos431;  if (!yy_WS(G))  goto l433;
-  if (!yy_VariableDecl(G))  goto l433;
-  goto l431;
-  l433:;	  G->pos= yypos431; G->thunkpos= yythunkpos431;  if (!yy_WS(G))  goto l430;
-  if (!yy_Expr(G))  goto l430;
-
-  }
-  l431:;	  yyprintf((stderr, "  ok   EoledStatement"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l440:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EoledStatement"));
-=======
-  l430:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EoledStatement"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11496,7 +10063,6 @@ YY_RULE(int) yy_StmtCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 6, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "StmtCore"));
 
-<<<<<<< HEAD
   {  int yypos445= G->pos, yythunkpos445= G->thunkpos;  if (!yy_EoledStatement(G))  goto l446;
   yyDo(G, yySet, 0, 0, "yySet");
 
@@ -11566,78 +10132,11 @@ YY_RULE(int) yy_StmtCore(GREG *G)
   l462:;	
   }
   l445:;	  yyprintf((stderr, "  ok   StmtCore"));
-=======
-  {  int yypos435= G->pos, yythunkpos435= G->thunkpos;  if (!yy_EoledStatement(G))  goto l436;
-  yyDo(G, yySet, 0, 0, "yySet");
-
-  {  int yypos437= G->pos, yythunkpos437= G->thunkpos;  if (!yy_Terminator(G))  goto l438;
-
-  l439:;	
-  {  int yypos440= G->pos, yythunkpos440= G->thunkpos;  if (!yy_Terminator(G))  goto l440;
-  goto l439;
-  l440:;	  G->pos= yypos440; G->thunkpos= yythunkpos440;
-  }  goto l437;
-  l438:;	  G->pos= yypos437; G->thunkpos= yythunkpos437;  if (!yy_WS(G))  goto l441;
-
-  {  int yypos442= G->pos, yythunkpos442= G->thunkpos;  if (!yymatchChar(G, '}')) goto l441;
-  G->pos= yypos442; G->thunkpos= yythunkpos442;
-  }  goto l437;
-  l441:;	  G->pos= yypos437; G->thunkpos= yythunkpos437;  if (!yy_WS(G))  goto l443;
-
-  {  int yypos444= G->pos, yythunkpos444= G->thunkpos;  if (!yymatchChar(G, ')')) goto l443;
-  G->pos= yypos444; G->thunkpos= yythunkpos444;
-  }  goto l437;
-  l443:;	  G->pos= yypos437; G->thunkpos= yythunkpos437;  if (!yy_WS(G))  goto l445;
-
-  {  int yypos446= G->pos, yythunkpos446= G->thunkpos;  if (!yymatchChar(G, ',')) goto l445;
-  G->pos= yypos446; G->thunkpos= yythunkpos446;
-  }  goto l437;
-  l445:;	  G->pos= yypos437; G->thunkpos= yythunkpos437;
-  {  int yypos447= G->pos, yythunkpos447= G->thunkpos;  if (!yy_CommentLine(G))  goto l436;
-  G->pos= yypos447; G->thunkpos= yythunkpos447;
-  }
-  }
-  l437:;	  goto l435;
-  l436:;	  G->pos= yypos435; G->thunkpos= yythunkpos435;
-  {  int yypos448= G->pos, yythunkpos448= G->thunkpos;  if (!yy_WS(G))  goto l449;
-  if (!yy_Conditional(G))  goto l449;
-  yyDo(G, yySet, 0, 0, "yySet");
-  goto l448;
-  l449:;	  G->pos= yypos448; G->thunkpos= yythunkpos448;  if (!yy_WS(G))  goto l450;
-  if (!yy_Block(G))  goto l450;
-  yyDo(G, yySet, 0, 0, "yySet");
-  goto l448;
-  l450:;	  G->pos= yypos448; G->thunkpos= yythunkpos448;  if (!yy_WS(G))  goto l451;
-  if (!yy_FlowControl(G))  goto l451;
-  yyDo(G, yySet, 0, 0, "yySet");
-
-  l452:;	
-  {  int yypos453= G->pos, yythunkpos453= G->thunkpos;  if (!yy_Terminator(G))  goto l453;
-  goto l452;
-  l453:;	  G->pos= yypos453; G->thunkpos= yythunkpos453;
-  }  goto l448;
-  l451:;	  G->pos= yypos448; G->thunkpos= yythunkpos448;  if (!yy_WS(G))  goto l454;
-  if (!yy_Match(G))  goto l454;
-  yyDo(G, yySet, 0, 0, "yySet");
-  goto l448;
-  l454:;	  G->pos= yypos448; G->thunkpos= yythunkpos448;  if (!yy_WS(G))  goto l434;
-  if (!yy_Try(G))  goto l434;
-  yyDo(G, yySet, 0, 0, "yySet");
-
-  }
-  l448:;	
-  }
-  l435:;	  yyprintf((stderr, "  ok   StmtCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 6, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l444:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "StmtCore"));
-=======
-  l434:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "StmtCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11645,28 +10144,17 @@ YY_RULE(int) yy_StmtCore(GREG *G)
 }
 YY_RULE(int) yy_FuncTypeCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FuncTypeCore"));
-<<<<<<< HEAD
   if (!yymatchString(G, "Func")) goto l469;
 
   {  int yypos470= G->pos, yythunkpos470= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\000\374\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z0-9_")) goto l469;
   G->pos= yypos470; G->thunkpos= yythunkpos470;
-=======
-  if (!yymatchString(G, "Func")) goto l455;
-
-  {  int yypos456= G->pos, yythunkpos456= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\000\374\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z0-9_")) goto l455;
-  G->pos= yypos456; G->thunkpos= yythunkpos456;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyDo(G, yy_1_FuncTypeCore, G->begin, G->end, "yy_1_FuncTypeCore");
   yyprintf((stderr, "  ok   FuncTypeCore"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l469:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FuncTypeCore"));
-=======
-  l455:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FuncTypeCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11680,11 +10168,7 @@ YY_RULE(int) yy_TypeListCore(GREG *G)
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l471:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TypeListCore"));
-=======
-  l457:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TypeListCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11693,7 +10177,6 @@ YY_RULE(int) yy_TypeListCore(GREG *G)
 YY_RULE(int) yy_TypeList(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "TypeList"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '(')) goto l472;
   if (!yy_WS(G))  goto l472;
   if (!yy_TypeListCore(G))  goto l472;
@@ -11713,38 +10196,13 @@ YY_RULE(int) yy_TypeList(GREG *G)
   l474:;	  G->pos= yypos474; G->thunkpos= yythunkpos474;
   }  if (!yymatchChar(G, ')')) goto l472;
   if (!yy__(G))  goto l472;
-=======
-  if (!yymatchChar(G, '(')) goto l458;
-  if (!yy_WS(G))  goto l458;
-  if (!yy_TypeListCore(G))  goto l458;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_Type(G))  goto l458;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_TypeList, G->begin, G->end, "yy_1_TypeList");
-
-  l459:;	
-  {  int yypos460= G->pos, yythunkpos460= G->thunkpos;  if (!yy_WS(G))  goto l460;
-  if (!yymatchChar(G, ',')) goto l460;
-  if (!yy_WS(G))  goto l460;
-  if (!yy_Type(G))  goto l460;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_TypeList, G->begin, G->end, "yy_2_TypeList");
-  goto l459;
-  l460:;	  G->pos= yypos460; G->thunkpos= yythunkpos460;
-  }  if (!yymatchChar(G, ')')) goto l458;
-  if (!yy__(G))  goto l458;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_TypeList, G->begin, G->end, "yy_3_TypeList");
   yyprintf((stderr, "  ok   TypeList"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l472:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TypeList"));
-=======
-  l458:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TypeList"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11758,11 +10216,7 @@ YY_RULE(int) yy_Old(GREG *G)
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l475:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Old"));
-=======
-  l461:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Old"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -11772,7 +10226,6 @@ YY_RULE(int) yy_GenericType(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 5, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "GenericType"));
 
-<<<<<<< HEAD
   {  int yypos477= G->pos, yythunkpos477= G->thunkpos;  if (!yy_Old(G))  goto l478;
   yyDo(G, yySet, -5, 0, "yySet");
   if (!yy__(G))  goto l478;
@@ -11885,129 +10338,11 @@ YY_RULE(int) yy_GenericType(GREG *G)
 
   }
   l477:;	  yyprintf((stderr, "  ok   GenericType"));
-=======
-  {  int yypos463= G->pos, yythunkpos463= G->thunkpos;  if (!yy_Old(G))  goto l464;
-  yyDo(G, yySet, -5, 0, "yySet");
-  if (!yy__(G))  goto l464;
-  if (!yy_IDENT(G))  goto l464;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_1_GenericType, G->begin, G->end, "yy_1_GenericType");
-  if (!yy__(G))  goto l464;
-  if (!yy_TypeBase(G))  goto l464;
-  yyDo(G, yySet, -3, 0, "yySet");
-
-  {  int yypos465= G->pos, yythunkpos465= G->thunkpos;  if (!yy_FuncType(G))  goto l465;
-  goto l464;
-  l465:;	  G->pos= yypos465; G->thunkpos= yythunkpos465;
-  }  yyDo(G, yy_2_GenericType, G->begin, G->end, "yy_2_GenericType");
-  if (!yy__(G))  goto l464;
-  if (!yymatchChar(G, '<')) goto l464;
-  if (!yy__(G))  goto l464;
-  if (!yy_Type(G))  goto l464;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_3_GenericType, G->begin, G->end, "yy_3_GenericType");
-
-  l466:;	
-  {  int yypos467= G->pos, yythunkpos467= G->thunkpos;  if (!yy__(G))  goto l467;
-  if (!yymatchChar(G, ',')) goto l467;
-  if (!yy__(G))  goto l467;
-  if (!yy_Type(G))  goto l467;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_4_GenericType, G->begin, G->end, "yy_4_GenericType");
-  goto l466;
-  l467:;	  G->pos= yypos467; G->thunkpos= yythunkpos467;
-  }  if (!yy__(G))  goto l464;
-  if (!yymatchChar(G, '>')) goto l464;
-  if (!yy__(G))  goto l464;
-
-  l468:;	
-  {  int yypos469= G->pos, yythunkpos469= G->thunkpos;
-  {  int yypos470= G->pos, yythunkpos470= G->thunkpos;  if (!yymatchChar(G, '*')) goto l471;
-  yyDo(G, yy_5_GenericType, G->begin, G->end, "yy_5_GenericType");
-  goto l470;
-  l471:;	  G->pos= yypos470; G->thunkpos= yythunkpos470;  if (!yymatchChar(G, '@')) goto l472;
-  yyDo(G, yy_6_GenericType, G->begin, G->end, "yy_6_GenericType");
-  goto l470;
-  l472:;	  G->pos= yypos470; G->thunkpos= yythunkpos470;  if (!yymatchChar(G, '[')) goto l469;
-  if (!yy_WS(G))  goto l469;
-  yyDo(G, yy_7_GenericType, G->begin, G->end, "yy_7_GenericType");
-  if (!yy__(G))  goto l469;
-
-  {  int yypos473= G->pos, yythunkpos473= G->thunkpos;  if (!yy_Expr(G))  goto l473;
-  yyDo(G, yySet, -1, 0, "yySet");
-  goto l474;
-  l473:;	  G->pos= yypos473; G->thunkpos= yythunkpos473;
-  }
-  l474:;	  if (!yymatchChar(G, ']')) goto l469;
-  yyDo(G, yy_8_GenericType, G->begin, G->end, "yy_8_GenericType");
-
-  }
-  l470:;	  goto l468;
-  l469:;	  G->pos= yypos469; G->thunkpos= yythunkpos469;
-  }  if (!yy__(G))  goto l464;
-  yyDo(G, yy_9_GenericType, G->begin, G->end, "yy_9_GenericType");
-  goto l463;
-  l464:;	  G->pos= yypos463; G->thunkpos= yythunkpos463;  if (!yy_TypeBase(G))  goto l462;
-  yyDo(G, yySet, -3, 0, "yySet");
-  if (!yy__(G))  goto l462;
-  if (!yymatchChar(G, '<')) goto l462;
-  if (!yy__(G))  goto l462;
-  if (!yy_Type(G))  goto l462;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_10_GenericType, G->begin, G->end, "yy_10_GenericType");
-
-  l475:;	
-  {  int yypos476= G->pos, yythunkpos476= G->thunkpos;  if (!yy__(G))  goto l476;
-  if (!yymatchChar(G, ',')) goto l476;
-  if (!yy__(G))  goto l476;
-  if (!yy_Type(G))  goto l476;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_11_GenericType, G->begin, G->end, "yy_11_GenericType");
-  goto l475;
-  l476:;	  G->pos= yypos476; G->thunkpos= yythunkpos476;
-  }  if (!yy__(G))  goto l462;
-  if (!yymatchChar(G, '>')) goto l462;
-  if (!yy__(G))  goto l462;
-
-  l477:;	
-  {  int yypos478= G->pos, yythunkpos478= G->thunkpos;
-  {  int yypos479= G->pos, yythunkpos479= G->thunkpos;  if (!yymatchChar(G, '*')) goto l480;
-  yyDo(G, yy_12_GenericType, G->begin, G->end, "yy_12_GenericType");
-  goto l479;
-  l480:;	  G->pos= yypos479; G->thunkpos= yythunkpos479;  if (!yymatchChar(G, '@')) goto l481;
-  yyDo(G, yy_13_GenericType, G->begin, G->end, "yy_13_GenericType");
-  goto l479;
-  l481:;	  G->pos= yypos479; G->thunkpos= yythunkpos479;  if (!yymatchChar(G, '[')) goto l478;
-  if (!yy_WS(G))  goto l478;
-  yyDo(G, yy_14_GenericType, G->begin, G->end, "yy_14_GenericType");
-  if (!yy__(G))  goto l478;
-
-  {  int yypos482= G->pos, yythunkpos482= G->thunkpos;  if (!yy_Expr(G))  goto l482;
-  yyDo(G, yySet, -1, 0, "yySet");
-  goto l483;
-  l482:;	  G->pos= yypos482; G->thunkpos= yythunkpos482;
-  }
-  l483:;	  if (!yymatchChar(G, ']')) goto l478;
-  yyDo(G, yy_15_GenericType, G->begin, G->end, "yy_15_GenericType");
-
-  }
-  l479:;	  goto l477;
-  l478:;	  G->pos= yypos478; G->thunkpos= yythunkpos478;
-  }  if (!yy__(G))  goto l462;
-  yyDo(G, yy_16_GenericType, G->begin, G->end, "yy_16_GenericType");
-
-  }
-  l463:;	  yyprintf((stderr, "  ok   GenericType"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 5, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l476:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "GenericType"));
-=======
-  l462:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "GenericType"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12016,7 +10351,6 @@ YY_RULE(int) yy_GenericType(GREG *G)
 YY_RULE(int) yy_FuncType(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "FuncType"));
-<<<<<<< HEAD
   if (!yy_FuncTypeCore(G))  goto l498;
   yyDo(G, yySet, -4, 0, "yySet");
 
@@ -12084,85 +10418,12 @@ YY_RULE(int) yy_FuncType(GREG *G)
   l511:;	  G->pos= yypos511; G->thunkpos= yythunkpos511;
   }
   l512:;	  yyDo(G, yy_7_FuncType, G->begin, G->end, "yy_7_FuncType");
-=======
-  if (!yy_FuncTypeCore(G))  goto l484;
-  yyDo(G, yySet, -4, 0, "yySet");
-
-  {  int yypos485= G->pos, yythunkpos485= G->thunkpos;  if (!yy__(G))  goto l485;
-  if (!yymatchChar(G, '<')) goto l485;
-  if (!yy__(G))  goto l485;
-  if (!yy_IDENT(G))  goto l485;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_FuncType, G->begin, G->end, "yy_1_FuncType");
-
-  l487:;	
-  {  int yypos488= G->pos, yythunkpos488= G->thunkpos;  if (!yy__(G))  goto l488;
-  if (!yymatchChar(G, ',')) goto l488;
-  if (!yy__(G))  goto l488;
-  if (!yy_IDENT(G))  goto l488;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_2_FuncType, G->begin, G->end, "yy_2_FuncType");
-  goto l487;
-  l488:;	  G->pos= yypos488; G->thunkpos= yythunkpos488;
-  }  if (!yy__(G))  goto l485;
-  if (!yymatchChar(G, '>')) goto l485;
-  goto l486;
-  l485:;	  G->pos= yypos485; G->thunkpos= yythunkpos485;
-  }
-  l486:;	
-  {  int yypos489= G->pos, yythunkpos489= G->thunkpos;  if (!yy__(G))  goto l489;
-  if (!yymatchChar(G, '(')) goto l489;
-
-  {  int yypos491= G->pos, yythunkpos491= G->thunkpos;  if (!yy__(G))  goto l491;
-  if (!yy_Type(G))  goto l491;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_3_FuncType, G->begin, G->end, "yy_3_FuncType");
-
-  l493:;	
-  {  int yypos494= G->pos, yythunkpos494= G->thunkpos;  if (!yymatchChar(G, ',')) goto l494;
-  if (!yy__(G))  goto l494;
-  if (!yy_Type(G))  goto l494;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_4_FuncType, G->begin, G->end, "yy_4_FuncType");
-  goto l493;
-  l494:;	  G->pos= yypos494; G->thunkpos= yythunkpos494;
-  }  goto l492;
-  l491:;	  G->pos= yypos491; G->thunkpos= yythunkpos491;
-  }
-  l492:;	
-  {  int yypos495= G->pos, yythunkpos495= G->thunkpos;  if (!yymatchString(G, "...")) goto l495;
-  if (!yy__(G))  goto l495;
-  yyDo(G, yy_5_FuncType, G->begin, G->end, "yy_5_FuncType");
-  goto l496;
-  l495:;	  G->pos= yypos495; G->thunkpos= yythunkpos495;
-  }
-  l496:;	  if (!yy__(G))  goto l489;
-  if (!yymatchChar(G, ')')) goto l489;
-  goto l490;
-  l489:;	  G->pos= yypos489; G->thunkpos= yythunkpos489;
-  }
-  l490:;	
-  {  int yypos497= G->pos, yythunkpos497= G->thunkpos;  if (!yy__(G))  goto l497;
-  if (!yymatchString(G, "->")) goto l497;
-  if (!yy__(G))  goto l497;
-  if (!yy_Type(G))  goto l497;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_6_FuncType, G->begin, G->end, "yy_6_FuncType");
-  goto l498;
-  l497:;	  G->pos= yypos497; G->thunkpos= yythunkpos497;
-  }
-  l498:;	  yyDo(G, yy_7_FuncType, G->begin, G->end, "yy_7_FuncType");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FuncType"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l498:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FuncType"));
-=======
-  l484:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FuncType"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12172,7 +10433,6 @@ YY_RULE(int) yy_TypeBase(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "TypeBase"));
 
-<<<<<<< HEAD
   {  int yypos514= G->pos, yythunkpos514= G->thunkpos;  if (!yy_FuncType(G))  goto l515;
   goto l514;
   l515:;	  G->pos= yypos514; G->thunkpos= yythunkpos514;  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l513;  yyDo(G, yy_1_TypeBase, G->begin, G->end, "yy_1_TypeBase");
@@ -12227,71 +10487,11 @@ YY_RULE(int) yy_TypeBase(GREG *G)
 
   }
   l514:;	  yyprintf((stderr, "  ok   TypeBase"));
-=======
-  {  int yypos500= G->pos, yythunkpos500= G->thunkpos;  if (!yy_FuncType(G))  goto l501;
-  goto l500;
-  l501:;	  G->pos= yypos500; G->thunkpos= yythunkpos500;  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l499;  yyDo(G, yy_1_TypeBase, G->begin, G->end, "yy_1_TypeBase");
-
-  {  int yypos502= G->pos, yythunkpos502= G->thunkpos;  if (!yy_CONST_KW(G))  goto l502;
-  if (!yy__(G))  goto l502;
-  goto l503;
-  l502:;	  G->pos= yypos502; G->thunkpos= yythunkpos502;
-  }
-  l503:;	
-  l504:;	
-  {  int yypos505= G->pos, yythunkpos505= G->thunkpos;
-  {  int yypos506= G->pos, yythunkpos506= G->thunkpos;  if (!yymatchString(G, "unsigned")) goto l507;
-  yyDo(G, yy_2_TypeBase, G->begin, G->end, "yy_2_TypeBase");
-  if (!yy__(G))  goto l507;
-  goto l506;
-  l507:;	  G->pos= yypos506; G->thunkpos= yythunkpos506;  if (!yymatchString(G, "signed")) goto l508;
-  yyDo(G, yy_3_TypeBase, G->begin, G->end, "yy_3_TypeBase");
-  if (!yy__(G))  goto l508;
-  goto l506;
-  l508:;	  G->pos= yypos506; G->thunkpos= yythunkpos506;  if (!yymatchString(G, "long")) goto l509;
-
-  {  int yypos510= G->pos, yythunkpos510= G->thunkpos;  if (!yy__(G))  goto l509;
-
-  {  int yypos511= G->pos, yythunkpos511= G->thunkpos;  if (!yymatchString(G, "long")) goto l512;
-  goto l511;
-  l512:;	  G->pos= yypos511; G->thunkpos= yythunkpos511;  if (!yymatchString(G, "double")) goto l513;
-  goto l511;
-  l513:;	  G->pos= yypos511; G->thunkpos= yythunkpos511;  if (!yymatchString(G, "int")) goto l509;
-
-  }
-  l511:;	  G->pos= yypos510; G->thunkpos= yythunkpos510;
-  }  yyDo(G, yy_4_TypeBase, G->begin, G->end, "yy_4_TypeBase");
-  if (!yy__(G))  goto l509;
-  goto l506;
-  l509:;	  G->pos= yypos506; G->thunkpos= yythunkpos506;  if (!yymatchString(G, "struct")) goto l514;
-  yyDo(G, yy_5_TypeBase, G->begin, G->end, "yy_5_TypeBase");
-  if (!yy__(G))  goto l514;
-  goto l506;
-  l514:;	  G->pos= yypos506; G->thunkpos= yythunkpos506;  if (!yymatchString(G, "union")) goto l505;
-  yyDo(G, yy_6_TypeBase, G->begin, G->end, "yy_6_TypeBase");
-  if (!yy__(G))  goto l505;
-
-  }
-  l506:;	  if (!yy__(G))  goto l505;
-  goto l504;
-  l505:;	  G->pos= yypos505; G->thunkpos= yythunkpos505;
-  }  if (!yy_IDENT(G))  goto l499;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_7_TypeBase, G->begin, G->end, "yy_7_TypeBase");
-  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l499;  yyDo(G, yy_8_TypeBase, G->begin, G->end, "yy_8_TypeBase");
-
-  }
-  l500:;	  yyprintf((stderr, "  ok   TypeBase"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l513:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TypeBase"));
-=======
-  l499:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TypeBase"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12299,21 +10499,13 @@ YY_RULE(int) yy_TypeBase(GREG *G)
 }
 YY_RULE(int) yy_SET_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "SET_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "set")) goto l529;
-=======
-  if (!yymatchString(G, "set")) goto l515;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   SET_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l529:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "SET_KW"));
-=======
-  l515:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "SET_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12321,21 +10513,13 @@ YY_RULE(int) yy_SET_KW(GREG *G)
 }
 YY_RULE(int) yy_GET_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "GET_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "get")) goto l530;
-=======
-  if (!yymatchString(G, "get")) goto l516;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   GET_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l530:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "GET_KW"));
-=======
-  l516:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "GET_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12344,7 +10528,6 @@ YY_RULE(int) yy_GET_KW(GREG *G)
 YY_RULE(int) yy_PropertyDeclSetter(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 5, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "PropertyDeclSetter"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l531;
   yyDo(G, yySet, -5, 0, "yySet");
   yyDo(G, yy_1_PropertyDeclSetter, G->begin, G->end, "yy_1_PropertyDeclSetter");
@@ -12392,65 +10575,12 @@ YY_RULE(int) yy_PropertyDeclSetter(GREG *G)
   l534:;	  G->pos= yypos534; G->thunkpos= yythunkpos534;
   }
   l535:;	  yyDo(G, yy_6_PropertyDeclSetter, G->begin, G->end, "yy_6_PropertyDeclSetter");
-=======
-  if (!yy_OocDoc(G))  goto l517;
-  yyDo(G, yySet, -5, 0, "yySet");
-  yyDo(G, yy_1_PropertyDeclSetter, G->begin, G->end, "yy_1_PropertyDeclSetter");
-  if (!yy_WS(G))  goto l517;
-  if (!yy_SET_KW(G))  goto l517;
-  if (!yy_WS(G))  goto l517;
-
-  {  int yypos518= G->pos, yythunkpos518= G->thunkpos;  if (!yy_COLON(G))  goto l518;
-  if (!yy_WS(G))  goto l518;
-  if (!yy_ExternName(G))  goto l518;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_2_PropertyDeclSetter, G->begin, G->end, "yy_2_PropertyDeclSetter");
-  goto l519;
-  l518:;	  G->pos= yypos518; G->thunkpos= yythunkpos518;
-  }
-  l519:;	
-  {  int yypos520= G->pos, yythunkpos520= G->thunkpos;  if (!yymatchChar(G, '(')) goto l520;
-  if (!yy_WS(G))  goto l520;
-
-  {  int yypos522= G->pos, yythunkpos522= G->thunkpos;  if (!yy_IDENT(G))  goto l523;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_3_PropertyDeclSetter, G->begin, G->end, "yy_3_PropertyDeclSetter");
-  goto l522;
-  l523:;	  G->pos= yypos522; G->thunkpos= yythunkpos522;  if (!yy_ASS(G))  goto l520;
-  if (!yy_IDENT(G))  goto l520;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l520;
-  yyDo(G, yy_4_PropertyDeclSetter, G->begin, G->end, "yy_4_PropertyDeclSetter");
-
-  }
-  l522:;	  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_PAREN, "Expected ')' to close property setter argument list.\n"); ; } goto l520; }
-  if (!yy_WS(G))  goto l520;
-  if (!yymatchChar(G, '{')) goto l520;
-
-  l524:;	
-  {  int yypos525= G->pos, yythunkpos525= G->thunkpos;  if (!yy_WS(G))  goto l525;
-  if (!yy_Stmt(G))  goto l525;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_5_PropertyDeclSetter, G->begin, G->end, "yy_5_PropertyDeclSetter");
-  if (!yy_WS(G))  goto l525;
-  goto l524;
-  l525:;	  G->pos= yypos525; G->thunkpos= yythunkpos525;
-  }  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_BRACK, "Expected '??<' to close property setter body.\n"); ; } goto l520; }
-  goto l521;
-  l520:;	  G->pos= yypos520; G->thunkpos= yythunkpos520;
-  }
-  l521:;	  yyDo(G, yy_6_PropertyDeclSetter, G->begin, G->end, "yy_6_PropertyDeclSetter");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   PropertyDeclSetter"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 5, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l531:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDeclSetter"));
-=======
-  l517:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDeclSetter"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12459,7 +10589,6 @@ YY_RULE(int) yy_PropertyDeclSetter(GREG *G)
 YY_RULE(int) yy_PropertyDeclGetter(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "PropertyDeclGetter"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l540;
   yyDo(G, yySet, -3, 0, "yySet");
   yyDo(G, yy_1_PropertyDeclGetter, G->begin, G->end, "yy_1_PropertyDeclGetter");
@@ -12491,49 +10620,12 @@ YY_RULE(int) yy_PropertyDeclGetter(GREG *G)
   l543:;	  G->pos= yypos543; G->thunkpos= yythunkpos543;
   }
   l544:;	  yyDo(G, yy_4_PropertyDeclGetter, G->begin, G->end, "yy_4_PropertyDeclGetter");
-=======
-  if (!yy_OocDoc(G))  goto l526;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_PropertyDeclGetter, G->begin, G->end, "yy_1_PropertyDeclGetter");
-  if (!yy_WS(G))  goto l526;
-  if (!yy_GET_KW(G))  goto l526;
-  if (!yy_WS(G))  goto l526;
-
-  {  int yypos527= G->pos, yythunkpos527= G->thunkpos;  if (!yy_COLON(G))  goto l527;
-  if (!yy_WS(G))  goto l527;
-  if (!yy_ExternName(G))  goto l527;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_PropertyDeclGetter, G->begin, G->end, "yy_2_PropertyDeclGetter");
-  goto l528;
-  l527:;	  G->pos= yypos527; G->thunkpos= yythunkpos527;
-  }
-  l528:;	
-  {  int yypos529= G->pos, yythunkpos529= G->thunkpos;  if (!yymatchChar(G, '{')) goto l529;
-
-  l531:;	
-  {  int yypos532= G->pos, yythunkpos532= G->thunkpos;  if (!yy_WS(G))  goto l532;
-  if (!yy_Stmt(G))  goto l532;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_PropertyDeclGetter, G->begin, G->end, "yy_3_PropertyDeclGetter");
-  if (!yy_WS(G))  goto l532;
-  goto l531;
-  l532:;	  G->pos= yypos532; G->thunkpos= yythunkpos532;
-  }  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_BRACK, "Expected '"_CSBRACK"' to close property getter\n"); ; } goto l529; }
-  goto l530;
-  l529:;	  G->pos= yypos529; G->thunkpos= yythunkpos529;
-  }
-  l530:;	  yyDo(G, yy_4_PropertyDeclGetter, G->begin, G->end, "yy_4_PropertyDeclGetter");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   PropertyDeclGetter"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l540:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDeclGetter"));
-=======
-  l526:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDeclGetter"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12541,23 +10633,14 @@ YY_RULE(int) yy_PropertyDeclGetter(GREG *G)
 }
 YY_RULE(int) yy_PROPASS_DECL(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "PROPASS_DECL"));
-<<<<<<< HEAD
   if (!yymatchString(G, "::=")) goto l547;
   if (!yy__(G))  goto l547;
-=======
-  if (!yymatchString(G, "::=")) goto l533;
-  if (!yy__(G))  goto l533;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   PROPASS_DECL"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l547:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PROPASS_DECL"));
-=======
-  l533:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PROPASS_DECL"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12566,7 +10649,6 @@ YY_RULE(int) yy_PROPASS_DECL(GREG *G)
 YY_RULE(int) yy_PropertyDeclCore(GREG *G)
 {  yyprintfv((stderr, "%s\n", "PropertyDeclCore"));
 
-<<<<<<< HEAD
   l549:;	
   {  int yypos550= G->pos, yythunkpos550= G->thunkpos;
   {  int yypos551= G->pos, yythunkpos551= G->thunkpos;  if (!yy_PropertyDeclGetter(G))  goto l552;
@@ -12576,17 +10658,6 @@ YY_RULE(int) yy_PropertyDeclCore(GREG *G)
   }
   l551:;	  goto l549;
   l550:;	  G->pos= yypos550; G->thunkpos= yythunkpos550;
-=======
-  l535:;	
-  {  int yypos536= G->pos, yythunkpos536= G->thunkpos;
-  {  int yypos537= G->pos, yythunkpos537= G->thunkpos;  if (!yy_PropertyDeclGetter(G))  goto l538;
-  goto l537;
-  l538:;	  G->pos= yypos537; G->thunkpos= yythunkpos537;  if (!yy_PropertyDeclSetter(G))  goto l536;
-
-  }
-  l537:;	  goto l535;
-  l536:;	  G->pos= yypos536; G->thunkpos= yythunkpos536;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   PropertyDeclCore"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
@@ -12596,7 +10667,6 @@ YY_RULE(int) yy_PropertyDeclCore(GREG *G)
 YY_RULE(int) yy_ConventionalPropertyDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ConventionalPropertyDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l553;
   yyDo(G, yySet, -2, 0, "yySet");
   if (!yy_IDENT(G))  goto l553;
@@ -12621,43 +10691,13 @@ YY_RULE(int) yy_ConventionalPropertyDecl(GREG *G)
   if (!yy_WS(G))  goto l553;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_BRACK, "Expected '"_CSBRACK"' to close property decl!\n"); ; } goto l553; }
   if (!yy_WS(G))  goto l553;
-=======
-  if (!yy_OocDoc(G))  goto l539;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_IDENT(G))  goto l539;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_ConventionalPropertyDecl, G->begin, G->end, "yy_1_ConventionalPropertyDecl");
-  if (!yy_WS(G))  goto l539;
-  if (!yy_COLON(G))  goto l539;
-  if (!yy_WS(G))  goto l539;
-
-  {  int yypos540= G->pos, yythunkpos540= G->thunkpos;  if (!yy_STATIC_KW(G))  goto l540;
-  yyDo(G, yy_2_ConventionalPropertyDecl, G->begin, G->end, "yy_2_ConventionalPropertyDecl");
-  goto l541;
-  l540:;	  G->pos= yypos540; G->thunkpos= yythunkpos540;
-  }
-  l541:;	  if (!yy_WS(G))  goto l539;
-  if (!yy_Type(G))  goto l539;
-  yyDo(G, yy_3_ConventionalPropertyDecl, G->begin, G->end, "yy_3_ConventionalPropertyDecl");
-  if (!yy_WS(G))  goto l539;
-  if (!yymatchChar(G, '{')) goto l539;
-  if (!yy_WS(G))  goto l539;
-  if (!yy_PropertyDeclCore(G))  goto l539;
-  if (!yy_WS(G))  goto l539;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_BRACK, "Expected '"_CSBRACK"' to close property decl!\n"); ; } goto l539; }
-  if (!yy_WS(G))  goto l539;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_4_ConventionalPropertyDecl, G->begin, G->end, "yy_4_ConventionalPropertyDecl");
   yyprintf((stderr, "  ok   ConventionalPropertyDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l553:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ConventionalPropertyDecl"));
-=======
-  l539:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ConventionalPropertyDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12666,7 +10706,6 @@ YY_RULE(int) yy_ConventionalPropertyDecl(GREG *G)
 YY_RULE(int) yy_PropertyDeclFromExpr(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "PropertyDeclFromExpr"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l556;
   yyDo(G, yySet, -3, 0, "yySet");
   if (!yy_IDENT(G))  goto l556;
@@ -12689,41 +10728,13 @@ YY_RULE(int) yy_PropertyDeclFromExpr(GREG *G)
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_3_PropertyDeclFromExpr, G->begin, G->end, "yy_3_PropertyDeclFromExpr");
   if (!yy__(G))  goto l556;
-=======
-  if (!yy_OocDoc(G))  goto l542;
-  yyDo(G, yySet, -3, 0, "yySet");
-  if (!yy_IDENT(G))  goto l542;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_1_PropertyDeclFromExpr, G->begin, G->end, "yy_1_PropertyDeclFromExpr");
-  if (!yy__(G))  goto l542;
-  if (!yy_PROPASS_DECL(G))  goto l542;
-
-  l543:;	
-  {  int yypos544= G->pos, yythunkpos544= G->thunkpos;  if (!yy__(G))  goto l544;
-  if (!yy_STATIC_KW(G))  goto l544;
-  yyDo(G, yy_2_PropertyDeclFromExpr, G->begin, G->end, "yy_2_PropertyDeclFromExpr");
-
-  {  int yypos545= G->pos, yythunkpos545= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\000\374\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z_0-9")) goto l544;
-  G->pos= yypos545; G->thunkpos= yythunkpos545;
-  }  goto l543;
-  l544:;	  G->pos= yypos544; G->thunkpos= yythunkpos544;
-  }  if (!yy__(G))  goto l542;
-  if (!yy_Expr(G))  goto l542;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_PropertyDeclFromExpr, G->begin, G->end, "yy_3_PropertyDeclFromExpr");
-  if (!yy__(G))  goto l542;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_4_PropertyDeclFromExpr, G->begin, G->end, "yy_4_PropertyDeclFromExpr");
   yyprintf((stderr, "  ok   PropertyDeclFromExpr"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l556:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDeclFromExpr"));
-=======
-  l542:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDeclFromExpr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12733,7 +10744,6 @@ YY_RULE(int) yy_ConventionalVarDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 5, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ConventionalVarDecl"));
   yyDo(G, yy_1_ConventionalVarDecl, G->begin, G->end, "yy_1_ConventionalVarDecl");
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l560;
   yyDo(G, yySet, -5, 0, "yySet");
   if (!yy_IDENT(G))  goto l560;
@@ -12813,90 +10823,11 @@ YY_RULE(int) yy_ConventionalVarDecl(GREG *G)
   l575:;	  G->pos= yypos575; G->thunkpos= yythunkpos575;
   }
   l576:;	  yyDo(G, yy_14_ConventionalVarDecl, G->begin, G->end, "yy_14_ConventionalVarDecl");
-=======
-  if (!yy_OocDoc(G))  goto l546;
-  yyDo(G, yySet, -5, 0, "yySet");
-  if (!yy_IDENT(G))  goto l546;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_2_ConventionalVarDecl, G->begin, G->end, "yy_2_ConventionalVarDecl");
-
-  {  int yypos547= G->pos, yythunkpos547= G->thunkpos;  if (!yy__(G))  goto l547;
-  if (!yy_ASS(G))  goto l547;
-  if (!yy__(G))  goto l547;
-  if (!yy_Expr(G))  goto l547;
-  yyDo(G, yy_3_ConventionalVarDecl, G->begin, G->end, "yy_3_ConventionalVarDecl");
-  goto l548;
-  l547:;	  G->pos= yypos547; G->thunkpos= yythunkpos547;
-  }
-  l548:;	
-  l549:;	
-  {  int yypos550= G->pos, yythunkpos550= G->thunkpos;  if (!yy__(G))  goto l550;
-  if (!yymatchChar(G, ',')) goto l550;
-  if (!yy_OocDoc(G))  goto l550;
-  yyDo(G, yySet, -5, 0, "yySet");
-  if (!yy_WS(G))  goto l550;
-  if (!yy_IDENT(G))  goto l550;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_4_ConventionalVarDecl, G->begin, G->end, "yy_4_ConventionalVarDecl");
-
-  {  int yypos551= G->pos, yythunkpos551= G->thunkpos;  if (!yy__(G))  goto l551;
-  if (!yy_ASS(G))  goto l551;
-  if (!yy__(G))  goto l551;
-  if (!yy_Expr(G))  goto l551;
-  yyDo(G, yy_5_ConventionalVarDecl, G->begin, G->end, "yy_5_ConventionalVarDecl");
-  goto l552;
-  l551:;	  G->pos= yypos551; G->thunkpos= yythunkpos551;
-  }
-  l552:;	  if (!yy__(G))  goto l550;
-  goto l549;
-  l550:;	  G->pos= yypos550; G->thunkpos= yythunkpos550;
-  }  if (!yy_WS(G))  goto l546;
-  if (!yy_COLON(G))  goto l546;
-  if (!yy_WS(G))  goto l546;
-
-  l553:;	
-  {  int yypos554= G->pos, yythunkpos554= G->thunkpos;  if (!yy__(G))  goto l554;
-
-  {  int yypos555= G->pos, yythunkpos555= G->thunkpos;  if (!yy_STATIC_KW(G))  goto l556;
-  yyDo(G, yy_6_ConventionalVarDecl, G->begin, G->end, "yy_6_ConventionalVarDecl");
-  goto l555;
-  l556:;	  G->pos= yypos555; G->thunkpos= yythunkpos555;  if (!yy_CONST_KW(G))  goto l557;
-  yyDo(G, yy_7_ConventionalVarDecl, G->begin, G->end, "yy_7_ConventionalVarDecl");
-  goto l555;
-  l557:;	  G->pos= yypos555; G->thunkpos= yythunkpos555;  if (!yy_PROTO_KW(G))  goto l558;
-  yyDo(G, yy_8_ConventionalVarDecl, G->begin, G->end, "yy_8_ConventionalVarDecl");
-  goto l555;
-  l558:;	  G->pos= yypos555; G->thunkpos= yythunkpos555;  if (!yy_ExternName(G))  goto l559;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_9_ConventionalVarDecl, G->begin, G->end, "yy_9_ConventionalVarDecl");
-  goto l555;
-  l559:;	  G->pos= yypos555; G->thunkpos= yythunkpos555;  if (!yy_UnmangledName(G))  goto l554;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_10_ConventionalVarDecl, G->begin, G->end, "yy_10_ConventionalVarDecl");
-
-  }
-  l555:;	  goto l553;
-  l554:;	  G->pos= yypos554; G->thunkpos= yythunkpos554;
-  }  if (!yy_WS(G))  goto l546;
-  if (!yy_Type(G))  goto l546;
-  yyDo(G, yy_11_ConventionalVarDecl, G->begin, G->end, "yy_11_ConventionalVarDecl");
-
-  {  int yypos560= G->pos, yythunkpos560= G->thunkpos;  if (!yy__(G))  goto l560;
-  if (!yy_ASS(G))  goto l560;
-  if (!yy__(G))  goto l560;
-  if (!yy_Expr(G))  goto l560;
-  yyDo(G, yy_12_ConventionalVarDecl, G->begin, G->end, "yy_12_ConventionalVarDecl");
-  goto l561;
-  l560:;	  G->pos= yypos560; G->thunkpos= yythunkpos560;
-  }
-  l561:;	  yyDo(G, yy_13_ConventionalVarDecl, G->begin, G->end, "yy_13_ConventionalVarDecl");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ConventionalVarDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 5, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l560:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ConventionalVarDecl"));
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
@@ -12912,9 +10843,6 @@ YY_RULE(int) yy_FORCEDMALLOC_KW(GREG *G)
 
   return 1;
   l577:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FORCEDMALLOC_KW"));
-=======
-  l546:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ConventionalVarDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12922,21 +10850,13 @@ YY_RULE(int) yy_FORCEDMALLOC_KW(GREG *G)
 }
 YY_RULE(int) yy_CONST_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CONST_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "const")) goto l578;
-=======
-  if (!yymatchString(G, "const")) goto l562;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CONST_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l578:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CONST_KW"));
-=======
-  l562:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CONST_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12944,23 +10864,14 @@ YY_RULE(int) yy_CONST_KW(GREG *G)
 }
 YY_RULE(int) yy_ASS_DECL(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS_DECL"));
-<<<<<<< HEAD
   if (!yymatchString(G, ":=")) goto l579;
   if (!yy__(G))  goto l579;
-=======
-  if (!yymatchString(G, ":=")) goto l563;
-  if (!yy__(G))  goto l563;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS_DECL"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l579:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_DECL"));
-=======
-  l563:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS_DECL"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -12969,7 +10880,6 @@ YY_RULE(int) yy_ASS_DECL(GREG *G)
 YY_RULE(int) yy_Tuple(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Tuple"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '(')) goto l580;
   yyDo(G, yy_1_Tuple, G->begin, G->end, "yy_1_Tuple");
   if (!yy_WS(G))  goto l580;
@@ -12998,47 +10908,13 @@ YY_RULE(int) yy_Tuple(GREG *G)
   }
   l582:;	  if (!yy_WS(G))  goto l580;
   if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_CLOSING_SQUAR, "Malformed tuple! Expected ')' to close.\n"); ; } goto l580; }
-=======
-  if (!yymatchChar(G, '(')) goto l564;
-  yyDo(G, yy_1_Tuple, G->begin, G->end, "yy_1_Tuple");
-  if (!yy_WS(G))  goto l564;
-  yyDo(G, yy_2_Tuple, G->begin, G->end, "yy_2_Tuple");
-
-  {  int yypos565= G->pos, yythunkpos565= G->thunkpos;  if (!yy_Expr(G))  goto l565;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_Tuple, G->begin, G->end, "yy_3_Tuple");
-
-  l567:;	
-  {  int yypos568= G->pos, yythunkpos568= G->thunkpos;
-  {  int yypos569= G->pos, yythunkpos569= G->thunkpos;  if (!yy_WS(G))  goto l570;
-  if (!yymatchChar(G, ',')) goto l570;
-  goto l569;
-  l570:;	  G->pos= yypos569; G->thunkpos= yythunkpos569;  if (!yy_EOL(G))  goto l568;
-
-  }
-  l569:;	  if (!yy_WS(G))  goto l568;
-  if (!yy_Expr(G))  goto l568;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_4_Tuple, G->begin, G->end, "yy_4_Tuple");
-  goto l567;
-  l568:;	  G->pos= yypos568; G->thunkpos= yythunkpos568;
-  }  goto l566;
-  l565:;	  G->pos= yypos565; G->thunkpos= yythunkpos565;
-  }
-  l566:;	  if (!yy_WS(G))  goto l564;
-  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_CLOSING_SQUAR, "Malformed tuple! Expected ')' to close.\n"); ; } goto l564; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_5_Tuple, G->begin, G->end, "yy_5_Tuple");
   yyprintf((stderr, "  ok   Tuple"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l580:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Tuple"));
-=======
-  l564:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Tuple"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13047,7 +10923,6 @@ YY_RULE(int) yy_Tuple(GREG *G)
 YY_RULE(int) yy_VarDeclFromExpr(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "VarDeclFromExpr"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l587;
   yyDo(G, yySet, -4, 0, "yySet");
 
@@ -13056,21 +10931,10 @@ YY_RULE(int) yy_VarDeclFromExpr(GREG *G)
   yyDo(G, yy_1_VarDeclFromExpr, G->begin, G->end, "yy_1_VarDeclFromExpr");
   goto l588;
   l589:;	  G->pos= yypos588; G->thunkpos= yythunkpos588;  if (!yy_Tuple(G))  goto l587;
-=======
-  if (!yy_OocDoc(G))  goto l571;
-  yyDo(G, yySet, -4, 0, "yySet");
-
-  {  int yypos572= G->pos, yythunkpos572= G->thunkpos;  if (!yy_IDENT(G))  goto l573;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_VarDeclFromExpr, G->begin, G->end, "yy_1_VarDeclFromExpr");
-  goto l572;
-  l573:;	  G->pos= yypos572; G->thunkpos= yythunkpos572;  if (!yy_Tuple(G))  goto l571;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -2, 0, "yySet");
   yyDo(G, yy_2_VarDeclFromExpr, G->begin, G->end, "yy_2_VarDeclFromExpr");
 
   }
-<<<<<<< HEAD
   l588:;	  if (!yy__(G))  goto l587;
   if (!yy_ASS_DECL(G))  goto l587;
 
@@ -13084,28 +10948,12 @@ YY_RULE(int) yy_VarDeclFromExpr(GREG *G)
   yyDo(G, yy_4_VarDeclFromExpr, G->begin, G->end, "yy_4_VarDeclFromExpr");
   goto l592;
   l594:;	  G->pos= yypos592; G->thunkpos= yythunkpos592;  if (!yy_PROTO_KW(G))  goto l595;
-=======
-  l572:;	  if (!yy__(G))  goto l571;
-  if (!yy_ASS_DECL(G))  goto l571;
-
-  l574:;	
-  {  int yypos575= G->pos, yythunkpos575= G->thunkpos;  if (!yy__(G))  goto l575;
-
-  {  int yypos576= G->pos, yythunkpos576= G->thunkpos;  if (!yy_STATIC_KW(G))  goto l577;
-  yyDo(G, yy_3_VarDeclFromExpr, G->begin, G->end, "yy_3_VarDeclFromExpr");
-  goto l576;
-  l577:;	  G->pos= yypos576; G->thunkpos= yythunkpos576;  if (!yy_CONST_KW(G))  goto l578;
-  yyDo(G, yy_4_VarDeclFromExpr, G->begin, G->end, "yy_4_VarDeclFromExpr");
-  goto l576;
-  l578:;	  G->pos= yypos576; G->thunkpos= yythunkpos576;  if (!yy_PROTO_KW(G))  goto l575;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_5_VarDeclFromExpr, G->begin, G->end, "yy_5_VarDeclFromExpr");
   goto l592;
   l595:;	  G->pos= yypos592; G->thunkpos= yythunkpos592;  if (!yy_FORCEDMALLOC_KW(G))  goto l591;
   yyDo(G, yy_6_VarDeclFromExpr, G->begin, G->end, "yy_6_VarDeclFromExpr");
 
   }
-<<<<<<< HEAD
   l592:;	
   {  int yypos596= G->pos, yythunkpos596= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\000\374\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z_0-9")) goto l591;
   G->pos= yypos596; G->thunkpos= yythunkpos596;
@@ -13114,18 +10962,6 @@ YY_RULE(int) yy_VarDeclFromExpr(GREG *G)
   }  if (!yy__(G))  goto l587;
   if (!yy_Expr(G))  goto l587;
   yyDo(G, yySet, -1, 0, "yySet");
-=======
-  l576:;	
-  {  int yypos579= G->pos, yythunkpos579= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\377\377\377\377\377\377\000\374\001\000\000\170\001\000\000\370\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377", "^A-Za-z_0-9")) goto l575;
-  G->pos= yypos579; G->thunkpos= yythunkpos579;
-  }  goto l574;
-  l575:;	  G->pos= yypos575; G->thunkpos= yythunkpos575;
-  }  if (!yy__(G))  goto l571;
-  if (!yy_Expr(G))  goto l571;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_6_VarDeclFromExpr, G->begin, G->end, "yy_6_VarDeclFromExpr");
-  if (!yy__(G))  goto l571;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_7_VarDeclFromExpr, G->begin, G->end, "yy_7_VarDeclFromExpr");
   if (!yy__(G))  goto l587;
   yyDo(G, yy_8_VarDeclFromExpr, G->begin, G->end, "yy_8_VarDeclFromExpr");
@@ -13134,11 +10970,7 @@ YY_RULE(int) yy_VarDeclFromExpr(GREG *G)
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l587:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VarDeclFromExpr"));
-=======
-  l571:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VarDeclFromExpr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13146,21 +10978,13 @@ YY_RULE(int) yy_VarDeclFromExpr(GREG *G)
 }
 YY_RULE(int) yy_UNMANGLED_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "UNMANGLED_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "unmangled")) goto l597;
-=======
-  if (!yymatchString(G, "unmangled")) goto l580;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   UNMANGLED_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l597:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "UNMANGLED_KW"));
-=======
-  l580:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "UNMANGLED_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13168,21 +10992,13 @@ YY_RULE(int) yy_UNMANGLED_KW(GREG *G)
 }
 YY_RULE(int) yy_EXTERN_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "EXTERN_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "extern")) goto l598;
-=======
-  if (!yymatchString(G, "extern")) goto l581;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   EXTERN_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l598:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EXTERN_KW"));
-=======
-  l581:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EXTERN_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13190,21 +11006,13 @@ YY_RULE(int) yy_EXTERN_KW(GREG *G)
 }
 YY_RULE(int) yy_INTERFACE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "INTERFACE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "interface")) goto l599;
-=======
-  if (!yymatchString(G, "interface")) goto l582;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   INTERFACE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l599:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INTERFACE_KW"));
-=======
-  l582:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INTERFACE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13212,21 +11020,13 @@ YY_RULE(int) yy_INTERFACE_KW(GREG *G)
 }
 YY_RULE(int) yy_COVER_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "COVER_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "cover")) goto l600;
-=======
-  if (!yymatchString(G, "cover")) goto l583;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   COVER_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l600:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "COVER_KW"));
-=======
-  l583:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "COVER_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13234,31 +11034,18 @@ YY_RULE(int) yy_COVER_KW(GREG *G)
 }
 YY_RULE(int) yy_PLUS(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "PLUS"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '+')) goto l601;
 
   {  int yypos602= G->pos, yythunkpos602= G->thunkpos;  if (!yymatchChar(G, '=')) goto l602;
   goto l601;
   l602:;	  G->pos= yypos602; G->thunkpos= yythunkpos602;
   }  if (!yy__(G))  goto l601;
-=======
-  if (!yymatchChar(G, '+')) goto l584;
-
-  {  int yypos585= G->pos, yythunkpos585= G->thunkpos;  if (!yymatchChar(G, '=')) goto l585;
-  goto l584;
-  l585:;	  G->pos= yypos585; G->thunkpos= yythunkpos585;
-  }  if (!yy__(G))  goto l584;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   PLUS"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l601:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PLUS"));
-=======
-  l584:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PLUS"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13266,31 +11053,18 @@ YY_RULE(int) yy_PLUS(GREG *G)
 }
 YY_RULE(int) yy_STAR(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "STAR"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '*')) goto l603;
 
   {  int yypos604= G->pos, yythunkpos604= G->thunkpos;  if (!yymatchChar(G, '=')) goto l604;
   goto l603;
   l604:;	  G->pos= yypos604; G->thunkpos= yythunkpos604;
   }  if (!yy__(G))  goto l603;
-=======
-  if (!yymatchChar(G, '*')) goto l586;
-
-  {  int yypos587= G->pos, yythunkpos587= G->thunkpos;  if (!yymatchChar(G, '=')) goto l587;
-  goto l586;
-  l587:;	  G->pos= yypos587; G->thunkpos= yythunkpos587;
-  }  if (!yy__(G))  goto l586;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   STAR"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l603:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "STAR"));
-=======
-  l586:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "STAR"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13300,7 +11074,6 @@ YY_RULE(int) yy_Expr(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Expr"));
 
-<<<<<<< HEAD
   {  int yypos606= G->pos, yythunkpos606= G->thunkpos;  if (!yy_VariableDecl(G))  goto l607;
   yyDo(G, yySet, -4, 0, "yySet");
   if (!yy__(G))  goto l607;
@@ -13328,44 +11101,11 @@ YY_RULE(int) yy_Expr(GREG *G)
 
   }
   l606:;	  yyprintf((stderr, "  ok   Expr"));
-=======
-  {  int yypos589= G->pos, yythunkpos589= G->thunkpos;  if (!yy_VariableDecl(G))  goto l590;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy__(G))  goto l590;
-  goto l589;
-  l590:;	  G->pos= yypos589; G->thunkpos= yythunkpos589;  if (!yy_DoubleArrow(G))  goto l591;
-  yyDo(G, yySet, -3, 0, "yySet");
-  if (!yy__(G))  goto l591;
-  goto l589;
-  l591:;	  G->pos= yypos589; G->thunkpos= yythunkpos589;  if (!yy_BinaryOperation(G))  goto l592;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l592;
-
-  l593:;	
-  {  int yypos594= G->pos, yythunkpos594= G->thunkpos;  if (!yy__(G))  goto l594;
-  if (!yymatchChar(G, '.')) goto l594;
-  yyDo(G, yy_1_Expr, G->begin, G->end, "yy_1_Expr");
-  if (!yy_WS(G))  goto l594;
-  if (!yy_FunctionCall(G))  goto l594;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_Expr, G->begin, G->end, "yy_2_Expr");
-  goto l593;
-  l594:;	  G->pos= yypos594; G->thunkpos= yythunkpos594;
-  }  goto l589;
-  l592:;	  G->pos= yypos589; G->thunkpos= yythunkpos589;  if (!yy_AnonymousFunctionDecl(G))  goto l588;
-
-  }
-  l589:;	  yyprintf((stderr, "  ok   Expr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l605:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Expr"));
-=======
-  l588:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Expr"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13374,7 +11114,6 @@ YY_RULE(int) yy_Expr(GREG *G)
 YY_RULE(int) yy_EnumElement(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "EnumElement"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l612;
   yyDo(G, yySet, -4, 0, "yySet");
   if (!yy_IDENT(G))  goto l612;
@@ -13391,49 +11130,20 @@ YY_RULE(int) yy_EnumElement(GREG *G)
   l616:;	  G->pos= yypos615; G->thunkpos= yythunkpos615;  if (!yy_COLON(G))  goto l613;
   if (!yy__(G))  goto l613;
   if (!yy_ExternName(G))  goto l613;
-=======
-  if (!yy_OocDoc(G))  goto l595;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy_IDENT(G))  goto l595;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_EnumElement, G->begin, G->end, "yy_1_EnumElement");
-  if (!yy__(G))  goto l595;
-
-  {  int yypos596= G->pos, yythunkpos596= G->thunkpos;
-  {  int yypos598= G->pos, yythunkpos598= G->thunkpos;  if (!yy_ASS(G))  goto l599;
-  if (!yy_Expr(G))  goto l599;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_EnumElement, G->begin, G->end, "yy_2_EnumElement");
-  goto l598;
-  l599:;	  G->pos= yypos598; G->thunkpos= yythunkpos598;  if (!yy_COLON(G))  goto l596;
-  if (!yy__(G))  goto l596;
-  if (!yy_ExternName(G))  goto l596;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_3_EnumElement, G->begin, G->end, "yy_3_EnumElement");
 
   }
-<<<<<<< HEAD
   l615:;	  goto l614;
   l613:;	  G->pos= yypos613; G->thunkpos= yythunkpos613;
   }
   l614:;	  yyDo(G, yy_4_EnumElement, G->begin, G->end, "yy_4_EnumElement");
-=======
-  l598:;	  goto l597;
-  l596:;	  G->pos= yypos596; G->thunkpos= yythunkpos596;
-  }
-  l597:;	  yyDo(G, yy_4_EnumElement, G->begin, G->end, "yy_4_EnumElement");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   EnumElement"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l612:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EnumElement"));
-=======
-  l595:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EnumElement"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13443,7 +11153,6 @@ YY_RULE(int) yy_IntLiteral(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "IntLiteral"));
 
-<<<<<<< HEAD
   {  int yypos618= G->pos, yythunkpos618= G->thunkpos;  if (!yy_OCT_LIT(G))  goto l619;
   yyDo(G, yySet, -3, 0, "yySet");
   if (!yy__(G))  goto l619;
@@ -13461,34 +11170,11 @@ YY_RULE(int) yy_IntLiteral(GREG *G)
 
   }
   l618:;	  yyprintf((stderr, "  ok   IntLiteral"));
-=======
-  {  int yypos601= G->pos, yythunkpos601= G->thunkpos;  if (!yy_OCT_LIT(G))  goto l602;
-  yyDo(G, yySet, -3, 0, "yySet");
-  if (!yy__(G))  goto l602;
-  yyDo(G, yy_1_IntLiteral, G->begin, G->end, "yy_1_IntLiteral");
-  goto l601;
-  l602:;	  G->pos= yypos601; G->thunkpos= yythunkpos601;  if (!yy_HEX_LIT(G))  goto l603;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l603;
-  yyDo(G, yy_2_IntLiteral, G->begin, G->end, "yy_2_IntLiteral");
-  goto l601;
-  l603:;	  G->pos= yypos601; G->thunkpos= yythunkpos601;  if (!yy_DEC_LIT(G))  goto l600;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy__(G))  goto l600;
-  yyDo(G, yy_3_IntLiteral, G->begin, G->end, "yy_3_IntLiteral");
-
-  }
-  l601:;	  yyprintf((stderr, "  ok   IntLiteral"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l617:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IntLiteral"));
-=======
-  l600:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IntLiteral"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13497,7 +11183,6 @@ YY_RULE(int) yy_IntLiteral(GREG *G)
 YY_RULE(int) yy_EnumIncrementOper(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "EnumIncrementOper"));
 
-<<<<<<< HEAD
   {  int yypos622= G->pos, yythunkpos622= G->thunkpos;  if (!yy_STAR(G))  goto l623;
   yyDo(G, yy_1_EnumIncrementOper, G->begin, G->end, "yy_1_EnumIncrementOper");
   goto l622;
@@ -13506,25 +11191,11 @@ YY_RULE(int) yy_EnumIncrementOper(GREG *G)
 
   }
   l622:;	  yyprintf((stderr, "  ok   EnumIncrementOper"));
-=======
-  {  int yypos605= G->pos, yythunkpos605= G->thunkpos;  if (!yy_STAR(G))  goto l606;
-  yyDo(G, yy_1_EnumIncrementOper, G->begin, G->end, "yy_1_EnumIncrementOper");
-  goto l605;
-  l606:;	  G->pos= yypos605; G->thunkpos= yythunkpos605;  if (!yy_PLUS(G))  goto l604;
-  yyDo(G, yy_2_EnumIncrementOper, G->begin, G->end, "yy_2_EnumIncrementOper");
-
-  }
-  l605:;	  yyprintf((stderr, "  ok   EnumIncrementOper"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l621:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EnumIncrementOper"));
-=======
-  l604:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EnumIncrementOper"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13532,21 +11203,13 @@ YY_RULE(int) yy_EnumIncrementOper(GREG *G)
 }
 YY_RULE(int) yy_FROM_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FROM_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "from")) goto l624;
-=======
-  if (!yymatchString(G, "from")) goto l607;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FROM_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l624:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FROM_KW"));
-=======
-  l607:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FROM_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13554,21 +11217,13 @@ YY_RULE(int) yy_FROM_KW(GREG *G)
 }
 YY_RULE(int) yy_ENUM_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ENUM_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "enum")) goto l625;
-=======
-  if (!yymatchString(G, "enum")) goto l608;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ENUM_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l625:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ENUM_KW"));
-=======
-  l608:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ENUM_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13576,21 +11231,13 @@ YY_RULE(int) yy_ENUM_KW(GREG *G)
 }
 YY_RULE(int) yy_IMPLEMENTS_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "IMPLEMENTS_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "implements")) goto l626;
-=======
-  if (!yymatchString(G, "implements")) goto l609;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   IMPLEMENTS_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l626:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IMPLEMENTS_KW"));
-=======
-  l609:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IMPLEMENTS_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13598,21 +11245,13 @@ YY_RULE(int) yy_IMPLEMENTS_KW(GREG *G)
 }
 YY_RULE(int) yy_EXTENDS_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "EXTENDS_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "extends")) goto l627;
-=======
-  if (!yymatchString(G, "extends")) goto l610;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   EXTENDS_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l627:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EXTENDS_KW"));
-=======
-  l610:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EXTENDS_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13620,21 +11259,13 @@ YY_RULE(int) yy_EXTENDS_KW(GREG *G)
 }
 YY_RULE(int) yy_CLASS_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CLASS_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "class")) goto l628;
-=======
-  if (!yymatchString(G, "class")) goto l611;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CLASS_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l628:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CLASS_KW"));
-=======
-  l611:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CLASS_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13643,29 +11274,17 @@ YY_RULE(int) yy_CLASS_KW(GREG *G)
 YY_RULE(int) yy_ASS(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ASS"));
 
-<<<<<<< HEAD
   {  int yypos630= G->pos, yythunkpos630= G->thunkpos;  if (!yy_DOUBLE_ARROW(G))  goto l630;
   goto l629;
   l630:;	  G->pos= yypos630; G->thunkpos= yythunkpos630;
   }  if (!yymatchChar(G, '=')) goto l629;
   if (!yy__(G))  goto l629;
-=======
-  {  int yypos613= G->pos, yythunkpos613= G->thunkpos;  if (!yy_DOUBLE_ARROW(G))  goto l613;
-  goto l612;
-  l613:;	  G->pos= yypos613; G->thunkpos= yythunkpos613;
-  }  if (!yymatchChar(G, '=')) goto l612;
-  if (!yy__(G))  goto l612;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ASS"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l629:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS"));
-=======
-  l612:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ASS"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13674,27 +11293,16 @@ YY_RULE(int) yy_ASS(GREG *G)
 YY_RULE(int) yy_DOT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "DOT"));
 
-<<<<<<< HEAD
   {  int yypos632= G->pos, yythunkpos632= G->thunkpos;  if (!yy_DOUBLE_DOT(G))  goto l632;
   goto l631;
   l632:;	  G->pos= yypos632; G->thunkpos= yythunkpos632;
   }  if (!yymatchChar(G, '.')) goto l631;
-=======
-  {  int yypos615= G->pos, yythunkpos615= G->thunkpos;  if (!yy_DOUBLE_DOT(G))  goto l615;
-  goto l614;
-  l615:;	  G->pos= yypos615; G->thunkpos= yythunkpos615;
-  }  if (!yymatchChar(G, '.')) goto l614;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   DOT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l631:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOT"));
-=======
-  l614:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DOT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13704,7 +11312,6 @@ YY_RULE(int) yy_Type(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 6, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Type"));
 
-<<<<<<< HEAD
   {  int yypos634= G->pos, yythunkpos634= G->thunkpos;  if (!yy_TypeList(G))  goto l635;
   yyDo(G, yySet, -6, 0, "yySet");
   yyDo(G, yy_1_Type, G->begin, G->end, "yy_1_Type");
@@ -13831,143 +11438,11 @@ YY_RULE(int) yy_Type(GREG *G)
 
   }
   l634:;	  yyprintf((stderr, "  ok   Type"));
-=======
-  {  int yypos617= G->pos, yythunkpos617= G->thunkpos;  if (!yy_TypeList(G))  goto l618;
-  yyDo(G, yySet, -6, 0, "yySet");
-  yyDo(G, yy_1_Type, G->begin, G->end, "yy_1_Type");
-  goto l617;
-  l618:;	  G->pos= yypos617; G->thunkpos= yythunkpos617;  if (!yy_TypeBase(G))  goto l619;
-  yyDo(G, yySet, -5, 0, "yySet");
-
-  {  int yypos620= G->pos, yythunkpos620= G->thunkpos;  if (!yy__(G))  goto l620;
-  if (!yymatchChar(G, '<')) goto l620;
-  if (!yy__(G))  goto l620;
-  if (!yy_Type(G))  goto l620;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_2_Type, G->begin, G->end, "yy_2_Type");
-
-  l622:;	
-  {  int yypos623= G->pos, yythunkpos623= G->thunkpos;  if (!yy__(G))  goto l623;
-  if (!yymatchChar(G, ',')) goto l623;
-  if (!yy__(G))  goto l623;
-  if (!yy_Type(G))  goto l623;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_3_Type, G->begin, G->end, "yy_3_Type");
-  goto l622;
-  l623:;	  G->pos= yypos623; G->thunkpos= yythunkpos623;
-  }  if (!yy__(G))  goto l620;
-  if (!yymatchChar(G, '>')) goto l620;
-  goto l621;
-  l620:;	  G->pos= yypos620; G->thunkpos= yythunkpos620;
-  }
-  l621:;	  if (!yy__(G))  goto l619;
-
-  l624:;	
-  {  int yypos625= G->pos, yythunkpos625= G->thunkpos;
-  {  int yypos626= G->pos, yythunkpos626= G->thunkpos;  if (!yy_STAR(G))  goto l627;
-  yyDo(G, yy_4_Type, G->begin, G->end, "yy_4_Type");
-  goto l626;
-  l627:;	  G->pos= yypos626; G->thunkpos= yythunkpos626;  if (!yymatchChar(G, '@')) goto l628;
-  yyDo(G, yy_5_Type, G->begin, G->end, "yy_5_Type");
-  goto l626;
-  l628:;	  G->pos= yypos626; G->thunkpos= yythunkpos626;  if (!yymatchChar(G, '[')) goto l625;
-  if (!yy_WS(G))  goto l625;
-  yyDo(G, yy_6_Type, G->begin, G->end, "yy_6_Type");
-  if (!yy__(G))  goto l625;
-
-  {  int yypos629= G->pos, yythunkpos629= G->thunkpos;  if (!yy_Expr(G))  goto l629;
-  yyDo(G, yySet, -3, 0, "yySet");
-  goto l630;
-  l629:;	  G->pos= yypos629; G->thunkpos= yythunkpos629;
-  }
-  l630:;	  if (!yymatchChar(G, ']')) goto l625;
-  yyDo(G, yy_7_Type, G->begin, G->end, "yy_7_Type");
-
-  }
-  l626:;	  goto l624;
-  l625:;	  G->pos= yypos625; G->thunkpos= yythunkpos625;
-  }  if (!yy__(G))  goto l619;
-  yyDo(G, yy_8_Type, G->begin, G->end, "yy_8_Type");
-  goto l617;
-  l619:;	  G->pos= yypos617; G->thunkpos= yythunkpos617;  if (!yymatchChar(G, '(')) goto l616;
-  if (!yy_Old(G))  goto l616;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l616;
-  if (!yy_IDENT(G))  goto l616;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_9_Type, G->begin, G->end, "yy_9_Type");
-  if (!yy__(G))  goto l616;
-  if (!yy_TypeBase(G))  goto l616;
-  yyDo(G, yySet, -5, 0, "yySet");
-
-  {  int yypos631= G->pos, yythunkpos631= G->thunkpos;  if (!yy_FuncType(G))  goto l631;
-  goto l616;
-  l631:;	  G->pos= yypos631; G->thunkpos= yythunkpos631;
-  }  yyDo(G, yy_10_Type, G->begin, G->end, "yy_10_Type");
-
-  {  int yypos632= G->pos, yythunkpos632= G->thunkpos;  if (!yy__(G))  goto l632;
-  if (!yymatchChar(G, '<')) goto l632;
-  if (!yy__(G))  goto l632;
-  if (!yy_Type(G))  goto l632;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_11_Type, G->begin, G->end, "yy_11_Type");
-
-  l634:;	
-  {  int yypos635= G->pos, yythunkpos635= G->thunkpos;  if (!yy__(G))  goto l635;
-  if (!yymatchChar(G, ',')) goto l635;
-  if (!yy__(G))  goto l635;
-  if (!yy_Type(G))  goto l635;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_12_Type, G->begin, G->end, "yy_12_Type");
-  goto l634;
-  l635:;	  G->pos= yypos635; G->thunkpos= yythunkpos635;
-  }  if (!yy__(G))  goto l632;
-  if (!yymatchChar(G, '>')) goto l632;
-  goto l633;
-  l632:;	  G->pos= yypos632; G->thunkpos= yythunkpos632;
-  }
-  l633:;	  if (!yy__(G))  goto l616;
-
-  l636:;	
-  {  int yypos637= G->pos, yythunkpos637= G->thunkpos;
-  {  int yypos638= G->pos, yythunkpos638= G->thunkpos;  if (!yy_STAR(G))  goto l639;
-  yyDo(G, yy_13_Type, G->begin, G->end, "yy_13_Type");
-  goto l638;
-  l639:;	  G->pos= yypos638; G->thunkpos= yythunkpos638;  if (!yymatchChar(G, '@')) goto l640;
-  yyDo(G, yy_14_Type, G->begin, G->end, "yy_14_Type");
-  goto l638;
-  l640:;	  G->pos= yypos638; G->thunkpos= yythunkpos638;  if (!yymatchChar(G, '[')) goto l637;
-  if (!yy_WS(G))  goto l637;
-  yyDo(G, yy_15_Type, G->begin, G->end, "yy_15_Type");
-  if (!yy__(G))  goto l637;
-
-  {  int yypos641= G->pos, yythunkpos641= G->thunkpos;  if (!yy_Expr(G))  goto l641;
-  yyDo(G, yySet, -3, 0, "yySet");
-  goto l642;
-  l641:;	  G->pos= yypos641; G->thunkpos= yythunkpos641;
-  }
-  l642:;	  if (!yymatchChar(G, ']')) goto l637;
-  yyDo(G, yy_16_Type, G->begin, G->end, "yy_16_Type");
-
-  }
-  l638:;	  goto l636;
-  l637:;	  G->pos= yypos637; G->thunkpos= yythunkpos637;
-  }  if (!yy__(G))  goto l616;
-  yyDo(G, yy_17_Type, G->begin, G->end, "yy_17_Type");
-  if (!yymatchChar(G, ')')) goto l616;
-
-  }
-  l617:;	  yyprintf((stderr, "  ok   Type"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 6, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l633:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Type"));
-=======
-  l616:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Type"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13975,21 +11450,13 @@ YY_RULE(int) yy_Type(GREG *G)
 }
 YY_RULE(int) yy_R_ARROW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "R_ARROW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "->")) goto l660;
-=======
-  if (!yymatchString(G, "->")) goto l643;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   R_ARROW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l660:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "R_ARROW"));
-=======
-  l643:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "R_ARROW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -13999,7 +11466,6 @@ YY_RULE(int) yy_Argument(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 5, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Argument"));
 
-<<<<<<< HEAD
   {  int yypos662= G->pos, yythunkpos662= G->thunkpos;  if (!yy_DOT(G))  goto l663;
   if (!yy_IDENT(G))  goto l663;
   yyDo(G, yySet, -5, 0, "yySet");
@@ -14034,51 +11500,11 @@ YY_RULE(int) yy_Argument(GREG *G)
 
   }
   l662:;	  yyprintf((stderr, "  ok   Argument"));
-=======
-  {  int yypos645= G->pos, yythunkpos645= G->thunkpos;  if (!yy_DOT(G))  goto l646;
-  if (!yy_IDENT(G))  goto l646;
-  yyDo(G, yySet, -5, 0, "yySet");
-  if (!yy__(G))  goto l646;
-  yyDo(G, yy_1_Argument, G->begin, G->end, "yy_1_Argument");
-  goto l645;
-  l646:;	  G->pos= yypos645; G->thunkpos= yythunkpos645;  if (!yy_ASS(G))  goto l647;
-  if (!yy_IDENT(G))  goto l647;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy__(G))  goto l647;
-  yyDo(G, yy_2_Argument, G->begin, G->end, "yy_2_Argument");
-  goto l645;
-  l647:;	  G->pos= yypos645; G->thunkpos= yythunkpos645;  if (!yy_VariableDecl(G))  goto l648;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_3_Argument, G->begin, G->end, "yy_3_Argument");
-  goto l645;
-  l648:;	  G->pos= yypos645; G->thunkpos= yythunkpos645;  if (!yy_IDENT(G))  goto l649;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l649;
-  if (!yymatchChar(G, ':')) goto l649;
-  if (!yy__(G))  goto l649;
-  if (!yymatchString(G, "...")) goto l649;
-  if (!yy__(G))  goto l649;
-  yyDo(G, yy_4_Argument, G->begin, G->end, "yy_4_Argument");
-  goto l645;
-  l649:;	  G->pos= yypos645; G->thunkpos= yythunkpos645;  if (!yy_Type(G))  goto l650;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_5_Argument, G->begin, G->end, "yy_5_Argument");
-  goto l645;
-  l650:;	  G->pos= yypos645; G->thunkpos= yythunkpos645;  if (!yymatchString(G, "...")) goto l644;
-  yyDo(G, yy_6_Argument, G->begin, G->end, "yy_6_Argument");
-
-  }
-  l645:;	  yyprintf((stderr, "  ok   Argument"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 5, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l661:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Argument"));
-=======
-  l644:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Argument"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14087,21 +11513,13 @@ YY_RULE(int) yy_Argument(GREG *G)
 YY_RULE(int) yy_AnonymousFunctionDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "AnonymousFunctionDecl"));
   yyDo(G, yy_1_AnonymousFunctionDecl, G->begin, G->end, "yy_1_AnonymousFunctionDecl");
-<<<<<<< HEAD
   if (!yy_FunctionDeclCore(G))  goto l668;
-=======
-  if (!yy_FunctionDeclCore(G))  goto l651;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   AnonymousFunctionDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l668:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "AnonymousFunctionDecl"));
-=======
-  l651:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "AnonymousFunctionDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14110,7 +11528,6 @@ YY_RULE(int) yy_AnonymousFunctionDecl(GREG *G)
 YY_RULE(int) yy_FunctionDeclCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "FunctionDeclCore"));
-<<<<<<< HEAD
   if (!yy__(G))  goto l669;
   if (!yy_FUNC_KW(G))  goto l669;
 
@@ -14129,32 +11546,11 @@ YY_RULE(int) yy_FunctionDeclCore(GREG *G)
   l672:;	  G->pos= yypos672; G->thunkpos= yythunkpos672;
   }
   l673:;	  if (!yy_FunctionDeclBody(G))  goto l669;
-=======
-  if (!yy__(G))  goto l652;
-  if (!yy_FUNC_KW(G))  goto l652;
-
-  {  int yypos653= G->pos, yythunkpos653= G->thunkpos;  if (!yymatchChar(G, '@')) goto l653;
-  yyDo(G, yy_1_FunctionDeclCore, G->begin, G->end, "yy_1_FunctionDeclCore");
-  goto l654;
-  l653:;	  G->pos= yypos653; G->thunkpos= yythunkpos653;
-  }
-  l654:;	
-  {  int yypos655= G->pos, yythunkpos655= G->thunkpos;  if (!yy__(G))  goto l655;
-  if (!yymatchChar(G, '~')) goto l655;
-  if (!yy_IDENT(G))  goto l655;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_FunctionDeclCore, G->begin, G->end, "yy_2_FunctionDeclCore");
-  goto l656;
-  l655:;	  G->pos= yypos655; G->thunkpos= yythunkpos655;
-  }
-  l656:;	  if (!yy_FunctionDeclBody(G))  goto l652;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FunctionDeclCore"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l669:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionDeclCore"));
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
@@ -14184,9 +11580,6 @@ YY_RULE(int) yy_VIRTUAL_KW(GREG *G)
 
   return 1;
   l675:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VIRTUAL_KW"));
-=======
-  l652:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionDeclCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14194,21 +11587,13 @@ YY_RULE(int) yy_VIRTUAL_KW(GREG *G)
 }
 YY_RULE(int) yy_PROTO_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "PROTO_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "proto")) goto l676;
-=======
-  if (!yymatchString(G, "proto")) goto l657;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   PROTO_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l676:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PROTO_KW"));
-=======
-  l657:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PROTO_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14216,21 +11601,13 @@ YY_RULE(int) yy_PROTO_KW(GREG *G)
 }
 YY_RULE(int) yy_FINAL_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FINAL_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "final")) goto l677;
-=======
-  if (!yymatchString(G, "final")) goto l658;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FINAL_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l677:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FINAL_KW"));
-=======
-  l658:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FINAL_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14238,21 +11615,13 @@ YY_RULE(int) yy_FINAL_KW(GREG *G)
 }
 YY_RULE(int) yy_INLINE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "INLINE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "inline")) goto l678;
-=======
-  if (!yymatchString(G, "inline")) goto l659;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   INLINE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l678:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INLINE_KW"));
-=======
-  l659:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INLINE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14260,21 +11629,13 @@ YY_RULE(int) yy_INLINE_KW(GREG *G)
 }
 YY_RULE(int) yy_STATIC_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "STATIC_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "static")) goto l679;
-=======
-  if (!yymatchString(G, "static")) goto l660;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   STATIC_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l679:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "STATIC_KW"));
-=======
-  l660:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "STATIC_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14283,7 +11644,6 @@ YY_RULE(int) yy_STATIC_KW(GREG *G)
 YY_RULE(int) yy_UnmangledName(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "UnmangledName"));
-<<<<<<< HEAD
   if (!yy_UNMANGLED_KW(G))  goto l680;
   yyDo(G, yy_1_UnmangledName, G->begin, G->end, "yy_1_UnmangledName");
 
@@ -14299,32 +11659,11 @@ YY_RULE(int) yy_UnmangledName(GREG *G)
   l681:;	  G->pos= yypos681; G->thunkpos= yythunkpos681;
   }
   l682:;	  yyprintf((stderr, "  ok   UnmangledName"));
-=======
-  if (!yy_UNMANGLED_KW(G))  goto l661;
-  yyDo(G, yy_1_UnmangledName, G->begin, G->end, "yy_1_UnmangledName");
-
-  {  int yypos662= G->pos, yythunkpos662= G->thunkpos;  if (!yy__(G))  goto l662;
-  if (!yymatchChar(G, '(')) goto l662;
-  if (!yy__(G))  goto l662;
-  if (!yy_IDENT(G))  goto l662;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_UnmangledName, G->begin, G->end, "yy_2_UnmangledName");
-  if (!yy__(G))  goto l662;
-  if (!yymatchChar(G, ')')) goto l662;
-  goto l663;
-  l662:;	  G->pos= yypos662; G->thunkpos= yythunkpos662;
-  }
-  l663:;	  yyprintf((stderr, "  ok   UnmangledName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l680:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "UnmangledName"));
-=======
-  l661:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "UnmangledName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14332,7 +11671,6 @@ YY_RULE(int) yy_UnmangledName(GREG *G)
 }
 YY_RULE(int) yy_ExternName(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ExternName"));
-<<<<<<< HEAD
   if (!yy_EXTERN_KW(G))  goto l683;
   yyDo(G, yy_1_ExternName, G->begin, G->end, "yy_1_ExternName");
 
@@ -14352,36 +11690,11 @@ YY_RULE(int) yy_ExternName(GREG *G)
   l684:;	  G->pos= yypos684; G->thunkpos= yythunkpos684;
   }
   l685:;	  yyprintf((stderr, "  ok   ExternName"));
-=======
-  if (!yy_EXTERN_KW(G))  goto l664;
-  yyDo(G, yy_1_ExternName, G->begin, G->end, "yy_1_ExternName");
-
-  {  int yypos665= G->pos, yythunkpos665= G->thunkpos;  if (!yy__(G))  goto l665;
-  if (!yymatchChar(G, '(')) goto l665;
-  if (!yy__(G))  goto l665;
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l665;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\000\000\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z_")) goto l665;
-
-  l667:;	
-  {  int yypos668= G->pos, yythunkpos668= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9_")) goto l668;
-  goto l667;
-  l668:;	  G->pos= yypos668; G->thunkpos= yythunkpos668;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l665;  yyDo(G, yy_2_ExternName, G->begin, G->end, "yy_2_ExternName");
-  if (!yy__(G))  goto l665;
-  if (!yymatchChar(G, ')')) goto l665;
-  goto l666;
-  l665:;	  G->pos= yypos665; G->thunkpos= yythunkpos665;
-  }
-  l666:;	  yyprintf((stderr, "  ok   ExternName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l683:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ExternName"));
-=======
-  l664:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ExternName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14390,30 +11703,17 @@ YY_RULE(int) yy_ExternName(GREG *G)
 YY_RULE(int) yy_OocDoc(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "OocDoc"));
 
-<<<<<<< HEAD
   {  int yypos689= G->pos, yythunkpos689= G->thunkpos;  if (!yy_OocDocCore(G))  goto l690;
   goto l689;
   l690:;	  G->pos= yypos689; G->thunkpos= yythunkpos689;  yyDo(G, yy_1_OocDoc, G->begin, G->end, "yy_1_OocDoc");
 
   }
   l689:;	  yyprintf((stderr, "  ok   OocDoc"));
-=======
-  {  int yypos670= G->pos, yythunkpos670= G->thunkpos;  if (!yy_OocDocCore(G))  goto l671;
-  goto l670;
-  l671:;	  G->pos= yypos670; G->thunkpos= yythunkpos670;  yyDo(G, yy_1_OocDoc, G->begin, G->end, "yy_1_OocDoc");
-
-  }
-  l670:;	  yyprintf((stderr, "  ok   OocDoc"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l688:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OocDoc"));
-=======
-  l669:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OocDoc"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14421,21 +11721,13 @@ YY_RULE(int) yy_OocDoc(GREG *G)
 }
 YY_RULE(int) yy_FUNC_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FUNC_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "func")) goto l691;
-=======
-  if (!yymatchString(G, "func")) goto l672;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FUNC_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l691:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FUNC_KW"));
-=======
-  l672:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FUNC_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14444,7 +11736,6 @@ YY_RULE(int) yy_FUNC_KW(GREG *G)
 YY_RULE(int) yy_COLON(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "COLON"));
 
-<<<<<<< HEAD
   {  int yypos693= G->pos, yythunkpos693= G->thunkpos;  if (!yy_ASS_DECL(G))  goto l693;
   goto l692;
   l693:;	  G->pos= yypos693; G->thunkpos= yythunkpos693;
@@ -14453,26 +11744,12 @@ YY_RULE(int) yy_COLON(GREG *G)
   goto l692;
   l694:;	  G->pos= yypos694; G->thunkpos= yythunkpos694;
   }  if (!yymatchChar(G, ':')) goto l692;
-=======
-  {  int yypos674= G->pos, yythunkpos674= G->thunkpos;  if (!yy_ASS_DECL(G))  goto l674;
-  goto l673;
-  l674:;	  G->pos= yypos674; G->thunkpos= yythunkpos674;
-  }
-  {  int yypos675= G->pos, yythunkpos675= G->thunkpos;  if (!yy_PROPASS_DECL(G))  goto l675;
-  goto l673;
-  l675:;	  G->pos= yypos675; G->thunkpos= yythunkpos675;
-  }  if (!yymatchChar(G, ':')) goto l673;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   COLON"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l692:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "COLON"));
-=======
-  l673:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "COLON"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14481,7 +11758,6 @@ YY_RULE(int) yy_COLON(GREG *G)
 YY_RULE(int) yy_RegularFunctionDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "RegularFunctionDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l695;
   yyDo(G, yySet, -4, 0, "yySet");
   if (!yy_IDENT(G))  goto l695;
@@ -14514,40 +11790,6 @@ YY_RULE(int) yy_RegularFunctionDecl(GREG *G)
   yyDo(G, yy_7_RegularFunctionDecl, G->begin, G->end, "yy_7_RegularFunctionDecl");
   goto l698;
   l704:;	  G->pos= yypos698; G->thunkpos= yythunkpos698;  if (!yy_PROTO_KW(G))  goto l705;
-=======
-  if (!yy_OocDoc(G))  goto l676;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy_IDENT(G))  goto l676;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_RegularFunctionDecl, G->begin, G->end, "yy_1_RegularFunctionDecl");
-  if (!yy__(G))  goto l676;
-  if (!yy_COLON(G))  goto l676;
-
-  l677:;	
-  {  int yypos678= G->pos, yythunkpos678= G->thunkpos;  if (!yy__(G))  goto l678;
-
-  {  int yypos679= G->pos, yythunkpos679= G->thunkpos;  if (!yy_ExternName(G))  goto l680;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_RegularFunctionDecl, G->begin, G->end, "yy_2_RegularFunctionDecl");
-  goto l679;
-  l680:;	  G->pos= yypos679; G->thunkpos= yythunkpos679;  if (!yy_UnmangledName(G))  goto l681;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_RegularFunctionDecl, G->begin, G->end, "yy_3_RegularFunctionDecl");
-  goto l679;
-  l681:;	  G->pos= yypos679; G->thunkpos= yythunkpos679;  if (!yy_ABSTRACT_KW(G))  goto l682;
-  yyDo(G, yy_4_RegularFunctionDecl, G->begin, G->end, "yy_4_RegularFunctionDecl");
-  goto l679;
-  l682:;	  G->pos= yypos679; G->thunkpos= yythunkpos679;  if (!yy_STATIC_KW(G))  goto l683;
-  yyDo(G, yy_5_RegularFunctionDecl, G->begin, G->end, "yy_5_RegularFunctionDecl");
-  goto l679;
-  l683:;	  G->pos= yypos679; G->thunkpos= yythunkpos679;  if (!yy_INLINE_KW(G))  goto l684;
-  yyDo(G, yy_6_RegularFunctionDecl, G->begin, G->end, "yy_6_RegularFunctionDecl");
-  goto l679;
-  l684:;	  G->pos= yypos679; G->thunkpos= yythunkpos679;  if (!yy_FINAL_KW(G))  goto l685;
-  yyDo(G, yy_7_RegularFunctionDecl, G->begin, G->end, "yy_7_RegularFunctionDecl");
-  goto l679;
-  l685:;	  G->pos= yypos679; G->thunkpos= yythunkpos679;  if (!yy_PROTO_KW(G))  goto l678;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_8_RegularFunctionDecl, G->begin, G->end, "yy_8_RegularFunctionDecl");
   goto l698;
   l705:;	  G->pos= yypos698; G->thunkpos= yythunkpos698;  if (!yy_VIRTUAL_KW(G))  goto l706;
@@ -14557,25 +11799,15 @@ YY_RULE(int) yy_RegularFunctionDecl(GREG *G)
   yyDo(G, yy_10_RegularFunctionDecl, G->begin, G->end, "yy_10_RegularFunctionDecl");
 
   }
-<<<<<<< HEAD
   l698:;	  goto l696;
   l697:;	  G->pos= yypos697; G->thunkpos= yythunkpos697;
   }  if (!yy_FunctionDeclCore(G))  goto l695;
-=======
-  l679:;	  goto l677;
-  l678:;	  G->pos= yypos678; G->thunkpos= yythunkpos678;
-  }  if (!yy_FunctionDeclCore(G))  goto l676;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   RegularFunctionDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l695:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "RegularFunctionDecl"));
-=======
-  l676:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "RegularFunctionDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14584,7 +11816,6 @@ YY_RULE(int) yy_RegularFunctionDecl(GREG *G)
 YY_RULE(int) yy_SuperFunctionDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "SuperFunctionDecl"));
-<<<<<<< HEAD
   if (!yy_IDENT(G))  goto l707;
   yyDo(G, yySet, -2, 0, "yySet");
   if (!yy__(G))  goto l707;
@@ -14605,38 +11836,12 @@ YY_RULE(int) yy_SuperFunctionDecl(GREG *G)
   l708:;	  G->pos= yypos708; G->thunkpos= yythunkpos708;
   }
   l709:;	  yyDo(G, yy_3_SuperFunctionDecl, G->begin, G->end, "yy_3_SuperFunctionDecl");
-=======
-  if (!yy_IDENT(G))  goto l686;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l686;
-  if (!yy_COLON(G))  goto l686;
-  if (!yy__(G))  goto l686;
-  if (!yymatchString(G, "super")) goto l686;
-  if (!yy__(G))  goto l686;
-  if (!yy_FUNC_KW(G))  goto l686;
-  if (!yy__(G))  goto l686;
-  yyDo(G, yy_1_SuperFunctionDecl, G->begin, G->end, "yy_1_SuperFunctionDecl");
-
-  {  int yypos687= G->pos, yythunkpos687= G->thunkpos;  if (!yy__(G))  goto l687;
-  if (!yymatchChar(G, '~')) goto l687;
-  if (!yy_IDENT(G))  goto l687;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_SuperFunctionDecl, G->begin, G->end, "yy_2_SuperFunctionDecl");
-  goto l688;
-  l687:;	  G->pos= yypos687; G->thunkpos= yythunkpos687;
-  }
-  l688:;	  yyDo(G, yy_3_SuperFunctionDecl, G->begin, G->end, "yy_3_SuperFunctionDecl");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   SuperFunctionDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l707:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "SuperFunctionDecl"));
-=======
-  l686:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "SuperFunctionDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14646,7 +11851,6 @@ YY_RULE(int) yy_FunctionDeclBody(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "FunctionDeclBody"));
 
-<<<<<<< HEAD
   {  int yypos711= G->pos, yythunkpos711= G->thunkpos;  if (!yy_GenericArguments(G))  goto l711;
   goto l712;
   l711:;	  G->pos= yypos711; G->thunkpos= yythunkpos711;
@@ -14722,93 +11926,12 @@ YY_RULE(int) yy_FunctionDeclBody(GREG *G)
   l723:;	  G->pos= yypos723; G->thunkpos= yythunkpos723;
   }
   l724:;	  yyDo(G, yy_9_FunctionDeclBody, G->begin, G->end, "yy_9_FunctionDeclBody");
-=======
-  {  int yypos690= G->pos, yythunkpos690= G->thunkpos;  if (!yy_GenericArguments(G))  goto l690;
-  goto l691;
-  l690:;	  G->pos= yypos690; G->thunkpos= yythunkpos690;
-  }
-  l691:;	
-  {  int yypos692= G->pos, yythunkpos692= G->thunkpos;  if (!yy_WS(G))  goto l692;
-  if (!yymatchChar(G, '(')) goto l692;
-  yyDo(G, yy_1_FunctionDeclBody, G->begin, G->end, "yy_1_FunctionDeclBody");
-
-  {  int yypos694= G->pos, yythunkpos694= G->thunkpos;  if (!yy_WS(G))  goto l694;
-  if (!yy_Argument(G))  goto l694;
-  if (!yy_WS(G))  goto l694;
-
-  l696:;	
-  {  int yypos697= G->pos, yythunkpos697= G->thunkpos;  if (!yymatchChar(G, ',')) goto l697;
-  if (!yy_WS(G))  goto l697;
-  if (!yy_Argument(G))  goto l697;
-  if (!yy_WS(G))  goto l697;
-  goto l696;
-  l697:;	  G->pos= yypos697; G->thunkpos= yythunkpos697;
-  }  goto l695;
-  l694:;	  G->pos= yypos694; G->thunkpos= yythunkpos694;
-  }
-  l695:;	  if (!yy_WS(G))  goto l692;
-  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_ARG, "Malformed function argument (remember, it's `name: Type` in ooc, not `Type name`)\n") ; } goto l692; }
-  yyDo(G, yy_2_FunctionDeclBody, G->begin, G->end, "yy_2_FunctionDeclBody");
-  goto l693;
-  l692:;	  G->pos= yypos692; G->thunkpos= yythunkpos692;
-  }
-  l693:;	
-  {  int yypos698= G->pos, yythunkpos698= G->thunkpos;  if (!yy__(G))  goto l698;
-  if (!yymatchChar(G, '~')) goto l698;
-  if (!yy_IDENT(G))  goto l698;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_3_FunctionDeclBody, G->begin, G->end, "yy_3_FunctionDeclBody");
-  goto l699;
-  l698:;	  G->pos= yypos698; G->thunkpos= yythunkpos698;
-  }
-  l699:;	
-  {  int yypos700= G->pos, yythunkpos700= G->thunkpos;  if (!yy__(G))  goto l700;
-  if (!yy_R_ARROW(G))  goto l700;
-  if (!yy__(G))  goto l700;
-  if (!yy_Type(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_RET_TYPE, "Missing return type.\n") ; } goto l700; }
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_4_FunctionDeclBody, G->begin, G->end, "yy_4_FunctionDeclBody");
-  goto l701;
-  l700:;	  G->pos= yypos700; G->thunkpos= yythunkpos700;
-  }
-  l701:;	
-  {  int yypos702= G->pos, yythunkpos702= G->thunkpos;  yyDo(G, yy_5_FunctionDeclBody, G->begin, G->end, "yy_5_FunctionDeclBody");
-  if (!yy_WS(G))  goto l702;
-  if (!yymatchChar(G, '{')) goto l702;
-  if (!yy_WS(G))  goto l702;
-
-  l704:;	
-  {  int yypos705= G->pos, yythunkpos705= G->thunkpos;  if (!yy_WS(G))  goto l705;
-
-  {  int yypos706= G->pos, yythunkpos706= G->thunkpos;  if (!yy_Stmt(G))  goto l707;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_6_FunctionDeclBody, G->begin, G->end, "yy_6_FunctionDeclBody");
-  goto l706;
-  l707:;	  G->pos= yypos706; G->thunkpos= yythunkpos706;  yyDo(G, yy_7_FunctionDeclBody, G->begin, G->end, "yy_7_FunctionDeclBody");
-  if (!yy_OocDocCore(G))  goto l705;
-  yyDo(G, yy_8_FunctionDeclBody, G->begin, G->end, "yy_8_FunctionDeclBody");
-
-  }
-  l706:;	  if (!yy_WS(G))  goto l705;
-  goto l704;
-  l705:;	  G->pos= yypos705; G->thunkpos= yythunkpos705;
-  }  if (!yy_WS(G))  goto l702;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_STATEMENT_OR_CLOSING_BRACKET, "Malformed statement or closing bracket missing\n") ; } goto l702; }
-  goto l703;
-  l702:;	  G->pos= yypos702; G->thunkpos= yythunkpos702;
-  }
-  l703:;	  yyDo(G, yy_9_FunctionDeclBody, G->begin, G->end, "yy_9_FunctionDeclBody");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   FunctionDeclBody"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l710:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionDeclBody"));
-=======
-  l689:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionDeclBody"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14816,21 +11939,13 @@ YY_RULE(int) yy_FunctionDeclBody(GREG *G)
 }
 YY_RULE(int) yy_ABSTRACT_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ABSTRACT_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "abstract")) goto l729;
-=======
-  if (!yymatchString(G, "abstract")) goto l708;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ABSTRACT_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l729:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ABSTRACT_KW"));
-=======
-  l708:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ABSTRACT_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14838,21 +11953,13 @@ YY_RULE(int) yy_ABSTRACT_KW(GREG *G)
 }
 YY_RULE(int) yy_OPERATOR_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "OPERATOR_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "operator")) goto l730;
-=======
-  if (!yymatchString(G, "operator")) goto l709;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   OPERATOR_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l730:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OPERATOR_KW"));
-=======
-  l709:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OPERATOR_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14860,30 +11967,18 @@ YY_RULE(int) yy_OPERATOR_KW(GREG *G)
 }
 YY_RULE(int) yy_TemplateDef(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "TemplateDef"));
-<<<<<<< HEAD
   if (!yy_WS(G))  goto l731;
   if (!yymatchString(G, "template")) goto l731;
   if (!yy_WS(G))  goto l731;
   yyDo(G, yy_1_TemplateDef, G->begin, G->end, "yy_1_TemplateDef");
   if (!yy_GenericArguments(G))  goto l731;
-=======
-  if (!yy_WS(G))  goto l710;
-  if (!yymatchString(G, "template")) goto l710;
-  if (!yy_WS(G))  goto l710;
-  yyDo(G, yy_1_TemplateDef, G->begin, G->end, "yy_1_TemplateDef");
-  if (!yy_GenericArguments(G))  goto l710;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_2_TemplateDef, G->begin, G->end, "yy_2_TemplateDef");
   yyprintf((stderr, "  ok   TemplateDef"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l731:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TemplateDef"));
-=======
-  l710:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "TemplateDef"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14891,7 +11986,6 @@ YY_RULE(int) yy_TemplateDef(GREG *G)
 }
 YY_RULE(int) yy_MORETHAN(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "MORETHAN"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '>')) goto l732;
 
   {  int yypos733= G->pos, yythunkpos733= G->thunkpos;
@@ -14903,29 +11997,12 @@ YY_RULE(int) yy_MORETHAN(GREG *G)
   l734:;	  goto l732;
   l733:;	  G->pos= yypos733; G->thunkpos= yythunkpos733;
   }  if (!yy__(G))  goto l732;
-=======
-  if (!yymatchChar(G, '>')) goto l711;
-
-  {  int yypos712= G->pos, yythunkpos712= G->thunkpos;
-  {  int yypos713= G->pos, yythunkpos713= G->thunkpos;  if (!yymatchChar(G, '=')) goto l714;
-  goto l713;
-  l714:;	  G->pos= yypos713; G->thunkpos= yythunkpos713;  if (!yymatchChar(G, '>')) goto l712;
-
-  }
-  l713:;	  goto l711;
-  l712:;	  G->pos= yypos712; G->thunkpos= yythunkpos712;
-  }  if (!yy__(G))  goto l711;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   MORETHAN"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l732:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MORETHAN"));
-=======
-  l711:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "MORETHAN"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14933,7 +12010,6 @@ YY_RULE(int) yy_MORETHAN(GREG *G)
 }
 YY_RULE(int) yy_LESSTHAN(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "LESSTHAN"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '<')) goto l736;
 
   {  int yypos737= G->pos, yythunkpos737= G->thunkpos;
@@ -14945,29 +12021,12 @@ YY_RULE(int) yy_LESSTHAN(GREG *G)
   l738:;	  goto l736;
   l737:;	  G->pos= yypos737; G->thunkpos= yythunkpos737;
   }  if (!yy__(G))  goto l736;
-=======
-  if (!yymatchChar(G, '<')) goto l715;
-
-  {  int yypos716= G->pos, yythunkpos716= G->thunkpos;
-  {  int yypos717= G->pos, yythunkpos717= G->thunkpos;  if (!yymatchChar(G, '=')) goto l718;
-  goto l717;
-  l718:;	  G->pos= yypos717; G->thunkpos= yythunkpos717;  if (!yymatchChar(G, '<')) goto l716;
-
-  }
-  l717:;	  goto l715;
-  l716:;	  G->pos= yypos716; G->thunkpos= yythunkpos716;
-  }  if (!yy__(G))  goto l715;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   LESSTHAN"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l736:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LESSTHAN"));
-=======
-  l715:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "LESSTHAN"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -14976,7 +12035,6 @@ YY_RULE(int) yy_LESSTHAN(GREG *G)
 YY_RULE(int) yy_GenericArguments(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "GenericArguments"));
-<<<<<<< HEAD
   if (!yy__(G))  goto l740;
   if (!yy_LESSTHAN(G))  goto l740;
   if (!yy__(G))  goto l740;
@@ -14995,36 +12053,12 @@ YY_RULE(int) yy_GenericArguments(GREG *G)
   l742:;	  G->pos= yypos742; G->thunkpos= yythunkpos742;
   }  if (!yy_MORETHAN(G))  goto l740;
   if (!yy__(G))  goto l740;
-=======
-  if (!yy__(G))  goto l719;
-  if (!yy_LESSTHAN(G))  goto l719;
-  if (!yy__(G))  goto l719;
-  if (!yy_IDENT(G))  goto l719;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_GenericArguments, G->begin, G->end, "yy_1_GenericArguments");
-
-  l720:;	
-  {  int yypos721= G->pos, yythunkpos721= G->thunkpos;  if (!yy__(G))  goto l721;
-  if (!yymatchChar(G, ',')) goto l721;
-  if (!yy__(G))  goto l721;
-  if (!yy_IDENT(G))  goto l721;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_GenericArguments, G->begin, G->end, "yy_2_GenericArguments");
-  goto l720;
-  l721:;	  G->pos= yypos721; G->thunkpos= yythunkpos721;
-  }  if (!yy_MORETHAN(G))  goto l719;
-  if (!yy__(G))  goto l719;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   GenericArguments"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l740:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "GenericArguments"));
-=======
-  l719:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "GenericArguments"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15033,7 +12067,6 @@ YY_RULE(int) yy_GenericArguments(GREG *G)
 YY_RULE(int) yy_Terminator(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Terminator"));
 
-<<<<<<< HEAD
   {  int yypos744= G->pos, yythunkpos744= G->thunkpos;  if (!yy_CommentLine(G))  goto l745;
   goto l744;
   l745:;	  G->pos= yypos744; G->thunkpos= yythunkpos744;
@@ -15050,33 +12083,11 @@ YY_RULE(int) yy_Terminator(GREG *G)
   l748:;	
   }
   l744:;	  yyprintf((stderr, "  ok   Terminator"));
-=======
-  {  int yypos723= G->pos, yythunkpos723= G->thunkpos;  if (!yy_CommentLine(G))  goto l724;
-  goto l723;
-  l724:;	  G->pos= yypos723; G->thunkpos= yythunkpos723;
-  {  int yypos725= G->pos, yythunkpos725= G->thunkpos;  if (!yy_CommentMultiLine(G))  goto l725;
-  goto l726;
-  l725:;	  G->pos= yypos725; G->thunkpos= yythunkpos725;
-  }
-  l726:;	
-  {  int yypos727= G->pos, yythunkpos727= G->thunkpos;  if (!yy_EOL(G))  goto l728;
-  goto l727;
-  l728:;	  G->pos= yypos727; G->thunkpos= yythunkpos727;  if (!yymatchChar(G, ';')) goto l722;
-
-  }
-  l727:;	
-  }
-  l723:;	  yyprintf((stderr, "  ok   Terminator"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l743:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Terminator"));
-=======
-  l722:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Terminator"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15086,37 +12097,21 @@ YY_RULE(int) yy_VariableDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "VariableDecl"));
 
-<<<<<<< HEAD
   {  int yypos751= G->pos, yythunkpos751= G->thunkpos;  if (!yy_VarDeclFromExpr(G))  goto l752;
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_1_VariableDecl, G->begin, G->end, "yy_1_VariableDecl");
   goto l751;
   l752:;	  G->pos= yypos751; G->thunkpos= yythunkpos751;  if (!yy_ConventionalVarDecl(G))  goto l750;
-=======
-  {  int yypos730= G->pos, yythunkpos730= G->thunkpos;  if (!yy_VarDeclFromExpr(G))  goto l731;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_VariableDecl, G->begin, G->end, "yy_1_VariableDecl");
-  goto l730;
-  l731:;	  G->pos= yypos730; G->thunkpos= yythunkpos730;  if (!yy_ConventionalVarDecl(G))  goto l729;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_2_VariableDecl, G->begin, G->end, "yy_2_VariableDecl");
 
   }
-<<<<<<< HEAD
   l751:;	  yyprintf((stderr, "  ok   VariableDecl"));
-=======
-  l730:;	  yyprintf((stderr, "  ok   VariableDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l750:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VariableDecl"));
-=======
-  l729:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VariableDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15126,37 +12121,21 @@ YY_RULE(int) yy_PropertyDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "PropertyDecl"));
 
-<<<<<<< HEAD
   {  int yypos754= G->pos, yythunkpos754= G->thunkpos;  if (!yy_PropertyDeclFromExpr(G))  goto l755;
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_1_PropertyDecl, G->begin, G->end, "yy_1_PropertyDecl");
   goto l754;
   l755:;	  G->pos= yypos754; G->thunkpos= yythunkpos754;  if (!yy_ConventionalPropertyDecl(G))  goto l753;
-=======
-  {  int yypos733= G->pos, yythunkpos733= G->thunkpos;  if (!yy_PropertyDeclFromExpr(G))  goto l734;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_1_PropertyDecl, G->begin, G->end, "yy_1_PropertyDecl");
-  goto l733;
-  l734:;	  G->pos= yypos733; G->thunkpos= yythunkpos733;  if (!yy_ConventionalPropertyDecl(G))  goto l732;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_2_PropertyDecl, G->begin, G->end, "yy_2_PropertyDecl");
 
   }
-<<<<<<< HEAD
   l754:;	  yyprintf((stderr, "  ok   PropertyDecl"));
-=======
-  l733:;	  yyprintf((stderr, "  ok   PropertyDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l753:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDecl"));
-=======
-  l732:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "PropertyDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15165,30 +12144,17 @@ YY_RULE(int) yy_PropertyDecl(GREG *G)
 YY_RULE(int) yy_FunctionDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "FunctionDecl"));
 
-<<<<<<< HEAD
   {  int yypos757= G->pos, yythunkpos757= G->thunkpos;  if (!yy_SuperFunctionDecl(G))  goto l758;
   goto l757;
   l758:;	  G->pos= yypos757; G->thunkpos= yythunkpos757;  if (!yy_RegularFunctionDecl(G))  goto l756;
 
   }
   l757:;	  yyprintf((stderr, "  ok   FunctionDecl"));
-=======
-  {  int yypos736= G->pos, yythunkpos736= G->thunkpos;  if (!yy_SuperFunctionDecl(G))  goto l737;
-  goto l736;
-  l737:;	  G->pos= yypos736; G->thunkpos= yythunkpos736;  if (!yy_RegularFunctionDecl(G))  goto l735;
-
-  }
-  l736:;	  yyprintf((stderr, "  ok   FunctionDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l756:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionDecl"));
-=======
-  l735:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "FunctionDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15197,7 +12163,6 @@ YY_RULE(int) yy_FunctionDecl(GREG *G)
 YY_RULE(int) yy_OperatorDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "OperatorDecl"));
 
-<<<<<<< HEAD
   {  int yypos760= G->pos, yythunkpos760= G->thunkpos;  if (!yy_OPERATOR_KW(G))  goto l761;
   yyDo(G, yy_1_OperatorDecl, G->begin, G->end, "yy_1_OperatorDecl");
   goto l760;
@@ -15300,121 +12265,13 @@ YY_RULE(int) yy_OperatorDecl(GREG *G)
   l764:;	  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l759;  yyDo(G, yy_4_OperatorDecl, G->begin, G->end, "yy_4_OperatorDecl");
   if (!yy__(G))  goto l759;
   if (!yy_FunctionDeclBody(G))  goto l759;
-=======
-  {  int yypos739= G->pos, yythunkpos739= G->thunkpos;  if (!yy_OPERATOR_KW(G))  goto l740;
-  yyDo(G, yy_1_OperatorDecl, G->begin, G->end, "yy_1_OperatorDecl");
-  goto l739;
-  l740:;	  G->pos= yypos739; G->thunkpos= yythunkpos739;  if (!yy_ABSTRACT_KW(G))  goto l738;
-  if (!yy__(G))  goto l738;
-  if (!yy_OPERATOR_KW(G))  goto l738;
-  yyDo(G, yy_2_OperatorDecl, G->begin, G->end, "yy_2_OperatorDecl");
-
-  }
-  l739:;	  if (!yy__(G))  goto l738;
-
-  {  int yypos741= G->pos, yythunkpos741= G->thunkpos;  if (!yymatchChar(G, '@')) goto l741;
-  yyDo(G, yy_3_OperatorDecl, G->begin, G->end, "yy_3_OperatorDecl");
-  goto l742;
-  l741:;	  G->pos= yypos741; G->thunkpos= yythunkpos741;
-  }
-  l742:;	  if (!yy__(G))  goto l738;
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l738;
-  {  int yypos743= G->pos, yythunkpos743= G->thunkpos;  if (!yymatchString(G, "=>")) goto l744;
-  goto l743;
-  l744:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "<=>")) goto l745;
-  goto l743;
-  l745:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, ">>=")) goto l746;
-  goto l743;
-  l746:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "<<=")) goto l747;
-  goto l743;
-  l747:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, ">>")) goto l748;
-  goto l743;
-  l748:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "<<")) goto l749;
-  goto l743;
-  l749:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, ">=")) goto l750;
-  goto l743;
-  l750:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "<=")) goto l751;
-  goto l743;
-  l751:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "!=")) goto l752;
-  goto l743;
-  l752:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "==")) goto l753;
-  goto l743;
-  l753:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '>')) goto l754;
-  goto l743;
-  l754:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '<')) goto l755;
-  goto l743;
-  l755:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '!')) goto l756;
-  goto l743;
-  l756:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "??")) goto l757;
-  goto l743;
-  l757:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "+=")) goto l758;
-  goto l743;
-  l758:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "-=")) goto l759;
-  goto l743;
-  l759:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "*=")) goto l760;
-  goto l743;
-  l760:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "**=")) goto l761;
-  goto l743;
-  l761:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "/=")) goto l762;
-  goto l743;
-  l762:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "%=")) goto l763;
-  goto l743;
-  l763:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '+')) goto l764;
-  goto l743;
-  l764:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '-')) goto l765;
-  goto l743;
-  l765:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "**")) goto l766;
-  goto l743;
-  l766:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '/')) goto l767;
-  goto l743;
-  l767:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '*')) goto l768;
-  goto l743;
-  l768:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '=')) goto l769;
-  goto l743;
-  l769:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "[]=")) goto l770;
-  goto l743;
-  l770:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "[]")) goto l771;
-  goto l743;
-  l771:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "&&")) goto l772;
-  goto l743;
-  l772:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "||")) goto l773;
-  goto l743;
-  l773:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '%')) goto l774;
-  goto l743;
-  l774:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "as")) goto l775;
-  goto l743;
-  l775:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "implicit as")) goto l776;
-  goto l743;
-  l776:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "&=")) goto l777;
-  goto l743;
-  l777:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "|=")) goto l778;
-  goto l743;
-  l778:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchString(G, "^=")) goto l779;
-  goto l743;
-  l779:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '&')) goto l780;
-  goto l743;
-  l780:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '|')) goto l781;
-  goto l743;
-  l781:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '^')) goto l782;
-  goto l743;
-  l782:;	  G->pos= yypos743; G->thunkpos= yythunkpos743;  if (!yymatchChar(G, '~')) goto l738;
-
-  }
-  l743:;	  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l738;  yyDo(G, yy_4_OperatorDecl, G->begin, G->end, "yy_4_OperatorDecl");
-  if (!yy__(G))  goto l738;
-  if (!yy_FunctionDeclBody(G))  goto l738;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_5_OperatorDecl, G->begin, G->end, "yy_5_OperatorDecl");
   yyprintf((stderr, "  ok   OperatorDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l759:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OperatorDecl"));
-=======
-  l738:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OperatorDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15423,7 +12280,6 @@ YY_RULE(int) yy_OperatorDecl(GREG *G)
 YY_RULE(int) yy_InterfaceDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "InterfaceDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l804;
   yyDo(G, yySet, -4, 0, "yySet");
   if (!yy_IDENT(G))  goto l804;
@@ -15481,76 +12337,13 @@ YY_RULE(int) yy_InterfaceDecl(GREG *G)
   l814:;	  G->pos= yypos814; G->thunkpos= yythunkpos814;
   }  if (!yy_WS(G))  goto l804;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected method or '"_CSBRACK"' to close interface.\n"); ; } goto l804; }
-=======
-  if (!yy_OocDoc(G))  goto l783;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy_IDENT(G))  goto l783;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_InterfaceDecl, G->begin, G->end, "yy_1_InterfaceDecl");
-  if (!yy__(G))  goto l783;
-  if (!yy_COLON(G))  goto l783;
-  if (!yy__(G))  goto l783;
-  if (!yy_INTERFACE_KW(G))  goto l783;
-
-  {  int yypos784= G->pos, yythunkpos784= G->thunkpos;  if (!yy_GenericArguments(G))  goto l784;
-  goto l785;
-  l784:;	  G->pos= yypos784; G->thunkpos= yythunkpos784;
-  }
-  l785:;	
-  {  int yypos786= G->pos, yythunkpos786= G->thunkpos;  if (!yy__(G))  goto l786;
-  if (!yy_EXTENDS_KW(G))  goto l786;
-  if (!yy__(G))  goto l786;
-  if (!yy_Type(G))  goto l786;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_2_InterfaceDecl, G->begin, G->end, "yy_2_InterfaceDecl");
-  goto l787;
-  l786:;	  G->pos= yypos786; G->thunkpos= yythunkpos786;
-  }
-  l787:;	
-  {  int yypos788= G->pos, yythunkpos788= G->thunkpos;  if (!yy__(G))  goto l788;
-  if (!yy_IMPLEMENTS_KW(G))  goto l788;
-  if (!yy__(G))  goto l788;
-  if (!yy_Type(G))  goto l788;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_3_InterfaceDecl, G->begin, G->end, "yy_3_InterfaceDecl");
-
-  l790:;	
-  {  int yypos791= G->pos, yythunkpos791= G->thunkpos;  if (!yy__(G))  goto l791;
-  if (!yymatchChar(G, ',')) goto l791;
-  if (!yy__(G))  goto l791;
-  if (!yy_Type(G))  goto l791;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_4_InterfaceDecl, G->begin, G->end, "yy_4_InterfaceDecl");
-  goto l790;
-  l791:;	  G->pos= yypos791; G->thunkpos= yythunkpos791;
-  }  goto l789;
-  l788:;	  G->pos= yypos788; G->thunkpos= yythunkpos788;
-  }
-  l789:;	  if (!yy_WS(G))  goto l783;
-  if (!yymatchChar(G, '{')) goto l783;
-  if (!yy_WS(G))  goto l783;
-
-  l792:;	
-  {  int yypos793= G->pos, yythunkpos793= G->thunkpos;  if (!yy_WS(G))  goto l793;
-  if (!yy_FunctionDecl(G))  goto l793;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_WS(G))  goto l793;
-  goto l792;
-  l793:;	  G->pos= yypos793; G->thunkpos= yythunkpos793;
-  }  if (!yy_WS(G))  goto l783;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected method or '"_CSBRACK"' to close interface.\n"); ; } goto l783; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_5_InterfaceDecl, G->begin, G->end, "yy_5_InterfaceDecl");
   yyprintf((stderr, "  ok   InterfaceDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l804:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "InterfaceDecl"));
-=======
-  l783:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "InterfaceDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15559,7 +12352,6 @@ YY_RULE(int) yy_InterfaceDecl(GREG *G)
 YY_RULE(int) yy_EnumDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 5, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "EnumDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l815;
   yyDo(G, yySet, -5, 0, "yySet");
   if (!yy_IDENT(G))  goto l815;
@@ -15633,92 +12425,13 @@ YY_RULE(int) yy_EnumDecl(GREG *G)
   }
   l821:;	  if (!yy_WS(G))  goto l815;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_ENUM_ELEMENT, "Expected enum element!\n"); ; } goto l815; }
-=======
-  if (!yy_OocDoc(G))  goto l794;
-  yyDo(G, yySet, -5, 0, "yySet");
-  if (!yy_IDENT(G))  goto l794;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_1_EnumDecl, G->begin, G->end, "yy_1_EnumDecl");
-  if (!yy__(G))  goto l794;
-  if (!yy_COLON(G))  goto l794;
-  if (!yy__(G))  goto l794;
-  if (!yy_ENUM_KW(G))  goto l794;
-
-  {  int yypos795= G->pos, yythunkpos795= G->thunkpos;  if (!yy__(G))  goto l795;
-  if (!yy_FROM_KW(G))  goto l795;
-  if (!yy__(G))  goto l795;
-  if (!yy_Type(G))  goto l795;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_2_EnumDecl, G->begin, G->end, "yy_2_EnumDecl");
-  goto l796;
-  l795:;	  G->pos= yypos795; G->thunkpos= yythunkpos795;
-  }
-  l796:;	
-  {  int yypos797= G->pos, yythunkpos797= G->thunkpos;  if (!yy__(G))  goto l797;
-  if (!yymatchChar(G, '(')) goto l797;
-  if (!yy__(G))  goto l797;
-  if (!yy_EnumIncrementOper(G))  goto l797;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_WS(G))  goto l797;
-  if (!yy_IntLiteral(G))  goto l797;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_EnumDecl, G->begin, G->end, "yy_3_EnumDecl");
-  if (!yy__(G))  goto l797;
-  if (!yymatchChar(G, ')')) goto l797;
-  goto l798;
-  l797:;	  G->pos= yypos797; G->thunkpos= yythunkpos797;
-  }
-  l798:;	  if (!yy_WS(G))  goto l794;
-  if (!yymatchChar(G, '{')) goto l794;
-  if (!yy_WS(G))  goto l794;
-
-  {  int yypos799= G->pos, yythunkpos799= G->thunkpos;  if (!yy_EnumElement(G))  goto l799;
-
-  l801:;	
-  {  int yypos802= G->pos, yythunkpos802= G->thunkpos;
-  {  int yypos803= G->pos, yythunkpos803= G->thunkpos;  if (!yy_Terminator(G))  goto l804;
-
-  l805:;	
-  {  int yypos806= G->pos, yythunkpos806= G->thunkpos;  if (!yy_Terminator(G))  goto l806;
-  goto l805;
-  l806:;	  G->pos= yypos806; G->thunkpos= yythunkpos806;
-  }  if (!yy_WS(G))  goto l804;
-  if (!yy_FunctionDecl(G))  goto l804;
-  goto l803;
-  l804:;	  G->pos= yypos803; G->thunkpos= yythunkpos803;
-  {  int yypos807= G->pos, yythunkpos807= G->thunkpos;  if (!yymatchChar(G, ',')) goto l808;
-  goto l807;
-  l808:;	  G->pos= yypos807; G->thunkpos= yythunkpos807;  if (!yy_Terminator(G))  goto l802;
-
-  l809:;	
-  {  int yypos810= G->pos, yythunkpos810= G->thunkpos;  if (!yy_Terminator(G))  goto l810;
-  goto l809;
-  l810:;	  G->pos= yypos810; G->thunkpos= yythunkpos810;
-  }
-  }
-  l807:;	  if (!yy_WS(G))  goto l802;
-  if (!yy_EnumElement(G))  goto l802;
-
-  }
-  l803:;	  goto l801;
-  l802:;	  G->pos= yypos802; G->thunkpos= yythunkpos802;
-  }  goto l800;
-  l799:;	  G->pos= yypos799; G->thunkpos= yythunkpos799;
-  }
-  l800:;	  if (!yy_WS(G))  goto l794;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_ENUM_ELEMENT, "Expected enum element!\n"); ; } goto l794; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_4_EnumDecl, G->begin, G->end, "yy_4_EnumDecl");
   yyprintf((stderr, "  ok   EnumDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 5, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l815:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EnumDecl"));
-=======
-  l794:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EnumDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15727,7 +12440,6 @@ YY_RULE(int) yy_EnumDecl(GREG *G)
 YY_RULE(int) yy_ExtendDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ExtendDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l832;
   yyDo(G, yySet, -4, 0, "yySet");
   if (!yymatchString(G, "extend")) goto l832;
@@ -15746,54 +12458,22 @@ YY_RULE(int) yy_ExtendDecl(GREG *G)
   yyDo(G, yySet, -2, 0, "yySet");
   goto l835;
   l836:;	  G->pos= yypos835; G->thunkpos= yythunkpos835;  if (!yy_PropertyDecl(G))  goto l834;
-=======
-  if (!yy_OocDoc(G))  goto l811;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yymatchString(G, "extend")) goto l811;
-  if (!yy_WS(G))  goto l811;
-  if (!yy_Type(G))  goto l811;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_1_ExtendDecl, G->begin, G->end, "yy_1_ExtendDecl");
-  if (!yy_WS(G))  goto l811;
-  if (!yymatchChar(G, '{')) goto l811;
-  if (!yy_WS(G))  goto l811;
-
-  l812:;	
-  {  int yypos813= G->pos, yythunkpos813= G->thunkpos;  if (!yy_WS(G))  goto l813;
-
-  {  int yypos814= G->pos, yythunkpos814= G->thunkpos;  if (!yy_FunctionDecl(G))  goto l815;
-  yyDo(G, yySet, -2, 0, "yySet");
-  goto l814;
-  l815:;	  G->pos= yypos814; G->thunkpos= yythunkpos814;  if (!yy_PropertyDecl(G))  goto l813;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_2_ExtendDecl, G->begin, G->end, "yy_2_ExtendDecl");
 
   }
-<<<<<<< HEAD
   l835:;	  if (!yy_WS(G))  goto l834;
   goto l833;
   l834:;	  G->pos= yypos834; G->thunkpos= yythunkpos834;
   }  if (!yy_WS(G))  goto l832;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected or function declaration\n"); ; } goto l832; }
-=======
-  l814:;	  if (!yy_WS(G))  goto l813;
-  goto l812;
-  l813:;	  G->pos= yypos813; G->thunkpos= yythunkpos813;
-  }  if (!yy_WS(G))  goto l811;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected or function declaration\n"); ; } goto l811; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_3_ExtendDecl, G->begin, G->end, "yy_3_ExtendDecl");
   yyprintf((stderr, "  ok   ExtendDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l832:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ExtendDecl"));
-=======
-  l811:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ExtendDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -15802,7 +12482,6 @@ YY_RULE(int) yy_ExtendDecl(GREG *G)
 YY_RULE(int) yy_CoverDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 8, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "CoverDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l837;
   yyDo(G, yySet, -8, 0, "yySet");
   if (!yy_IDENT(G))  goto l837;
@@ -15862,71 +12541,9 @@ YY_RULE(int) yy_CoverDecl(GREG *G)
   if (!yy_IMPLEMENTS_KW(G))  goto l850;
   if (!yy__(G))  goto l850;
   if (!yy_Type(G))  goto l850;
-=======
-  if (!yy_OocDoc(G))  goto l816;
-  yyDo(G, yySet, -8, 0, "yySet");
-  if (!yy_IDENT(G))  goto l816;
-  yyDo(G, yySet, -7, 0, "yySet");
-  yyDo(G, yy_1_CoverDecl, G->begin, G->end, "yy_1_CoverDecl");
-  if (!yy__(G))  goto l816;
-  if (!yy_COLON(G))  goto l816;
-
-  {  int yypos817= G->pos, yythunkpos817= G->thunkpos;  if (!yy__(G))  goto l817;
-  if (!yy_ExternName(G))  goto l817;
-  yyDo(G, yySet, -6, 0, "yySet");
-  yyDo(G, yy_2_CoverDecl, G->begin, G->end, "yy_2_CoverDecl");
-  goto l818;
-  l817:;	  G->pos= yypos817; G->thunkpos= yythunkpos817;
-  }
-  l818:;	
-  {  int yypos819= G->pos, yythunkpos819= G->thunkpos;  if (!yy__(G))  goto l819;
-  if (!yy_PROTO_KW(G))  goto l819;
-  yyDo(G, yy_3_CoverDecl, G->begin, G->end, "yy_3_CoverDecl");
-  goto l820;
-  l819:;	  G->pos= yypos819; G->thunkpos= yythunkpos819;
-  }
-  l820:;	  if (!yy__(G))  goto l816;
-  if (!yy_COVER_KW(G))  goto l816;
-
-  {  int yypos821= G->pos, yythunkpos821= G->thunkpos;  if (!yy_GenericArguments(G))  goto l821;
-  goto l822;
-  l821:;	  G->pos= yypos821; G->thunkpos= yythunkpos821;
-  }
-  l822:;	
-  {  int yypos823= G->pos, yythunkpos823= G->thunkpos;  if (!yy_TemplateDef(G))  goto l823;
-  goto l824;
-  l823:;	  G->pos= yypos823; G->thunkpos= yythunkpos823;
-  }
-  l824:;	
-  {  int yypos825= G->pos, yythunkpos825= G->thunkpos;  if (!yy__(G))  goto l825;
-  if (!yy_FROM_KW(G))  goto l825;
-  if (!yy__(G))  goto l825;
-  if (!yy_Type(G))  goto l825;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
-  yyDo(G, yySet, -5, 0, "yySet");
-  yyDo(G, yy_4_CoverDecl, G->begin, G->end, "yy_4_CoverDecl");
-  goto l826;
-  l825:;	  G->pos= yypos825; G->thunkpos= yythunkpos825;
-  }
-  l826:;	
-  {  int yypos827= G->pos, yythunkpos827= G->thunkpos;  if (!yy__(G))  goto l827;
-  if (!yy_EXTENDS_KW(G))  goto l827;
-  if (!yy__(G))  goto l827;
-  if (!yy_Type(G))  goto l827;
-  yyDo(G, yySet, -5, 0, "yySet");
-  yyDo(G, yy_5_CoverDecl, G->begin, G->end, "yy_5_CoverDecl");
-  goto l828;
-  l827:;	  G->pos= yypos827; G->thunkpos= yythunkpos827;
-  }
-  l828:;	
-  {  int yypos829= G->pos, yythunkpos829= G->thunkpos;  if (!yy__(G))  goto l829;
-  if (!yy_IMPLEMENTS_KW(G))  goto l829;
-  if (!yy__(G))  goto l829;
-  if (!yy_Type(G))  goto l829;
   yyDo(G, yySet, -5, 0, "yySet");
   yyDo(G, yy_6_CoverDecl, G->begin, G->end, "yy_6_CoverDecl");
 
-<<<<<<< HEAD
   l852:;	
   {  int yypos853= G->pos, yythunkpos853= G->thunkpos;  if (!yy__(G))  goto l853;
   if (!yymatchChar(G, ',')) goto l853;
@@ -15977,68 +12594,12 @@ YY_RULE(int) yy_CoverDecl(GREG *G)
   l854:;	  G->pos= yypos854; G->thunkpos= yythunkpos854;
   }
   l855:;	  yyDo(G, yy_10_CoverDecl, G->begin, G->end, "yy_10_CoverDecl");
-=======
-  l831:;	
-  {  int yypos832= G->pos, yythunkpos832= G->thunkpos;  if (!yy__(G))  goto l832;
-  if (!yymatchChar(G, ',')) goto l832;
-  if (!yy__(G))  goto l832;
-  if (!yy_Type(G))  goto l832;
-  yyDo(G, yySet, -5, 0, "yySet");
-  yyDo(G, yy_7_CoverDecl, G->begin, G->end, "yy_7_CoverDecl");
-  goto l831;
-  l832:;	  G->pos= yypos832; G->thunkpos= yythunkpos832;
-  }  goto l830;
-  l829:;	  G->pos= yypos829; G->thunkpos= yythunkpos829;
-  }
-  l830:;	
-  {  int yypos833= G->pos, yythunkpos833= G->thunkpos;  if (!yy_WS(G))  goto l833;
-  if (!yymatchChar(G, '{')) goto l833;
-  if (!yy_WS(G))  goto l833;
-
-  l835:;	
-  {  int yypos836= G->pos, yythunkpos836= G->thunkpos;  if (!yy_WS(G))  goto l836;
-
-  {  int yypos837= G->pos, yythunkpos837= G->thunkpos;  if (!yy_VariableDecl(G))  goto l838;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_8_CoverDecl, G->begin, G->end, "yy_8_CoverDecl");
-  if (!yy_Terminator(G))  goto l838;
-
-  l839:;	
-  {  int yypos840= G->pos, yythunkpos840= G->thunkpos;  if (!yy_Terminator(G))  goto l840;
-  goto l839;
-  l840:;	  G->pos= yypos840; G->thunkpos= yythunkpos840;
-  }  goto l837;
-  l838:;	  G->pos= yypos837; G->thunkpos= yythunkpos837;  if (!yy_PropertyDecl(G))  goto l841;
-  yyDo(G, yySet, -3, 0, "yySet");
-  yyDo(G, yy_9_CoverDecl, G->begin, G->end, "yy_9_CoverDecl");
-  goto l837;
-  l841:;	  G->pos= yypos837; G->thunkpos= yythunkpos837;  if (!yy_OperatorDecl(G))  goto l842;
-  yyDo(G, yySet, -2, 0, "yySet");
-  goto l837;
-  l842:;	  G->pos= yypos837; G->thunkpos= yythunkpos837;  if (!yy_FunctionDecl(G))  goto l836;
-  yyDo(G, yySet, -1, 0, "yySet");
-
-  }
-  l837:;	  if (!yy_WS(G))  goto l836;
-  goto l835;
-  l836:;	  G->pos= yypos836; G->thunkpos= yythunkpos836;
-  }  if (!yy_WS(G))  goto l833;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected variable declaration or function declaration\n"); ; } goto l833; }
-  goto l834;
-  l833:;	  G->pos= yypos833; G->thunkpos= yythunkpos833;
-  }
-  l834:;	  yyDo(G, yy_10_CoverDecl, G->begin, G->end, "yy_10_CoverDecl");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CoverDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 8, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l837:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CoverDecl"));
-=======
-  l816:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CoverDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16047,7 +12608,6 @@ YY_RULE(int) yy_CoverDecl(GREG *G)
 YY_RULE(int) yy_ClassDecl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 8, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ClassDecl"));
-<<<<<<< HEAD
   if (!yy_OocDoc(G))  goto l864;
   yyDo(G, yySet, -8, 0, "yySet");
   if (!yy_IDENT(G))  goto l864;
@@ -16141,124 +12701,22 @@ YY_RULE(int) yy_ClassDecl(GREG *G)
   yyDo(G, yySet, -2, 0, "yySet");
   goto l882;
   l888:;	  G->pos= yypos882; G->thunkpos= yythunkpos882;  if (!yy_Stmt(G))  goto l881;
-=======
-  if (!yy_OocDoc(G))  goto l843;
-  yyDo(G, yySet, -8, 0, "yySet");
-  if (!yy_IDENT(G))  goto l843;
-  yyDo(G, yySet, -7, 0, "yySet");
-  yyDo(G, yy_1_ClassDecl, G->begin, G->end, "yy_1_ClassDecl");
-  if (!yy__(G))  goto l843;
-  if (!yy_COLON(G))  goto l843;
-
-  l844:;	
-  {  int yypos845= G->pos, yythunkpos845= G->thunkpos;  if (!yy__(G))  goto l845;
-
-  {  int yypos846= G->pos, yythunkpos846= G->thunkpos;  if (!yy_ExternName(G))  goto l847;
-  goto l846;
-  l847:;	  G->pos= yypos846; G->thunkpos= yythunkpos846;  if (!yy_ABSTRACT_KW(G))  goto l848;
-  yyDo(G, yy_2_ClassDecl, G->begin, G->end, "yy_2_ClassDecl");
-  goto l846;
-  l848:;	  G->pos= yypos846; G->thunkpos= yythunkpos846;  if (!yy_FINAL_KW(G))  goto l845;
-  yyDo(G, yy_3_ClassDecl, G->begin, G->end, "yy_3_ClassDecl");
-
-  }
-  l846:;	  goto l844;
-  l845:;	  G->pos= yypos845; G->thunkpos= yythunkpos845;
-  }  if (!yy__(G))  goto l843;
-  if (!yy_CLASS_KW(G))  goto l843;
-
-  {  int yypos849= G->pos, yythunkpos849= G->thunkpos;  if (!yy_GenericArguments(G))  goto l849;
-  goto l850;
-  l849:;	  G->pos= yypos849; G->thunkpos= yythunkpos849;
-  }
-  l850:;	
-  {  int yypos851= G->pos, yythunkpos851= G->thunkpos;  if (!yy__(G))  goto l851;
-  if (!yy_EXTENDS_KW(G))  goto l851;
-  if (!yy__(G))  goto l851;
-  if (!yy_Type(G))  goto l851;
-  yyDo(G, yySet, -6, 0, "yySet");
-  yyDo(G, yy_4_ClassDecl, G->begin, G->end, "yy_4_ClassDecl");
-  goto l852;
-  l851:;	  G->pos= yypos851; G->thunkpos= yythunkpos851;
-  }
-  l852:;	
-  {  int yypos853= G->pos, yythunkpos853= G->thunkpos;  if (!yy__(G))  goto l853;
-  if (!yy_IMPLEMENTS_KW(G))  goto l853;
-  if (!yy__(G))  goto l853;
-  if (!yy_Type(G))  goto l853;
-  yyDo(G, yySet, -6, 0, "yySet");
-  yyDo(G, yy_5_ClassDecl, G->begin, G->end, "yy_5_ClassDecl");
-
-  l855:;	
-  {  int yypos856= G->pos, yythunkpos856= G->thunkpos;  if (!yy__(G))  goto l856;
-  if (!yymatchChar(G, ',')) goto l856;
-  if (!yy__(G))  goto l856;
-  if (!yy_Type(G))  goto l856;
-  yyDo(G, yySet, -6, 0, "yySet");
-  yyDo(G, yy_6_ClassDecl, G->begin, G->end, "yy_6_ClassDecl");
-  goto l855;
-  l856:;	  G->pos= yypos856; G->thunkpos= yythunkpos856;
-  }  goto l854;
-  l853:;	  G->pos= yypos853; G->thunkpos= yythunkpos853;
-  }
-  l854:;	  yyDo(G, yy_7_ClassDecl, G->begin, G->end, "yy_7_ClassDecl");
-  if (!yy_WS(G))  goto l843;
-  if (!yymatchChar(G, '{')) goto l843;
-  if (!yy_WS(G))  goto l843;
-
-  l857:;	
-  {  int yypos858= G->pos, yythunkpos858= G->thunkpos;  if (!yy_WS(G))  goto l858;
-
-  {  int yypos859= G->pos, yythunkpos859= G->thunkpos;  if (!yy_VariableDecl(G))  goto l860;
-  yyDo(G, yySet, -5, 0, "yySet");
-  yyDo(G, yy_8_ClassDecl, G->begin, G->end, "yy_8_ClassDecl");
-  if (!yy_Terminator(G))  goto l860;
-
-  l861:;	
-  {  int yypos862= G->pos, yythunkpos862= G->thunkpos;  if (!yy_Terminator(G))  goto l862;
-  goto l861;
-  l862:;	  G->pos= yypos862; G->thunkpos= yythunkpos862;
-  }  goto l859;
-  l860:;	  G->pos= yypos859; G->thunkpos= yythunkpos859;  if (!yy_PropertyDecl(G))  goto l863;
-  yyDo(G, yySet, -4, 0, "yySet");
-  yyDo(G, yy_9_ClassDecl, G->begin, G->end, "yy_9_ClassDecl");
-  goto l859;
-  l863:;	  G->pos= yypos859; G->thunkpos= yythunkpos859;  if (!yy_FunctionDecl(G))  goto l864;
-  yyDo(G, yySet, -3, 0, "yySet");
-  goto l859;
-  l864:;	  G->pos= yypos859; G->thunkpos= yythunkpos859;  if (!yy_OperatorDecl(G))  goto l865;
-  yyDo(G, yySet, -2, 0, "yySet");
-  goto l859;
-  l865:;	  G->pos= yypos859; G->thunkpos= yythunkpos859;  if (!yy_Stmt(G))  goto l858;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_10_ClassDecl, G->begin, G->end, "yy_10_ClassDecl");
 
   }
-<<<<<<< HEAD
   l882:;	  if (!yy_WS(G))  goto l881;
   goto l880;
   l881:;	  G->pos= yypos881; G->thunkpos= yythunkpos881;
   }  if (!yy_WS(G))  goto l864;
   if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected member, method, or '"_CSBRACK"' to close class.\n"); ; } goto l864; }
-=======
-  l859:;	  if (!yy_WS(G))  goto l858;
-  goto l857;
-  l858:;	  G->pos= yypos858; G->thunkpos= yythunkpos858;
-  }  if (!yy_WS(G))  goto l843;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  throwError(NQE_EXP_VAR_OR_FUNC_DECL, "Expected member, method, or '"_CSBRACK"' to close class.\n"); ; } goto l843; }
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yy_11_ClassDecl, G->begin, G->end, "yy_11_ClassDecl");
   yyprintf((stderr, "  ok   ClassDecl"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 8, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l864:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ClassDecl"));
-=======
-  l843:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ClassDecl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16267,25 +12725,15 @@ YY_RULE(int) yy_ClassDecl(GREG *G)
 YY_RULE(int) yy_IDENT(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "IDENT"));
-<<<<<<< HEAD
   if (!yy_IDENT_CORE(G))  goto l889;
   yyDo(G, yySet, 0, 0, "yySet");
   if (!yy__(G))  goto l889;
-=======
-  if (!yy_IDENT_CORE(G))  goto l866;
-  yyDo(G, yySet, 0, 0, "yySet");
-  if (!yy__(G))  goto l866;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   IDENT"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l889:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IDENT"));
-=======
-  l866:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IDENT"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16293,21 +12741,13 @@ YY_RULE(int) yy_IDENT(GREG *G)
 }
 YY_RULE(int) yy_INTO_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "INTO_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "into")) goto l890;
-=======
-  if (!yymatchString(G, "into")) goto l867;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   INTO_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l890:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INTO_KW"));
-=======
-  l867:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INTO_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16315,7 +12755,6 @@ YY_RULE(int) yy_INTO_KW(GREG *G)
 }
 YY_RULE(int) yy_ImportName(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ImportName"));
-<<<<<<< HEAD
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l891;
   {  int yypos894= G->pos, yythunkpos894= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z_0-9")) goto l895;
   goto l894;
@@ -16333,35 +12772,12 @@ YY_RULE(int) yy_ImportName(GREG *G)
   l896:;	  goto l892;
   l893:;	  G->pos= yypos893; G->thunkpos= yythunkpos893;
   }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l891;  yyDo(G, yy_1_ImportName, G->begin, G->end, "yy_1_ImportName");
-=======
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l868;
-  {  int yypos871= G->pos, yythunkpos871= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z_0-9")) goto l872;
-  goto l871;
-  l872:;	  G->pos= yypos871; G->thunkpos= yythunkpos871;  if (!yymatchChar(G, '-')) goto l868;
-
-  }
-  l871:;	
-  l869:;	
-  {  int yypos870= G->pos, yythunkpos870= G->thunkpos;
-  {  int yypos873= G->pos, yythunkpos873= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z_0-9")) goto l874;
-  goto l873;
-  l874:;	  G->pos= yypos873; G->thunkpos= yythunkpos873;  if (!yymatchChar(G, '-')) goto l870;
-
-  }
-  l873:;	  goto l869;
-  l870:;	  G->pos= yypos870; G->thunkpos= yythunkpos870;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l868;  yyDo(G, yy_1_ImportName, G->begin, G->end, "yy_1_ImportName");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ImportName"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l891:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImportName"));
-=======
-  l868:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImportName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16369,7 +12785,6 @@ YY_RULE(int) yy_ImportName(GREG *G)
 }
 YY_RULE(int) yy_ImportPath(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "ImportPath"));
-<<<<<<< HEAD
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l898;
   l899:;	
   {  int yypos900= G->pos, yythunkpos900= G->thunkpos;
@@ -16396,44 +12811,12 @@ YY_RULE(int) yy_ImportPath(GREG *G)
   goto l899;
   l900:;	  G->pos= yypos900; G->thunkpos= yythunkpos900;
   }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l898;  yyDo(G, yy_1_ImportPath, G->begin, G->end, "yy_1_ImportPath");
-=======
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l875;
-  l876:;	
-  {  int yypos877= G->pos, yythunkpos877= G->thunkpos;
-  {  int yypos880= G->pos, yythunkpos880= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z_0-9")) goto l881;
-  goto l880;
-  l881:;	  G->pos= yypos880; G->thunkpos= yythunkpos880;  if (!yymatchChar(G, '.')) goto l882;
-  goto l880;
-  l882:;	  G->pos= yypos880; G->thunkpos= yythunkpos880;  if (!yymatchChar(G, '-')) goto l877;
-
-  }
-  l880:;	
-  l878:;	
-  {  int yypos879= G->pos, yythunkpos879= G->thunkpos;
-  {  int yypos883= G->pos, yythunkpos883= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z_0-9")) goto l884;
-  goto l883;
-  l884:;	  G->pos= yypos883; G->thunkpos= yythunkpos883;  if (!yymatchChar(G, '.')) goto l885;
-  goto l883;
-  l885:;	  G->pos= yypos883; G->thunkpos= yythunkpos883;  if (!yymatchChar(G, '-')) goto l879;
-
-  }
-  l883:;	  goto l878;
-  l879:;	  G->pos= yypos879; G->thunkpos= yythunkpos879;
-  }  if (!yymatchChar(G, '/')) goto l877;
-  goto l876;
-  l877:;	  G->pos= yypos877; G->thunkpos= yythunkpos877;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l875;  yyDo(G, yy_1_ImportPath, G->begin, G->end, "yy_1_ImportPath");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   ImportPath"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l898:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImportPath"));
-=======
-  l875:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImportPath"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16442,22 +12825,14 @@ YY_RULE(int) yy_ImportPath(GREG *G)
 YY_RULE(int) yy_ImportAtom(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 3, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ImportAtom"));
-<<<<<<< HEAD
   if (!yy_ImportPath(G))  goto l909;
   yyDo(G, yySet, -3, 0, "yySet");
 
   {  int yypos910= G->pos, yythunkpos910= G->thunkpos;  if (!yy_ImportName(G))  goto l911;
-=======
-  if (!yy_ImportPath(G))  goto l886;
-  yyDo(G, yySet, -3, 0, "yySet");
-
-  {  int yypos887= G->pos, yythunkpos887= G->thunkpos;  if (!yy_ImportName(G))  goto l888;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -2, 0, "yySet");
   yyDo(G, yy_1_ImportAtom, G->begin, G->end, "yy_1_ImportAtom");
   yyDo(G, yy_2_ImportAtom, G->begin, G->end, "yy_2_ImportAtom");
 
-<<<<<<< HEAD
   {  int yypos912= G->pos, yythunkpos912= G->thunkpos;  if (!yy__(G))  goto l912;
   if (!yy_INTO_KW(G))  goto l912;
   if (!yy__(G))  goto l912;
@@ -16499,58 +12874,11 @@ YY_RULE(int) yy_ImportAtom(GREG *G)
   l917:;	
   }
   l910:;	  yyprintf((stderr, "  ok   ImportAtom"));
-=======
-  {  int yypos889= G->pos, yythunkpos889= G->thunkpos;  if (!yy__(G))  goto l889;
-  if (!yy_INTO_KW(G))  goto l889;
-  if (!yy__(G))  goto l889;
-  if (!yy_IDENT(G))  goto l889;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_ImportAtom, G->begin, G->end, "yy_3_ImportAtom");
-  goto l890;
-  l889:;	  G->pos= yypos889; G->thunkpos= yythunkpos889;
-  }
-  l890:;	  goto l887;
-  l888:;	  G->pos= yypos887; G->thunkpos= yythunkpos887;  if (!yymatchChar(G, '[')) goto l886;
-  yyDo(G, yy_4_ImportAtom, G->begin, G->end, "yy_4_ImportAtom");
-
-  l891:;	
-  {  int yypos892= G->pos, yythunkpos892= G->thunkpos;  if (!yy_ImportName(G))  goto l892;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_5_ImportAtom, G->begin, G->end, "yy_5_ImportAtom");
-  if (!yy__(G))  goto l892;
-  if (!yymatchChar(G, ',')) goto l892;
-  if (!yy_WS(G))  goto l892;
-  yyDo(G, yy_6_ImportAtom, G->begin, G->end, "yy_6_ImportAtom");
-  goto l891;
-  l892:;	  G->pos= yypos892; G->thunkpos= yythunkpos892;
-  }  if (!yy_ImportName(G))  goto l886;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_7_ImportAtom, G->begin, G->end, "yy_7_ImportAtom");
-  yyDo(G, yy_8_ImportAtom, G->begin, G->end, "yy_8_ImportAtom");
-  if (!yymatchChar(G, ']')) goto l886;
-
-  {  int yypos893= G->pos, yythunkpos893= G->thunkpos;  if (!yy__(G))  goto l893;
-  if (!yy_INTO_KW(G))  goto l893;
-  if (!yy__(G))  goto l893;
-  if (!yy_IDENT(G))  goto l893;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_9_ImportAtom, G->begin, G->end, "yy_9_ImportAtom");
-  goto l894;
-  l893:;	  G->pos= yypos893; G->thunkpos= yythunkpos893;
-  }
-  l894:;	
-  }
-  l887:;	  yyprintf((stderr, "  ok   ImportAtom"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 3, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l909:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImportAtom"));
-=======
-  l886:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ImportAtom"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16558,21 +12886,13 @@ YY_RULE(int) yy_ImportAtom(GREG *G)
 }
 YY_RULE(int) yy_IMPORT_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "IMPORT_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "import")) goto l918;
-=======
-  if (!yymatchString(G, "import")) goto l895;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   IMPORT_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l918:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IMPORT_KW"));
-=======
-  l895:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IMPORT_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16581,7 +12901,6 @@ YY_RULE(int) yy_IMPORT_KW(GREG *G)
 YY_RULE(int) yy_DefineValue(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "DefineValue"));
 
-<<<<<<< HEAD
   {  int yypos920= G->pos, yythunkpos920= G->thunkpos;
   {  int yypos922= G->pos, yythunkpos922= G->thunkpos;  if (!yymatchChar(G, '=')) goto l922;
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l922;
@@ -16609,44 +12928,11 @@ YY_RULE(int) yy_DefineValue(GREG *G)
 
   }
   l920:;	  yyprintf((stderr, "  ok   DefineValue"));
-=======
-  {  int yypos897= G->pos, yythunkpos897= G->thunkpos;
-  {  int yypos899= G->pos, yythunkpos899= G->thunkpos;  if (!yymatchChar(G, '=')) goto l899;
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l899;
-  {  int yypos903= G->pos, yythunkpos903= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9_/._")) goto l904;
-  goto l903;
-  l904:;	  G->pos= yypos903; G->thunkpos= yythunkpos903;  if (!yymatchChar(G, '-')) goto l899;
-
-  }
-  l903:;	
-  l901:;	
-  {  int yypos902= G->pos, yythunkpos902= G->thunkpos;
-  {  int yypos905= G->pos, yythunkpos905= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9_/._")) goto l906;
-  goto l905;
-  l906:;	  G->pos= yypos905; G->thunkpos= yythunkpos905;  if (!yymatchChar(G, '-')) goto l902;
-
-  }
-  l905:;	  goto l901;
-  l902:;	  G->pos= yypos902; G->thunkpos= yythunkpos902;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l899;  goto l900;
-  l899:;	  G->pos= yypos899; G->thunkpos= yythunkpos899;
-  }
-  l900:;	  yyDo(G, yy_1_DefineValue, G->begin, G->end, "yy_1_DefineValue");
-  goto l897;
-  l898:;	  G->pos= yypos897; G->thunkpos= yythunkpos897;  yyDo(G, yy_2_DefineValue, G->begin, G->end, "yy_2_DefineValue");
-
-  }
-  l897:;	  yyprintf((stderr, "  ok   DefineValue"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l919:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DefineValue"));
-=======
-  l896:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DefineValue"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16654,7 +12940,6 @@ YY_RULE(int) yy_DefineValue(GREG *G)
 }
 YY_RULE(int) yy_DefineName(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "DefineName"));
-<<<<<<< HEAD
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l930;
   {  int yypos933= G->pos, yythunkpos933= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9_/._")) goto l934;
   goto l933;
@@ -16672,35 +12957,12 @@ YY_RULE(int) yy_DefineName(GREG *G)
   l935:;	  goto l931;
   l932:;	  G->pos= yypos932; G->thunkpos= yythunkpos932;
   }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l930;  yyDo(G, yy_1_DefineName, G->begin, G->end, "yy_1_DefineName");
-=======
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l907;
-  {  int yypos910= G->pos, yythunkpos910= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9_/._")) goto l911;
-  goto l910;
-  l911:;	  G->pos= yypos910; G->thunkpos= yythunkpos910;  if (!yymatchChar(G, '-')) goto l907;
-
-  }
-  l910:;	
-  l908:;	
-  {  int yypos909= G->pos, yythunkpos909= G->thunkpos;
-  {  int yypos912= G->pos, yythunkpos912= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9_/._")) goto l913;
-  goto l912;
-  l913:;	  G->pos= yypos912; G->thunkpos= yythunkpos912;  if (!yymatchChar(G, '-')) goto l909;
-
-  }
-  l912:;	  goto l908;
-  l909:;	  G->pos= yypos909; G->thunkpos= yythunkpos909;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l907;  yyDo(G, yy_1_DefineName, G->begin, G->end, "yy_1_DefineName");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   DefineName"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l930:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DefineName"));
-=======
-  l907:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "DefineName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16709,7 +12971,6 @@ YY_RULE(int) yy_DefineName(GREG *G)
 YY_RULE(int) yy_IncludeCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "IncludeCore"));
-<<<<<<< HEAD
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l937;
   {  int yypos940= G->pos, yythunkpos940= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9/._")) goto l941;
   goto l940;
@@ -16756,63 +13017,11 @@ YY_RULE(int) yy_IncludeCore(GREG *G)
   l944:;	  G->pos= yypos944; G->thunkpos= yythunkpos944;
   }
   l945:;	  yyprintf((stderr, "  ok   IncludeCore"));
-=======
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l914;
-  {  int yypos917= G->pos, yythunkpos917= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9/._")) goto l918;
-  goto l917;
-  l918:;	  G->pos= yypos917; G->thunkpos= yythunkpos917;  if (!yymatchChar(G, '-')) goto l914;
-
-  }
-  l917:;	
-  l915:;	
-  {  int yypos916= G->pos, yythunkpos916= G->thunkpos;
-  {  int yypos919= G->pos, yythunkpos919= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9/._")) goto l920;
-  goto l919;
-  l920:;	  G->pos= yypos919; G->thunkpos= yythunkpos919;  if (!yymatchChar(G, '-')) goto l916;
-
-  }
-  l919:;	  goto l915;
-  l916:;	  G->pos= yypos916; G->thunkpos= yythunkpos916;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l914;  yyDo(G, yy_1_IncludeCore, G->begin, G->end, "yy_1_IncludeCore");
-
-  {  int yypos921= G->pos, yythunkpos921= G->thunkpos;  if (!yy__(G))  goto l921;
-  if (!yymatchChar(G, '|')) goto l921;
-  if (!yy__(G))  goto l921;
-  if (!yymatchChar(G, '(')) goto l921;
-  if (!yy__(G))  goto l921;
-  if (!yy_DefineName(G))  goto l921;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_DefineValue(G))  goto l921;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_IncludeCore, G->begin, G->end, "yy_2_IncludeCore");
-
-  l923:;	
-  {  int yypos924= G->pos, yythunkpos924= G->thunkpos;  if (!yy__(G))  goto l924;
-  if (!yymatchChar(G, ',')) goto l924;
-  if (!yy__(G))  goto l924;
-  if (!yy_DefineName(G))  goto l924;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_DefineValue(G))  goto l924;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_3_IncludeCore, G->begin, G->end, "yy_3_IncludeCore");
-  goto l923;
-  l924:;	  G->pos= yypos924; G->thunkpos= yythunkpos924;
-  }  if (!yy__(G))  goto l921;
-  if (!yymatchChar(G, ')')) goto l921;
-  goto l922;
-  l921:;	  G->pos= yypos921; G->thunkpos= yythunkpos921;
-  }
-  l922:;	  yyprintf((stderr, "  ok   IncludeCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l937:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IncludeCore"));
-=======
-  l914:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "IncludeCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16820,21 +13029,13 @@ YY_RULE(int) yy_IncludeCore(GREG *G)
 }
 YY_RULE(int) yy_INCLUDE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "INCLUDE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "include")) goto l948;
-=======
-  if (!yymatchString(G, "include")) goto l925;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   INCLUDE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l948:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INCLUDE_KW"));
-=======
-  l925:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "INCLUDE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16842,7 +13043,6 @@ YY_RULE(int) yy_INCLUDE_KW(GREG *G)
 }
 YY_RULE(int) yy_UseCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "UseCore"));
-<<<<<<< HEAD
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l949;
   {  int yypos952= G->pos, yythunkpos952= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9/._")) goto l953;
   goto l952;
@@ -16860,35 +13060,12 @@ YY_RULE(int) yy_UseCore(GREG *G)
   l954:;	  goto l950;
   l951:;	  G->pos= yypos951; G->thunkpos= yythunkpos951;
   }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l949;  yyDo(G, yy_1_UseCore, G->begin, G->end, "yy_1_UseCore");
-=======
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l926;
-  {  int yypos929= G->pos, yythunkpos929= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9/._")) goto l930;
-  goto l929;
-  l930:;	  G->pos= yypos929; G->thunkpos= yythunkpos929;  if (!yymatchChar(G, '-')) goto l926;
-
-  }
-  l929:;	
-  l927:;	
-  {  int yypos928= G->pos, yythunkpos928= G->thunkpos;
-  {  int yypos931= G->pos, yythunkpos931= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\300\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "A-Za-z0-9/._")) goto l932;
-  goto l931;
-  l932:;	  G->pos= yypos931; G->thunkpos= yythunkpos931;  if (!yymatchChar(G, '-')) goto l928;
-
-  }
-  l931:;	  goto l927;
-  l928:;	  G->pos= yypos928; G->thunkpos= yythunkpos928;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l926;  yyDo(G, yy_1_UseCore, G->begin, G->end, "yy_1_UseCore");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   UseCore"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l949:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "UseCore"));
-=======
-  l926:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "UseCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16896,21 +13073,13 @@ YY_RULE(int) yy_UseCore(GREG *G)
 }
 YY_RULE(int) yy_USE_KW(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "USE_KW"));
-<<<<<<< HEAD
   if (!yymatchString(G, "use")) goto l956;
-=======
-  if (!yymatchString(G, "use")) goto l933;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   USE_KW"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l956:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "USE_KW"));
-=======
-  l933:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "USE_KW"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16918,7 +13087,6 @@ YY_RULE(int) yy_USE_KW(GREG *G)
 }
 YY_RULE(int) yy_VersionName(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "VersionName"));
-<<<<<<< HEAD
   if (!yy__(G))  goto l957;
   yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l957;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "a-zA-Z0-9_")) goto l957;
 
@@ -16927,26 +13095,12 @@ YY_RULE(int) yy_VersionName(GREG *G)
   goto l958;
   l959:;	  G->pos= yypos959; G->thunkpos= yythunkpos959;
   }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l957;  yyDo(G, yy_1_VersionName, G->begin, G->end, "yy_1_VersionName");
-=======
-  if (!yy__(G))  goto l934;
-  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l934;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "a-zA-Z0-9_")) goto l934;
-
-  l935:;	
-  {  int yypos936= G->pos, yythunkpos936= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\000\000\000\000\000\377\003\376\377\377\207\376\377\377\007\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", "a-zA-Z0-9_")) goto l936;
-  goto l935;
-  l936:;	  G->pos= yypos936; G->thunkpos= yythunkpos936;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l934;  yyDo(G, yy_1_VersionName, G->begin, G->end, "yy_1_VersionName");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   VersionName"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l957:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionName"));
-=======
-  l934:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionName"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16955,19 +13109,11 @@ YY_RULE(int) yy_VersionName(GREG *G)
 YY_RULE(int) yy_VersionNegation(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "VersionNegation"));
-<<<<<<< HEAD
   if (!yy__(G))  goto l960;
   if (!yymatchChar(G, '!')) goto l960;
   yyDo(G, yy_1_VersionNegation, G->begin, G->end, "yy_1_VersionNegation");
   if (!yy__(G))  goto l960;
   if (!yy_VersionSpec(G))  goto l960;
-=======
-  if (!yy__(G))  goto l937;
-  if (!yymatchChar(G, '!')) goto l937;
-  yyDo(G, yy_1_VersionNegation, G->begin, G->end, "yy_1_VersionNegation");
-  if (!yy__(G))  goto l937;
-  if (!yy_VersionSpec(G))  goto l937;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_2_VersionNegation, G->begin, G->end, "yy_2_VersionNegation");
   yyprintf((stderr, "  ok   VersionNegation"));
@@ -16975,11 +13121,7 @@ YY_RULE(int) yy_VersionNegation(GREG *G)
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l960:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionNegation"));
-=======
-  l937:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionNegation"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -16988,30 +13130,17 @@ YY_RULE(int) yy_VersionNegation(GREG *G)
 YY_RULE(int) yy_VersionCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "VersionCore"));
 
-<<<<<<< HEAD
   {  int yypos962= G->pos, yythunkpos962= G->thunkpos;  if (!yy_VersionNegation(G))  goto l963;
   goto l962;
   l963:;	  G->pos= yypos962; G->thunkpos= yythunkpos962;  if (!yy_VersionName(G))  goto l961;
 
   }
   l962:;	  yyprintf((stderr, "  ok   VersionCore"));
-=======
-  {  int yypos939= G->pos, yythunkpos939= G->thunkpos;  if (!yy_VersionNegation(G))  goto l940;
-  goto l939;
-  l940:;	  G->pos= yypos939; G->thunkpos= yythunkpos939;  if (!yy_VersionName(G))  goto l938;
-
-  }
-  l939:;	  yyprintf((stderr, "  ok   VersionCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l961:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionCore"));
-=======
-  l938:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17020,7 +13149,6 @@ YY_RULE(int) yy_VersionCore(GREG *G)
 YY_RULE(int) yy_OocDocCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "OocDocCore"));
 
-<<<<<<< HEAD
   {  int yypos965= G->pos, yythunkpos965= G->thunkpos;  if (!yymatchString(G, "/**")) goto l966;
 
   {  int yypos967= G->pos, yythunkpos967= G->thunkpos;  if (!yymatchChar(G, '*')) goto l967;
@@ -17062,58 +13190,11 @@ YY_RULE(int) yy_OocDocCore(GREG *G)
 
   }
   l965:;	  yyprintf((stderr, "  ok   OocDocCore"));
-=======
-  {  int yypos942= G->pos, yythunkpos942= G->thunkpos;  if (!yymatchString(G, "/**")) goto l943;
-
-  {  int yypos944= G->pos, yythunkpos944= G->thunkpos;  if (!yymatchChar(G, '*')) goto l944;
-  goto l943;
-  l944:;	  G->pos= yypos944; G->thunkpos= yythunkpos944;
-  }  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l943;
-  l945:;	
-  {  int yypos946= G->pos, yythunkpos946= G->thunkpos;
-  {  int yypos947= G->pos, yythunkpos947= G->thunkpos;  if (!yymatchString(G, "*/")) goto l947;
-  goto l946;
-  l947:;	  G->pos= yypos947; G->thunkpos= yythunkpos947;
-  }
-  {  int yypos948= G->pos, yythunkpos948= G->thunkpos;  if (!yy_EOL(G))  goto l949;
-  goto l948;
-  l949:;	  G->pos= yypos948; G->thunkpos= yythunkpos948;  if (!yymatchDot(G)) goto l946;
-  }
-  l948:;	  goto l945;
-  l946:;	  G->pos= yypos946; G->thunkpos= yythunkpos946;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l943;  if (!yymatchString(G, "*/")) goto l943;
-  yyDo(G, yy_1_OocDocCore, G->begin, G->end, "yy_1_OocDocCore");
-  if (!yy_WS(G))  goto l943;
-  goto l942;
-  l943:;	  G->pos= yypos942; G->thunkpos= yythunkpos942;  if (!yymatchString(G, "///")) goto l941;
-
-  {  int yypos950= G->pos, yythunkpos950= G->thunkpos;  if (!yymatchChar(G, '/')) goto l950;
-  goto l941;
-  l950:;	  G->pos= yypos950; G->thunkpos= yythunkpos950;
-  }  yyText(G, G->begin, G->end);  if (!(YY_BEGIN)) goto l941;
-  l951:;	
-  {  int yypos952= G->pos, yythunkpos952= G->thunkpos;
-  {  int yypos953= G->pos, yythunkpos953= G->thunkpos;  if (!yy_EOL(G))  goto l953;
-  goto l952;
-  l953:;	  G->pos= yypos953; G->thunkpos= yythunkpos953;
-  }  if (!yymatchDot(G)) goto l952;  goto l951;
-  l952:;	  G->pos= yypos952; G->thunkpos= yythunkpos952;
-  }  yyText(G, G->begin, G->end);  if (!(YY_END)) goto l941;  if (!yy_EOL(G))  goto l941;
-  yyDo(G, yy_2_OocDocCore, G->begin, G->end, "yy_2_OocDocCore");
-  if (!yy_WS(G))  goto l941;
-
-  }
-  l942:;	  yyprintf((stderr, "  ok   OocDocCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l964:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OocDocCore"));
-=======
-  l941:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "OocDocCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17123,7 +13204,6 @@ YY_RULE(int) yy_Decl(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 1, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Decl"));
 
-<<<<<<< HEAD
   {  int yypos978= G->pos, yythunkpos978= G->thunkpos;  if (!yy_ClassDecl(G))  goto l979;
   goto l978;
   l979:;	  G->pos= yypos978; G->thunkpos= yythunkpos978;  if (!yy_CoverDecl(G))  goto l980;
@@ -17152,45 +13232,11 @@ YY_RULE(int) yy_Decl(GREG *G)
 
   }
   l978:;	  yyprintf((stderr, "  ok   Decl"));
-=======
-  {  int yypos955= G->pos, yythunkpos955= G->thunkpos;  if (!yy_ClassDecl(G))  goto l956;
-  goto l955;
-  l956:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_CoverDecl(G))  goto l957;
-  goto l955;
-  l957:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_ExtendDecl(G))  goto l958;
-  goto l955;
-  l958:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_EnumDecl(G))  goto l959;
-  goto l955;
-  l959:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_InterfaceDecl(G))  goto l960;
-  goto l955;
-  l960:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_OperatorDecl(G))  goto l961;
-  goto l955;
-  l961:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_FunctionDecl(G))  goto l962;
-  goto l955;
-  l962:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_PropertyDecl(G))  goto l963;
-  goto l955;
-  l963:;	  G->pos= yypos955; G->thunkpos= yythunkpos955;  if (!yy_VariableDecl(G))  goto l954;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_Terminator(G))  goto l954;
-
-  l964:;	
-  {  int yypos965= G->pos, yythunkpos965= G->thunkpos;  if (!yy_Terminator(G))  goto l965;
-  goto l964;
-  l965:;	  G->pos= yypos965; G->thunkpos= yythunkpos965;
-  }  yyDo(G, yy_1_Decl, G->begin, G->end, "yy_1_Decl");
-
-  }
-  l955:;	  yyprintf((stderr, "  ok   Decl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 1, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l977:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Decl"));
-=======
-  l954:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Decl"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17198,7 +13244,6 @@ YY_RULE(int) yy_Decl(GREG *G)
 }
 YY_RULE(int) yy_Use(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Use"));
-<<<<<<< HEAD
   if (!yy_USE_KW(G))  goto l989;
   if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l989;
   if (!yy__(G))  goto l989;
@@ -17211,30 +13256,12 @@ YY_RULE(int) yy_Use(GREG *G)
   if (!yy_UseCore(G))  goto l991;
   goto l990;
   l991:;	  G->pos= yypos991; G->thunkpos= yythunkpos991;
-=======
-  if (!yy_USE_KW(G))  goto l966;
-  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l966;
-  if (!yy__(G))  goto l966;
-  if (!yy_UseCore(G))  goto l966;
-
-  l967:;	
-  {  int yypos968= G->pos, yythunkpos968= G->thunkpos;  if (!yy__(G))  goto l968;
-  if (!yymatchChar(G, ',')) goto l968;
-  if (!yy__(G))  goto l968;
-  if (!yy_UseCore(G))  goto l968;
-  goto l967;
-  l968:;	  G->pos= yypos968; G->thunkpos= yythunkpos968;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Use"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l989:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Use"));
-=======
-  l966:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Use"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17242,7 +13269,6 @@ YY_RULE(int) yy_Use(GREG *G)
 }
 YY_RULE(int) yy_Import(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Import"));
-<<<<<<< HEAD
   if (!yy_IMPORT_KW(G))  goto l992;
   if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l992;
   if (!yy__(G))  goto l992;
@@ -17255,30 +13281,12 @@ YY_RULE(int) yy_Import(GREG *G)
   if (!yy_ImportAtom(G))  goto l994;
   goto l993;
   l994:;	  G->pos= yypos994; G->thunkpos= yythunkpos994;
-=======
-  if (!yy_IMPORT_KW(G))  goto l969;
-  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l969;
-  if (!yy__(G))  goto l969;
-  if (!yy_ImportAtom(G))  goto l969;
-
-  l970:;	
-  {  int yypos971= G->pos, yythunkpos971= G->thunkpos;  if (!yymatchChar(G, ',')) goto l971;
-  if (!yy_WS(G))  goto l971;
-  if (!yy__(G))  goto l971;
-  if (!yy_ImportAtom(G))  goto l971;
-  goto l970;
-  l971:;	  G->pos= yypos971; G->thunkpos= yythunkpos971;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Import"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l992:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Import"));
-=======
-  l969:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Import"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17286,7 +13294,6 @@ YY_RULE(int) yy_Import(GREG *G)
 }
 YY_RULE(int) yy_Include(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Include"));
-<<<<<<< HEAD
   if (!yy_INCLUDE_KW(G))  goto l995;
   if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l995;
   if (!yy__(G))  goto l995;
@@ -17299,30 +13306,12 @@ YY_RULE(int) yy_Include(GREG *G)
   if (!yy_IncludeCore(G))  goto l997;
   goto l996;
   l997:;	  G->pos= yypos997; G->thunkpos= yythunkpos997;
-=======
-  if (!yy_INCLUDE_KW(G))  goto l972;
-  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l972;
-  if (!yy__(G))  goto l972;
-  if (!yy_IncludeCore(G))  goto l972;
-
-  l973:;	
-  {  int yypos974= G->pos, yythunkpos974= G->thunkpos;  if (!yy__(G))  goto l974;
-  if (!yymatchChar(G, ',')) goto l974;
-  if (!yy__(G))  goto l974;
-  if (!yy_IncludeCore(G))  goto l974;
-  goto l973;
-  l974:;	  G->pos= yypos974; G->thunkpos= yythunkpos974;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   Include"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l995:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Include"));
-=======
-  l972:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Include"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17332,7 +13321,6 @@ YY_RULE(int) yy_Stmt(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "Stmt"));
 
-<<<<<<< HEAD
   {  int yypos999= G->pos, yythunkpos999= G->thunkpos;  if (!yy_Old(G))  goto l1000;
   yyDo(G, yySet, -4, 0, "yySet");
   if (!yy_WS(G))  goto l1000;
@@ -17364,44 +13352,10 @@ YY_RULE(int) yy_Stmt(GREG *G)
   goto l1001;
   l1002:;	  G->pos= yypos1001; G->thunkpos= yythunkpos1001;  if (!yy__(G))  goto l1000;
   if (!yy_Stmt(G))  goto l1000;
-=======
-  {  int yypos976= G->pos, yythunkpos976= G->thunkpos;  if (!yy_Old(G))  goto l977;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy_WS(G))  goto l977;
-  if (!yymatchString(G, "version")) goto l977;
-  yyDo(G, yy_1_Stmt, G->begin, G->end, "yy_1_Stmt");
-  if (!yy_WS(G))  goto l977;
-  if (!yymatchChar(G, '(')) goto l977;
-  if (!yy__(G))  goto l977;
-  if (!yy_VersionSpec(G))  goto l977;
-  yyDo(G, yySet, -3, 0, "yySet");
-  if (!yy_WS(G))  goto l977;
-  if (!yymatchChar(G, ')')) goto l977;
-
-  {  int yypos978= G->pos, yythunkpos978= G->thunkpos;  if (!yy__(G))  goto l979;
-  if (!yymatchChar(G, '{')) goto l979;
-  yyDo(G, yy_2_Stmt, G->begin, G->end, "yy_2_Stmt");
-  if (!yy_WS(G))  goto l979;
-
-  l980:;	
-  {  int yypos981= G->pos, yythunkpos981= G->thunkpos;  if (!yy_Stmt(G))  goto l981;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_3_Stmt, G->begin, G->end, "yy_3_Stmt");
-  goto l980;
-  l981:;	  G->pos= yypos981; G->thunkpos= yythunkpos981;
-  }  if (!yy_WS(G))  goto l979;
-  if (!yy__(G))  goto l979;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_STATEMENT_OR_CLOSING_BRACKET, "Malformed statement or '"_CSBRACK"' missing to close version block.\n") ; } goto l979; }
-  yyDo(G, yy_4_Stmt, G->begin, G->end, "yy_4_Stmt");
-  goto l978;
-  l979:;	  G->pos= yypos978; G->thunkpos= yythunkpos978;  if (!yy__(G))  goto l977;
-  if (!yy_Stmt(G))  goto l977;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -2, 0, "yySet");
   yyDo(G, yy_5_Stmt, G->begin, G->end, "yy_5_Stmt");
 
   }
-<<<<<<< HEAD
   l1001:;	
   l1005:;	
   {  int yypos1006= G->pos, yythunkpos1006= G->thunkpos;  if (!yy_WS(G))  goto l1006;
@@ -17435,46 +13389,10 @@ YY_RULE(int) yy_Stmt(GREG *G)
   goto l1007;
   l1008:;	  G->pos= yypos1007; G->thunkpos= yythunkpos1007;  if (!yy__(G))  goto l1006;
   if (!yy_Stmt(G))  goto l1006;
-=======
-  l978:;	
-  l982:;	
-  {  int yypos983= G->pos, yythunkpos983= G->thunkpos;  if (!yy_WS(G))  goto l983;
-  if (!yymatchString(G, "else")) goto l983;
-  if (!yy__(G))  goto l983;
-  if (!yymatchString(G, "version")) goto l983;
-  yyDo(G, yy_6_Stmt, G->begin, G->end, "yy_6_Stmt");
-  if (!yy_WS(G))  goto l983;
-  if (!yymatchChar(G, '(')) goto l983;
-  if (!yy__(G))  goto l983;
-  if (!yy_VersionSpec(G))  goto l983;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_WS(G))  goto l983;
-  if (!yymatchChar(G, ')')) goto l983;
-
-  {  int yypos984= G->pos, yythunkpos984= G->thunkpos;  if (!yy__(G))  goto l985;
-  if (!yymatchChar(G, '{')) goto l985;
-  yyDo(G, yy_7_Stmt, G->begin, G->end, "yy_7_Stmt");
-  if (!yy_WS(G))  goto l985;
-
-  l986:;	
-  {  int yypos987= G->pos, yythunkpos987= G->thunkpos;  if (!yy_Stmt(G))  goto l987;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_8_Stmt, G->begin, G->end, "yy_8_Stmt");
-  goto l986;
-  l987:;	  G->pos= yypos987; G->thunkpos= yythunkpos987;
-  }  if (!yy_WS(G))  goto l985;
-  if (!yy__(G))  goto l985;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_STATEMENT_OR_CLOSING_BRACKET, "Malformed statement or '"_CSBRACK"' missing to close version block.\n") ; } goto l985; }
-  yyDo(G, yy_9_Stmt, G->begin, G->end, "yy_9_Stmt");
-  goto l984;
-  l985:;	  G->pos= yypos984; G->thunkpos= yythunkpos984;  if (!yy__(G))  goto l983;
-  if (!yy_Stmt(G))  goto l983;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -2, 0, "yySet");
   yyDo(G, yy_10_Stmt, G->begin, G->end, "yy_10_Stmt");
 
   }
-<<<<<<< HEAD
   l1007:;	  goto l1005;
   l1006:;	  G->pos= yypos1006; G->thunkpos= yythunkpos1006;
   }
@@ -17500,38 +13418,10 @@ YY_RULE(int) yy_Stmt(GREG *G)
   goto l1013;
   l1014:;	  G->pos= yypos1013; G->thunkpos= yythunkpos1013;  if (!yy__(G))  goto l1011;
   if (!yy_Stmt(G))  goto l1011;
-=======
-  l984:;	  goto l982;
-  l983:;	  G->pos= yypos983; G->thunkpos= yythunkpos983;
-  }
-  {  int yypos988= G->pos, yythunkpos988= G->thunkpos;  if (!yy_WS(G))  goto l988;
-  if (!yymatchString(G, "else")) goto l988;
-  yyDo(G, yy_11_Stmt, G->begin, G->end, "yy_11_Stmt");
-
-  {  int yypos990= G->pos, yythunkpos990= G->thunkpos;  if (!yy__(G))  goto l991;
-  if (!yymatchChar(G, '{')) goto l991;
-  yyDo(G, yy_12_Stmt, G->begin, G->end, "yy_12_Stmt");
-  if (!yy_WS(G))  goto l991;
-
-  l992:;	
-  {  int yypos993= G->pos, yythunkpos993= G->thunkpos;  if (!yy_Stmt(G))  goto l993;
-  yyDo(G, yySet, -2, 0, "yySet");
-  yyDo(G, yy_13_Stmt, G->begin, G->end, "yy_13_Stmt");
-  goto l992;
-  l993:;	  G->pos= yypos993; G->thunkpos= yythunkpos993;
-  }  if (!yy_WS(G))  goto l991;
-  if (!yy__(G))  goto l991;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_STATEMENT_OR_CLOSING_BRACKET, "Malformed statement or '"_CSBRACK"' missing to close version block\n") ; } goto l991; }
-  yyDo(G, yy_14_Stmt, G->begin, G->end, "yy_14_Stmt");
-  goto l990;
-  l991:;	  G->pos= yypos990; G->thunkpos= yythunkpos990;  if (!yy__(G))  goto l988;
-  if (!yy_Stmt(G))  goto l988;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -2, 0, "yySet");
   yyDo(G, yy_15_Stmt, G->begin, G->end, "yy_15_Stmt");
 
   }
-<<<<<<< HEAD
   l1013:;	  goto l1012;
   l1011:;	  G->pos= yypos1011; G->thunkpos= yythunkpos1011;
   }
@@ -17540,25 +13430,11 @@ YY_RULE(int) yy_Stmt(GREG *G)
 
   }
   l999:;	  yyprintf((stderr, "  ok   Stmt"));
-=======
-  l990:;	  goto l989;
-  l988:;	  G->pos= yypos988; G->thunkpos= yythunkpos988;
-  }
-  l989:;	  goto l976;
-  l977:;	  G->pos= yypos976; G->thunkpos= yythunkpos976;  if (!yy_StmtCore(G))  goto l975;
-
-  }
-  l976:;	  yyprintf((stderr, "  ok   Stmt"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l998:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Stmt"));
-=======
-  l975:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Stmt"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17566,21 +13442,13 @@ YY_RULE(int) yy_Stmt(GREG *G)
 }
 YY_RULE(int) yy_CLOS_BRACK(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CLOS_BRACK"));
-<<<<<<< HEAD
   if (!yymatchChar(G, '}')) goto l1017;
-=======
-  if (!yymatchChar(G, '}')) goto l994;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CLOS_BRACK"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l1017:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CLOS_BRACK"));
-=======
-  l994:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CLOS_BRACK"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17588,21 +13456,13 @@ YY_RULE(int) yy_CLOS_BRACK(GREG *G)
 }
 YY_RULE(int) yy_CLOS_PAREN(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "CLOS_PAREN"));
-<<<<<<< HEAD
   if (!yymatchChar(G, ')')) goto l1018;
-=======
-  if (!yymatchChar(G, ')')) goto l995;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   CLOS_PAREN"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l1018:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CLOS_PAREN"));
-=======
-  l995:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "CLOS_PAREN"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17612,7 +13472,6 @@ YY_RULE(int) yy_VersionSpec(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 2, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "VersionSpec"));
 
-<<<<<<< HEAD
   {  int yypos1020= G->pos, yythunkpos1020= G->thunkpos;  if (!yy__(G))  goto l1021;
   if (!yymatchChar(G, '(')) goto l1021;
   if (!yy__(G))  goto l1021;
@@ -17641,57 +13500,18 @@ YY_RULE(int) yy_VersionSpec(GREG *G)
   yyDo(G, yy_3_VersionSpec, G->begin, G->end, "yy_3_VersionSpec");
   if (!yy__(G))  goto l1023;
   if (!yy_VersionSpec(G))  goto l1023;
-=======
-  {  int yypos997= G->pos, yythunkpos997= G->thunkpos;  if (!yy__(G))  goto l998;
-  if (!yymatchChar(G, '(')) goto l998;
-  if (!yy__(G))  goto l998;
-  if (!yy_VersionSpec(G))  goto l998;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy__(G))  goto l998;
-  if (!yymatchChar(G, ')')) goto l998;
-  goto l997;
-  l998:;	  G->pos= yypos997; G->thunkpos= yythunkpos997;  if (!yy_VersionCore(G))  goto l996;
-  yyDo(G, yySet, -2, 0, "yySet");
-
-  }
-  l997:;	
-  l999:;	
-  {  int yypos1000= G->pos, yythunkpos1000= G->thunkpos;
-  {  int yypos1001= G->pos, yythunkpos1001= G->thunkpos;  if (!yy__(G))  goto l1002;
-  if (!yymatchString(G, "&&")) goto l1002;
-  yyDo(G, yy_1_VersionSpec, G->begin, G->end, "yy_1_VersionSpec");
-  if (!yy__(G))  goto l1002;
-  if (!yy_VersionSpec(G))  goto l1002;
-  yyDo(G, yySet, -1, 0, "yySet");
-  yyDo(G, yy_2_VersionSpec, G->begin, G->end, "yy_2_VersionSpec");
-  goto l1001;
-  l1002:;	  G->pos= yypos1001; G->thunkpos= yythunkpos1001;  if (!yy__(G))  goto l1000;
-  if (!yymatchString(G, "||")) goto l1000;
-  yyDo(G, yy_3_VersionSpec, G->begin, G->end, "yy_3_VersionSpec");
-  if (!yy__(G))  goto l1000;
-  if (!yy_VersionSpec(G))  goto l1000;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -1, 0, "yySet");
   yyDo(G, yy_4_VersionSpec, G->begin, G->end, "yy_4_VersionSpec");
 
   }
-<<<<<<< HEAD
   l1024:;	  goto l1022;
   l1023:;	  G->pos= yypos1023; G->thunkpos= yythunkpos1023;
-=======
-  l1001:;	  goto l999;
-  l1000:;	  G->pos= yypos1000; G->thunkpos= yythunkpos1000;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   VersionSpec"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 2, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l1019:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionSpec"));
-=======
-  l996:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "VersionSpec"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17700,7 +13520,6 @@ YY_RULE(int) yy_VersionSpec(GREG *G)
 YY_RULE(int) yy__(GREG *G)
 {  yyprintfv((stderr, "%s\n", "_"));
 
-<<<<<<< HEAD
   l1027:;	
   {  int yypos1028= G->pos, yythunkpos1028= G->thunkpos;
   {  int yypos1029= G->pos, yythunkpos1029= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l1030;
@@ -17710,17 +13529,6 @@ YY_RULE(int) yy__(GREG *G)
   }
   l1029:;	  goto l1027;
   l1028:;	  G->pos= yypos1028; G->thunkpos= yythunkpos1028;
-=======
-  l1004:;	
-  {  int yypos1005= G->pos, yythunkpos1005= G->thunkpos;
-  {  int yypos1006= G->pos, yythunkpos1006= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l1007;
-  goto l1006;
-  l1007:;	  G->pos= yypos1006; G->thunkpos= yythunkpos1006;  if (!yy_CommentMultiLine(G))  goto l1005;
-
-  }
-  l1006:;	  goto l1004;
-  l1005:;	  G->pos= yypos1005; G->thunkpos= yythunkpos1005;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   _"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
@@ -17730,7 +13538,6 @@ YY_RULE(int) yy__(GREG *G)
 YY_RULE(int) yy_EOL(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "EOL"));
 
-<<<<<<< HEAD
   {  int yypos1032= G->pos, yythunkpos1032= G->thunkpos;  if (!yymatchChar(G, '\n')) goto l1033;
   goto l1032;
   l1033:;	  G->pos= yypos1032; G->thunkpos= yythunkpos1032;  if (!yymatchString(G, "\r\n")) goto l1034;
@@ -17739,26 +13546,12 @@ YY_RULE(int) yy_EOL(GREG *G)
 
   }
   l1032:;	  yyDo(G, yy_1_EOL, G->begin, G->end, "yy_1_EOL");
-=======
-  {  int yypos1009= G->pos, yythunkpos1009= G->thunkpos;  if (!yymatchChar(G, '\n')) goto l1010;
-  goto l1009;
-  l1010:;	  G->pos= yypos1009; G->thunkpos= yythunkpos1009;  if (!yymatchString(G, "\r\n")) goto l1011;
-  goto l1009;
-  l1011:;	  G->pos= yypos1009; G->thunkpos= yythunkpos1009;  if (!yymatchChar(G, '\r')) goto l1008;
-
-  }
-  l1009:;	  yyDo(G, yy_1_EOL, G->begin, G->end, "yy_1_EOL");
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintf((stderr, "  ok   EOL"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l1031:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EOL"));
-=======
-  l1008:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "EOL"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -17767,7 +13560,6 @@ YY_RULE(int) yy_EOL(GREG *G)
 YY_RULE(int) yy_WS(GREG *G)
 {  yyprintfv((stderr, "%s\n", "WS"));
 
-<<<<<<< HEAD
   l1036:;	
   {  int yypos1037= G->pos, yythunkpos1037= G->thunkpos;
   {  int yypos1038= G->pos, yythunkpos1038= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l1039;
@@ -17783,19 +13575,6 @@ YY_RULE(int) yy_WS(GREG *G)
   }
   l1038:;	  goto l1036;
   l1037:;	  G->pos= yypos1037; G->thunkpos= yythunkpos1037;
-=======
-  l1013:;	
-  {  int yypos1014= G->pos, yythunkpos1014= G->thunkpos;
-  {  int yypos1015= G->pos, yythunkpos1015= G->thunkpos;  if (!yymatchClass(G, (const unsigned char *)"\000\002\000\000\001\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", " \\t")) goto l1016;
-  goto l1015;
-  l1016:;	  G->pos= yypos1015; G->thunkpos= yythunkpos1015;  if (!yy_Comment(G))  goto l1017;
-  goto l1015;
-  l1017:;	  G->pos= yypos1015; G->thunkpos= yythunkpos1015;  if (!yy_EOL(G))  goto l1014;
-
-  }
-  l1015:;	  goto l1013;
-  l1014:;	  G->pos= yypos1014; G->thunkpos= yythunkpos1014;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   }  yyprintf((stderr, "  ok   WS"));
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
@@ -17806,7 +13585,6 @@ YY_RULE(int) yy_ModuleCore(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyDo(G, yyPush, 4, 0, "yyPush");
   yyprintfv((stderr, "%s\n", "ModuleCore"));
 
-<<<<<<< HEAD
   {  int yypos1044= G->pos, yythunkpos1044= G->thunkpos;  if (!yy_WS(G))  goto l1045;
   if (!yymatchString(G, "version")) goto l1045;
   yyDo(G, yy_1_ModuleCore, G->begin, G->end, "yy_1_ModuleCore");
@@ -17834,40 +13612,10 @@ YY_RULE(int) yy_ModuleCore(GREG *G)
   goto l1046;
   l1047:;	  G->pos= yypos1046; G->thunkpos= yythunkpos1046;  if (!yy__(G))  goto l1045;
   if (!yy_Stmt(G))  goto l1045;
-=======
-  {  int yypos1019= G->pos, yythunkpos1019= G->thunkpos;  if (!yy_WS(G))  goto l1020;
-  if (!yymatchString(G, "version")) goto l1020;
-  yyDo(G, yy_1_ModuleCore, G->begin, G->end, "yy_1_ModuleCore");
-  if (!yy_WS(G))  goto l1020;
-  if (!yymatchChar(G, '(')) goto l1020;
-  if (!yy__(G))  goto l1020;
-  if (!yy_VersionSpec(G))  goto l1020;
-  yyDo(G, yySet, -4, 0, "yySet");
-  if (!yy_WS(G))  goto l1020;
-  if (!yy_CLOS_PAREN(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_CLOSING_PAREN, "Malformed version spec!\n") ; } goto l1020; }
-
-  {  int yypos1021= G->pos, yythunkpos1021= G->thunkpos;  if (!yy__(G))  goto l1022;
-  if (!yymatchChar(G, '{')) goto l1022;
-  yyDo(G, yy_2_ModuleCore, G->begin, G->end, "yy_2_ModuleCore");
-  if (!yy_WS(G))  goto l1022;
-
-  l1023:;	
-  {  int yypos1024= G->pos, yythunkpos1024= G->thunkpos;  if (!yy_ModuleCore(G))  goto l1024;
-  goto l1023;
-  l1024:;	  G->pos= yypos1024; G->thunkpos= yythunkpos1024;
-  }  if (!yy_WS(G))  goto l1022;
-  if (!yy__(G))  goto l1022;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_INC_IMP_STMT_OR_DECL, "Expected include, import, statement or declaration\n") ; } goto l1022; }
-  yyDo(G, yy_3_ModuleCore, G->begin, G->end, "yy_3_ModuleCore");
-  goto l1021;
-  l1022:;	  G->pos= yypos1021; G->thunkpos= yythunkpos1021;  if (!yy__(G))  goto l1020;
-  if (!yy_Stmt(G))  goto l1020;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -3, 0, "yySet");
   yyDo(G, yy_4_ModuleCore, G->begin, G->end, "yy_4_ModuleCore");
 
   }
-<<<<<<< HEAD
   l1046:;	
   l1050:;	
   {  int yypos1051= G->pos, yythunkpos1051= G->thunkpos;  if (!yy_WS(G))  goto l1051;
@@ -17899,44 +13647,10 @@ YY_RULE(int) yy_ModuleCore(GREG *G)
   goto l1052;
   l1053:;	  G->pos= yypos1052; G->thunkpos= yythunkpos1052;  if (!yy__(G))  goto l1051;
   if (!yy_Stmt(G))  goto l1051;
-=======
-  l1021:;	
-  l1025:;	
-  {  int yypos1026= G->pos, yythunkpos1026= G->thunkpos;  if (!yy_WS(G))  goto l1026;
-  if (!yymatchString(G, "else")) goto l1026;
-  if (!yy__(G))  goto l1026;
-  if (!yymatchString(G, "version")) goto l1026;
-  yyDo(G, yy_5_ModuleCore, G->begin, G->end, "yy_5_ModuleCore");
-  if (!yy_WS(G))  goto l1026;
-  if (!yymatchChar(G, '(')) goto l1026;
-  if (!yy__(G))  goto l1026;
-  if (!yy_VersionSpec(G))  goto l1026;
-  yyDo(G, yySet, -2, 0, "yySet");
-  if (!yy_WS(G))  goto l1026;
-  if (!yymatchChar(G, ')')) goto l1026;
-
-  {  int yypos1027= G->pos, yythunkpos1027= G->thunkpos;  if (!yy__(G))  goto l1028;
-  if (!yymatchChar(G, '{')) goto l1028;
-  yyDo(G, yy_6_ModuleCore, G->begin, G->end, "yy_6_ModuleCore");
-  if (!yy_WS(G))  goto l1028;
-
-  l1029:;	
-  {  int yypos1030= G->pos, yythunkpos1030= G->thunkpos;  if (!yy_ModuleCore(G))  goto l1030;
-  goto l1029;
-  l1030:;	  G->pos= yypos1030; G->thunkpos= yythunkpos1030;
-  }  if (!yy_WS(G))  goto l1028;
-  if (!yy__(G))  goto l1028;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_INC_IMP_STMT_OR_DECL, "Expected include, import, statement or declaration\n") ; } goto l1028; }
-  yyDo(G, yy_7_ModuleCore, G->begin, G->end, "yy_7_ModuleCore");
-  goto l1027;
-  l1028:;	  G->pos= yypos1027; G->thunkpos= yythunkpos1027;  if (!yy__(G))  goto l1026;
-  if (!yy_Stmt(G))  goto l1026;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -3, 0, "yySet");
   yyDo(G, yy_8_ModuleCore, G->begin, G->end, "yy_8_ModuleCore");
 
   }
-<<<<<<< HEAD
   l1052:;	  goto l1050;
   l1051:;	  G->pos= yypos1051; G->thunkpos= yythunkpos1051;
   }
@@ -17960,36 +13674,10 @@ YY_RULE(int) yy_ModuleCore(GREG *G)
   goto l1058;
   l1059:;	  G->pos= yypos1058; G->thunkpos= yythunkpos1058;  if (!yy__(G))  goto l1056;
   if (!yy_Stmt(G))  goto l1056;
-=======
-  l1027:;	  goto l1025;
-  l1026:;	  G->pos= yypos1026; G->thunkpos= yythunkpos1026;
-  }
-  {  int yypos1031= G->pos, yythunkpos1031= G->thunkpos;  if (!yy_WS(G))  goto l1031;
-  if (!yymatchString(G, "else")) goto l1031;
-  yyDo(G, yy_9_ModuleCore, G->begin, G->end, "yy_9_ModuleCore");
-
-  {  int yypos1033= G->pos, yythunkpos1033= G->thunkpos;  if (!yy__(G))  goto l1034;
-  if (!yymatchChar(G, '{')) goto l1034;
-  yyDo(G, yy_10_ModuleCore, G->begin, G->end, "yy_10_ModuleCore");
-  if (!yy_WS(G))  goto l1034;
-
-  l1035:;	
-  {  int yypos1036= G->pos, yythunkpos1036= G->thunkpos;  if (!yy_ModuleCore(G))  goto l1036;
-  goto l1035;
-  l1036:;	  G->pos= yypos1036; G->thunkpos= yythunkpos1036;
-  }  if (!yy_WS(G))  goto l1034;
-  if (!yy__(G))  goto l1034;
-  if (!yy_CLOS_BRACK(G)) {  { YY_XTYPE YY_XVAR = (YY_XTYPE) G->data; int yyindex = G->offset + G->pos;  rewindWhiteSpace; throwError(NQE_EXP_INC_IMP_STMT_OR_DECL, "Expected include, import, statement or declaration\n") ; } goto l1034; }
-  yyDo(G, yy_11_ModuleCore, G->begin, G->end, "yy_11_ModuleCore");
-  goto l1033;
-  l1034:;	  G->pos= yypos1033; G->thunkpos= yythunkpos1033;  if (!yy__(G))  goto l1031;
-  if (!yy_Stmt(G))  goto l1031;
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyDo(G, yySet, -3, 0, "yySet");
   yyDo(G, yy_12_ModuleCore, G->begin, G->end, "yy_12_ModuleCore");
 
   }
-<<<<<<< HEAD
   l1058:;	  goto l1057;
   l1056:;	  G->pos= yypos1056; G->thunkpos= yythunkpos1056;
   }
@@ -18026,53 +13714,11 @@ YY_RULE(int) yy_ModuleCore(GREG *G)
   l1062:;	
   }
   l1044:;	  yyprintf((stderr, "  ok   ModuleCore"));
-=======
-  l1033:;	  goto l1032;
-  l1031:;	  G->pos= yypos1031; G->thunkpos= yythunkpos1031;
-  }
-  l1032:;	  goto l1019;
-  l1020:;	  G->pos= yypos1019; G->thunkpos= yythunkpos1019;
-  {  int yypos1037= G->pos, yythunkpos1037= G->thunkpos;  if (!yy_WS(G))  goto l1038;
-  if (!yy_Include(G))  goto l1038;
-  if (!yy_WS(G))  goto l1038;
-  goto l1037;
-  l1038:;	  G->pos= yypos1037; G->thunkpos= yythunkpos1037;  if (!yy_WS(G))  goto l1039;
-  if (!yy_Import(G))  goto l1039;
-  if (!yy_WS(G))  goto l1039;
-  goto l1037;
-  l1039:;	  G->pos= yypos1037; G->thunkpos= yythunkpos1037;  if (!yy_WS(G))  goto l1040;
-  if (!yy_Use(G))  goto l1040;
-  if (!yy_WS(G))  goto l1040;
-  goto l1037;
-  l1040:;	  G->pos= yypos1037; G->thunkpos= yythunkpos1037;  if (!yy_WS(G))  goto l1041;
-  if (!yy_Decl(G))  goto l1041;
-  if (!yy_WS(G))  goto l1041;
-  goto l1037;
-  l1041:;	  G->pos= yypos1037; G->thunkpos= yythunkpos1037;  if (!yy_WS(G))  goto l1042;
-  if (!yy_Stmt(G))  goto l1042;
-  yyDo(G, yySet, -1, 0, "yySet");
-  if (!yy_WS(G))  goto l1042;
-  yyDo(G, yy_13_ModuleCore, G->begin, G->end, "yy_13_ModuleCore");
-  goto l1037;
-  l1042:;	  G->pos= yypos1037; G->thunkpos= yythunkpos1037;  if (!yy_WS(G))  goto l1018;
-  yyDo(G, yy_14_ModuleCore, G->begin, G->end, "yy_14_ModuleCore");
-  if (!yy_OocDocCore(G))  goto l1018;
-  yyDo(G, yy_15_ModuleCore, G->begin, G->end, "yy_15_ModuleCore");
-
-  }
-  l1037:;	
-  }
-  l1019:;	  yyprintf((stderr, "  ok   ModuleCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
   yyDo(G, yyPop, 4, 0, "yyPop");
   return 1;
-<<<<<<< HEAD
   l1043:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ModuleCore"));
-=======
-  l1018:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "ModuleCore"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
@@ -18081,7 +13727,6 @@ YY_RULE(int) yy_ModuleCore(GREG *G)
 YY_RULE(int) yy_Module(GREG *G)
 {  int yypos0= G->pos, yythunkpos0= G->thunkpos;  yyprintfv((stderr, "%s\n", "Module"));
 
-<<<<<<< HEAD
   {  int yypos1069= G->pos, yythunkpos1069= G->thunkpos;  if (!yy_ModuleCore(G))  goto l1070;
   goto l1069;
   l1070:;	  G->pos= yypos1069; G->thunkpos= yythunkpos1069;  if (!yy_WS(G))  goto l1068;
@@ -18098,33 +13743,11 @@ YY_RULE(int) yy_Module(GREG *G)
 
   }
   l1069:;	  yyprintf((stderr, "  ok   Module"));
-=======
-  {  int yypos1044= G->pos, yythunkpos1044= G->thunkpos;  if (!yy_ModuleCore(G))  goto l1045;
-  goto l1044;
-  l1045:;	  G->pos= yypos1044; G->thunkpos= yythunkpos1044;  if (!yy_WS(G))  goto l1043;
-
-  l1046:;	
-  {  int yypos1047= G->pos, yythunkpos1047= G->thunkpos;
-  {  int yypos1048= G->pos, yythunkpos1048= G->thunkpos;  if (!yy_EOL(G))  goto l1048;
-  goto l1047;
-  l1048:;	  G->pos= yypos1048; G->thunkpos= yythunkpos1048;
-  }  if (!yymatchDot(G)) goto l1047;  goto l1046;
-  l1047:;	  G->pos= yypos1047; G->thunkpos= yythunkpos1047;
-  }  if (!yy_EOL(G))  goto l1043;
-  yyDo(G, yy_1_Module, G->begin, G->end, "yy_1_Module");
-
-  }
-  l1044:;	  yyprintf((stderr, "  ok   Module"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfGcontext;
   yyprintf((stderr, "\n"));
 
   return 1;
-<<<<<<< HEAD
   l1068:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Module"));
-=======
-  l1043:;	  G->pos= yypos0; G->thunkpos= yythunkpos0;  yyprintfv((stderr, "  fail %s", "Module"));
->>>>>>> df14ed5... Added safe navigation sections, allowing you to navigate into cover fields and continue navigatin afterwards
   yyprintfvGcontext;
   yyprintfv((stderr, "\n"));
 
