@@ -706,8 +706,10 @@ VariableAccess: class extends Expression {
         replacedSome := false
 
         for ((i, typeArg) in typeArgs) {
+            name := typeArg getName()
+
             finalScore := 0
-            realType := exprType searchTypeArg(typeArg getName(), finalScore&)
+            realType := exprType searchTypeArg(name, finalScore&)
 
             if (finalScore == -1) {
                 // try again next time!
