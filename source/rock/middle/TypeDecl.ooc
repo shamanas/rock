@@ -720,7 +720,6 @@ TypeDecl: abstract class extends Declaration {
     checkOverrideFuncs: func(res: Resolver) -> Bool{
         list := ArrayList<TypeDecl> new()
         current := this
-
         while(current != null) {
         if(current getSuperType() == null) break
 
@@ -737,38 +736,38 @@ TypeDecl: abstract class extends Declaration {
         notEqualNameAndSuffix := true
         foundVirtual := false
         if(list size > 2){
-        for (i in 0..list size - 1) {
-          for (fdecl in list[i] functions) {
-              if (fdecl isOverride) {
-                  foundVirtual = false
-                  for (j in i+1..list size) {
-                  if(foundVirtual) {break}
-                  for (other in list[j] functions) {
-                      if ((fdecl getName() == other getName()) && (fdecl getSuffixOrEmpty() == other getSuffixOrEmpty())) {
-                        notEqualNameAndSuffix = true
-                        if(other isVirtual || other isAbstract) {
-                          //notEqualNameAndSuffix = true
-                          foundVirtual = true
-                          break
+            for (i in 0..list size - 1) {
+                for (fdecl in list[i] functions) {
+                    if (fdecl isOverride) {
+                        foundVirtual = false
+                        for (j in i+1..list size) {
+                            if(foundVirtual) {break }
+                            for (other in list[j] functions) {
+                                if ((fdecl getName() == other getName()) && (fdecl getSuffixOrEmpty() == other getSuffixOrEmpty())) {
+                                    notEqualNameAndSuffix = true
+                                    if(other isVirtual || other isAbstract) {
+                                         //notEqualNameAndSuffix = true
+                                         foundVirtual = true
+                                         break
+                                    }
+                                    else {
+                                        foundVirtual = false
+                                    }
+                                }
+                                /*else {
+                                    notEqualNameAndSuffix = false
+                                }*/
+                            }
                         }
-                        else {
-                          foundVirtual = false
+                        if (!notEqualNameAndSuffix) {
+                            res throwError(NoSuitableMethodOverride new(fdecl))
                         }
-                      }
-                      /*else {
-                        notEqualNameAndSuffix = false
-                      }*/
-                  }
+                        if (!foundVirtual) {
+                            res throwError(CannotOverride new(fdecl))
+                        }
+                    }
                 }
-                if (!notEqualNameAndSuffix) {
-                  res throwError(NoSuitableMethodOverride new(fdecl))
-                }
-                if (!foundVirtual) {
-                  res throwError(CannotOverride new(fdecl))
-                }
-          }
-        }
-        }
+            }
         }
         true
     }
