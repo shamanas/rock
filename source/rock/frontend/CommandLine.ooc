@@ -27,7 +27,7 @@ CommandLine: class {
     mainUseDef: UseDef
 
     init: func(args : ArrayList<String>) {
-        println("Cogneco Rock Compiler")
+        println("magic-lang rock compiler")
         params = BuildParams new(args[0])
 
         modulePaths := ArrayList<String> new()
