@@ -1075,7 +1075,7 @@ TypeDecl: abstract class extends Declaration {
                 }
             }
             else {
-                if (!(candidate isOverride)) {
+                if (!(candidate isOverride) && !(candidate name startsWith?("__OP"))) {
                     //res throwError(AbstractContractNotSatisfied new(
                     res throwError(Warning new(
                         token,"`%s`implements abstract function %s inherited from %s but it is not declared override" format(
