@@ -86,7 +86,8 @@ InternalError: class extends Error {
 Warning: class extends Error {
 
     init: super func ~tokenMessage
-    fatal?: func -> Bool { false }
+	// Removed this to make rock always throw error instead of warnings
+    //fatal?: func -> Bool { true }
 
     getType: func -> String { "warning" }
 
