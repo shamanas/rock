@@ -220,7 +220,7 @@ BuildParams: class {
     timing := false
 
     // Should link with libgc at all.
-    enableGC := true
+    enableGC := false
 
     // link dynamically with libgc (Boehm)
     dynGC := false
