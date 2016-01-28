@@ -36,7 +36,7 @@ or a library (if it only has a 'SourcePath: something' directive)
 --driver=[combine,sequence,make,cmake,dummy]
     Choose the compile driver to use. combine compiles all C files
     combined, sequence compiles them sequentially, make creates a
-    Makefile, cmake creates a CMakeList.txt for CMake. dummy only 
+    Makefile, cmake creates a CMakeList.txt for CMake. dummy only
     generates the .c sources to rock_tmp/ (or whatever you set your
     -outpath to)
 
@@ -64,7 +64,7 @@ or a library (if it only has a 'SourcePath: something' directive)
 
 --gc=[dynamic,static,off]
     Link dynamically, link statically, or don't link with the boehm
-    GC at all.
+    GC at all. (default=off)
 
 -h, --help
     Print this help and exit.
