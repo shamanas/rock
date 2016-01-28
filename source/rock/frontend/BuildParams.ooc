@@ -33,7 +33,7 @@ BuildParams: class {
         findLibsPath()
 
         // use the GC by default - most of the SDK relies on it.
-        defines add(This GC_DEFINE)
+        //defines add(This GC_DEFINE)
 
         // also, don't use the thread redirects by default. It causes problems
         // on mingw where the mingw definition of `_beginthreadex` gets messed
