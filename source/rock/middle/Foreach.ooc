@@ -198,7 +198,7 @@ Foreach: class extends ControlStatement {
             vdfe := VariableDecl new(iterType, generateTempName("iter"), iterCall, token)
             iterAcc := VariableAccess new(vdfe, token)
 
-            hasNextCall := FunctionCall new(iterAcc, "hasNext__quest", token)
+            hasNextCall := FunctionCall new(iterAcc, "hasNext", token)
             hasNextCall resolve(trail, res)
 
             while1 := While new(hasNextCall, token)
