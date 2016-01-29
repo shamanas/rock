@@ -391,7 +391,7 @@ FunctionCall: class extends Expression {
         if(refScore <= 0) {
             if(debugCondition()) "\n===============\nResolving call %s" printfln(toString())
 
-            if (expr != null && name == "instanceOf__quest") {
+            if (expr != null && name == "instanceOf") {
                 exprType := expr getType()
                 if (exprType == null) {
                     res wholeAgain(this, "waiting for expr type")
@@ -406,7 +406,7 @@ FunctionCall: class extends Expression {
                     case cd: CoverDecl =>
                         "got a call to #{toString()}, expr type ref = #{ref toString()}" println()
                         expr = VariableAccess new(expr, "class", expr token)
-                        name = "inheritsFrom__quest"
+                        name = "inheritsFrom"
                         res wholeAgain(this, "replaced instanceOf with inheritsFrom")
                         return Response OK
                 }
@@ -621,7 +621,7 @@ FunctionCall: class extends Expression {
             res throwError(UnresolvedCall new(this, msg))
         }
 
-        /* 
+        /*
          * Check for String instances passed to C vararg functions if helpful.
          * Skip `va_arg`. `va_arg` is a vararg function that takes the
          * last-before-vararg argument as an argument. For methods, it's always
@@ -817,7 +817,7 @@ FunctionCall: class extends Expression {
                 if (bop type != OpType ass) {
                     return false
                 }
-                
+
                 rhs := bop right
                 while (rhs instanceOf?(Cast)) {
                     rhs = rhs as Cast inner
@@ -1187,7 +1187,7 @@ FunctionCall: class extends Expression {
                 for((j, arg) in ref args) {
                     /*
                      * Use case:
-                     * 
+                     *
                      *   myFunction: func <T> (myArg: T)
                      *
                      * or:

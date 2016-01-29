@@ -154,12 +154,12 @@ Match: class extends Expression {
 
                             if(mType isGeneric()) {
                                 acc := VariableAccess new(mType, caseToken)
-                                fCall = FunctionCall new(acc, "inheritsFrom__quest", caseToken)
+                                fCall = FunctionCall new(acc, "inheritsFrom", caseToken)
                             } else if(ref instanceOf?(CoverDecl)) {
                                 acc := VariableAccess new(expr, "class", expr token)
-                                fCall = FunctionCall new(acc, "inheritsFrom__quest", caseToken)
+                                fCall = FunctionCall new(acc, "inheritsFrom", caseToken)
                             } else {
-                                fCall = FunctionCall new(expr, "instanceOf__quest", caseToken)
+                                fCall = FunctionCall new(expr, "instanceOf", caseToken)
                             }
                             fCall args add(TypeAccess new(caseExpr getType(), caseToken))
                             hmm := fCall resolve(trail, res)
