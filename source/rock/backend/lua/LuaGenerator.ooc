@@ -319,7 +319,7 @@ LuaGenerator: class extends CGenerator {
             fromName := node fromType getName()
             // we don't need an opaque type if we're covering structs or unions
             if (!(fromName startsWith?("struct ") || fromName startsWith?("union") ||
-                module getUseDef() identifier == "sdk")) {
+                module getUseDef() identifier == "system")) {
                 typesWriter app("typedef struct ___#{fromName} #{fromName};"). nl()
             }
         } else {

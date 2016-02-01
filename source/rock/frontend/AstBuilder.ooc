@@ -71,7 +71,7 @@ AstBuilder: class {
         stack push(module)
         versionStack = Stack<VersionSpec> new()
 
-        module addUse(Use new("sdk", params, module token))
+        module addUse(Use new("system", params, module token))
 
         result := nq_parse(this, modulePath)
         if(result == -1) {
