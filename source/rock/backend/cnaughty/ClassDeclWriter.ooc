@@ -5,7 +5,7 @@ import Skeleton, FunctionDeclWriter, VersionWriter
 
 ClassDeclWriter: abstract class extends Skeleton {
 
-    LANG_PREFIX := static const "lang_types__"
+    LANG_PREFIX := static const "types__"
     CLASS_NAME := static const This LANG_PREFIX + "Class"
 
     write: static func ~_class (this: Skeleton, cDecl: ClassDecl) {
@@ -225,7 +225,7 @@ ClassDeclWriter: abstract class extends Skeleton {
           if(cDecl getNonMeta() instanceOf?(InterfaceDecl)) {
             current app("this.impl->")
             } else {
-              current app("(("). app(baseClass underName()). app(" *)"). app("((lang_types__Object *)this)->class)->")
+              current app("(("). app(baseClass underName()). app(" *)"). app("((types__Object *)this)->class)->")
             }
           FunctionDeclWriter writeSuffixedName(this, fDecl)
           FunctionDeclWriter writeFuncArgs(this, fDecl, ArgsWriteModes NAMES_ONLY, baseClass)

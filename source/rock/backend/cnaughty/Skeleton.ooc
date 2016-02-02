@@ -3,7 +3,7 @@ import text/EscapeSequence, rock/frontend/BuildParams, io/File
 
 Skeleton: abstract class extends Visitor {
 
-    STRING_CONSTRUCTOR := static const "(void*) lang_String__makeStringLiteral(\"%s\", %d)"
+    STRING_CONSTRUCTOR := static const "(void*) String__makeStringLiteral(\"%s\", %d)"
     TEXT_CONSTRUCTOR := static const "Text__makeTextLiteral(\"%s\", %d)"
 
     params: BuildParams
