@@ -168,7 +168,7 @@ CommandLine: class {
                 } else if(option startsWith?("sdk=")) {
 
                     "The --sdk=PATH option is deprecated." println()
-                    "If you want to use your own SDK, create your own sdk.use" println()
+                    "If you want to use your own SDK, create your own system.use" println()
                     "and adjust the OOC_LIBS environment variable" println()
 
                 } else if(option startsWith?("libs=")) {
@@ -177,7 +177,7 @@ CommandLine: class {
                     params libPath = File new(option substring(5))
 
                 } else if(option startsWith?("use=")) {
-                    
+
                     if (!longOption) warnUseLong("use")
                     params builtinUses add(option substring(4))
 
@@ -219,7 +219,7 @@ CommandLine: class {
                     params defaultMain = false
 
                 } else if (option == "static") {
-		     
+
 		    params staticLib = true
 		} else if (option startsWith?("gc=")) {
 

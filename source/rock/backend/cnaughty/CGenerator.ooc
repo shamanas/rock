@@ -96,7 +96,7 @@ CGenerator: class extends Skeleton {
         match ref {
             case tDecl: TypeDecl =>
                 if (typeAccess inner pointerLevel() > 0) {
-                    current app("lang_types__Pointer_class()")
+                    current app("types__Pointer_class()")
                 } else {
                     current app(tDecl underName()). app("_class()")
                 }
@@ -247,7 +247,7 @@ CGenerator: class extends Skeleton {
 
             case fType: FuncType =>
                 // Yes, we need to write function types too ;D
-                current app("lang_types__Closure_class()")
+                current app("types__Closure_class()")
         }
     }
 

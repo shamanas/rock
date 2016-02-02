@@ -2,9 +2,10 @@ import structs/[ArrayList]
 import Type, Declaration, Expression, Visitor, TypeDecl, VariableAccess,
        Node, ClassDecl, FunctionCall, Argument, BinaryOp, Cast, Module,
        Block, Scope, FunctionDecl, Argument, BaseType, FuncType, Statement,
-       NullLiteral, Tuple, TypeList, AddressOf, PropertyDecl, CommaSequence
+       NullLiteral, Tuple, TypeList, AddressOf, PropertyDecl, CommaSequence,
+       IntLiteral
 import tinker/[Response, Resolver, Trail, Errors]
-import ../frontend/BuildParams
+import ../frontend/[BuildParams, Token]
 
 VariableDecl: class extends Declaration {
 
@@ -388,7 +389,8 @@ VariableDecl: class extends Declaration {
 
         fCall: FunctionCall
             if(isForcedMalloc) {
-              fCall = FunctionCall new("gc_malloc", token)
+              fCall = FunctionCall new("calloc", token)
+              fCall args add(IntLiteral new(1, (0, 0, null, 0) as Token))
             }
             else {
               fCall = FunctionCall new("alloca", token)

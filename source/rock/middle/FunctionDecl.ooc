@@ -643,8 +643,8 @@ FunctionDecl: class extends Declaration {
 
         if (isClosure) {
             fromClosure = true
-			
-			if (!_unwrappedACS) {
+
+            if (!_unwrappedACS) {
             //if (!_unwrappedACS && acs) {
                 if (!unwrapACS(trail, res)) {
                     trail pop(this)
@@ -1144,7 +1144,8 @@ FunctionDecl: class extends Declaration {
             module addType(ctxStruct)
 
             // initialize the context struct
-            ctxAllocCall := FunctionCall new("gc_malloc", token)
+            ctxAllocCall := FunctionCall new("calloc", token)
+            ctxAllocCall args add(IntLiteral new(1, nullToken))
             ctxAllocCall args add(VariableAccess new(VariableAccess new(ctxStruct getInstanceType(), token), "size", token))
             ctxInit := StructLiteral new(ctxStruct getInstanceType(), elements, token)
 
