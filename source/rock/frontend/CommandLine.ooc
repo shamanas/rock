@@ -389,6 +389,7 @@ CommandLine: class {
                 } else if (option startsWith?("obfuscate=")) {
                     params obfuscate = true
                     params obfuscator = Obfuscator new(params, option substring("obfuscate=" length()))
+					params lineDirectives = false
                 } else if (option startsWith?("blowup=")) {
 
                     if(!longOption) warnUseLong("blowup")
