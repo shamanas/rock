@@ -9,7 +9,7 @@ import PathList, CommandLine, Target
 import drivers/CCompiler
 import rock/middle/[Module, UseDef]
 import rock/middle/tinker/Errors
-import rock/frontend/drivers/[Driver, SequenceDriver]
+import rock/frontend/drivers/[Driver, SequenceDriver, Obfuscator]
 
 /**
  * All the parameters for a build are stored there.
@@ -255,6 +255,9 @@ BuildParams: class {
 
     // compilation driver
     driver := SequenceDriver new(this)
+
+    obfuscate := false
+    obfuscator: Obfuscator
 
     validBinaryName?: func (name: String) -> Bool {
         if (File new(name) dir?()) {
