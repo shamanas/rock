@@ -4,7 +4,7 @@ import structs/[ArrayList, HashMap]
 
 import Driver
 import rock/frontend/[BuildParams]
-import rock/middle/[Module, TypeDecl, FunctionDecl, VariableDecl]
+import rock/middle/[Module, TypeDecl, FunctionDecl, VariableDecl, StructLiteral, FunctionCall]
 
 ObfuscationTargetType: enum {
     Unknown,
@@ -29,9 +29,8 @@ Obfuscator: class extends Driver {
     }
     compile: func (module: Module) -> Int {
         "Obfuscating..." printfln()
-        for (currentModule in module collectDeps()) {
+        for (currentModule in module collectDeps())
             processModule(currentModule)
-        }
         processModule(module)
         "Obfuscation done, compiling..." printfln()
         params driver compile(module)
@@ -39,18 +38,24 @@ Obfuscator: class extends Driver {
     processModule: func (module: Module) {
         if (targets contains?(module simpleName)) {
             target := targets get(module simpleName)
-            "  Module: #{target oldName} -> #{target newName}" printfln()
             module simpleName = target newName
             module underName = module underName substring(0, module underName indexOf(target oldName)) append(target newName)
+            module isObfuscated = true
+            for (statement in module body) {
+                if (statement instanceOf?(VariableDecl) && !statement as VariableDecl getType() instanceOf?(AnonymousStructType)) {
+                    vd := statement as VariableDecl
+                    if (vd isExtern() && !vd isProto())
+                        continue
+                    if (vd name contains?(target oldName))
+                        vd name = vd name replaceAll(target oldName, target newName)
+                }
+            }
         }
         // For now, this must live outside the above if-statement, since obfuscation targets may
-        // be present in non-target modules. 
+        // be present in non-target modules.
         for (type in module types) {
-            if (targets contains?(type name)) {
-                target := targets get(type name)
-                "  Type:   #{target oldName} -> #{target newName}" printfln()
-                type name = target newName
-            }
+            if (targets contains?(type name))
+                type name = targets get(type name) newName
         }
     }
     parseMappingFile: func (mappingFile: String) -> HashMap<String, ObfuscationTarget> {

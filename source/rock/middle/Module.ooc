@@ -49,6 +49,7 @@ Module: class extends Node {
     lastModified : Long
 
     params: BuildParams { get set }
+    isObfuscated := false
 
     init: func ~module (.fullName, =pathElement, =params, .token) {
         super(token)
@@ -94,6 +95,9 @@ Module: class extends Node {
     }
 
     getPath: func (suffix := "") -> String {
+        // TODO: This is highly ineffecient
+        if (isObfuscated)
+            path = path contains?(File separator) ? path substring(0, path lastIndexOf(File separator) + 1) + simpleName : simpleName
         base := getSourceFolderName()
         File new(base, path) path + suffix
     }
