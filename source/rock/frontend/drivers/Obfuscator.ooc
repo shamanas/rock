@@ -3,7 +3,7 @@ import text/[StringTokenizer]
 import structs/[ArrayList, HashMap]
 
 import Driver
-import rock/frontend/[BuildParams]
+import rock/frontend/[BuildParams, CommandLine]
 import rock/middle/[Module, TypeDecl, FunctionDecl, VariableDecl, StructLiteral, FunctionCall]
 
 ObfuscationTargetType: enum {
@@ -61,8 +61,13 @@ Obfuscator: class extends Driver {
                     // trim(String) is buggy, so use substring and indexOf instead.
                     // TODO: What happens if a type actually has the word "Class" in its name?
                     functionCandidate := target oldName substring(0, target oldName indexOf("Class")) + "." + function name
-                    if (targets contains?(functionCandidate))
+                    if (targets contains?(functionCandidate)) {
+                        if (function isAbstract || function isVirtual) {
+                            CommandLine warn("Obfuscator: abstract and virtual functions are not yet supported.")
+                            continue
+                        }
                         function name = targets get(functionCandidate) newName
+                    }
                 }
             }
         }
