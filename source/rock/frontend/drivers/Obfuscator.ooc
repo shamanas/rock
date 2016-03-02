@@ -54,8 +54,17 @@ Obfuscator: class extends Driver {
         // For now, this must live outside the above if-statement, since obfuscation targets may
         // be present in non-target modules.
         for (type in module types) {
-            if (targets contains?(type name))
-                type name = targets get(type name) newName
+            if (targets contains?(type name)) {
+                target := targets get(type name)
+                type name = target newName
+                for (function in type functions) {
+                    // trim(String) is buggy, so use substring and indexOf instead.
+                    // TODO: What happens if a type actually has the word "Class" in its name?
+                    functionCandidate := target oldName substring(0, target oldName indexOf("Class")) + "." + function name
+                    if (targets contains?(functionCandidate))
+                        function name = targets get(functionCandidate) newName
+                }
+            }
         }
     }
     parseMappingFile: func (mappingFile: String) -> HashMap<String, ObfuscationTarget> {
@@ -70,7 +79,8 @@ Obfuscator: class extends Driver {
             temp := target split(':')
             if (temp size > 1) {
                 result put(temp[0], ObfuscationTarget new(temp[0], temp[1], ObfuscationTargetType Type))
-                result put(temp[0] + "Class", ObfuscationTarget new(temp[0] + "Class", temp[1] + "Class", ObfuscationTargetType Type))
+                if (!temp[0] contains?('.'))
+                    result put(temp[0] + "Class", ObfuscationTarget new(temp[0] + "Class", temp[1] + "Class", ObfuscationTargetType Type))
             }
         }
         result
