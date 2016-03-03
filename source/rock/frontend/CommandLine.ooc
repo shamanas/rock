@@ -6,7 +6,7 @@ import text/StringTokenizer
 
 // our stuff
 import Help, Token, BuildParams, AstBuilder, PathList, Target
-import rock/frontend/drivers/[Driver, SequenceDriver, MakeDriver, DummyDriver, CCompiler, AndroidDriver, CMakeDriver]
+import rock/frontend/drivers/[Driver, SequenceDriver, MakeDriver, DummyDriver, CCompiler, AndroidDriver, CMakeDriver, Obfuscator]
 import rock/backend/json/JSONGenerator
 import rock/backend/lua/LuaGenerator
 import rock/middle/[Module, Import, UseDef, Use]
@@ -220,8 +220,8 @@ CommandLine: class {
 
                 } else if (option == "static") {
 
-		    params staticLib = true
-		} else if (option startsWith?("gc=")) {
+                    params staticLib = true
+                } else if (option startsWith?("gc=")) {
 
                     suboption := option substring(3)
                     match suboption {
@@ -386,6 +386,10 @@ CommandLine: class {
                             null
                     }
 
+                } else if (option startsWith?("obfuscate=")) {
+                    params obfuscate = true
+                    params obfuscator = Obfuscator new(params, option substring("obfuscate=" length()))
+                    params lineDirectives = false
                 } else if (option startsWith?("blowup=")) {
 
                     if(!longOption) warnUseLong("blowup")
@@ -704,7 +708,7 @@ CommandLine: class {
             if(params driver != null) {
                 code := 0
                 compileMs := Time measure(||
-                    code = params driver compile(module)
+                    code = params obfuscate ? params obfuscator compile(module) : params driver compile(module)
                 )
                 if(code == 0) {
                     if (params timing) {
