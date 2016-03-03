@@ -4,7 +4,7 @@ import structs/[ArrayList, HashMap]
 
 import Driver
 import rock/frontend/[BuildParams, CommandLine]
-import rock/middle/[Module, TypeDecl, FunctionDecl, VariableDecl, StructLiteral, FunctionCall]
+import rock/middle/[Module, TypeDecl, FunctionDecl, VariableDecl, StructLiteral, FunctionCall, PropertyDecl]
 
 ObfuscationTargetType: enum {
     Unknown,
@@ -32,7 +32,8 @@ Obfuscator: class extends Driver {
         for (currentModule in module collectDeps())
             processModule(currentModule)
         processModule(module)
-        "Obfuscation done, compiling..." printfln()
+        CommandLine success(params)
+        "Compiling..." printfln()
         params driver compile(module)
     }
     processModule: func (module: Module) {
@@ -57,16 +58,17 @@ Obfuscator: class extends Driver {
             if (targets contains?(type name)) {
                 target := targets get(type name)
                 type name = target newName
+                searchKeyPrefix := target oldName substring(0, target oldName indexOf("Class")) + "."
                 for (function in type functions) {
                     // trim(String) is buggy, so use substring and indexOf instead.
                     // TODO: What happens if a type actually has the word "Class" in its name?
-                    functionCandidate := target oldName substring(0, target oldName indexOf("Class")) + "." + function name
-                    if (targets contains?(functionCandidate)) {
+                    functionSearchKey := searchKeyPrefix + function name
+                    if (targets contains?(functionSearchKey)) {
                         if (function isAbstract || function isVirtual) {
                             CommandLine warn("Obfuscator: abstract and virtual functions are not yet supported.")
                             continue
                         }
-                        function name = targets get(functionCandidate) newName
+                        function name = targets get(functionSearchKey) newName
                     }
                 }
             }
