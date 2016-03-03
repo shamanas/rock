@@ -59,29 +59,37 @@ Obfuscator: class extends Driver {
                 target := targets get(type name)
                 type name = target newName
                 searchKeyPrefix := target oldName substring(0, target oldName indexOf("Class")) + "."
-                for (variable in type variables) {
-                    if (variable instanceOf?(PropertyDecl)) {
-                        continue
-                    } else {
-                        variableSearchKey := searchKeyPrefix + variable name
-                        if (targets contains?(variableSearchKey))
-                            variable name = targets get(variableSearchKey) newName
-                    }
-                }
-                for (function in type functions) {
-                    // trim(String) is buggy, so use substring and indexOf instead.
-                    // TODO: What happens if a type actually has the word "Class" in its name?
-                    functionSearchKey := searchKeyPrefix + function name
-                    if (targets contains?(functionSearchKey)) {
-                        if (function isAbstract || function isVirtual) {
-                            CommandLine warn("Obfuscator: abstract and virtual functions are not yet supported.")
-                            continue
-                        }
-                        function name = targets get(functionSearchKey) newName
-                    }
-                }
+                handleMemberVariables(type, searchKeyPrefix)
+                handleMemberFunctions(type, searchKeyPrefix)
             }
         }
+    }
+    handleMemberFunctions: func (owner: TypeDecl, searchKeyPrefix: String) {
+        for (function in owner functions) {
+            // TODO: What happens if a type actually has the word "Class" in its name?
+            functionSearchKey := searchKeyPrefix + function name
+            if (targets contains?(functionSearchKey)) {
+                if (function isAbstract || function isVirtual) {
+                    CommandLine warn("Obfuscator: abstract and virtual functions are not yet supported.")
+                    continue
+                }
+                function name = targets get(functionSearchKey) newName
+            }
+        }
+    }
+    handleMemberVariables: func (owner: TypeDecl, searchKeyPrefix: String) {
+        for (variable in owner variables) {
+            variableSearchKey := searchKeyPrefix + variable name
+            if (variable instanceOf?(PropertyDecl))
+                handleMemberProperties(owner, variableSearchKey)
+            else {
+                if (targets contains?(variableSearchKey))
+                    variable name = targets get(variableSearchKey) newName
+            }
+        }
+    }
+    handleMemberProperties: func (owner: TypeDecl, propertySearchKey: String) {
+        
     }
     parseMappingFile: func (mappingFile: String) -> HashMap<String, ObfuscationTarget> {
         result := HashMap<String, ObfuscationTarget> new(15)
