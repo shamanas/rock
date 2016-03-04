@@ -60,7 +60,6 @@ Obfuscator: class extends Driver {
     }
     handleMemberFunctions: func (owner: TypeDecl, searchKeyPrefix: String) {
         for (function in owner functions) {
-            // TODO: What happens if a type actually has the word "Class" in its name?
             functionSearchKey := searchKeyPrefix + function name
             targetFunction := targets get(functionSearchKey)
             if (targetFunction != null) {
@@ -89,10 +88,9 @@ Obfuscator: class extends Driver {
         if (targetProperty != null) {
             obfuscateProperty := func (accept: Bool, target: PropertyDecl, fn: FunctionDecl) {
                 if (accept) {
-                    target name = targetProperty newName
                     // For now, use only partial prefix and strip the suffix
-                    prefix := fn name substring(2, 5)
-                    fn name = prefix + targetProperty newName
+                    target name = targetProperty newName
+                    fn name = fn name substring(2, 5) + targetProperty newName
                 }
             }
             obfuscateProperty(property getter != null, property, property getter)
