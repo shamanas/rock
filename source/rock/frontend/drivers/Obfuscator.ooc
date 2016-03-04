@@ -51,6 +51,7 @@ Obfuscator: class extends Driver {
         for (type in module types) {
             targetType := targets get(type name)
             if (targetType != null) {
+                // TODO: If the class name has the word "Class" in it, it will lead to undesired results.
                 searchKeyPrefix := targetType oldName substring(0, targetType oldName indexOf("Class")) + "."
                 type name = targetType newName
                 handleMemberVariables(type, searchKeyPrefix)
