@@ -23,17 +23,9 @@
   pacman -R package_name/package_group to remove a pacakge.
 
   pacman -Ss name_pattern to search for a package.
-1. Run ```git clone https://github.com/fasterthanlime/rock```
+1. Run ```git clone https://github.com/magic-lang/rock```
 1. Step into the folder rock and run ```make rescue```
 1. A working rock complier should now be available in rock/bin/
-
-# Compile the cogneco version of rock
-1. Follow the steps above
-1. Run ```make backup```
-1. Add cogneco as a remote ```git remote add cogneco https://github.com/cogneco/rock```
-1. Fetch from and checkout the master branch from cogneco ```git fetch cogneco``` ```git checkout cogneco/master```
-1. Run ```make safe```
-1. A working cogneco version of the rock complier should now be available in rock/bin/
 
 ### Sources
 https://amos.me/blog/2012/game-distrib/#setting-up-your-dev-environment
