@@ -31,8 +31,8 @@ Obfuscator: class extends Driver {
         params driver compile(module)
     }
     processModule: func (module: Module) {
-        if (targets contains?(module simpleName)) {
-            target := targets get(module simpleName)
+        target := targets get(module simpleName)
+        if (target != null) {
             module simpleName = target newName
             module underName = module underName substring(0, module underName indexOf(target oldName)) append(target newName)
             module isObfuscated = true
