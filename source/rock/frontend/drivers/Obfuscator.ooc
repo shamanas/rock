@@ -4,7 +4,7 @@ import structs/[ArrayList, HashMap]
 
 import Driver
 import rock/frontend/[BuildParams, CommandLine]
-import rock/middle/[Module, TypeDecl, FunctionDecl, VariableDecl, StructLiteral, FunctionCall, PropertyDecl]
+import rock/middle/[Module, ClassDecl, TypeDecl, FunctionDecl, VariableDecl, StructLiteral, FunctionCall, PropertyDecl, VariableAccess]
 
 ObfuscationTarget: class {
     oldName: String
@@ -51,11 +51,11 @@ Obfuscator: class extends Driver {
         for (type in module types) {
             targetType := targets get(type name)
             if (targetType != null) {
-                // TODO: If the class name has the word "Class" in it, it will lead to undesired results.
-                searchKeyPrefix := targetType oldName substring(0, targetType oldName indexOf("Class")) + "."
+                if (type variables size > 0)
+                    handleMemberVariables(type, targetType oldName + ".")
+                if (type functions size > 0)
+                    handleMemberFunctions(type, targetType oldName substring(0, targetType oldName length() - 5) + ".")
                 type name = targetType newName
-                handleMemberVariables(type, searchKeyPrefix)
-                handleMemberFunctions(type, searchKeyPrefix)
             }
         }
     }
@@ -70,13 +70,14 @@ Obfuscator: class extends Driver {
                 }
                 function name = targetFunction newName
             }
+            handleFunctionArguments(function, searchKeyPrefix)
         }
     }
     handleMemberVariables: func (owner: TypeDecl, searchKeyPrefix: String) {
         for (variable in owner variables) {
             variableSearchKey := searchKeyPrefix + variable name
             if (variable instanceOf?(PropertyDecl))
-                handleMemberProperties(variable as PropertyDecl, variableSearchKey)
+                handleProperty(variable as PropertyDecl, variableSearchKey)
             else {
                 targetVariable := targets get(variableSearchKey)
                 if (targetVariable != null)
@@ -84,7 +85,7 @@ Obfuscator: class extends Driver {
             }
         }
     }
-    handleMemberProperties: func (property: PropertyDecl, propertySearchKey: String) {
+    handleProperty: func (property: PropertyDecl, propertySearchKey: String) {
         targetProperty := targets get(propertySearchKey)
         if (targetProperty != null) {
             obfuscateProperty := func (accept: Bool, target: PropertyDecl, fn: FunctionDecl) {
@@ -96,6 +97,14 @@ Obfuscator: class extends Driver {
             }
             obfuscateProperty(property getter != null, property, property getter)
             obfuscateProperty(property setter != null, property, property setter)
+        }
+    }
+    handleFunctionArguments: func(function: FunctionDecl, searchKeyPrefix: String) {
+        for (variable in function args) {
+            variableSearchKey := searchKeyPrefix + variable name
+            targetVariable := targets get(variableSearchKey)
+            if (targetVariable != null)
+                variable name = targetVariable newName
         }
     }
     parseMappingFile: func (mappingFile: String) -> HashMap<String, ObfuscationTarget> {
