@@ -194,10 +194,9 @@ ADVANCED OPTIONS
 -t, --timing
     Print how much time the compilation took.
 
---obfuscate=TRANSLATION FILE
-    Translates types specified in the translation file (EXPERIMENTAL).
-    Example: The entry \"Foobar\":\"Moobar\" will rename each occurance of
-             Foobar with Moobar.
+--obfuscate=MAP_FILE
+    Translates types specified in the specified map file (EXPERIMENTAL).
+    Example: not yet.
 "
         )
     }
