@@ -1539,6 +1539,6 @@ TypeArgSizeMismatch: class extends Error {
 
 ArgumentMismatch: class extends Warning {
     init: func ~withToken (.token, call: FunctionDecl, cand: FunctionDecl) {
-        super(token, "Different number of arguments between derived definitoin %s and base definition %s" format(call toString(), cand toString()))
+        super(token, "Mismatch definition between %s (derived) and %s (base)" format(call toString(), cand toString()))
     }
 }
