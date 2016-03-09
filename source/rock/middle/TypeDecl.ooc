@@ -986,23 +986,29 @@ TypeDecl: abstract class extends Declaration {
         notVirtual := false
         notEqualNameAndSuffix := true
         foundVirtual := false
+        preciseMatch := false
+        bestMatch := null
         if(list size > 2){
             for (i in 0..list size - 1) {
                 for (fdecl in list[i] functions) {
                     if (fdecl isOverride) {
                         foundVirtual = false
+                        preciseMatch = false
+                        bestMatch = null
                         for (j in i+1..list size) {
-                            if(foundVirtual) {break }
+                            if(foundVirtual) { break }
                             for (other in list[j] functions) {
                                 if ((fdecl getName() == other getName()) && (fdecl getSuffixOrEmpty() == other getSuffixOrEmpty())) {
                                     notEqualNameAndSuffix = true
                                     if(other isVirtual || other isAbstract) {
                                          //notEqualNameAndSuffix = true
                                          foundVirtual = true
-                                         break
-                                    }
-                                    else {
-                                        foundVirtual = false
+                                         bestMatch = other
+                                         if(fdecl getArguments() size == 
+                                             other getArguments() size) {
+                                                 preciseMatch = true
+                                                 break
+                                         }
                                     }
                                 }
                                 /*else {
@@ -1016,6 +1022,10 @@ TypeDecl: abstract class extends Declaration {
                         if (!foundVirtual) {
                             res throwError(CannotOverride new(fdecl))
                         }
+                        if (!preciseMatch) {
+                            res throwError(ArgumentMismatch new(fdecl token, fdecl, bestMatch))
+                        }
+
                     }
                 }
             }
@@ -1524,5 +1534,11 @@ TypeArgSizeMismatch: class extends Error {
 
     init: func (=wanted, =got, .token) {
         super(token, "For now, type templates need to be fully specified (first generics, then templates). Expected #{wanted} typeArgs, got #{got}")
+    }
+}
+
+ArgumentMismatch: class extends Warning {
+    init: func ~withToken (.token, call: FunctionDecl, cand: FunctionDecl) {
+        super(token, "Different number of arguments between derived definitoin %s and base definition %s" format(call toString(), cand toString()))
     }
 }
