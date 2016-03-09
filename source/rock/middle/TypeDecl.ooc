@@ -991,6 +991,10 @@ TypeDecl: abstract class extends Declaration {
         if(list size > 2){
             for (i in 0..list size - 1) {
                 for (fdecl in list[i] functions) {
+                    if(fdecl getReturnType() getRef() == null) {
+                      res wholeAgain(this, "fdecl should be resolved before check")
+                      return false
+                    }
                     if (fdecl isOverride) {
                         foundVirtual = false
                         preciseMatch = false
@@ -998,14 +1002,29 @@ TypeDecl: abstract class extends Declaration {
                         for (j in i+1..list size) {
                             if(foundVirtual) { break }
                             for (other in list[j] functions) {
+                                if(other getReturnType() getRef() == null) {
+                                  res wholeAgain(this, "fdecl should be resolved before check")
+                                  return false
+                                }
                                 if ((fdecl getName() == other getName()) && (fdecl getSuffixOrEmpty() == other getSuffixOrEmpty())) {
                                     notEqualNameAndSuffix = true
                                     if(other isVirtual || other isAbstract) {
                                          //notEqualNameAndSuffix = true
                                          foundVirtual = true
                                          bestMatch = other
+                                         type1 := fdecl getReturnType()
+                                         type2 := other getReturnType()
+                                         if (type1 getName() == "This") {
+                                            if(type1 getRef() && type1 getRef() instanceOf?(TypeDecl))
+                                                type1 = type1 getRef() as TypeDecl getNonMeta() ? type1 getRef() as TypeDecl getNonMeta() : type1
+                                         }
+                                         if (type2 getName() == "This") {
+                                            if(type2 getRef() && type2 getRef() instanceOf?(TypeDecl))
+                                                type2 = type2 getRef() as TypeDecl getNonMeta() ? type2 getRef() as TypeDecl getNonMeta() : type2
+                                         }
                                          if(fdecl getArguments() size == 
-                                             other getArguments() size) {
+                                             other getArguments() size && 
+                                             (type1 isGeneric() || type2 isGeneric() || type1 getScore(type2) > 0)) {
                                                  preciseMatch = true
                                                  break
                                          }
@@ -1023,7 +1042,7 @@ TypeDecl: abstract class extends Declaration {
                             res throwError(CannotOverride new(fdecl))
                         }
                         if (!preciseMatch) {
-                            res throwError(ArgumentMismatch new(fdecl token, fdecl, bestMatch))
+                            res throwError(DefinitionMismatch new(fdecl token, fdecl, bestMatch))
                         }
 
                     }
@@ -1537,8 +1556,8 @@ TypeArgSizeMismatch: class extends Error {
     }
 }
 
-ArgumentMismatch: class extends Warning {
+DefinitionMismatch: class extends Warning {
     init: func ~withToken (.token, call: FunctionDecl, cand: FunctionDecl) {
-        super(token, "Mismatch definition between %s (derived) and %s (base)" format(call toString(), cand toString()))
+        super(token, "Mismatched definition between { %s } (derived) and { %s } (base)" format(call toString(), cand toString()))
     }
 }
