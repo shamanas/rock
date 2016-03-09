@@ -435,7 +435,7 @@ FunctionCall: class extends Expression {
                     }
                     if(args size != refActualArguments && 
                         args size != ref getArguments() size) {
-                        res throwError(ArgumentUnmatch new(token, this, ref))
+                        res throwError(ArgumentMismatch new(token, this, ref))
                     }
                     expr = VariableAccess new(superTypeDecl getThisDecl(), token)
                     if(args empty?() && !ref getArguments() empty?()) {
@@ -1756,7 +1756,7 @@ UseOfVoidExpression: class extends Error {
     init: super func ~tokenMessage
 }
 
-ArgumentUnmatch: class extends Warning {
+ArgumentMismatch: class extends Warning {
     init: func ~withToken (.token, call: FunctionCall, cand: FunctionDecl) {
         super(token, "Different number of arguments between the super call in %s and function %s" format(call toString(), cand toString()))
     }
