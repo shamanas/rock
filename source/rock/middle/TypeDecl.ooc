@@ -1022,9 +1022,14 @@ TypeDecl: abstract class extends Declaration {
                                             if(type2 getRef() && type2 getRef() instanceOf?(TypeDecl))
                                                 type2 = type2 getRef() as TypeDecl getNonMeta() ? type2 getRef() as TypeDecl getNonMeta() : type2
                                          }
+                                         score := type1 getScore(type2)
+                                         if(score == -1) {
+                                           res wholeAgain(this, "something is un-resolved")
+                                           return false
+                                         }
                                          if(fdecl getArguments() size == 
                                              other getArguments() size && 
-                                             (type1 isGeneric() || type2 isGeneric() || type1 getScore(type2) > 0)) {
+                                             (type1 isGeneric() || type2 isGeneric() || score >= 0)) {
                                                  preciseMatch = true
                                                  break
                                          }
