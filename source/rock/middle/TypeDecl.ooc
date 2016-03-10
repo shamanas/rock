@@ -1022,14 +1022,25 @@ TypeDecl: abstract class extends Declaration {
                                             if(type2 getRef() && type2 getRef() instanceOf?(TypeDecl))
                                                 type2 = type2 getRef() as TypeDecl getNonMeta() ? type2 getRef() as TypeDecl getNonMeta() : type2
                                          }
+
+
                                          score := type1 getScore(type2)
                                          if(score == -1) {
                                            res wholeAgain(this, "something is un-resolved")
                                            return false
                                          }
+
+                                         lhsInt := type1 getIntegerState()
+                                         rhsInt := type2 getIntegerState()
+                                         lhsFp := type1 getFloatingPointState()
+                                         rhsFp := type2 getFloatingPointState()
+                                         lhsNum := (lhsInt == NumericState YES || lhsFp == NumericState YES)
+                                         rhsNum := (rhsInt == NumericState YES || rhsFp == NumericState YES)
+                                         if(lhsNum && rhsNum && type1 getName() != type2 getName()) { score = -100000 }
+
                                          if(fdecl getArguments() size == 
                                              other getArguments() size && 
-                                             (type1 isGeneric() || type2 isGeneric() || score >= 0)) {
+                                             (type1 isGeneric() || type2 isGeneric() || score > 0)) {
                                                  preciseMatch = true
                                                  break
                                          }
