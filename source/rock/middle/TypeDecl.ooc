@@ -1047,6 +1047,10 @@ TypeDecl: abstract class extends Declaration {
                                                 for(i in 0 .. fdecl getArguments() size) {
                                                      type1 := unwrapType(thisArgs[i] getType())
                                                      type2 := unwrapType(otherArgs[i] getType())
+                                                     if(!type1 || !type2) {
+                                                       res wholeAgain(this, "argument type needs to be resolved")
+                                                       return false
+                                                     }
                                                      score := type1 getScore(type2)
                                                      if(score == -1) {
                                                        res wholeAgain(this, "something is un-resolved")
