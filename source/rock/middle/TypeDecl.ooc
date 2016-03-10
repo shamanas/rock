@@ -970,6 +970,22 @@ TypeDecl: abstract class extends Declaration {
     /* Virtual Override */
     checkOverrideFuncs: func(res: Resolver) -> Bool{
         list := ArrayList<TypeDecl> new()
+        checkNumType := func(type1: Type, type2: Type) -> Bool {
+            lhsInt := type1 getIntegerState()
+            rhsInt := type2 getIntegerState()
+            lhsFp := type1 getFloatingPointState()
+            rhsFp := type2 getFloatingPointState()
+            lhsNum := (lhsInt == NumericState YES || lhsFp == NumericState YES)
+            rhsNum := (rhsInt == NumericState YES || rhsFp == NumericState YES)
+            lhsNum && rhsNum
+        }
+        unwrapType := func(type: Type) -> Type {
+             if (type getName() == "This") {
+                if(type getRef() && type getRef() instanceOf?(TypeDecl))
+                    return type getRef() as TypeDecl getNonMeta() ? type getRef() as TypeDecl getNonMeta() getType() : type
+             }
+             type
+        }
         current := this
         while(current != null) {
         if(current getSuperType() == null) break
@@ -1012,37 +1028,37 @@ TypeDecl: abstract class extends Declaration {
                                          //notEqualNameAndSuffix = true
                                          foundVirtual = true
                                          bestMatch = other
-                                         type1 := fdecl getReturnType()
-                                         type2 := other getReturnType()
-                                         if (type1 getName() == "This") {
-                                            if(type1 getRef() && type1 getRef() instanceOf?(TypeDecl))
-                                                type1 = type1 getRef() as TypeDecl getNonMeta() ? type1 getRef() as TypeDecl getNonMeta() : type1
-                                         }
-                                         if (type2 getName() == "This") {
-                                            if(type2 getRef() && type2 getRef() instanceOf?(TypeDecl))
-                                                type2 = type2 getRef() as TypeDecl getNonMeta() ? type2 getRef() as TypeDecl getNonMeta() : type2
-                                         }
-
-
+                                         type1 := unwrapType(fdecl getReturnType())
+                                         type2 := unwrapType(other getReturnType())
                                          score := type1 getScore(type2)
                                          if(score == -1) {
                                            res wholeAgain(this, "something is un-resolved")
                                            return false
                                          }
 
-                                         lhsInt := type1 getIntegerState()
-                                         rhsInt := type2 getIntegerState()
-                                         lhsFp := type1 getFloatingPointState()
-                                         rhsFp := type2 getFloatingPointState()
-                                         lhsNum := (lhsInt == NumericState YES || lhsFp == NumericState YES)
-                                         rhsNum := (rhsInt == NumericState YES || rhsFp == NumericState YES)
-                                         if(lhsNum && rhsNum && type1 getName() != type2 getName()) { score = -100000 }
-
+                                         if(checkNumType(type1, type2) && type1 getName() != type2 getName()) { score = -100000 }
                                          if(fdecl getArguments() size == 
                                              other getArguments() size && 
                                              (type1 isGeneric() || type2 isGeneric() || score > 0)) {
-                                                 preciseMatch = true
-                                                 break
+                                                argumentTypeIsOk := true 
+                                                for(arg in fdecl getArguments()) {
+                                                     type1 := unwrapType(fdecl getReturnType())
+                                                     type2 := unwrapType(other getReturnType())
+                                                     score := type1 getScore(type2)
+                                                     if(score == -1) {
+                                                       res wholeAgain(this, "something is un-resolved")
+                                                       return false
+                                                     }
+                                                     if(checkNumType(type1, type2) && type1 getName() != type2 getName()) { score = -100000 }
+                                                     if(score <= 0) {
+                                                         argumentTypeIsOk = false
+                                                         break
+                                                     }
+                                                }
+                                                if(argumentTypeIsOk){
+                                                     preciseMatch = true
+                                                     break
+                                                 }
                                          }
                                     }
                                 }
