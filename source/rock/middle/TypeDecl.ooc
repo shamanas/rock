@@ -1042,9 +1042,11 @@ TypeDecl: abstract class extends Declaration {
                                              other getArguments() size && 
                                              (type1 isGeneric() || type2 isGeneric() || score > 0)) {
                                                 argumentTypeIsOk := true 
-                                                for(arg in fdecl getArguments()) {
-                                                     type1 := unwrapType(fdecl getReturnType())
-                                                     type2 := unwrapType(other getReturnType())
+                                                thisArgs := fdecl getArguments()
+                                                otherArgs := other getArguments()
+                                                for(i in 0 .. fdecl getArguments() size) {
+                                                     type1 := unwrapType(thisArgs[i] getType())
+                                                     type2 := unwrapType(otherArgs[i] getType())
                                                      score := type1 getScore(type2)
                                                      if(score == -1) {
                                                        res wholeAgain(this, "something is un-resolved")
