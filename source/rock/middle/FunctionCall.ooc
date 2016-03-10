@@ -429,6 +429,14 @@ FunctionCall: class extends Expression {
                 }
                 if(ref != null) {
                     refScore = 1
+                    refActualArguments := 0
+                    for(arg in ref getArguments()){
+                        if(!arg expr) { refActualArguments += 1 }
+                    }
+                    if(args size != refActualArguments && 
+                        args size != ref getArguments() size) {
+                        res throwError(ArgumentMismatch new(token, this, ref))
+                    }
                     expr = VariableAccess new(superTypeDecl getThisDecl(), token)
                     if(args empty?() && !ref getArguments() empty?()) {
                         for(declArg in fDecl getArguments()) {
@@ -1748,3 +1756,8 @@ UseOfVoidExpression: class extends Error {
     init: super func ~tokenMessage
 }
 
+ArgumentMismatch: class extends Warning {
+    init: func ~withToken (.token, call: FunctionCall, cand: FunctionDecl) {
+        super(token, "Different number of arguments between the super call in %s and function %s" format(call toString(), cand toString()))
+    }
+}
