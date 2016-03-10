@@ -981,7 +981,7 @@ TypeDecl: abstract class extends Declaration {
         }
         unwrapType := func(type: Type) -> Type {
              if (type getName() == "This") {
-                if(type getRef() && type getRef() instanceOf?(TypeDecl) && 
+                if(type getRef() && type getRef() instanceOf?(TypeDecl) &&
                     type getRef() as TypeDecl getNonMeta() && type getRef() as TypeDecl getNonMeta() getType())
                     return type getRef() as TypeDecl getNonMeta() getType()
              }
@@ -1038,10 +1038,10 @@ TypeDecl: abstract class extends Declaration {
                                          }
 
                                          if(checkNumType(type1, type2) && type1 getName() != type2 getName()) { score = -100000 }
-                                         if(fdecl getArguments() size == 
-                                             other getArguments() size && 
+                                         if(fdecl getArguments() size ==
+                                             other getArguments() size &&
                                              (type1 isGeneric() || type2 isGeneric() || score > 0)) {
-                                                argumentTypeIsOk := true 
+                                                argumentTypeIsOk := true
                                                 thisArgs := fdecl getArguments()
                                                 otherArgs := other getArguments()
                                                 for(i in 0 .. fdecl getArguments() size) {
@@ -1595,8 +1595,8 @@ TypeArgSizeMismatch: class extends Error {
     }
 }
 
-DefinitionMismatch: class extends Warning {
+DefinitionMismatch: class extends Error {
     init: func ~withToken (.token, call: FunctionDecl, cand: FunctionDecl) {
-        super(token, "Mismatched definition between { %s } (derived) and { %s } (base)" format(call toString(), cand toString()))
+        super(token, "Definition mismatch between { %s } (derived) and { %s } (base)" format(call toString(), cand toString()))
     }
 }
