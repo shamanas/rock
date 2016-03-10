@@ -981,8 +981,9 @@ TypeDecl: abstract class extends Declaration {
         }
         unwrapType := func(type: Type) -> Type {
              if (type getName() == "This") {
-                if(type getRef() && type getRef() instanceOf?(TypeDecl))
-                    return type getRef() as TypeDecl getNonMeta() ? type getRef() as TypeDecl getNonMeta() getType() : type
+                if(type getRef() && type getRef() instanceOf?(TypeDecl) && 
+                    type getRef() as TypeDecl getNonMeta() && type getRef() as TypeDecl getNonMeta() getType())
+                    return type getRef() as TypeDecl getNonMeta() getType()
              }
              type
         }
