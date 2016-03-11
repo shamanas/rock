@@ -3,7 +3,7 @@ import BinaryOp, Visitor, Expression, VariableDecl, FunctionDecl,
        TypeDecl, Declaration, Type, Node, ClassDecl, NamespaceDecl,
        EnumDecl, PropertyDecl, FunctionCall, Module, Import, FuncType,
        NullLiteral, AddressOf, BaseType, StructLiteral, Return,
-       Argument, Scope, CoverDecl, StringLiteral, Cast
+       Argument, Scope, CoverDecl, StringLiteral, Cast, Tuple
 
 import tinker/[Resolver, Response, Trail, Errors]
 import structs/ArrayList
@@ -205,6 +205,25 @@ VariableAccess: class extends Expression {
             if(fDecl isStatic()) _staticFunc = fDecl
         )
 
+        // if we are call on a tuple, replace this with a variableAccess of tuple
+        if (expr != null && expr instanceOf?(Tuple)) {
+            tuple := expr as Tuple
+            for(i in 0..tuple elements getSize()) {
+                tuple elements[i] = VariableAccess new(tuple elements[i], this getName(), token)
+            }
+            trail push(tuple)
+            for(va in tuple elements) { va resolve(trail, res) }
+            trail pop(tuple)
+
+            if (!trail peek() replace(this, tuple)) {
+                if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
+                res wholeAgain(this, "can not replace variableaccess with tuple, try again")
+                return Response OK
+            }
+            res wholeAgain(this, "just unwrapped variableaccess to tuple")
+            return Response OK
+        }
+
         // What do we refer to?
         match checkAccessResolution(trail, res) {
             case BranchResult BREAK => return Response OK
@@ -216,6 +235,7 @@ VariableAccess: class extends Expression {
             case BranchResult BREAK => return Response OK
             case BranchResult LOOP  => return Response LOOP
         }
+
         
         // Simple property access? Replace myself with a getter call.
         if(ref && ref instanceOf?(PropertyDecl)) {

@@ -6,7 +6,7 @@ import Visitor, Expression, FunctionDecl, Argument, Type,
        InterfaceDecl, Cast, NamespaceDecl, BaseType, FuncType, Return,
        TypeList, Scope, Block, StructLiteral, NullLiteral,
        IntLiteral, Ternary, ClassDecl, CoverDecl, ArrayLiteral, Module,
-       StringLiteral
+       StringLiteral, Tuple
 import algo/typeAnalysis
 import text/EscapeSequence
 import tinker/[Response, Resolver, Trail, Errors]
@@ -391,6 +391,23 @@ FunctionCall: class extends Expression {
         if(refScore <= 0) {
             if(debugCondition()) "\n===============\nResolving call %s" printfln(toString())
 
+            if (expr != null && expr instanceOf?(Tuple)) {
+                tuple := expr as Tuple
+                for(i in 0..tuple elements getSize()) {
+                    tuple elements[i] = FunctionCall new(tuple elements[i], this getName(), token)
+                }
+                trail push(tuple)
+                for(e in tuple elements){ e resolve(trail, res) }
+                trail pop(tuple)
+                if (!trail peek() replace(this, tuple)) {
+                    if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
+                    res wholeAgain(this, "can not replace functioncall with tuple, try again")
+                    return Response OK
+                }
+                res wholeAgain(this, "just unwrapped method call on tuple")
+                return Response OK
+            }
+
             if (expr != null && name == "instanceOf") {
                 exprType := expr getType()
                 if (exprType == null) {
@@ -551,7 +568,7 @@ FunctionCall: class extends Expression {
 
                 if(returnType void?) {
                     parent := trail peek()
-                    if(!parent instanceOf?(Scope) && !parent instanceOf?(CommaSequence)) {
+                    if(!parent instanceOf?(Scope) && !parent instanceOf?(CommaSequence) && !parent instanceOf?(Tuple)) {
                         res throwError(UseOfVoidExpression new(token, "Use of a void function call `#{this}` as an expression"))
                     }
                 }
@@ -1761,3 +1778,9 @@ ArgumentMismatch: class extends Warning {
         super(token, "Different number of arguments between the super call in %s and function %s" format(call toString(), cand toString()))
     }
 }
+
+/*
+IncompatibleTupleMethedCall: class extends Error {
+    init: usper func ~tokenMessage
+}
+*/
