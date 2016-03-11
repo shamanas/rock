@@ -461,7 +461,7 @@ FunctionCall: class extends Expression {
                     for(arg in ref getArguments()){
                         if(!arg expr) { refActualArguments += 1 }
                     }
-                    if(args size != refActualArguments && 
+                    if(args size != refActualArguments &&
                         args size != ref getArguments() size) {
                         res throwError(ArgumentMismatch new(token, this, ref))
                     }
