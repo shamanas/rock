@@ -122,7 +122,7 @@ quick-rescue: download-bootstrap
 	$(MAKE) clean half-bootstrap
 
 # Compile rock with the backup'd version of itself
-safe:	boehmgc
+safe: boehmgc clean
 	OOC='bin/safe_rock' $(MAKE) self
 
 bootstrap_tarball:
