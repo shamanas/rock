@@ -3,7 +3,7 @@ import Type, Declaration, Expression, Visitor, TypeDecl, VariableAccess,
        Node, ClassDecl, FunctionCall, Argument, BinaryOp, Cast, Module,
        Block, Scope, FunctionDecl, Argument, BaseType, FuncType, Statement,
        NullLiteral, Tuple, TypeList, AddressOf, PropertyDecl, CommaSequence,
-       IntLiteral
+       IntLiteral, Addon
 import tinker/[Response, Resolver, Trail, Errors]
 import ../frontend/[BuildParams, Token]
 
@@ -272,15 +272,6 @@ VariableDecl: class extends Declaration {
                         fDecl getBody() add(this)
                         result = true
                     } else if (addonIdx != -1 && mDeclIdx != -1 && (mDeclIdx - addonIdx) == 1) {
-                        cDecl := trail get(addonIdx, Addon) base getMeta()
-                        mDecl := trail get(mDeclIdx, VariableDecl)
-
-                        fDecl := match (mDecl isStatic()) {
-                            case true => cDecl getLoadFunc()
-                            case      => cDecl getDefaultsFunc()
-                        }
-
-                        fDecl getBody() add(this)
                         result = true
                     }
                 }
