@@ -1778,9 +1778,3 @@ ArgumentMismatch: class extends Warning {
         super(token, "Different number of arguments between the super call in %s and function %s" format(call toString(), cand toString()))
     }
 }
-
-/*
-IncompatibleTupleMethedCall: class extends Error {
-    init: usper func ~tokenMessage
-}
-*/
