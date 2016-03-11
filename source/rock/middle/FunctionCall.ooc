@@ -361,7 +361,7 @@ FunctionCall: class extends Expression {
         }
 
         // handle generic-class(cover) array
-        if(expr instanceOf?(TypeAccess)){
+        if(expr && expr instanceOf?(TypeAccess)){
             if(expr as TypeAccess inner instanceOf?(ArrayType)){
                 // unwrap array creation
                 if(getName() == "new"){
