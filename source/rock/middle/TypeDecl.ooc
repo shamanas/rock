@@ -1146,7 +1146,7 @@ TypeDecl: abstract class extends Declaration {
                 if (!(candidate isOverride) && !(candidate name startsWith?("__OP"))) {
                     //res throwError(AbstractContractNotSatisfied new(
                     res throwError(Warning new(
-                        candidate token,"`%s` should be override because it inherites from `%s`" format(
+                        candidate token,"`%s` should be override because it inherits from `%s`" format(
                         candidate toString(),
                         fDecl toString()
                     )))
