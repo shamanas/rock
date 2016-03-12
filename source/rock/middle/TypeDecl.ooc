@@ -1146,10 +1146,9 @@ TypeDecl: abstract class extends Declaration {
                 if (!(candidate isOverride) && !(candidate name startsWith?("__OP"))) {
                     //res throwError(AbstractContractNotSatisfied new(
                     res throwError(Warning new(
-                        token,"`%s`implements abstract function %s inherited from %s but it is not declared override" format(
-                        candidate getOwner() toString(),
-                        candidate name,
-                        fDecl getOwner() toString()
+                        candidate token,"`%s` should be override because it inherites from `%s`" format(
+                        candidate toString(),
+                        fDecl toString()
                     )))
                 }
             }
@@ -1597,6 +1596,6 @@ TypeArgSizeMismatch: class extends Error {
 
 DefinitionMismatch: class extends Error {
     init: func ~withToken (.token, call: FunctionDecl, cand: FunctionDecl) {
-        super(token, "Definition mismatch between { %s } (derived) and { %s } (base)" format(call toString(), cand toString()))
+        super(token, "Definition mismatch between `%s` (derived) and `%s` (base)" format(call toString(), cand toString()))
     }
 }
