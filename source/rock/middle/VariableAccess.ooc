@@ -183,6 +183,25 @@ VariableAccess: class extends Expression {
             token printMessage("Resolving. Current ref = #{ref ? ref toString() : "<none>"} inferred type = #{getType() ? getType() toString() : "(nil)"}")
         }
 
+        // if we are call on a tuple, replace this with a variableAccess of tuple
+        if (expr != null && expr instanceOf?(Tuple)) {
+            tuple := expr as Tuple
+            for(i in 0..tuple elements getSize()) {
+                tuple elements[i] = VariableAccess new(tuple elements[i], this getName(), token)
+            }
+            trail push(tuple)
+            for(va in tuple elements) { va resolve(trail, res) }
+            trail pop(tuple)
+
+            if (!trail peek() replace(this, tuple)) {
+                if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
+                res wholeAgain(this, "can not replace variableaccess with tuple, try again")
+                return Response OK
+            }
+            res wholeAgain(this, "just unwrapped variableaccess to tuple")
+            return Response OK
+        }
+
         if(expr != null) {
             trail push(this)
 
@@ -205,24 +224,6 @@ VariableAccess: class extends Expression {
             if(fDecl isStatic()) _staticFunc = fDecl
         )
 
-        // if we are call on a tuple, replace this with a variableAccess of tuple
-        if (expr != null && expr instanceOf?(Tuple)) {
-            tuple := expr as Tuple
-            for(i in 0..tuple elements getSize()) {
-                tuple elements[i] = VariableAccess new(tuple elements[i], this getName(), token)
-            }
-            trail push(tuple)
-            for(va in tuple elements) { va resolve(trail, res) }
-            trail pop(tuple)
-
-            if (!trail peek() replace(this, tuple)) {
-                if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
-                res wholeAgain(this, "can not replace variableaccess with tuple, try again")
-                return Response OK
-            }
-            res wholeAgain(this, "just unwrapped variableaccess to tuple")
-            return Response OK
-        }
 
         // What do we refer to?
         match checkAccessResolution(trail, res) {
