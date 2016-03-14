@@ -7,7 +7,7 @@ import Return, ClassDecl, CoverDecl, FunctionDecl, VariableDecl, Type,
         Cast, Comparison, Ternary, Argument, AddressOf, Dereference,
         CommaSequence, UnaryOp, ArrayAccess, Match, FlowControl,
         InterfaceDecl, Version, Block, Scope, EnumDecl, ArrayLiteral,
-        ArrayCreation, StructLiteral
+        ArrayCreation, StructLiteral, Tuple
 
 Visitor: abstract class {
 
@@ -70,5 +70,7 @@ Visitor: abstract class {
     visitVersionBlock:      func (node: VersionBlock) {}
 
     visitScope:             func (node: Scope) {}
+
+    visitTuple:             func (node: Tuple) {}
 
 }

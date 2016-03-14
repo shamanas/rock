@@ -21,7 +21,7 @@ import rock/middle/[Module, FunctionDecl, FunctionCall, Expression, Type,
     Cast, Comparison, Ternary, BoolLiteral, Argument, Statement,
     AddressOf, Dereference, CommaSequence, UnaryOp, ArrayAccess, Match,
     FlowControl, InterfaceDecl, Version, Block, EnumDecl, ArrayLiteral,
-    ArrayCreation, StructLiteral, FuncType]
+    ArrayCreation, StructLiteral, FuncType, Tuple]
 
 // backend
 import Skeleton, FunctionDeclWriter, ControlStatementWriter,
@@ -494,5 +494,13 @@ CGenerator: class extends Skeleton {
         }
         VersionWriter writeEnd(this, node getSpec())
     }
+
+    // write a stand alone tuple
+    visitTuple: func (node: Tuple) {
+        for(e in node getElements()) {
+            writeLine(e)
+        }
+    }
+
 
 }
