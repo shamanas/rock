@@ -1,6 +1,6 @@
 import ../frontend/Token
 import [Type, Expression, VariableAccess, Comparison, Ternary, VariableDecl, CommaSequence, BinaryOp,
-        FunctionCall, BinaryOp, NullLiteral, Visitor, Node]
+        FunctionCall, BinaryOp, Parenthesis, NullLiteral, Visitor, Node]
 
 import tinker/[Resolver, Response, Trail, Errors]
 import structs/ArrayList
@@ -50,7 +50,7 @@ SafeNavigation: class extends Expression {
             return (null, null)
         }
 
-        bop := BinaryOp new(vacc, e, OpType ass, token)
+        bop := Parenthesis new(BinaryOp new(vacc, e, OpType ass, token), token)
         (bop, vacc)
     }
 
