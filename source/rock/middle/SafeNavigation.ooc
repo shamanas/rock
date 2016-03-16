@@ -1,6 +1,6 @@
 import ../frontend/Token
 import [Type, Expression, VariableAccess, Comparison, Ternary, VariableDecl, CommaSequence, BinaryOp,
-        FunctionCall, BinaryOp, Parenthesis, NullLiteral, ClassDecl, Visitor, Node]
+        FunctionCall, BinaryOp, Parenthesis, Cast, NullLiteral, ClassDecl, Visitor, Node]
 import algo/typeAnalysis
 import tinker/[Resolver, Response, Trail, Errors]
 import structs/ArrayList
@@ -240,7 +240,7 @@ SafeNavigation: class extends Expression {
         }
 
         makeTernary := func(cond: Comparison, e: Expression) -> Ternary {
-            Ternary new(cond, e, localNull, token)
+            Ternary new(cond, Cast new(e, type, e token), localNull, token)
         }
 
         // We don't need to generate a ternary for the last access.
@@ -253,8 +253,6 @@ SafeNavigation: class extends Expression {
 
             curr = makeTernary(makeNotEquals(access), curr)
         }
-
-        // TODO: Check 'type' against 'expr getType()', generate a cast of 'vAccess' tp 'type' if they are not the same.
 
         curr = makeTernary(makeNotEquals(vAccess), curr)
 
