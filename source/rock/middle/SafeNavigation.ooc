@@ -1,12 +1,15 @@
 import ../frontend/Token
 import [Type, Expression, VariableAccess, Comparison, Ternary, VariableDecl, CommaSequence, BinaryOp,
-        FunctionCall, BinaryOp, Parenthesis, NullLiteral, Visitor, Node]
-
+        FunctionCall, BinaryOp, Parenthesis, NullLiteral, ClassDecl, Visitor, Node]
+import algo/typeAnalysis
 import tinker/[Resolver, Response, Trail, Errors]
 import structs/ArrayList
 
 SafeNavigation: class extends Expression {
     expr: Expression
+
+    // VariableAcces to the VariableDecl which will hold our base expression
+    vAccess: VariableAccess
 
     // Sections are expressions that are mixes of variable accesses and method calls
     sections := ArrayList<Expression> new()
@@ -22,7 +25,7 @@ SafeNavigation: class extends Expression {
     currentIndex := -1
 
     // Wether our base expression has already been replaced
-    _baseReplaced := false
+    _baseReplaced? := false
     // Final comma sequence
     seq: CommaSequence
 
@@ -143,7 +146,7 @@ SafeNavigation: class extends Expression {
         if (!_baseReplaced?) {
             // We need to avoid multiple evaluation of the expression, so we will use a variable declaration and assign it in a comma list before this
             vDecl := VariableDecl new(expr getType(), generateTempName("safeNavExpr"), token)
-            vAccess := VariableAccess new(vDecl, token)
+            vAccess = VariableAccess new(vDecl, token)
 
             if (!trail addBeforeInScope(this, vDecl)) {
                 res throwError(CouldntAddBeforeInScope new(token, this, vDecl, trail))
@@ -155,6 +158,8 @@ SafeNavigation: class extends Expression {
 
             seq add(assignment)
             lastExpr = vAccess
+
+            _baseReplaced? = true
         }
 
         // So, we need to iterate through the sections and build a single fCall or vAccess that will show up in the ternary operator chain
@@ -167,14 +172,63 @@ SafeNavigation: class extends Expression {
                 continue
             }
 
-            _chain(current, lastExpr)
+            // We only need to chain the last expression the first time we process this.
+            // This check essentially guarantees this, because currentIndex is set after this if statement.
+            if (currentIndex == i) {
+                _chain(current, lastExpr)
+            }
+
+            currentIndex = i
+            currentExpr = current
+
+            // We nnow try to resolve our expression.
+            // Note that if currentExpr is replaced (e.g. because of a property access), the expression in the sections list is also replaced (see resolve)
+            trail push(this)
+            resp := currentExpr resolve(trail, res)
+            if (!resp ok()) {
+                trail pop(this)
+                return resp
+            }
+
+            // We need the expressions type (and it to be resolved)
+            if (!currentExpr getType()) {
+                trail pop(this)
+                res wholeAgain(this, "need safe navigation child type")
+                return Response OK
+            }
+
+            resp = currentExpr getType() resolve(trail, res)
+            if (!resp ok()) {
+                trail pop(this)
+                return resp
+            }
+
+            if (!currentExpr getType() isResolved()) {
+                trail pop(this)
+                res wholeAgain(this, "need safe navigation child type to be resolved")
+                return Response OK
+            }
+            trail pop(this)
+
+            // Try to find a better type!
+            typeCandidate := findCommonRoot(type, currentExpr getType())
+            if (!typeCandidate) {
+                if (res fatal) {
+                    res throwError(InvalidSafeNavigationChildType new(currentExpr token, type, typeCandidate))
+                } else {
+                    res wholeAgain(this, "need resolved ref of child type")
+                }
+                return Response OK
+            }
+
+            type = typeCandidate
 
             if (_hasSideEffects(current)) {
                 (assign, acc) := _makeDecl(current, trail, res)
-                exprs add(assign)
+                concreteExprs add(assign)
                 lastExpr = acc
             } else {
-                exprs add(current)
+                concreteExprs add(current)
                 lastExpr = current
             }
         }
@@ -191,7 +245,7 @@ SafeNavigation: class extends Expression {
 
         // We don't need to generate a ternary for the last access.
         // 'foo != null ? foo : null' is equivalent to 'foo'
-        iterator := exprs backIterator()
+        iterator := concreteExprs backIterator()
         curr : Expression = iterator prev()
 
         while (iterator hasPrev?()) {
@@ -238,6 +292,7 @@ SafeNavigation: class extends Expression {
 
         if (oldie == currentExpr) {
             currentExpr = kiddo as Expression
+            sections[currentIndex] = currentExpr
             return true
         }
 
@@ -254,5 +309,13 @@ InvalidSafeNavigationAccessType: class extends Error {
 
     init: func (.token, =type) {
         super(token, "Cannot use safe navigation access into expression of type '#{type}' since it is not a pointer type.")
+    }
+}
+
+InvalidSafeNavigationChildType: class extends Error {
+    baseType, childType: Type
+
+    init: func (.token, =baseType, =childType) {
+        super(token, "Cannot safely navigate into expression of type '#{childType}' since it is incompatible with inferred type '#{baseType}")
     }
 }

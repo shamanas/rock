@@ -1309,7 +1309,7 @@ AstBuilder: class {
 
     onSafeNavigationIdent: unmangled(nq_onSafeNavigationIdent) func (ident: CString) {
         safenav := peek(SafeNavigation)
-        safenav sections[safenav sections lastIndex()] = VariableAccess new(safenav sections last(), ident toString(), nullToken)
+        safenav sections[safenav sections lastIndex()] = VariableAccess new(safenav sections last(), ident toString(), token())
     }
 
     onSafeNavigationMethod: unmangled(nq_onSafeNavigationMethod) func (fCall: FunctionCall) {
