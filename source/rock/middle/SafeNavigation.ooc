@@ -137,7 +137,7 @@ SafeNavigation: class extends Expression {
 
             // Check to see if we can safe navigate into the expression.
             // To be able to do it, we need to have a class or pointer type.
-            if (type pointerLevel() == 0 && !type isPointer() && !type instanceOf?(ClassDecl)) {
+            if (type pointerLevel() == 0 && !type isPointer() && !type getRef() instanceOf?(ClassDecl)) {
                 res throwError(InvalidSafeNavigationAccessType new(token, type))
                 return Response OK
             }
@@ -174,7 +174,7 @@ SafeNavigation: class extends Expression {
 
             // We only need to chain the last expression the first time we process this.
             // This check essentially guarantees this, because currentIndex is set after this if statement.
-            if (currentIndex == i) {
+            if (currentIndex != i) {
                 _chain(current, lastExpr)
             }
 
