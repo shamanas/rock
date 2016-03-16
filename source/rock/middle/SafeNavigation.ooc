@@ -11,23 +11,41 @@ SafeNavigation: class extends Expression {
     // Sections are expressions that are mixes of variable accesses and method calls
     sections := ArrayList<Expression> new()
 
+    // Last expression we resolved that we need to chain to our next section
+    lastExpr: Expression
+
+    // List of "concrete" expressions, that is the final expressions that we will produce our ternary chain out of.
+    concreteExprs := ArrayList<Expression> new()
+    // Current expression we are resolving
+    currentExpr: Expression
+    // Index of current expression
+    currentIndex := -1
+
+    // Wether our base expression has already been replaced
+    _baseReplaced := false
+    // Final comma sequence
+    seq: CommaSequence
+
+    // Currently inferred type
+    type: Type
+
     _resolved? := false
 
     init: func (=expr, token: Token) {
         super(token)
     }
 
-    // We replace ourselves, no need to return any type
+    // Returning a type would be harmful since it can change up to the point we replace ourselves.
     getType: func -> Type { null }
 
     clone: func -> This {
         other := This new(expr clone(), token)
-        other sections = sections clone()
+        other sections = sections map(|e| e clone())
         other
     }
 
     // Checks wether the fCall/vAccess chain has at least one fCall in it
-    _hasSideEffects: func (e: Expression) -> Bool {
+    _hasSideEffects: static func (e: Expression) -> Bool {
         curr := e
         while (curr) {
             match curr {
@@ -35,6 +53,8 @@ SafeNavigation: class extends Expression {
                     return true
                 case va: VariableAccess =>
                     curr = va expr
+                // Wat.
+                case => return true
             }
         }
         false
@@ -55,7 +75,7 @@ SafeNavigation: class extends Expression {
     }
 
     // Correctly adds the child to the beginning of the fCall/vAccess chain
-    _chain: func (base: Expression, child: Expression) {
+    _chain: static func (base: Expression, child: Expression) {
         curr := base
 
         while (true) {
@@ -88,41 +108,65 @@ SafeNavigation: class extends Expression {
     resolve: func (trail: Trail, res: Resolver) -> Response {
         if (_resolved?) return Response OK
 
-        trail push(this)
-        resp := expr resolve(trail, res)
-        if (!resp ok()) {
+        if (!expr isResolved()) {
+            trail push(this)
+            resp := expr resolve(trail, res)
+            if (!resp ok()) {
+                trail pop(this)
+                return resp
+            }
             trail pop(this)
-            return resp
-        }
-        trail pop(this)
-
-        if (!expr getType()) {
-            res wholeAgain(this, "need type of safe navigation access expression")
-            return Response OK
         }
 
-        // We need to avoid multiple evaluation of the expression, so we will use a variable declaration and assign it in a comma list before this
-        vDecl := VariableDecl new(expr getType(), generateTempName("safeNavExpr"), token)
-        vAccess := VariableAccess new(vDecl, token)
+        if (!type) {
+            type = expr getType()
 
-        if (!trail addBeforeInScope(this, vDecl)) {
-            res throwError(CouldntAddBeforeInScope new(token, this, vDecl, trail))
-            return Response OK
+            if (!type) {
+                res wholeAgain(this, "need type of safe navigation access expression")
+                return Response OK
+            }
+
+            type resolve(trail, res)
+            if (!type isResolved()) {
+                res wholeAgain(this, "need resolved type of safe navigation access expression")
+                return Response OK
+            }
+
+            // Check to see if we can safe navigate into the expression.
+            // To be able to do it, we need to have a class or pointer type.
+            if (type pointerLevel() == 0 && !type isPointer() && !type instanceOf?(ClassDecl)) {
+                res throwError(InvalidSafeNavigationAccessType new(token, type))
+                return Response OK
+            }
         }
 
-        seq := CommaSequence new(token)
-        assignment := BinaryOp new(vAccess, expr, OpType ass, token)
+        if (!_baseReplaced?) {
+            // We need to avoid multiple evaluation of the expression, so we will use a variable declaration and assign it in a comma list before this
+            vDecl := VariableDecl new(expr getType(), generateTempName("safeNavExpr"), token)
+            vAccess := VariableAccess new(vDecl, token)
 
-        seq add(assignment)
+            if (!trail addBeforeInScope(this, vDecl)) {
+                res throwError(CouldntAddBeforeInScope new(token, this, vDecl, trail))
+                return Response OK
+            }
 
+            seq = CommaSequence new(token)
+            assignment := BinaryOp new(vAccess, expr, OpType ass, token)
+
+            seq add(assignment)
+            lastExpr = vAccess
+        }
 
         // So, we need to iterate through the sections and build a single fCall or vAccess that will show up in the ternary operator chain
         // For example, something like that: expr $ a b() c $ d $ e f()
         // Will generate this list: [ expr a b() c, expr a b() c d, expr a b() c d e f() ]
-        // Of course, to avoid side effects, we generate temporary variables when needed (when we have function calls)
-        lastExpr : Expression = vAccess
-        exprs := ArrayList<Expression> new()
-        for (current in sections) {
+        // Of course, to avoid side effects, we generate temporary variables when needed (when we have function calls or property accesses)
+
+        for ((i, current) in sections) {
+            if (i < currentIndex) {
+                continue
+            }
+
             _chain(current, lastExpr)
 
             if (_hasSideEffects(current)) {
@@ -156,6 +200,8 @@ SafeNavigation: class extends Expression {
             curr = makeTernary(makeNotEquals(access), curr)
         }
 
+        // TODO: Check 'type' against 'expr getType()', generate a cast of 'vAccess' tp 'type' if they are not the same.
+
         curr = makeTernary(makeNotEquals(vAccess), curr)
 
         seq add(curr)
@@ -185,12 +231,14 @@ SafeNavigation: class extends Expression {
     accept: func(visitor: Visitor)
 
     replace: func(oldie: Node, kiddo: Node) -> Bool {
-        match oldie {
-            case e: Expression =>
-                if (e == expr) {
-                    expr = kiddo as Expression
-                    return true
-                }
+        if (oldie == expr) {
+            expr = kiddo as Expression
+            return true
+        }
+
+        if (oldie == currentExpr) {
+            currentExpr = kiddo as Expression
+            return true
         }
 
         false
@@ -198,5 +246,13 @@ SafeNavigation: class extends Expression {
 
     isResolved: func -> Bool {
         _resolved?
+    }
+}
+
+InvalidSafeNavigationAccessType: class extends Error {
+    type: Type
+
+    init: func (.token, =type) {
+        super(token, "Cannot use safe navigation access into expression of type '#{type}' since it is not a pointer type.")
     }
 }
