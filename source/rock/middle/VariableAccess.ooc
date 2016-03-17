@@ -190,15 +190,12 @@ VariableAccess: class extends Expression {
             for(i in 0..tuple elements getSize()) {
                 tuple elements[i] = VariableAccess new(tuple elements[i], this getName(), token)
             }
-            trail push(tuple)
-            for(va in tuple elements) { va resolve(trail, res) }
-            trail pop(tuple)
-
             if (!trail peek() replace(this, tuple)) {
                 if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
                 res wholeAgain(this, "can not replace variableaccess with tuple, try again")
                 return Response OK
             }
+            tuple _resolved = false
             res wholeAgain(this, "just unwrapped variableaccess to tuple")
             return Response OK
         }
