@@ -27,7 +27,7 @@ CommandLine: class {
     mainUseDef: UseDef
 
     init: func(args : ArrayList<String>) {
-        println("magic-lang rock compiler")
+        println("magic-lang rock compiler #{RockVersion getName()}")
         params = BuildParams new(args[0])
 
         modulePaths := ArrayList<String> new()
