@@ -6,7 +6,7 @@ import Visitor, Expression, FunctionDecl, Argument, Type,
        InterfaceDecl, Cast, NamespaceDecl, BaseType, FuncType, Return,
        TypeList, Scope, Block, StructLiteral, NullLiteral,
        IntLiteral, Ternary, ClassDecl, CoverDecl, ArrayLiteral, Module,
-       StringLiteral, Tuple
+       StringLiteral, Tuple, ArrayCreation
 import algo/typeAnalysis
 import text/EscapeSequence
 import tinker/[Response, Resolver, Trail, Errors]
@@ -360,6 +360,20 @@ FunctionCall: class extends Expression {
             trail pop(this)
         }
 
+        // handle generic-class(cover) array
+        if(expr && expr instanceOf?(TypeAccess)){
+            if(expr as TypeAccess inner instanceOf?(ArrayType)){
+                // unwrap array creation
+                if(getName() == "new"){
+                    arrayType := expr as TypeAccess inner as ArrayType
+                    arrayCreation := ArrayCreation new(arrayType, token)
+                    trail peek() replace(this, arrayCreation)
+                    res wholeAgain(this, "just unwrapped array creation of generic classes")
+                    return Response OK
+                }
+            }
+        }
+
         // resolve our expr. e.g. in
         //     object doThing()
         // object is our expr.
@@ -447,7 +461,7 @@ FunctionCall: class extends Expression {
                     for(arg in ref getArguments()){
                         if(!arg expr) { refActualArguments += 1 }
                     }
-                    if(args size != refActualArguments && 
+                    if(args size != refActualArguments &&
                         args size != ref getArguments() size) {
                         res throwError(ArgumentMismatch new(token, this, ref))
                     }

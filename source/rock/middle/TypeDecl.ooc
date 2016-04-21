@@ -987,18 +987,24 @@ TypeDecl: abstract class extends Declaration {
              }
              type
         }
+        checkGenericArgumentPointerLevelMatch := func (type1: Type, type2: Type) -> Bool {
+            result := true
+            if (type1 isGeneric() && type2 isGeneric())
+                result = type1 pointerLevel() == type2 pointerLevel()
+            result
+        }
         current := this
         while(current != null) {
-        if(current getSuperType() == null) break
+            if(current getSuperType() == null) break
 
-        next := current getSuperRef()
-        if(next == null) {
-          res wholeAgain(this, "need superRef to check override")
-          return false
-        }
+            next := current getSuperRef()
+            if(next == null) {
+                res wholeAgain(this, "need superRef to check override")
+                return false
+            }
 
-        list add(current)
-        current = next
+            list add(current)
+            current = next
         }
         notVirtual := false
         notEqualNameAndSuffix := true
@@ -1038,18 +1044,32 @@ TypeDecl: abstract class extends Declaration {
                                          }
 
                                          if(checkNumType(type1, type2) && type1 getName() != type2 getName()) { score = -100000 }
-                                         if(fdecl getArguments() size ==
-                                             other getArguments() size &&
-                                             (type1 isGeneric() || type2 isGeneric() || score > 0)) {
+                                         thisArgs := fdecl getArguments()
+                                         otherArgs := other getArguments()
+                                         if(thisArgs size == otherArgs size && (type1 isGeneric() || type2 isGeneric() || score > 0)) {
                                                 argumentTypeIsOk := true
-                                                thisArgs := fdecl getArguments()
-                                                otherArgs := other getArguments()
-                                                for(i in 0 .. fdecl getArguments() size) {
+                                                for(i in 0 .. thisArgs size) {
                                                      type1 := unwrapType(thisArgs[i] getType())
                                                      type2 := unwrapType(otherArgs[i] getType())
                                                      if(!type1 || !type2) {
                                                        res wholeAgain(this, "argument type needs to be resolved")
                                                        return false
+                                                     }
+                                                     if (!checkGenericArgumentPointerLevelMatch(type1, type2)) {
+                                                         argumentTypeIsOk = false
+                                                         break
+                                                     }
+                                                     if (type1 instanceOf?(FuncType) && type2 instanceOf?(FuncType)) {
+                                                         funcArgs1 := (type1 as FuncType) argTypes
+                                                         funcArgs2 := (type2 as FuncType) argTypes
+                                                         if (funcArgs1 size == funcArgs2 size) {
+                                                             for (index in 0 .. funcArgs1 size) {
+                                                                 if (!checkGenericArgumentPointerLevelMatch(funcArgs1[index], funcArgs2[index])) {
+                                                                     argumentTypeIsOk = false
+                                                                     break
+                                                                 }
+                                                             }
+                                                         }
                                                      }
                                                      score := type1 getScore(type2)
                                                      if(score == -1) {
