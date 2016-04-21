@@ -71,7 +71,7 @@ Addon: class extends Node {
     addProperty: func (vDecl: PropertyDecl) {
         properties put(vDecl name, vDecl)
     }
-    
+
     lookupFunction: func (fName: String, fSuffix: String = null) -> FunctionDecl {
         result: FunctionDecl
         functions getEachUntil(fName, |fDecl|
@@ -89,7 +89,7 @@ Addon: class extends Node {
         if(base == null) return
 
         for(fDecl in functions){
-            bother : FunctionDecl 
+            bother : FunctionDecl
             if(!base isMeta){
                 bother = base meta lookupFunction(fDecl getName(), fDecl getSuffixOrEmpty())
             } else {
