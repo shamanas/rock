@@ -1,3 +1,16 @@
+## 1.0.20 (2016-04-21)
+
+Summary:
+  - rock is now less forgiving when checking function signatures on overrides
+  - Enabled ooc-arrays of generic types (generic members must be allocated using the `__onheap__` modifier)
+  - Fixed a bug where a call to a non-void method would be ignored if the return value was not captured
+
+## 1.0.19 (2016-03-16)
+
+Summary:
+  - Enabled method calls on tuples
+  - Greatly improved parsing of version-flags
+  - Enabled safe-navigation operator for methods
 
 ## 0.9.10 release (2015-07-11)
 
@@ -281,7 +294,7 @@ Docs:
     (@nddrylliog)
   - 'Linker' support in .use files, great when using ooc-llvm because it
     requires the final linking step to be done with g++ (@nddrylliog)
-  - Fixed a strange varargs but that was basically an off-by-one error  
+  - Fixed a strange varargs but that was basically an off-by-one error
   - Make relative 'IncludePaths'/'LibsPaths' work in .use files (@nddrylliog)
   - Display command line in case rock fails to execute a process on Win32
   - 'Frameworks' support for .use files, useful when building on OSX
