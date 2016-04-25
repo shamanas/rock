@@ -3,7 +3,7 @@ import BinaryOp, Visitor, Expression, VariableDecl, FunctionDecl,
        TypeDecl, Declaration, Type, Node, ClassDecl, NamespaceDecl,
        EnumDecl, PropertyDecl, FunctionCall, Module, Import, FuncType,
        NullLiteral, AddressOf, BaseType, StructLiteral, Return,
-       Argument, Scope, CoverDecl, StringLiteral, Cast
+       Argument, Scope, CoverDecl, StringLiteral, Cast, Tuple, Addon
 
 import tinker/[Resolver, Response, Trail, Errors]
 import structs/ArrayList
@@ -15,6 +15,7 @@ VariableAccess: class extends Expression {
 
     _warned := false
     _staticFunc : FunctionDecl = null
+    _replacedByProperty? := false
 
     expr: Expression {
         get
@@ -170,7 +171,7 @@ VariableAccess: class extends Expression {
             return false
         }
 
-        true
+        !_replacedByProperty?
     }
 
     resolve: func (trail: Trail, res: Resolver) -> Response {
@@ -181,6 +182,22 @@ VariableAccess: class extends Expression {
 
         if(debugCondition() || res params veryVerbose) {
             token printMessage("Resolving. Current ref = #{ref ? ref toString() : "<none>"} inferred type = #{getType() ? getType() toString() : "(nil)"}")
+        }
+
+        // if we are call on a tuple, replace this with a variableAccess of tuple
+        if (expr != null && expr instanceOf?(Tuple)) {
+            tuple := expr as Tuple
+            for(i in 0..tuple elements getSize()) {
+                tuple elements[i] = VariableAccess new(tuple elements[i], this getName(), token)
+            }
+            if (!trail peek() replace(this, tuple)) {
+                if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
+                res wholeAgain(this, "can not replace variableaccess with tuple, try again")
+                return Response OK
+            }
+            tuple _resolved = false
+            res wholeAgain(this, "just unwrapped variableaccess to tuple")
+            return Response OK
         }
 
         if(expr != null) {
@@ -205,6 +222,7 @@ VariableAccess: class extends Expression {
             if(fDecl isStatic()) _staticFunc = fDecl
         )
 
+
         // What do we refer to?
         match checkAccessResolution(trail, res) {
             case BranchResult BREAK => return Response OK
@@ -216,6 +234,7 @@ VariableAccess: class extends Expression {
             case BranchResult BREAK => return Response OK
             case BranchResult LOOP  => return Response LOOP
         }
+
         
         // Simple property access? Replace myself with a getter call.
         if(ref && ref instanceOf?(PropertyDecl)) {
@@ -234,6 +253,8 @@ VariableAccess: class extends Expression {
                 }
 
                 if(shouldReplace) {
+                    _replacedByProperty? = true
+
                     property := ref as PropertyDecl
                     fCall := FunctionCall new(expr, property getGetterName(), token)
                     if (!trail peek() replace(this, fCall)) {
@@ -372,6 +393,29 @@ VariableAccess: class extends Expression {
                 return BranchResult BREAK
             }
 
+            // If we still don't have a ref, we're going to try to go up the trail and find an Addon.
+            if (!ref) {
+                depth := trail getSize() - 1
+                while (depth >= 0) {
+                    node := trail get(depth)
+
+                    match node {
+                        case addon: Addon =>
+                            status := node resolveAccess(this, res, trail)
+
+                            if (status == -1) {
+                                res wholeAgain(this, "asked to wait while resolving access")
+                                return BranchResult BREAK
+                            }
+
+                            if (ref) {
+                                break
+                            }
+                    }
+
+                    depth -= 1
+                }
+            }
         } else {
             /*
              * Try resolving as a builtin, e.g. __BUILD_DATE__, etc.

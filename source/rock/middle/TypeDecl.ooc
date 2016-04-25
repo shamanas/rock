@@ -970,39 +970,123 @@ TypeDecl: abstract class extends Declaration {
     /* Virtual Override */
     checkOverrideFuncs: func(res: Resolver) -> Bool{
         list := ArrayList<TypeDecl> new()
+        checkNumType := func(type1: Type, type2: Type) -> Bool {
+            lhsInt := type1 getIntegerState()
+            rhsInt := type2 getIntegerState()
+            lhsFp := type1 getFloatingPointState()
+            rhsFp := type2 getFloatingPointState()
+            lhsNum := (lhsInt == NumericState YES || lhsFp == NumericState YES)
+            rhsNum := (rhsInt == NumericState YES || rhsFp == NumericState YES)
+            lhsNum && rhsNum
+        }
+        unwrapType := func(type: Type) -> Type {
+             if (type getName() == "This") {
+                if(type getRef() && type getRef() instanceOf?(TypeDecl) &&
+                    type getRef() as TypeDecl getNonMeta() && type getRef() as TypeDecl getNonMeta() getType())
+                    return type getRef() as TypeDecl getNonMeta() getType()
+             }
+             type
+        }
+        checkGenericArgumentPointerLevelMatch := func (type1: Type, type2: Type) -> Bool {
+            result := true
+            if (type1 isGeneric() && type2 isGeneric())
+                result = type1 pointerLevel() == type2 pointerLevel()
+            result
+        }
         current := this
         while(current != null) {
-        if(current getSuperType() == null) break
+            if(current getSuperType() == null) break
 
-        next := current getSuperRef()
-        if(next == null) {
-          res wholeAgain(this, "need superRef to check override")
-          return false
-        }
+            next := current getSuperRef()
+            if(next == null) {
+                res wholeAgain(this, "need superRef to check override")
+                return false
+            }
 
-        list add(current)
-        current = next
+            list add(current)
+            current = next
         }
         notVirtual := false
         notEqualNameAndSuffix := true
         foundVirtual := false
+        preciseMatch := false
+        bestMatch := null
         if(list size > 2){
             for (i in 0..list size - 1) {
                 for (fdecl in list[i] functions) {
+                    if(fdecl getReturnType() getRef() == null) {
+                      res wholeAgain(this, "fdecl should be resolved before check")
+                      return false
+                    }
                     if (fdecl isOverride) {
                         foundVirtual = false
+                        preciseMatch = false
+                        bestMatch = null
                         for (j in i+1..list size) {
-                            if(foundVirtual) {break }
+                            if(foundVirtual) { break }
                             for (other in list[j] functions) {
+                                if(other getReturnType() getRef() == null) {
+                                  res wholeAgain(this, "fdecl should be resolved before check")
+                                  return false
+                                }
                                 if ((fdecl getName() == other getName()) && (fdecl getSuffixOrEmpty() == other getSuffixOrEmpty())) {
                                     notEqualNameAndSuffix = true
                                     if(other isVirtual || other isAbstract) {
                                          //notEqualNameAndSuffix = true
                                          foundVirtual = true
-                                         break
-                                    }
-                                    else {
-                                        foundVirtual = false
+                                         bestMatch = other
+                                         type1 := unwrapType(fdecl getReturnType())
+                                         type2 := unwrapType(other getReturnType())
+                                         score := type1 getScore(type2)
+                                         if(score == -1) {
+                                           res wholeAgain(this, "something is un-resolved")
+                                           return false
+                                         }
+
+                                         if(checkNumType(type1, type2) && type1 getName() != type2 getName()) { score = -100000 }
+                                         thisArgs := fdecl getArguments()
+                                         otherArgs := other getArguments()
+                                         if(thisArgs size == otherArgs size && (type1 isGeneric() || type2 isGeneric() || score > 0)) {
+                                                argumentTypeIsOk := true
+                                                for(i in 0 .. thisArgs size) {
+                                                     type1 := unwrapType(thisArgs[i] getType())
+                                                     type2 := unwrapType(otherArgs[i] getType())
+                                                     if(!type1 || !type2) {
+                                                       res wholeAgain(this, "argument type needs to be resolved")
+                                                       return false
+                                                     }
+                                                     if (!checkGenericArgumentPointerLevelMatch(type1, type2)) {
+                                                         argumentTypeIsOk = false
+                                                         break
+                                                     }
+                                                     if (type1 instanceOf?(FuncType) && type2 instanceOf?(FuncType)) {
+                                                         funcArgs1 := (type1 as FuncType) argTypes
+                                                         funcArgs2 := (type2 as FuncType) argTypes
+                                                         if (funcArgs1 size == funcArgs2 size) {
+                                                             for (index in 0 .. funcArgs1 size) {
+                                                                 if (!checkGenericArgumentPointerLevelMatch(funcArgs1[index], funcArgs2[index])) {
+                                                                     argumentTypeIsOk = false
+                                                                     break
+                                                                 }
+                                                             }
+                                                         }
+                                                     }
+                                                     score := type1 getScore(type2)
+                                                     if(score == -1) {
+                                                       res wholeAgain(this, "something is un-resolved")
+                                                       return false
+                                                     }
+                                                     if(checkNumType(type1, type2) && type1 getName() != type2 getName()) { score = -100000 }
+                                                     if(score <= 0) {
+                                                         argumentTypeIsOk = false
+                                                         break
+                                                     }
+                                                }
+                                                if(argumentTypeIsOk){
+                                                     preciseMatch = true
+                                                     break
+                                                 }
+                                         }
                                     }
                                 }
                                 /*else {
@@ -1016,6 +1100,10 @@ TypeDecl: abstract class extends Declaration {
                         if (!foundVirtual) {
                             res throwError(CannotOverride new(fdecl))
                         }
+                        if (!preciseMatch) {
+                            res throwError(DefinitionMismatch new(fdecl token, fdecl, bestMatch))
+                        }
+
                     }
                 }
             }
@@ -1078,10 +1166,9 @@ TypeDecl: abstract class extends Declaration {
                 if (!(candidate isOverride) && !(candidate name startsWith?("__OP"))) {
                     //res throwError(AbstractContractNotSatisfied new(
                     res throwError(Warning new(
-                        token,"`%s`implements abstract function %s inherited from %s but it is not declared override" format(
-                        candidate getOwner() toString(),
-                        candidate name,
-                        fDecl getOwner() toString()
+                        candidate token,"`%s` should be override because it inherits from `%s`" format(
+                        candidate toString(),
+                        fDecl toString()
                     )))
                 }
             }
@@ -1349,7 +1436,7 @@ TypeDecl: abstract class extends Declaration {
         }
 
         if (has) {
-            if (addon resolveCall(call, res, trail) == -1) return -1
+            if (addon resolveCallFromClass(call, res, trail) == -1) return -1
         }
 
         0
@@ -1369,7 +1456,7 @@ TypeDecl: abstract class extends Declaration {
         }
 
         if (has) {
-            if (addon resolveAccess(access, res, trail) == -1) return -1
+            if (addon resolveAccessFromClass(access, res, trail) == -1) return -1
         }
 
         0
@@ -1524,5 +1611,11 @@ TypeArgSizeMismatch: class extends Error {
 
     init: func (=wanted, =got, .token) {
         super(token, "For now, type templates need to be fully specified (first generics, then templates). Expected #{wanted} typeArgs, got #{got}")
+    }
+}
+
+DefinitionMismatch: class extends Error {
+    init: func ~withToken (.token, call: FunctionDecl, cand: FunctionDecl) {
+        super(token, "Definition mismatch between `%s` (derived) and `%s` (base)" format(call toString(), cand toString()))
     }
 }

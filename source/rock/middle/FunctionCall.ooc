@@ -6,7 +6,7 @@ import Visitor, Expression, FunctionDecl, Argument, Type,
        InterfaceDecl, Cast, NamespaceDecl, BaseType, FuncType, Return,
        TypeList, Scope, Block, StructLiteral, NullLiteral,
        IntLiteral, Ternary, ClassDecl, CoverDecl, ArrayLiteral, Module,
-       StringLiteral
+       StringLiteral, Tuple, ArrayCreation
 import algo/typeAnalysis
 import text/EscapeSequence
 import tinker/[Response, Resolver, Trail, Errors]
@@ -259,6 +259,21 @@ FunctionCall: class extends Expression {
 
     resolve: func (trail: Trail, res: Resolver) -> Response {
 
+        if (expr != null && expr instanceOf?(Tuple)) {
+            tuple := expr as Tuple
+            for(i in 0..tuple elements getSize()) {
+                tuple elements[i] = FunctionCall new(tuple elements[i], this getName(), token)
+            }
+            if (!trail peek() replace(this, tuple)) {
+                if(res fatal) res throwError(CouldntReplace new(token, this, tuple, trail))
+                res wholeAgain(this, "can not replace functioncall with tuple, try again")
+                return Response OK
+            }
+            tuple _resolved = false
+            res wholeAgain(this, "just unwrapped method call on tuple")
+            return Response OK
+        }
+
         if (name == "slurp" && expr == null) {
             mod := trail module()
 
@@ -345,6 +360,20 @@ FunctionCall: class extends Expression {
             trail pop(this)
         }
 
+        // handle generic-class(cover) array
+        if(expr && expr instanceOf?(TypeAccess)){
+            if(expr as TypeAccess inner instanceOf?(ArrayType)){
+                // unwrap array creation
+                if(getName() == "new"){
+                    arrayType := expr as TypeAccess inner as ArrayType
+                    arrayCreation := ArrayCreation new(arrayType, token)
+                    trail peek() replace(this, arrayCreation)
+                    res wholeAgain(this, "just unwrapped array creation of generic classes")
+                    return Response OK
+                }
+            }
+        }
+
         // resolve our expr. e.g. in
         //     object doThing()
         // object is our expr.
@@ -390,7 +419,6 @@ FunctionCall: class extends Expression {
          */
         if(refScore <= 0) {
             if(debugCondition()) "\n===============\nResolving call %s" printfln(toString())
-
             if (expr != null && name == "instanceOf") {
                 exprType := expr getType()
                 if (exprType == null) {
@@ -429,6 +457,14 @@ FunctionCall: class extends Expression {
                 }
                 if(ref != null) {
                     refScore = 1
+                    refActualArguments := 0
+                    for(arg in ref getArguments()){
+                        if(!arg expr) { refActualArguments += 1 }
+                    }
+                    if(args size != refActualArguments &&
+                        args size != ref getArguments() size) {
+                        res throwError(ArgumentMismatch new(token, this, ref))
+                    }
                     expr = VariableAccess new(superTypeDecl getThisDecl(), token)
                     if(args empty?() && !ref getArguments() empty?()) {
                         for(declArg in fDecl getArguments()) {
@@ -543,7 +579,7 @@ FunctionCall: class extends Expression {
 
                 if(returnType void?) {
                     parent := trail peek()
-                    if(!parent instanceOf?(Scope) && !parent instanceOf?(CommaSequence)) {
+                    if(!parent instanceOf?(Scope) && !parent instanceOf?(CommaSequence) && !parent instanceOf?(Tuple)) {
                         res throwError(UseOfVoidExpression new(token, "Use of a void function call `#{this}` as an expression"))
                     }
                 }
@@ -1748,3 +1784,8 @@ UseOfVoidExpression: class extends Error {
     init: super func ~tokenMessage
 }
 
+ArgumentMismatch: class extends Warning {
+    init: func ~withToken (.token, call: FunctionCall, cand: FunctionDecl) {
+        super(token, "Different number of arguments between the super call in %s and function %s" format(call toString(), cand toString()))
+    }
+}
