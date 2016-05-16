@@ -97,9 +97,11 @@ ClassDecl: class extends TypeDecl {
                     }
 
                     // So, we need to call the user defined destroy function, memfree all generic members that belong to us (not our superclasses) then add a super() call
-                    hasDestroy? := functions contains?(This DESTROY_FUNC_NAME)
-                    if (hasDestroy?) {
-                        fDecl body add(FunctionCall new(This DESTROY_FUNC_NAME, token))
+                    if (lookupFunction(This DESTROY_FUNC_NAME, "")) {
+                        fCall := FunctionCall new(This DESTROY_FUNC_NAME, token)
+                        fCall virtual = false
+
+                        fDecl body add(fCall)
                     }
 
                     mustReturn? := false
