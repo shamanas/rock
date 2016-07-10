@@ -110,9 +110,7 @@ ClassDecl: class extends TypeDecl {
                             // Need type!
                             res wholeAgain(this, "Need type of member variable '#{vName}'")
                             mustReturn? = true
-                        }
-
-                        if (vDecl getType() isGeneric()) {
+                        } else if (vDecl getType() isGeneric()) {
                             // Free the generic!
                             fCall := FunctionCall new("memfree", token)
                             genAcc := VariableAccess new(vName, token)
